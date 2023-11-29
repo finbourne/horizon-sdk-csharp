@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Microsoft.Extensions.Configuration;
 
 namespace Finbourne.Horizon.Sdk.Extensions
 {
@@ -42,6 +43,7 @@ namespace Finbourne.Horizon.Sdk.Extensions
         /// <summary>
         /// Finbourne-horizon Api Url
         /// </summary>
+        [ConfigurationKeyName("finbourne-horizonUrl")]
         public string BaseUrl { get; set; }
 
         /// <summary>
