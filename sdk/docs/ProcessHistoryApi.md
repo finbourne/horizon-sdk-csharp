@@ -12,7 +12,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 <a id="createcompleteevent"></a>
 # **CreateCompleteEvent**
-> ProcessUpdateResult CreateCompleteEvent (AuditCompleteRequest auditCompleteRequest)
+> AuditCompleteResponse CreateCompleteEvent (AuditCompleteRequest auditCompleteRequest)
 
 [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
 
@@ -41,7 +41,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
-                ProcessUpdateResult result = apiInstance.CreateCompleteEvent(auditCompleteRequest);
+                AuditCompleteResponse result = apiInstance.CreateCompleteEvent(auditCompleteRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -62,7 +62,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
-    ApiResponse<ProcessUpdateResult> response = apiInstance.CreateCompleteEventWithHttpInfo(auditCompleteRequest);
+    ApiResponse<AuditCompleteResponse> response = apiInstance.CreateCompleteEventWithHttpInfo(auditCompleteRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -83,7 +83,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ProcessUpdateResult**](ProcessUpdateResult.md)
+[**AuditCompleteResponse**](AuditCompleteResponse.md)
 
 ### Authorization
 
@@ -105,7 +105,7 @@ catch (ApiException e)
 
 <a id="createupdateevent"></a>
 # **CreateUpdateEvent**
-> ProcessUpdateResult CreateUpdateEvent (AuditUpdateRequest auditUpdateRequest)
+> AuditUpdateResponse CreateUpdateEvent (AuditUpdateRequest auditUpdateRequest)
 
 [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
 
@@ -134,7 +134,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
-                ProcessUpdateResult result = apiInstance.CreateUpdateEvent(auditUpdateRequest);
+                AuditUpdateResponse result = apiInstance.CreateUpdateEvent(auditUpdateRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -155,7 +155,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
-    ApiResponse<ProcessUpdateResult> response = apiInstance.CreateUpdateEventWithHttpInfo(auditUpdateRequest);
+    ApiResponse<AuditUpdateResponse> response = apiInstance.CreateUpdateEventWithHttpInfo(auditUpdateRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -176,7 +176,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ProcessUpdateResult**](ProcessUpdateResult.md)
+[**AuditUpdateResponse**](AuditUpdateResponse.md)
 
 ### Authorization
 
@@ -198,7 +198,7 @@ catch (ApiException e)
 
 <a id="getlatestruns"></a>
 # **GetLatestRuns**
-> ProcessInformation GetLatestRuns ()
+> List&lt;ProcessInformation&gt; GetLatestRuns ()
 
 [EARLY ACCESS] GetLatestRuns: Get latest run for each process
 
@@ -226,7 +226,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] GetLatestRuns: Get latest run for each process
-                ProcessInformation result = apiInstance.GetLatestRuns();
+                List<ProcessInformation> result = apiInstance.GetLatestRuns();
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -247,7 +247,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetLatestRuns: Get latest run for each process
-    ApiResponse<ProcessInformation> response = apiInstance.GetLatestRunsWithHttpInfo();
+    ApiResponse<List<ProcessInformation>> response = apiInstance.GetLatestRunsWithHttpInfo();
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -264,7 +264,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-[**ProcessInformation**](ProcessInformation.md)
+[**List&lt;ProcessInformation&gt;**](ProcessInformation.md)
 
 ### Authorization
 
@@ -286,7 +286,7 @@ This endpoint does not need any parameter.
 
 <a id="processentryupdates"></a>
 # **ProcessEntryUpdates**
-> ProcessUpdateResult ProcessEntryUpdates (Object body)
+> PagedResourceListOfProcessUpdateResult ProcessEntryUpdates (Object body)
 
 [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
 
@@ -315,7 +315,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
-                ProcessUpdateResult result = apiInstance.ProcessEntryUpdates(body);
+                PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -336,7 +336,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
-    ApiResponse<ProcessUpdateResult> response = apiInstance.ProcessEntryUpdatesWithHttpInfo(body);
+    ApiResponse<PagedResourceListOfProcessUpdateResult> response = apiInstance.ProcessEntryUpdatesWithHttpInfo(body);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -357,7 +357,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ProcessUpdateResult**](ProcessUpdateResult.md)
+[**PagedResourceListOfProcessUpdateResult**](PagedResourceListOfProcessUpdateResult.md)
 
 ### Authorization
 
@@ -379,7 +379,7 @@ catch (ApiException e)
 
 <a id="processhistoryentries"></a>
 # **ProcessHistoryEntries**
-> ProcessInformation ProcessHistoryEntries (Object body)
+> PagedResourceListOfProcessInformation ProcessHistoryEntries (Object body)
 
 [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
 
@@ -408,7 +408,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
-                ProcessInformation result = apiInstance.ProcessHistoryEntries(body);
+                PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -429,7 +429,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
-    ApiResponse<ProcessInformation> response = apiInstance.ProcessHistoryEntriesWithHttpInfo(body);
+    ApiResponse<PagedResourceListOfProcessInformation> response = apiInstance.ProcessHistoryEntriesWithHttpInfo(body);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -450,7 +450,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ProcessInformation**](ProcessInformation.md)
+[**PagedResourceListOfProcessInformation**](PagedResourceListOfProcessInformation.md)
 
 ### Authorization
 

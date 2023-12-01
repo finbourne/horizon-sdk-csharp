@@ -12,7 +12,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 <a id="getcorefieldmappingsforproductentity"></a>
 # **GetCoreFieldMappingsForProductEntity**
-> LusidField GetCoreFieldMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = null)
+> List&lt;LusidField&gt; GetCoreFieldMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = null)
 
 [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
 
@@ -44,7 +44,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
-                LusidField result = apiInstance.GetCoreFieldMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
+                List<LusidField> result = apiInstance.GetCoreFieldMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -65,7 +65,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
-    ApiResponse<LusidField> response = apiInstance.GetCoreFieldMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, lusidEntitySubType);
+    ApiResponse<List<LusidField>> response = apiInstance.GetCoreFieldMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, lusidEntitySubType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -89,7 +89,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**LusidField**](LusidField.md)
+[**List&lt;LusidField&gt;**](LusidField.md)
 
 ### Authorization
 
@@ -111,7 +111,7 @@ catch (ApiException e)
 
 <a id="getoptionalmappingsforproductentity"></a>
 # **GetOptionalMappingsForProductEntity**
-> LusidPropertyDefinitionOverrides GetOptionalMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = null)
+> Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt; GetOptionalMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = null)
 
 [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
 
@@ -143,7 +143,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
-                LusidPropertyDefinitionOverrides result = apiInstance.GetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
+                Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.GetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -164,7 +164,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
-    ApiResponse<LusidPropertyDefinitionOverrides> response = apiInstance.GetOptionalMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, lusidEntitySubType);
+    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> response = apiInstance.GetOptionalMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, lusidEntitySubType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -188,7 +188,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**LusidPropertyDefinitionOverrides**](LusidPropertyDefinitionOverrides.md)
+[**Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;**](LusidPropertyDefinitionOverrides.md)
 
 ### Authorization
 
@@ -210,7 +210,7 @@ catch (ApiException e)
 
 <a id="getpropertymappingsforproductentity"></a>
 # **GetPropertyMappingsForProductEntity**
-> LusidPropertyToVendorFieldMapping GetPropertyMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = null)
+> List&lt;LusidPropertyToVendorFieldMapping&gt; GetPropertyMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = null)
 
 [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
 
@@ -242,7 +242,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
-                LusidPropertyToVendorFieldMapping result = apiInstance.GetPropertyMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
+                List<LusidPropertyToVendorFieldMapping> result = apiInstance.GetPropertyMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -263,7 +263,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
-    ApiResponse<LusidPropertyToVendorFieldMapping> response = apiInstance.GetPropertyMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, lusidEntitySubType);
+    ApiResponse<List<LusidPropertyToVendorFieldMapping>> response = apiInstance.GetPropertyMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, lusidEntitySubType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -287,7 +287,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**LusidPropertyToVendorFieldMapping**](LusidPropertyToVendorFieldMapping.md)
+[**List&lt;LusidPropertyToVendorFieldMapping&gt;**](LusidPropertyToVendorFieldMapping.md)
 
 ### Authorization
 
@@ -309,7 +309,7 @@ catch (ApiException e)
 
 <a id="queryvendors"></a>
 # **QueryVendors**
-> VendorProduct QueryVendors (Object body)
+> PagedResourceListOfVendorProduct QueryVendors (Object body)
 
 [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
 
@@ -338,7 +338,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
-                VendorProduct result = apiInstance.QueryVendors(body);
+                PagedResourceListOfVendorProduct result = apiInstance.QueryVendors(body);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -359,7 +359,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
-    ApiResponse<VendorProduct> response = apiInstance.QueryVendorsWithHttpInfo(body);
+    ApiResponse<PagedResourceListOfVendorProduct> response = apiInstance.QueryVendorsWithHttpInfo(body);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -380,7 +380,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**VendorProduct**](VendorProduct.md)
+[**PagedResourceListOfVendorProduct**](PagedResourceListOfVendorProduct.md)
 
 ### Authorization
 
@@ -402,7 +402,7 @@ catch (ApiException e)
 
 <a id="setoptionalmappingsforproductentity"></a>
 # **SetOptionalMappingsForProductEntity**
-> LusidPropertyDefinitionOverridesResponse SetOptionalMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, Dictionary<string, LusidPropertyDefinitionOverrides> requestBody, string? lusidEntitySubType = null)
+> Dictionary&lt;string, LusidPropertyDefinitionOverridesResponse&gt; SetOptionalMappingsForProductEntity (string vendorName, string productName, string lusidEntityType, Dictionary<string, LusidPropertyDefinitionOverrides> requestBody, string? lusidEntitySubType = null)
 
 [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
 
@@ -435,7 +435,7 @@ namespace Example
             try
             {
                 // [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
-                LusidPropertyDefinitionOverridesResponse result = apiInstance.SetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, requestBody, lusidEntitySubType);
+                Dictionary<string, LusidPropertyDefinitionOverridesResponse> result = apiInstance.SetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, requestBody, lusidEntitySubType);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -456,7 +456,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
-    ApiResponse<LusidPropertyDefinitionOverridesResponse> response = apiInstance.SetOptionalMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, requestBody, lusidEntitySubType);
+    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesResponse>> response = apiInstance.SetOptionalMappingsForProductEntityWithHttpInfo(vendorName, productName, lusidEntityType, requestBody, lusidEntitySubType);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -481,7 +481,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**LusidPropertyDefinitionOverridesResponse**](LusidPropertyDefinitionOverridesResponse.md)
+[**Dictionary&lt;string, LusidPropertyDefinitionOverridesResponse&gt;**](LusidPropertyDefinitionOverridesResponse.md)
 
 ### Authorization
 
