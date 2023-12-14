@@ -286,7 +286,7 @@ This endpoint does not need any parameter.
 
 <a id="processentryupdates"></a>
 # **ProcessEntryUpdates**
-> PagedResourceListOfProcessUpdateResult ProcessEntryUpdates (Object body)
+> PagedResourceListOfProcessUpdateResult ProcessEntryUpdates (QueryRequest queryRequest)
 
 [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
 
@@ -310,12 +310,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProcessHistoryApi(config);
-            var body = null;  // Object | 
+            var queryRequest = new QueryRequest(); // QueryRequest | 
 
             try
             {
                 // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
-                PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(body);
+                PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(queryRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -336,7 +336,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
-    ApiResponse<PagedResourceListOfProcessUpdateResult> response = apiInstance.ProcessEntryUpdatesWithHttpInfo(body);
+    ApiResponse<PagedResourceListOfProcessUpdateResult> response = apiInstance.ProcessEntryUpdatesWithHttpInfo(queryRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -353,7 +353,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **Object** |  |  |
+| **queryRequest** | [**QueryRequest**](QueryRequest.md) |  |  |
 
 ### Return type
 
@@ -379,7 +379,7 @@ catch (ApiException e)
 
 <a id="processhistoryentries"></a>
 # **ProcessHistoryEntries**
-> PagedResourceListOfProcessInformation ProcessHistoryEntries (Object body)
+> PagedResourceListOfProcessInformation ProcessHistoryEntries (QueryRequest queryRequest)
 
 [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
 
@@ -403,12 +403,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProcessHistoryApi(config);
-            var body = null;  // Object | 
+            var queryRequest = new QueryRequest(); // QueryRequest | 
 
             try
             {
                 // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
-                PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(body);
+                PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(queryRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -429,7 +429,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
-    ApiResponse<PagedResourceListOfProcessInformation> response = apiInstance.ProcessHistoryEntriesWithHttpInfo(body);
+    ApiResponse<PagedResourceListOfProcessInformation> response = apiInstance.ProcessHistoryEntriesWithHttpInfo(queryRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -446,7 +446,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **Object** |  |  |
+| **queryRequest** | [**QueryRequest**](QueryRequest.md) |  |  |
 
 ### Return type
 

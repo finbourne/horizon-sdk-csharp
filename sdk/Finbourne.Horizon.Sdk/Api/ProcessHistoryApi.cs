@@ -86,10 +86,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfProcessUpdateResult</returns>
-        PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(Object body, int operationIndex = 0);
+        PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(QueryRequest queryRequest, int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
@@ -98,18 +98,18 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessUpdateResult</returns>
-        ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(Object body, int operationIndex = 0);
+        ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfProcessInformation</returns>
-        PagedResourceListOfProcessInformation ProcessHistoryEntries(Object body, int operationIndex = 0);
+        PagedResourceListOfProcessInformation ProcessHistoryEntries(QueryRequest queryRequest, int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
@@ -118,10 +118,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessInformation</returns>
-        ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(Object body, int operationIndex = 0);
+        ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -211,11 +211,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfProcessUpdateResult</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
@@ -224,11 +224,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessUpdateResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
         /// </summary>
@@ -236,11 +236,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfProcessInformation</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
@@ -249,11 +249,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessInformation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -901,12 +901,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfProcessUpdateResult</returns>
-        public PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(Object body, int operationIndex = 0)
+        public PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(QueryRequest queryRequest, int operationIndex = 0)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = ProcessEntryUpdatesWithHttpInfo(body);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = ProcessEntryUpdatesWithHttpInfo(queryRequest);
             return localVarResponse.Data;
         }
 
@@ -914,15 +914,15 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessUpdateResult</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(Object body, int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling ProcessHistoryApi->ProcessEntryUpdates");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'queryRequest' when calling ProcessHistoryApi->ProcessEntryUpdates");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -951,7 +951,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = queryRequest;
 
             localVarRequestOptions.Operation = "ProcessHistoryApi.ProcessEntryUpdates";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -991,13 +991,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfProcessUpdateResult</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = await ProcessEntryUpdatesWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = await ProcessEntryUpdatesWithHttpInfoAsync(queryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1005,16 +1005,16 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessUpdateResult)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling ProcessHistoryApi->ProcessEntryUpdates");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'queryRequest' when calling ProcessHistoryApi->ProcessEntryUpdates");
             }
 
 
@@ -1044,7 +1044,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = queryRequest;
 
             localVarRequestOptions.Operation = "ProcessHistoryApi.ProcessEntryUpdates";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1085,12 +1085,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfProcessInformation</returns>
-        public PagedResourceListOfProcessInformation ProcessHistoryEntries(Object body, int operationIndex = 0)
+        public PagedResourceListOfProcessInformation ProcessHistoryEntries(QueryRequest queryRequest, int operationIndex = 0)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = ProcessHistoryEntriesWithHttpInfo(body);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = ProcessHistoryEntriesWithHttpInfo(queryRequest);
             return localVarResponse.Data;
         }
 
@@ -1098,15 +1098,15 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessInformation</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(Object body, int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling ProcessHistoryApi->ProcessHistoryEntries");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'queryRequest' when calling ProcessHistoryApi->ProcessHistoryEntries");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -1135,7 +1135,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = queryRequest;
 
             localVarRequestOptions.Operation = "ProcessHistoryApi.ProcessHistoryEntries";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1175,13 +1175,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfProcessInformation</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = await ProcessHistoryEntriesWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = await ProcessHistoryEntriesWithHttpInfoAsync(queryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1189,16 +1189,16 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessInformation)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling ProcessHistoryApi->ProcessHistoryEntries");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'queryRequest' when calling ProcessHistoryApi->ProcessHistoryEntries");
             }
 
 
@@ -1228,7 +1228,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = queryRequest;
 
             localVarRequestOptions.Operation = "ProcessHistoryApi.ProcessHistoryEntries";
             localVarRequestOptions.OperationIndex = operationIndex;

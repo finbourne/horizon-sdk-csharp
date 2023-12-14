@@ -309,7 +309,7 @@ catch (ApiException e)
 
 <a id="queryvendors"></a>
 # **QueryVendors**
-> PagedResourceListOfVendorProduct QueryVendors (Object body)
+> PagedResourceListOfVendorProduct QueryVendors (QueryRequest queryRequest)
 
 [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
 
@@ -333,12 +333,12 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new VendorApi(config);
-            var body = null;  // Object | 
+            var queryRequest = new QueryRequest(); // QueryRequest | 
 
             try
             {
                 // [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
-                PagedResourceListOfVendorProduct result = apiInstance.QueryVendors(body);
+                PagedResourceListOfVendorProduct result = apiInstance.QueryVendors(queryRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -359,7 +359,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
-    ApiResponse<PagedResourceListOfVendorProduct> response = apiInstance.QueryVendorsWithHttpInfo(body);
+    ApiResponse<PagedResourceListOfVendorProduct> response = apiInstance.QueryVendorsWithHttpInfo(queryRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -376,7 +376,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **body** | **Object** |  |  |
+| **queryRequest** | [**QueryRequest**](QueryRequest.md) |  |  |
 
 ### Return type
 

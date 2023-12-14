@@ -391,7 +391,7 @@ catch (ApiException e)
 
 <a id="vendors"></a>
 # **Vendors**
-> List&lt;VendorProduct&gt; Vendors (string marketSector, string securityType)
+> List&lt;VendorProduct&gt; Vendors (string marketSector, string securityType, int? limit = null)
 
 [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
 
@@ -417,11 +417,12 @@ namespace Example
             var apiInstance = new InstrumentApi(config);
             var marketSector = "marketSector_example";  // string | 
             var securityType = "securityType_example";  // string | 
+            var limit = 56;  // int? |  (optional) 
 
             try
             {
                 // [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
-                List<VendorProduct> result = apiInstance.Vendors(marketSector, securityType);
+                List<VendorProduct> result = apiInstance.Vendors(marketSector, securityType, limit);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -442,7 +443,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
-    ApiResponse<List<VendorProduct>> response = apiInstance.VendorsWithHttpInfo(marketSector, securityType);
+    ApiResponse<List<VendorProduct>> response = apiInstance.VendorsWithHttpInfo(marketSector, securityType, limit);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -461,6 +462,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **marketSector** | **string** |  |  |
 | **securityType** | **string** |  |  |
+| **limit** | **int?** |  | [optional]  |
 
 ### Return type
 

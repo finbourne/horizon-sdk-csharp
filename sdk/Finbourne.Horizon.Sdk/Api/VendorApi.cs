@@ -106,10 +106,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfVendorProduct</returns>
-        PagedResourceListOfVendorProduct QueryVendors(Object body, int operationIndex = 0);
+        PagedResourceListOfVendorProduct QueryVendors(QueryRequest queryRequest, int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
@@ -118,10 +118,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfVendorProduct</returns>
-        ApiResponse<PagedResourceListOfVendorProduct> QueryVendorsWithHttpInfo(Object body, int operationIndex = 0);
+        ApiResponse<PagedResourceListOfVendorProduct> QueryVendorsWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0);
         /// <summary>
         /// [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
         /// </summary>
@@ -259,11 +259,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfVendorProduct</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfVendorProduct> QueryVendorsAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfVendorProduct> QueryVendorsAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
@@ -272,11 +272,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfVendorProduct)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfVendorProduct>> QueryVendorsWithHttpInfoAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfVendorProduct>> QueryVendorsWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
         /// </summary>
@@ -1103,12 +1103,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>PagedResourceListOfVendorProduct</returns>
-        public PagedResourceListOfVendorProduct QueryVendors(Object body, int operationIndex = 0)
+        public PagedResourceListOfVendorProduct QueryVendors(QueryRequest queryRequest, int operationIndex = 0)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct> localVarResponse = QueryVendorsWithHttpInfo(body);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct> localVarResponse = QueryVendorsWithHttpInfo(queryRequest);
             return localVarResponse.Data;
         }
 
@@ -1116,15 +1116,15 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of PagedResourceListOfVendorProduct</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct> QueryVendorsWithHttpInfo(Object body, int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct> QueryVendorsWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0)
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling VendorApi->QueryVendors");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'queryRequest' when calling VendorApi->QueryVendors");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -1153,7 +1153,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = queryRequest;
 
             localVarRequestOptions.Operation = "VendorApi.QueryVendors";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1193,13 +1193,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of PagedResourceListOfVendorProduct</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfVendorProduct> QueryVendorsAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfVendorProduct> QueryVendorsAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct> localVarResponse = await QueryVendorsWithHttpInfoAsync(body, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct> localVarResponse = await QueryVendorsWithHttpInfoAsync(queryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1207,16 +1207,16 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="body"></param>
+        /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfVendorProduct)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct>> QueryVendorsWithHttpInfoAsync(Object body, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct>> QueryVendorsWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            // verify the required parameter 'body' is set
-            if (body == null)
+            // verify the required parameter 'queryRequest' is set
+            if (queryRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'body' when calling VendorApi->QueryVendors");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'queryRequest' when calling VendorApi->QueryVendors");
             }
 
 
@@ -1246,7 +1246,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.Data = body;
+            localVarRequestOptions.Data = queryRequest;
 
             localVarRequestOptions.Operation = "VendorApi.QueryVendors";
             localVarRequestOptions.OperationIndex = operationIndex;
