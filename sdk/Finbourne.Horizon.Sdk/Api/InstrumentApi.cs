@@ -45,6 +45,28 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of OnboardInstrumentResponse</returns>
         ApiResponse<OnboardInstrumentResponse> CreateInstrumentWithHttpInfo(OnboardInstrumentRequest onboardInstrumentRequest, int operationIndex = 0);
         /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EnrichmentResponse</returns>
+        EnrichmentResponse EnrichInstrument(string vendorProductKey, Identifiers identifiers, int operationIndex = 0);
+
+        /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EnrichmentResponse</returns>
+        ApiResponse<EnrichmentResponse> EnrichInstrumentWithHttpInfo(string vendorProductKey, Identifiers identifiers, int operationIndex = 0);
+        /// <summary>
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -168,6 +190,33 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (OnboardInstrumentResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<OnboardInstrumentResponse>> CreateInstrumentWithHttpInfoAsync(OnboardInstrumentRequest onboardInstrumentRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EnrichmentResponse</returns>
+        System.Threading.Tasks.Task<EnrichmentResponse> EnrichInstrumentAsync(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
+        /// </summary>
+        /// <remarks>
+        /// 
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EnrichmentResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<EnrichmentResponse>> EnrichInstrumentWithHttpInfoAsync(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search
         /// </summary>
@@ -570,6 +619,208 @@ namespace Finbourne.Horizon.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CreateInstrument", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data. 
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>EnrichmentResponse</returns>
+        public EnrichmentResponse EnrichInstrument(string vendorProductKey, Identifiers identifiers, int operationIndex = 0)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<EnrichmentResponse> localVarResponse = EnrichInstrumentWithHttpInfo(vendorProductKey, identifiers);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data. 
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of EnrichmentResponse</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<EnrichmentResponse> EnrichInstrumentWithHttpInfo(string vendorProductKey, Identifiers identifiers, int operationIndex = 0)
+        {
+            // verify the required parameter 'vendorProductKey' is set
+            if (vendorProductKey == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'vendorProductKey' when calling InstrumentApi->EnrichInstrument");
+            }
+
+            // verify the required parameter 'identifiers' is set
+            if (identifiers == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'identifiers' when calling InstrumentApi->EnrichInstrument");
+            }
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json",
+                "application/json",
+                "text/json",
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "vendorProductKey", vendorProductKey));
+            localVarRequestOptions.Data = identifiers;
+
+            localVarRequestOptions.Operation = "InstrumentApi.EnrichInstrument";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<EnrichmentResponse>("/api/instrument/onboarding/enrich", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EnrichInstrument", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data. 
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of EnrichmentResponse</returns>
+        public async System.Threading.Tasks.Task<EnrichmentResponse> EnrichInstrumentAsync(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<EnrichmentResponse> localVarResponse = await EnrichInstrumentWithHttpInfoAsync(vendorProductKey, identifiers, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data. 
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="vendorProductKey"></param>
+        /// <param name="identifiers"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (EnrichmentResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<EnrichmentResponse>> EnrichInstrumentWithHttpInfoAsync(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'vendorProductKey' is set
+            if (vendorProductKey == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'vendorProductKey' when calling InstrumentApi->EnrichInstrument");
+            }
+
+            // verify the required parameter 'identifiers' is set
+            if (identifiers == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'identifiers' when calling InstrumentApi->EnrichInstrument");
+            }
+
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json-patch+json", 
+                "application/json", 
+                "text/json", 
+                "application/*+json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "vendorProductKey", vendorProductKey));
+            localVarRequestOptions.Data = identifiers;
+
+            localVarRequestOptions.Operation = "InstrumentApi.EnrichInstrument";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<EnrichmentResponse>("/api/instrument/onboarding/enrich", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("EnrichInstrument", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
