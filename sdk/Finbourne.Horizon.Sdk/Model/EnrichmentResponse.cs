@@ -38,7 +38,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <param name="enrichedInstruments">enrichedInstruments (required).</param>
         /// <param name="ignoredInstruments">ignoredInstruments (required).</param>
-        public EnrichmentResponse(List<string> enrichedInstruments = default(List<string>), List<string> ignoredInstruments = default(List<string>))
+        /// <param name="errorFileId">Error File ID, if one was created.</param>
+        public EnrichmentResponse(List<string> enrichedInstruments = default(List<string>), List<string> ignoredInstruments = default(List<string>), string errorFileId = default(string))
         {
             // to ensure "enrichedInstruments" is required (not null)
             if (enrichedInstruments == null)
@@ -52,6 +53,7 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("ignoredInstruments is a required property for EnrichmentResponse and cannot be null");
             }
             this.IgnoredInstruments = ignoredInstruments;
+            this.ErrorFileId = errorFileId;
         }
 
         /// <summary>
@@ -67,6 +69,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<string> IgnoredInstruments { get; set; }
 
         /// <summary>
+        /// Error File ID, if one was created
+        /// </summary>
+        /// <value>Error File ID, if one was created</value>
+        [DataMember(Name = "errorFileId", EmitDefaultValue = true)]
+        public string ErrorFileId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -76,6 +85,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("class EnrichmentResponse {\n");
             sb.Append("  EnrichedInstruments: ").Append(EnrichedInstruments).Append("\n");
             sb.Append("  IgnoredInstruments: ").Append(IgnoredInstruments).Append("\n");
+            sb.Append("  ErrorFileId: ").Append(ErrorFileId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -122,6 +132,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.IgnoredInstruments != null &&
                     input.IgnoredInstruments != null &&
                     this.IgnoredInstruments.SequenceEqual(input.IgnoredInstruments)
+                ) && 
+                (
+                    this.ErrorFileId == input.ErrorFileId ||
+                    (this.ErrorFileId != null &&
+                    this.ErrorFileId.Equals(input.ErrorFileId))
                 );
         }
 
@@ -141,6 +156,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.IgnoredInstruments != null)
                 {
                     hashCode = (hashCode * 59) + this.IgnoredInstruments.GetHashCode();
+                }
+                if (this.ErrorFileId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ErrorFileId.GetHashCode();
                 }
                 return hashCode;
             }
