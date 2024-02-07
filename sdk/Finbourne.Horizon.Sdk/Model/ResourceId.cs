@@ -31,24 +31,39 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ResourceId" /> class.
         /// </summary>
-        /// <param name="scope">scope.</param>
-        /// <param name="code">code.</param>
+        [JsonConstructorAttribute]
+        protected ResourceId() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ResourceId" /> class.
+        /// </summary>
+        /// <param name="scope">scope (required).</param>
+        /// <param name="code">code (required).</param>
         public ResourceId(string scope = default(string), string code = default(string))
         {
+            // to ensure "scope" is required (not null)
+            if (scope == null)
+            {
+                throw new ArgumentNullException("scope is a required property for ResourceId and cannot be null");
+            }
             this.Scope = scope;
+            // to ensure "code" is required (not null)
+            if (code == null)
+            {
+                throw new ArgumentNullException("code is a required property for ResourceId and cannot be null");
+            }
             this.Code = code;
         }
 
         /// <summary>
         /// Gets or Sets Scope
         /// </summary>
-        [DataMember(Name = "scope", EmitDefaultValue = true)]
+        [DataMember(Name = "scope", IsRequired = true, EmitDefaultValue = true)]
         public string Scope { get; set; }
 
         /// <summary>
         /// Gets or Sets Code
         /// </summary>
-        [DataMember(Name = "code", EmitDefaultValue = true)]
+        [DataMember(Name = "code", IsRequired = true, EmitDefaultValue = true)]
         public string Code { get; set; }
 
         /// <summary>
