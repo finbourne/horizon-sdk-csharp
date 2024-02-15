@@ -36,11 +36,9 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditCompleteResponse" /> class.
         /// </summary>
-        /// <param name="eventId">The GUID of the newly created event (required).</param>
         /// <param name="processName">The name of the Process the events will be visible under (required).</param>
-        public AuditCompleteResponse(Guid eventId = default(Guid), string processName = default(string))
+        public AuditCompleteResponse(string processName = default(string))
         {
-            this.EventId = eventId;
             // to ensure "processName" is required (not null)
             if (processName == null)
             {
@@ -48,13 +46,6 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             this.ProcessName = processName;
         }
-
-        /// <summary>
-        /// The GUID of the newly created event
-        /// </summary>
-        /// <value>The GUID of the newly created event</value>
-        [DataMember(Name = "eventId", IsRequired = true, EmitDefaultValue = true)]
-        public Guid EventId { get; set; }
 
         /// <summary>
         /// The name of the Process the events will be visible under
@@ -71,7 +62,6 @@ namespace Finbourne.Horizon.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class AuditCompleteResponse {\n");
-            sb.Append("  EventId: ").Append(EventId).Append("\n");
             sb.Append("  ProcessName: ").Append(ProcessName).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -109,11 +99,6 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             return 
                 (
-                    this.EventId == input.EventId ||
-                    (this.EventId != null &&
-                    this.EventId.Equals(input.EventId))
-                ) && 
-                (
                     this.ProcessName == input.ProcessName ||
                     (this.ProcessName != null &&
                     this.ProcessName.Equals(input.ProcessName))
@@ -129,10 +114,6 @@ namespace Finbourne.Horizon.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                if (this.EventId != null)
-                {
-                    hashCode = (hashCode * 59) + this.EventId.GetHashCode();
-                }
                 if (this.ProcessName != null)
                 {
                     hashCode = (hashCode * 59) + this.ProcessName.GetHashCode();
