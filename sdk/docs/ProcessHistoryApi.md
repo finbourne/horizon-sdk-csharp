@@ -381,7 +381,7 @@ catch (ApiException e)
 
 <a id="processhistoryentries"></a>
 # **ProcessHistoryEntries**
-> PagedResourceListOfProcessInformation ProcessHistoryEntries (QueryRequest queryRequest)
+> PagedResourceListOfProcessInformation ProcessHistoryEntries (QueryRequest queryRequest, string? processName = null)
 
 [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
 
@@ -406,11 +406,12 @@ namespace Example
 
             var apiInstance = new ProcessHistoryApi(config);
             var queryRequest = new QueryRequest(); // QueryRequest | 
+            var processName = "processName_example";  // string? |  (optional) 
 
             try
             {
                 // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
-                PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(queryRequest);
+                PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(queryRequest, processName);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -431,7 +432,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
-    ApiResponse<PagedResourceListOfProcessInformation> response = apiInstance.ProcessHistoryEntriesWithHttpInfo(queryRequest);
+    ApiResponse<PagedResourceListOfProcessInformation> response = apiInstance.ProcessHistoryEntriesWithHttpInfo(queryRequest, processName);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -449,6 +450,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **queryRequest** | [**QueryRequest**](QueryRequest.md) |  |  |
+| **processName** | **string?** |  | [optional]  |
 
 ### Return type
 

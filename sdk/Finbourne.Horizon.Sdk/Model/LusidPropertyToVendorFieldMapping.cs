@@ -44,8 +44,10 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <param name="property">property (required).</param>
         /// <param name="vendorField">vendorField (required).</param>
+        /// <param name="vendorPackage">vendorPackage (required).</param>
+        /// <param name="vendorNamespace">vendorNamespace (required).</param>
         /// <param name="optionality">optionality (required).</param>
-        public LusidPropertyToVendorFieldMapping(LusidPropertyDefinition property = default(LusidPropertyDefinition), string vendorField = default(string), Optionality optionality = default(Optionality))
+        public LusidPropertyToVendorFieldMapping(LusidPropertyDefinition property = default(LusidPropertyDefinition), string vendorField = default(string), string vendorPackage = default(string), string vendorNamespace = default(string), Optionality optionality = default(Optionality))
         {
             // to ensure "property" is required (not null)
             if (property == null)
@@ -59,6 +61,18 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("vendorField is a required property for LusidPropertyToVendorFieldMapping and cannot be null");
             }
             this.VendorField = vendorField;
+            // to ensure "vendorPackage" is required (not null)
+            if (vendorPackage == null)
+            {
+                throw new ArgumentNullException("vendorPackage is a required property for LusidPropertyToVendorFieldMapping and cannot be null");
+            }
+            this.VendorPackage = vendorPackage;
+            // to ensure "vendorNamespace" is required (not null)
+            if (vendorNamespace == null)
+            {
+                throw new ArgumentNullException("vendorNamespace is a required property for LusidPropertyToVendorFieldMapping and cannot be null");
+            }
+            this.VendorNamespace = vendorNamespace;
             this.Optionality = optionality;
         }
 
@@ -75,6 +89,18 @@ namespace Finbourne.Horizon.Sdk.Model
         public string VendorField { get; set; }
 
         /// <summary>
+        /// Gets or Sets VendorPackage
+        /// </summary>
+        [DataMember(Name = "vendorPackage", IsRequired = true, EmitDefaultValue = true)]
+        public string VendorPackage { get; set; }
+
+        /// <summary>
+        /// Gets or Sets VendorNamespace
+        /// </summary>
+        [DataMember(Name = "vendorNamespace", IsRequired = true, EmitDefaultValue = true)]
+        public string VendorNamespace { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -84,6 +110,8 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("class LusidPropertyToVendorFieldMapping {\n");
             sb.Append("  Property: ").Append(Property).Append("\n");
             sb.Append("  VendorField: ").Append(VendorField).Append("\n");
+            sb.Append("  VendorPackage: ").Append(VendorPackage).Append("\n");
+            sb.Append("  VendorNamespace: ").Append(VendorNamespace).Append("\n");
             sb.Append("  Optionality: ").Append(Optionality).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -131,6 +159,16 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.VendorField.Equals(input.VendorField))
                 ) && 
                 (
+                    this.VendorPackage == input.VendorPackage ||
+                    (this.VendorPackage != null &&
+                    this.VendorPackage.Equals(input.VendorPackage))
+                ) && 
+                (
+                    this.VendorNamespace == input.VendorNamespace ||
+                    (this.VendorNamespace != null &&
+                    this.VendorNamespace.Equals(input.VendorNamespace))
+                ) && 
+                (
                     this.Optionality == input.Optionality ||
                     this.Optionality.Equals(input.Optionality)
                 );
@@ -152,6 +190,14 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.VendorField != null)
                 {
                     hashCode = (hashCode * 59) + this.VendorField.GetHashCode();
+                }
+                if (this.VendorPackage != null)
+                {
+                    hashCode = (hashCode * 59) + this.VendorPackage.GetHashCode();
+                }
+                if (this.VendorNamespace != null)
+                {
+                    hashCode = (hashCode * 59) + this.VendorNamespace.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Optionality.GetHashCode();
                 return hashCode;

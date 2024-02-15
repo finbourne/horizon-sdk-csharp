@@ -38,9 +38,11 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <param name="fieldName">The name of the LUSID field. (required).</param>
         /// <param name="defaultValue">The default value for the field..</param>
+        /// <param name="vendorPackages">The vendor package that contributes to this LUSID field. (required).</param>
+        /// <param name="vendorNamespaces">The vendor namespace that contributes to this LUSID field. (required).</param>
         /// <param name="vendorFields">The underlying fields on the vendor package that contribute to this LUSID field (required).</param>
         /// <param name="transformationDescription">A description of how the vendor package&#39;s field(s) get mapped to the LUSID field.</param>
-        public LusidField(string fieldName = default(string), string defaultValue = default(string), List<string> vendorFields = default(List<string>), string transformationDescription = default(string))
+        public LusidField(string fieldName = default(string), string defaultValue = default(string), List<string> vendorPackages = default(List<string>), List<string> vendorNamespaces = default(List<string>), List<string> vendorFields = default(List<string>), string transformationDescription = default(string))
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
@@ -48,6 +50,18 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("fieldName is a required property for LusidField and cannot be null");
             }
             this.FieldName = fieldName;
+            // to ensure "vendorPackages" is required (not null)
+            if (vendorPackages == null)
+            {
+                throw new ArgumentNullException("vendorPackages is a required property for LusidField and cannot be null");
+            }
+            this.VendorPackages = vendorPackages;
+            // to ensure "vendorNamespaces" is required (not null)
+            if (vendorNamespaces == null)
+            {
+                throw new ArgumentNullException("vendorNamespaces is a required property for LusidField and cannot be null");
+            }
+            this.VendorNamespaces = vendorNamespaces;
             // to ensure "vendorFields" is required (not null)
             if (vendorFields == null)
             {
@@ -73,6 +87,20 @@ namespace Finbourne.Horizon.Sdk.Model
         public string DefaultValue { get; set; }
 
         /// <summary>
+        /// The vendor package that contributes to this LUSID field.
+        /// </summary>
+        /// <value>The vendor package that contributes to this LUSID field.</value>
+        [DataMember(Name = "vendorPackages", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> VendorPackages { get; set; }
+
+        /// <summary>
+        /// The vendor namespace that contributes to this LUSID field.
+        /// </summary>
+        /// <value>The vendor namespace that contributes to this LUSID field.</value>
+        [DataMember(Name = "vendorNamespaces", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> VendorNamespaces { get; set; }
+
+        /// <summary>
         /// The underlying fields on the vendor package that contribute to this LUSID field
         /// </summary>
         /// <value>The underlying fields on the vendor package that contribute to this LUSID field</value>
@@ -96,6 +124,8 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("class LusidField {\n");
             sb.Append("  FieldName: ").Append(FieldName).Append("\n");
             sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
+            sb.Append("  VendorPackages: ").Append(VendorPackages).Append("\n");
+            sb.Append("  VendorNamespaces: ").Append(VendorNamespaces).Append("\n");
             sb.Append("  VendorFields: ").Append(VendorFields).Append("\n");
             sb.Append("  TransformationDescription: ").Append(TransformationDescription).Append("\n");
             sb.Append("}\n");
@@ -144,6 +174,18 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.DefaultValue.Equals(input.DefaultValue))
                 ) && 
                 (
+                    this.VendorPackages == input.VendorPackages ||
+                    this.VendorPackages != null &&
+                    input.VendorPackages != null &&
+                    this.VendorPackages.SequenceEqual(input.VendorPackages)
+                ) && 
+                (
+                    this.VendorNamespaces == input.VendorNamespaces ||
+                    this.VendorNamespaces != null &&
+                    input.VendorNamespaces != null &&
+                    this.VendorNamespaces.SequenceEqual(input.VendorNamespaces)
+                ) && 
+                (
                     this.VendorFields == input.VendorFields ||
                     this.VendorFields != null &&
                     input.VendorFields != null &&
@@ -172,6 +214,14 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.DefaultValue != null)
                 {
                     hashCode = (hashCode * 59) + this.DefaultValue.GetHashCode();
+                }
+                if (this.VendorPackages != null)
+                {
+                    hashCode = (hashCode * 59) + this.VendorPackages.GetHashCode();
+                }
+                if (this.VendorNamespaces != null)
+                {
+                    hashCode = (hashCode * 59) + this.VendorNamespaces.GetHashCode();
                 }
                 if (this.VendorFields != null)
                 {
