@@ -286,7 +286,7 @@ This endpoint does not need any parameter.
 
 <a id="processentryupdates"></a>
 # **ProcessEntryUpdates**
-> PagedResourceListOfProcessUpdateResult ProcessEntryUpdates (QueryRequest queryRequest, string? runId = null)
+> PagedResourceListOfProcessUpdateResult ProcessEntryUpdates (string runId, QueryRequest queryRequest)
 
 [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
 
@@ -310,13 +310,13 @@ namespace Example
             config.AccessToken = "YOUR_ACCESS_TOKEN";
 
             var apiInstance = new ProcessHistoryApi(config);
+            var runId = "runId_example";  // string | 
             var queryRequest = new QueryRequest(); // QueryRequest | 
-            var runId = "runId_example";  // string? |  (optional) 
 
             try
             {
                 // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
-                PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(queryRequest, runId);
+                PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(runId, queryRequest);
                 Debug.WriteLine(result);
             }
             catch (ApiException  e)
@@ -337,7 +337,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
-    ApiResponse<PagedResourceListOfProcessUpdateResult> response = apiInstance.ProcessEntryUpdatesWithHttpInfo(queryRequest, runId);
+    ApiResponse<PagedResourceListOfProcessUpdateResult> response = apiInstance.ProcessEntryUpdatesWithHttpInfo(runId, queryRequest);
     Debug.Write("Status Code: " + response.StatusCode);
     Debug.Write("Response Headers: " + response.Headers);
     Debug.Write("Response Body: " + response.Data);
@@ -354,8 +354,8 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **runId** | **string** |  |  |
 | **queryRequest** | [**QueryRequest**](QueryRequest.md) |  |  |
-| **runId** | **string?** |  | [optional]  |
 
 ### Return type
 
