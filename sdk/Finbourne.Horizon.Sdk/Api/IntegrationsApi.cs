@@ -94,6 +94,31 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
         ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithHttpInfo(string instanceId, int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>string</returns>
+        string GetExecutionIdsForInstance(string instanceId, int? limit = default(int?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of string</returns>
+        ApiResponse<string> GetExecutionIdsForInstanceWithHttpInfo(string instanceId, int? limit = default(int?), int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
         /// <remarks>
@@ -267,6 +292,33 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (ExecuteInstanceResponse)</returns>
         System.Threading.Tasks.Task<ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        System.Threading.Tasks.Task<string> GetExecutionIdsForInstanceAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        System.Threading.Tasks.Task<ApiResponse<string>> GetExecutionIdsForInstanceWithHttpInfoAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
@@ -989,6 +1041,194 @@ namespace Finbourne.Horizon.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ExecuteInstance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>string</returns>
+        public string GetExecutionIdsForInstance(string instanceId, int? limit = default(int?), int operationIndex = 0)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<string> localVarResponse = GetExecutionIdsForInstanceWithHttpInfo(instanceId, limit);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of string</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<string> GetExecutionIdsForInstanceWithHttpInfo(string instanceId, int? limit = default(int?), int operationIndex = 0)
+        {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->GetExecutionIdsForInstance");
+            }
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "IntegrationsApi.GetExecutionIdsForInstance";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<string>("/api/integrations/executions/{instanceId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetExecutionIdsForInstance", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of string</returns>
+        public async System.Threading.Tasks.Task<string> GetExecutionIdsForInstanceAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<string> localVarResponse = await GetExecutionIdsForInstanceWithHttpInfoAsync(instanceId, limit, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. &lt;br&gt;Get the most recent execution ids for an integration instance.  &lt;br /&gt;  &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
+        /// <param name="limit">Maximum number of returned execution ids (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (string)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<string>> GetExecutionIdsForInstanceWithHttpInfoAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->GetExecutionIdsForInstance");
+            }
+
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            if (limit != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
+            }
+
+            localVarRequestOptions.Operation = "IntegrationsApi.GetExecutionIdsForInstance";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/integrations/executions/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetExecutionIdsForInstance", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

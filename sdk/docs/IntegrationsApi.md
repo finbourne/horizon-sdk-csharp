@@ -7,6 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**CreateInstance**](IntegrationsApi.md#createinstance) | **POST** /api/integrations/instances | [EXPERIMENTAL] CreateInstance: Create a single integration instance. |
 | [**DeleteInstance**](IntegrationsApi.md#deleteinstance) | **DELETE** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] DeleteInstance: Delete a single integration instance. |
 | [**ExecuteInstance**](IntegrationsApi.md#executeinstance) | **POST** /api/integrations/instances/{instanceId}/execute | [EXPERIMENTAL] ExecuteInstance: Execute an integration instance. |
+| [**GetExecutionIdsForInstance**](IntegrationsApi.md#getexecutionidsforinstance) | **GET** /api/integrations/executions/{instanceId} | [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. |
 | [**GetSchema**](IntegrationsApi.md#getschema) | **GET** /api/integrations/schema/{integration} | [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. |
 | [**ListInstances**](IntegrationsApi.md#listinstances) | **GET** /api/integrations/instances | [EXPERIMENTAL] ListInstances: List instances across all integrations. |
 | [**ListIntegrations**](IntegrationsApi.md#listintegrations) | **GET** /api/integrations | [EXPERIMENTAL] ListIntegrations: List available integrations. |
@@ -291,6 +292,104 @@ catch (ApiException e)
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | The execution id |  -  |
+| **404** | The integration instance does not exist |  -  |
+| **0** | Error response |  -  |
+
+[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+
+<a id="getexecutionidsforinstance"></a>
+# **GetExecutionIdsForInstance**
+> string GetExecutionIdsForInstance (string instanceId, int? limit = null)
+
+[EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+
+<br>Get the most recent execution ids for an integration instance.  <br />  <br>The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using System.Diagnostics;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Model;
+
+namespace Example
+{
+    public class GetExecutionIdsForInstanceExample
+    {
+        public static void Main()
+        {
+            Configuration config = new Configuration();
+            config.BasePath = "https://fbn-prd.lusid.com/horizon";
+            // Configure OAuth2 access token for authorization: oauth2
+            config.AccessToken = "YOUR_ACCESS_TOKEN";
+
+            var apiInstance = new IntegrationsApi(config);
+            var instanceId = "instanceId_example";  // string | Instance identifier e.g. \"30dc93c6-a127-46bf-aea8-e466d720b72d\".
+            var limit = 56;  // int? | Maximum number of returned execution ids (optional) 
+
+            try
+            {
+                // [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+                string result = apiInstance.GetExecutionIdsForInstance(instanceId, limit);
+                Debug.WriteLine(result);
+            }
+            catch (ApiException  e)
+            {
+                Debug.Print("Exception when calling IntegrationsApi.GetExecutionIdsForInstance: " + e.Message);
+                Debug.Print("Status Code: " + e.ErrorCode);
+                Debug.Print(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetExecutionIdsForInstanceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+    ApiResponse<string> response = apiInstance.GetExecutionIdsForInstanceWithHttpInfo(instanceId, limit);
+    Debug.Write("Status Code: " + response.StatusCode);
+    Debug.Write("Response Headers: " + response.Headers);
+    Debug.Write("Response Body: " + response.Data);
+}
+catch (ApiException e)
+{
+    Debug.Print("Exception when calling IntegrationsApi.GetExecutionIdsForInstanceWithHttpInfo: " + e.Message);
+    Debug.Print("Status Code: " + e.ErrorCode);
+    Debug.Print(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** | Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;. |  |
+| **limit** | **int?** | Maximum number of returned execution ids | [optional]  |
+
+### Return type
+
+**string**
+
+### Authorization
+
+[oauth2](../README.md#oauth2)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The execution ids sorted by start date (descending) |  -  |
 | **404** | The integration instance does not exist |  -  |
 | **0** | Error response |  -  |
 
