@@ -1129,7 +1129,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<string>("/api/integrations/executions/{instanceId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<string>("/api/integrations/instances/{instanceId}/executions", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetExecutionIdsForInstance", localVarResponse);
@@ -1224,7 +1224,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/integrations/executions/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<string>("/api/integrations/instances/{instanceId}/executions", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
