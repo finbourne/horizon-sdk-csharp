@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **SchedulerRunId** | **Guid** | The GUID of the schedule run | 
 **StartTime** | **DateTimeOffset** | When the run was started in UTC | 
 **Message** | **string** | A descriptive message to accompany the status | 
+**ProcessNameOverride** | **string** | Optional Name for how the process appears in Data Feed Monitoring | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

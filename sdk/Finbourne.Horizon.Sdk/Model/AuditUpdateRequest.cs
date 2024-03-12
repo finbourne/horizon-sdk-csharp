@@ -41,7 +41,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="schedulerRunId">The GUID of the schedule run (required).</param>
         /// <param name="startTime">When the run was started in UTC (required).</param>
         /// <param name="message">A descriptive message to accompany the status (required).</param>
-        public AuditUpdateRequest(string id = default(string), string userId = default(string), Guid schedulerRunId = default(Guid), DateTimeOffset startTime = default(DateTimeOffset), string message = default(string))
+        /// <param name="processNameOverride">Optional Name for how the process appears in Data Feed Monitoring.</param>
+        public AuditUpdateRequest(string id = default(string), string userId = default(string), Guid schedulerRunId = default(Guid), DateTimeOffset startTime = default(DateTimeOffset), string message = default(string), string processNameOverride = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -63,6 +64,7 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("message is a required property for AuditUpdateRequest and cannot be null");
             }
             this.Message = message;
+            this.ProcessNameOverride = processNameOverride;
         }
 
         /// <summary>
@@ -101,6 +103,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public string Message { get; set; }
 
         /// <summary>
+        /// Optional Name for how the process appears in Data Feed Monitoring
+        /// </summary>
+        /// <value>Optional Name for how the process appears in Data Feed Monitoring</value>
+        [DataMember(Name = "processNameOverride", EmitDefaultValue = true)]
+        public string ProcessNameOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -113,6 +122,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  SchedulerRunId: ").Append(SchedulerRunId).Append("\n");
             sb.Append("  StartTime: ").Append(StartTime).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
+            sb.Append("  ProcessNameOverride: ").Append(ProcessNameOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -172,6 +182,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Message == input.Message ||
                     (this.Message != null &&
                     this.Message.Equals(input.Message))
+                ) && 
+                (
+                    this.ProcessNameOverride == input.ProcessNameOverride ||
+                    (this.ProcessNameOverride != null &&
+                    this.ProcessNameOverride.Equals(input.ProcessNameOverride))
                 );
         }
 
@@ -203,6 +218,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.Message != null)
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
+                if (this.ProcessNameOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProcessNameOverride.GetHashCode();
                 }
                 return hashCode;
             }

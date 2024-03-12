@@ -54,7 +54,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="rowsFailed">The number of data rows that failed to be operated on (required).</param>
         /// <param name="rowsIgnored">The number of data rows that had no actions taken (required).</param>
         /// <param name="auditFiles">A list of file details for attaching to the event (required).</param>
-        public AuditCompleteRequest(string id = default(string), string userId = default(string), Guid schedulerRunId = default(Guid), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset endTime = default(DateTimeOffset), string message = default(string), AuditCompleteStatus status = default(AuditCompleteStatus), int rowsTotal = default(int), int rowsSucceeded = default(int), int rowsFailed = default(int), int rowsIgnored = default(int), List<AuditFileDetails> auditFiles = default(List<AuditFileDetails>))
+        /// <param name="processNameOverride">Optional Name for how the process appears in Data Feed Monitoring.</param>
+        public AuditCompleteRequest(string id = default(string), string userId = default(string), Guid schedulerRunId = default(Guid), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset endTime = default(DateTimeOffset), string message = default(string), AuditCompleteStatus status = default(AuditCompleteStatus), int rowsTotal = default(int), int rowsSucceeded = default(int), int rowsFailed = default(int), int rowsIgnored = default(int), List<AuditFileDetails> auditFiles = default(List<AuditFileDetails>), string processNameOverride = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -88,6 +89,7 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("auditFiles is a required property for AuditCompleteRequest and cannot be null");
             }
             this.AuditFiles = auditFiles;
+            this.ProcessNameOverride = processNameOverride;
         }
 
         /// <summary>
@@ -168,6 +170,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<AuditFileDetails> AuditFiles { get; set; }
 
         /// <summary>
+        /// Optional Name for how the process appears in Data Feed Monitoring
+        /// </summary>
+        /// <value>Optional Name for how the process appears in Data Feed Monitoring</value>
+        [DataMember(Name = "processNameOverride", EmitDefaultValue = true)]
+        public string ProcessNameOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -187,6 +196,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  RowsFailed: ").Append(RowsFailed).Append("\n");
             sb.Append("  RowsIgnored: ").Append(RowsIgnored).Append("\n");
             sb.Append("  AuditFiles: ").Append(AuditFiles).Append("\n");
+            sb.Append("  ProcessNameOverride: ").Append(ProcessNameOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -277,6 +287,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.AuditFiles != null &&
                     input.AuditFiles != null &&
                     this.AuditFiles.SequenceEqual(input.AuditFiles)
+                ) && 
+                (
+                    this.ProcessNameOverride == input.ProcessNameOverride ||
+                    (this.ProcessNameOverride != null &&
+                    this.ProcessNameOverride.Equals(input.ProcessNameOverride))
                 );
         }
 
@@ -321,6 +336,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.AuditFiles != null)
                 {
                     hashCode = (hashCode * 59) + this.AuditFiles.GetHashCode();
+                }
+                if (this.ProcessNameOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProcessNameOverride.GetHashCode();
                 }
                 return hashCode;
             }

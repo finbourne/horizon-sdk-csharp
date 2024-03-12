@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **RowsFailed** | **int** | The number of data rows that failed to be operated on | 
 **RowsIgnored** | **int** | The number of data rows that had no actions taken | 
 **AuditFiles** | [**List&lt;AuditFileDetails&gt;**](AuditFileDetails.md) | A list of file details for attaching to the event | 
+**ProcessNameOverride** | **string** | Optional Name for how the process appears in Data Feed Monitoring | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
