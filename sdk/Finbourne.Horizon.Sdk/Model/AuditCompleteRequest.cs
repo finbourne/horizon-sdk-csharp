@@ -55,7 +55,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="rowsIgnored">The number of data rows that had no actions taken (required).</param>
         /// <param name="auditFiles">A list of file details for attaching to the event (required).</param>
         /// <param name="processNameOverride">Optional Name for how the process appears in Data Feed Monitoring.</param>
-        public AuditCompleteRequest(string id = default(string), string userId = default(string), Guid schedulerRunId = default(Guid), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset endTime = default(DateTimeOffset), string message = default(string), AuditCompleteStatus status = default(AuditCompleteStatus), int rowsTotal = default(int), int rowsSucceeded = default(int), int rowsFailed = default(int), int rowsIgnored = default(int), List<AuditFileDetails> auditFiles = default(List<AuditFileDetails>), string processNameOverride = default(string))
+        public AuditCompleteRequest(string id = default(string), string userId = default(string), string schedulerRunId = default(string), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset endTime = default(DateTimeOffset), string message = default(string), AuditCompleteStatus status = default(AuditCompleteStatus), int rowsTotal = default(int), int rowsSucceeded = default(int), int rowsFailed = default(int), int rowsIgnored = default(int), List<AuditFileDetails> auditFiles = default(List<AuditFileDetails>), string processNameOverride = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -69,6 +69,11 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("userId is a required property for AuditCompleteRequest and cannot be null");
             }
             this.UserId = userId;
+            // to ensure "schedulerRunId" is required (not null)
+            if (schedulerRunId == null)
+            {
+                throw new ArgumentNullException("schedulerRunId is a required property for AuditCompleteRequest and cannot be null");
+            }
             this.SchedulerRunId = schedulerRunId;
             this.StartTime = startTime;
             this.EndTime = endTime;
@@ -111,7 +116,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <value>The GUID of the schedule run</value>
         [DataMember(Name = "schedulerRunId", IsRequired = true, EmitDefaultValue = true)]
-        public Guid SchedulerRunId { get; set; }
+        public string SchedulerRunId { get; set; }
 
         /// <summary>
         /// When the run was started in UTC

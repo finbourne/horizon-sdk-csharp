@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | A unique ID identifiying the source of the event | 
 **UserId** | **string** | A unique ID identifiying who owns the schedule | 
-**SchedulerRunId** | **Guid** | The GUID of the schedule run | 
+**SchedulerRunId** | **string** | The GUID of the schedule run | 
 **StartTime** | **DateTimeOffset** | When the run was started in UTC | 
 **Message** | **string** | A descriptive message to accompany the status | 
 **ProcessNameOverride** | **string** | Optional Name for how the process appears in Data Feed Monitoring | [optional] 

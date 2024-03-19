@@ -42,7 +42,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="startTime">When the run was started in UTC (required).</param>
         /// <param name="message">A descriptive message to accompany the status (required).</param>
         /// <param name="processNameOverride">Optional Name for how the process appears in Data Feed Monitoring.</param>
-        public AuditUpdateRequest(string id = default(string), string userId = default(string), Guid schedulerRunId = default(Guid), DateTimeOffset startTime = default(DateTimeOffset), string message = default(string), string processNameOverride = default(string))
+        public AuditUpdateRequest(string id = default(string), string userId = default(string), string schedulerRunId = default(string), DateTimeOffset startTime = default(DateTimeOffset), string message = default(string), string processNameOverride = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -56,6 +56,11 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("userId is a required property for AuditUpdateRequest and cannot be null");
             }
             this.UserId = userId;
+            // to ensure "schedulerRunId" is required (not null)
+            if (schedulerRunId == null)
+            {
+                throw new ArgumentNullException("schedulerRunId is a required property for AuditUpdateRequest and cannot be null");
+            }
             this.SchedulerRunId = schedulerRunId;
             this.StartTime = startTime;
             // to ensure "message" is required (not null)
@@ -86,7 +91,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <value>The GUID of the schedule run</value>
         [DataMember(Name = "schedulerRunId", IsRequired = true, EmitDefaultValue = true)]
-        public Guid SchedulerRunId { get; set; }
+        public string SchedulerRunId { get; set; }
 
         /// <summary>
         /// When the run was started in UTC
