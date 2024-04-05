@@ -6,6 +6,7 @@
  */
 
 using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Extensions;
 
 namespace Finbourne.Horizon.Sdk.Client
 {
