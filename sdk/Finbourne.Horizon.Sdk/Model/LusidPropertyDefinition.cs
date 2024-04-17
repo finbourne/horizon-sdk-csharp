@@ -36,6 +36,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LusidPropertyDefinition" /> class.
         /// </summary>
+        /// <param name="key">Property key associated with the mapping (required).</param>
         /// <param name="domain">The domain of this definition. (required).</param>
         /// <param name="scope">The scope of this definition. (required).</param>
         /// <param name="code">The code of this definition. (required).</param>
@@ -44,8 +45,14 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="description">description (required).</param>
         /// <param name="lifetime">lifetime (required).</param>
         /// <param name="constraintStyle">constraintStyle (required).</param>
-        public LusidPropertyDefinition(string domain = default(string), string scope = default(string), string code = default(string), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string description = default(string), string lifetime = default(string), string constraintStyle = default(string))
+        public LusidPropertyDefinition(string key = default(string), string domain = default(string), string scope = default(string), string code = default(string), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string description = default(string), string lifetime = default(string), string constraintStyle = default(string))
         {
+            // to ensure "key" is required (not null)
+            if (key == null)
+            {
+                throw new ArgumentNullException("key is a required property for LusidPropertyDefinition and cannot be null");
+            }
+            this.Key = key;
             // to ensure "domain" is required (not null)
             if (domain == null)
             {
@@ -101,16 +108,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <value>Property key associated with the mapping</value>
         [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
-        public string Key { get; private set; }
+        public string Key { get; set; }
 
-        /// <summary>
-        /// Returns false as Key should not be serialized given that it's read-only.
-        /// </summary>
-        /// <returns>false (boolean)</returns>
-        public bool ShouldSerializeKey()
-        {
-            return false;
-        }
         /// <summary>
         /// The domain of this definition.
         /// </summary>
@@ -318,6 +317,12 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Key (string) minLength
+            if (this.Key != null && this.Key.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be greater than 1.", new [] { "Key" });
+            }
+
             // Domain (string) minLength
             if (this.Domain != null && this.Domain.Length < 1)
             {
