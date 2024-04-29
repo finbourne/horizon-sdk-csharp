@@ -36,7 +36,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LusidPropertyDefinition" /> class.
         /// </summary>
-        /// <param name="key">Property key associated with the mapping (required).</param>
+        /// <param name="productEntityItemKey">Property key associated with the mapping (required).</param>
         /// <param name="domain">The domain of this definition. (required).</param>
         /// <param name="scope">The scope of this definition. (required).</param>
         /// <param name="code">The code of this definition. (required).</param>
@@ -45,14 +45,14 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="description">description (required).</param>
         /// <param name="lifetime">lifetime (required).</param>
         /// <param name="constraintStyle">constraintStyle (required).</param>
-        public LusidPropertyDefinition(string key = default(string), string domain = default(string), string scope = default(string), string code = default(string), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string description = default(string), string lifetime = default(string), string constraintStyle = default(string))
+        public LusidPropertyDefinition(string productEntityItemKey = default(string), string domain = default(string), string scope = default(string), string code = default(string), string displayName = default(string), ResourceId dataTypeId = default(ResourceId), string description = default(string), string lifetime = default(string), string constraintStyle = default(string))
         {
-            // to ensure "key" is required (not null)
-            if (key == null)
+            // to ensure "productEntityItemKey" is required (not null)
+            if (productEntityItemKey == null)
             {
-                throw new ArgumentNullException("key is a required property for LusidPropertyDefinition and cannot be null");
+                throw new ArgumentNullException("productEntityItemKey is a required property for LusidPropertyDefinition and cannot be null");
             }
-            this.Key = key;
+            this.ProductEntityItemKey = productEntityItemKey;
             // to ensure "domain" is required (not null)
             if (domain == null)
             {
@@ -104,11 +104,25 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
+        /// Gets or Sets Key
+        /// </summary>
+        [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
+        public string Key { get; private set; }
+
+        /// <summary>
+        /// Returns false as Key should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeKey()
+        {
+            return false;
+        }
+        /// <summary>
         /// Property key associated with the mapping
         /// </summary>
         /// <value>Property key associated with the mapping</value>
-        [DataMember(Name = "key", IsRequired = true, EmitDefaultValue = true)]
-        public string Key { get; set; }
+        [DataMember(Name = "productEntityItemKey", IsRequired = true, EmitDefaultValue = true)]
+        public string ProductEntityItemKey { get; set; }
 
         /// <summary>
         /// The domain of this definition.
@@ -171,6 +185,7 @@ namespace Finbourne.Horizon.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class LusidPropertyDefinition {\n");
             sb.Append("  Key: ").Append(Key).Append("\n");
+            sb.Append("  ProductEntityItemKey: ").Append(ProductEntityItemKey).Append("\n");
             sb.Append("  Domain: ").Append(Domain).Append("\n");
             sb.Append("  Scope: ").Append(Scope).Append("\n");
             sb.Append("  Code: ").Append(Code).Append("\n");
@@ -218,6 +233,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Key == input.Key ||
                     (this.Key != null &&
                     this.Key.Equals(input.Key))
+                ) && 
+                (
+                    this.ProductEntityItemKey == input.ProductEntityItemKey ||
+                    (this.ProductEntityItemKey != null &&
+                    this.ProductEntityItemKey.Equals(input.ProductEntityItemKey))
                 ) && 
                 (
                     this.Domain == input.Domain ||
@@ -274,6 +294,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Key.GetHashCode();
                 }
+                if (this.ProductEntityItemKey != null)
+                {
+                    hashCode = (hashCode * 59) + this.ProductEntityItemKey.GetHashCode();
+                }
                 if (this.Domain != null)
                 {
                     hashCode = (hashCode * 59) + this.Domain.GetHashCode();
@@ -317,10 +341,10 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Key (string) minLength
-            if (this.Key != null && this.Key.Length < 1)
+            // ProductEntityItemKey (string) minLength
+            if (this.ProductEntityItemKey != null && this.ProductEntityItemKey.Length < 1)
             {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Key, length must be greater than 1.", new [] { "Key" });
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProductEntityItemKey, length must be greater than 1.", new [] { "ProductEntityItemKey" });
             }
 
             // Domain (string) minLength

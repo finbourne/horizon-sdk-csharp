@@ -5,7 +5,8 @@ Defines the information in a LUSID Property Definition
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Key** | **string** | Property key associated with the mapping | 
+**Key** | **string** |  | [readonly] 
+**ProductEntityItemKey** | **string** | Property key associated with the mapping | 
 **Domain** | **string** | The domain of this definition. | 
 **Scope** | **string** | The scope of this definition. | 
 **Code** | **string** | The code of this definition. | 
