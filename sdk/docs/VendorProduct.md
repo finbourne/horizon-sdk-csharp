@@ -1,5 +1,5 @@
 # Finbourne.Horizon.Sdk.Model.VendorProduct
-Denormalised information about vendors, the products they provide and the LUSID entity types hey can be ued to populate.
+Denormalised information about vendors, the products they provide and the LUSID entity types they can be used to populate.
 
 ## Properties
 

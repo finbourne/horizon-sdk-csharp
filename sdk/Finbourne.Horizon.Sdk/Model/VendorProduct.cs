@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// Denormalised information about vendors, the products they provide and the LUSID entity types hey can be ued to populate.
+    /// Denormalised information about vendors, the products they provide and the LUSID entity types they can be used to populate.
     /// </summary>
     [DataContract(Name = "VendorProduct")]
     public partial class VendorProduct : IEquatable<VendorProduct>, IValidatableObject
