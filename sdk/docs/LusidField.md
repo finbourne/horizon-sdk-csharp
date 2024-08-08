@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **VendorFields** | **List&lt;string&gt;** | The underlying fields on the vendor package that contribute to this LUSID field | 
 **TransformationDescription** | **string** | A description of how the vendor package&#39;s field(s) get mapped to the LUSID field | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

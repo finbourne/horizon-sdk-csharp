@@ -9,5 +9,5 @@ Name | Type | Description | Notes
 **PrimaryVendorKey** | **string** | Primary vendor used to master instrument from Unknown to an asset type | [optional] 
 **SecondaryVendorKeys** | **List&lt;string&gt;** | Secondary vendors used to decorate additional properties | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

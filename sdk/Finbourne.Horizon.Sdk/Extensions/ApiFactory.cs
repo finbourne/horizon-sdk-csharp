@@ -65,7 +65,7 @@ namespace Finbourne.Horizon.Sdk.Extensions
                 if (string.IsNullOrWhiteSpace(apiConfiguration.BaseUrl))
                     throw new ArgumentNullException(
                         nameof(apiConfiguration.BaseUrl),
-                        $"BaseUrl Uri missing. Please specify either FBN_FINBOURNE-HORIZON_API_URL environment variable or finbourne-horizonUrl in secrets.json.");
+                        $"BaseUrl Uri missing. Please specify either FBN_HORIZON_URL environment variable or horizonUrl in secrets.json.");
 
                 throw new UriFormatException($"Invalid Uri: {apiConfiguration.BaseUrl}");
             }

@@ -12,5 +12,5 @@ Name | Type | Description | Notes
 **IsPrimaryQuote** | **bool** | If the quote is primary | 
 **LegalEntityIdentifier** | **string** | LEI assigned to the instrument | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 

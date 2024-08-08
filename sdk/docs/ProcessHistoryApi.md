@@ -19,36 +19,47 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Horizon.Sdk.Api;
 using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class CreateCompleteEventExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/horizon";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ProcessHistoryApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var auditCompleteRequest = new AuditCompleteRequest(); // AuditCompleteRequest | 
 
             try
             {
                 // [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
                 AuditCompleteResponse result = apiInstance.CreateCompleteEvent(auditCompleteRequest);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ProcessHistoryApi.CreateCompleteEvent: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ProcessHistoryApi.CreateCompleteEvent: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -63,15 +74,15 @@ try
 {
     // [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
     ApiResponse<AuditCompleteResponse> response = apiInstance.CreateCompleteEventWithHttpInfo(auditCompleteRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ProcessHistoryApi.CreateCompleteEventWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ProcessHistoryApi.CreateCompleteEventWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -85,10 +96,6 @@ catch (ApiException e)
 
 [**AuditCompleteResponse**](AuditCompleteResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -101,7 +108,7 @@ catch (ApiException e)
 | **201** | Created |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="createupdateevent"></a>
 # **CreateUpdateEvent**
@@ -112,36 +119,47 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Horizon.Sdk.Api;
 using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class CreateUpdateEventExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/horizon";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ProcessHistoryApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var auditUpdateRequest = new AuditUpdateRequest(); // AuditUpdateRequest | 
 
             try
             {
                 // [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
                 AuditUpdateResponse result = apiInstance.CreateUpdateEvent(auditUpdateRequest);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ProcessHistoryApi.CreateUpdateEvent: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ProcessHistoryApi.CreateUpdateEvent: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -156,15 +174,15 @@ try
 {
     // [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
     ApiResponse<AuditUpdateResponse> response = apiInstance.CreateUpdateEventWithHttpInfo(auditUpdateRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ProcessHistoryApi.CreateUpdateEventWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ProcessHistoryApi.CreateUpdateEventWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -178,10 +196,6 @@ catch (ApiException e)
 
 [**AuditUpdateResponse**](AuditUpdateResponse.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -194,7 +208,7 @@ catch (ApiException e)
 | **201** | Created |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="getlatestruns"></a>
 # **GetLatestRuns**
@@ -205,35 +219,46 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Horizon.Sdk.Api;
 using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class GetLatestRunsExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/horizon";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ProcessHistoryApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
 
             try
             {
                 // [EARLY ACCESS] GetLatestRuns: Get latest run for each process
                 List<ProcessInformation> result = apiInstance.GetLatestRuns();
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ProcessHistoryApi.GetLatestRuns: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ProcessHistoryApi.GetLatestRuns: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -248,15 +273,15 @@ try
 {
     // [EARLY ACCESS] GetLatestRuns: Get latest run for each process
     ApiResponse<List<ProcessInformation>> response = apiInstance.GetLatestRunsWithHttpInfo();
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ProcessHistoryApi.GetLatestRunsWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ProcessHistoryApi.GetLatestRunsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -265,10 +290,6 @@ This endpoint does not need any parameter.
 ### Return type
 
 [**List&lt;ProcessInformation&gt;**](ProcessInformation.md)
-
-### Authorization
-
-[oauth2](../README.md#oauth2)
 
 ### HTTP request headers
 
@@ -282,7 +303,7 @@ This endpoint does not need any parameter.
 | **200** | Success |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="processentryupdates"></a>
 # **ProcessEntryUpdates**
@@ -293,23 +314,34 @@ This endpoint does not need any parameter.
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Horizon.Sdk.Api;
 using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class ProcessEntryUpdatesExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/horizon";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ProcessHistoryApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var runId = "runId_example";  // string | 
             var queryRequest = new QueryRequest(); // QueryRequest | 
 
@@ -317,13 +349,13 @@ namespace Example
             {
                 // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
                 PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(runId, queryRequest);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ProcessHistoryApi.ProcessEntryUpdates: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ProcessHistoryApi.ProcessEntryUpdates: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -338,15 +370,15 @@ try
 {
     // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
     ApiResponse<PagedResourceListOfProcessUpdateResult> response = apiInstance.ProcessEntryUpdatesWithHttpInfo(runId, queryRequest);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ProcessHistoryApi.ProcessEntryUpdatesWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ProcessHistoryApi.ProcessEntryUpdatesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -361,10 +393,6 @@ catch (ApiException e)
 
 [**PagedResourceListOfProcessUpdateResult**](PagedResourceListOfProcessUpdateResult.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -377,7 +405,7 @@ catch (ApiException e)
 | **200** | Success |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="processhistoryentries"></a>
 # **ProcessHistoryEntries**
@@ -388,23 +416,34 @@ catch (ApiException e)
 ### Example
 ```csharp
 using System.Collections.Generic;
-using System.Diagnostics;
 using Finbourne.Horizon.Sdk.Api;
 using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
 
-namespace Example
+namespace Examples
 {
-    public class ProcessHistoryEntriesExample
+    public static class Program
     {
         public static void Main()
         {
-            Configuration config = new Configuration();
-            config.BasePath = "https://fbn-prd.lusid.com/horizon";
-            // Configure OAuth2 access token for authorization: oauth2
-            config.AccessToken = "YOUR_ACCESS_TOKEN";
-
-            var apiInstance = new ProcessHistoryApi(config);
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var queryRequest = new QueryRequest(); // QueryRequest | 
             var processName = "processName_example";  // string? |  (optional) 
 
@@ -412,13 +451,13 @@ namespace Example
             {
                 // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
                 PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(queryRequest, processName);
-                Debug.WriteLine(result);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
-            catch (ApiException  e)
+            catch (ApiException e)
             {
-                Debug.Print("Exception when calling ProcessHistoryApi.ProcessHistoryEntries: " + e.Message);
-                Debug.Print("Status Code: " + e.ErrorCode);
-                Debug.Print(e.StackTrace);
+                Console.WriteLine("Exception when calling ProcessHistoryApi.ProcessHistoryEntries: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
             }
         }
     }
@@ -433,15 +472,15 @@ try
 {
     // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
     ApiResponse<PagedResourceListOfProcessInformation> response = apiInstance.ProcessHistoryEntriesWithHttpInfo(queryRequest, processName);
-    Debug.Write("Status Code: " + response.StatusCode);
-    Debug.Write("Response Headers: " + response.Headers);
-    Debug.Write("Response Body: " + response.Data);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Debug.Print("Exception when calling ProcessHistoryApi.ProcessHistoryEntriesWithHttpInfo: " + e.Message);
-    Debug.Print("Status Code: " + e.ErrorCode);
-    Debug.Print(e.StackTrace);
+    Console.WriteLine("Exception when calling ProcessHistoryApi.ProcessHistoryEntriesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
 }
 ```
 
@@ -456,10 +495,6 @@ catch (ApiException e)
 
 [**PagedResourceListOfProcessInformation**](PagedResourceListOfProcessInformation.md)
 
-### Authorization
-
-[oauth2](../README.md#oauth2)
-
 ### HTTP request headers
 
  - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
@@ -472,5 +507,5 @@ catch (ApiException e)
 | **200** | Success |  -  |
 | **0** | Error response |  -  |
 
-[[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 

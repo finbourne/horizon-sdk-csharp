@@ -10,5 +10,5 @@ Name | Type | Description | Notes
 **RowsIgnored** | **int?** | The number of rows that were not processed. | [optional] 
 **RowsFailed** | **int?** | The number of rows that failed when being processed. | [optional] 
 
-[[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
 
