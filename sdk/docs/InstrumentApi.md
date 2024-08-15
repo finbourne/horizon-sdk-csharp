@@ -523,7 +523,7 @@ catch (ApiException e)
 
 <a id="vendors"></a>
 # **Vendors**
-> List&lt;VendorProduct&gt; Vendors (string marketSector, string securityType, int? limit = null)
+> List&lt;VendorProduct&gt; Vendors (string marketSector, string securityType, string generalSecurityType)
 
 [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
 
@@ -560,12 +560,12 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentApi>();
             var marketSector = "marketSector_example";  // string | 
             var securityType = "securityType_example";  // string | 
-            var limit = 56;  // int? |  (optional) 
+            var generalSecurityType = "generalSecurityType_example";  // string | 
 
             try
             {
                 // [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
-                List<VendorProduct> result = apiInstance.Vendors(marketSector, securityType, limit);
+                List<VendorProduct> result = apiInstance.Vendors(marketSector, securityType, generalSecurityType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -586,7 +586,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
-    ApiResponse<List<VendorProduct>> response = apiInstance.VendorsWithHttpInfo(marketSector, securityType, limit);
+    ApiResponse<List<VendorProduct>> response = apiInstance.VendorsWithHttpInfo(marketSector, securityType, generalSecurityType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -605,7 +605,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **marketSector** | **string** |  |  |
 | **securityType** | **string** |  |  |
-| **limit** | **int?** |  | [optional]  |
+| **generalSecurityType** | **string** |  |  |
 
 ### Return type
 

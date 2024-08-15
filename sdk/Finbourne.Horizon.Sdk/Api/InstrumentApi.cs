@@ -144,10 +144,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;VendorProduct&gt;</returns>
-        List<VendorProduct> Vendors(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0);
+        List<VendorProduct> Vendors(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0);
 
         /// <summary>
         /// [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
@@ -158,10 +158,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;VendorProduct&gt;</returns>
-        ApiResponse<List<VendorProduct>> VendorsWithHttpInfo(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0);
+        ApiResponse<List<VendorProduct>> VendorsWithHttpInfo(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0);
         #endregion Synchronous Operations
     }
 
@@ -313,11 +313,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;VendorProduct&gt;</returns>
-        System.Threading.Tasks.Task<List<VendorProduct>> VendorsAsync(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<VendorProduct>> VendorsAsync(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
 
         /// <summary>
         /// [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
@@ -328,11 +328,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;VendorProduct&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<VendorProduct>>> VendorsWithHttpInfoAsync(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<VendorProduct>>> VendorsWithHttpInfoAsync(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         #endregion Asynchronous Operations
     }
 
@@ -1388,12 +1388,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>List&lt;VendorProduct&gt;</returns>
-        public List<VendorProduct> Vendors(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0)
+        public List<VendorProduct> Vendors(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>> localVarResponse = VendorsWithHttpInfo(marketSector, securityType, limit);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>> localVarResponse = VendorsWithHttpInfo(marketSector, securityType, generalSecurityType);
             return localVarResponse.Data;
         }
 
@@ -1403,10 +1403,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;VendorProduct&gt;</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>> VendorsWithHttpInfo(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>> VendorsWithHttpInfo(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0)
         {
             // verify the required parameter 'marketSector' is set
             if (marketSector == null)
@@ -1418,6 +1418,12 @@ namespace Finbourne.Horizon.Sdk.Api
             if (securityType == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'securityType' when calling InstrumentApi->Vendors");
+            }
+
+            // verify the required parameter 'generalSecurityType' is set
+            if (generalSecurityType == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'generalSecurityType' when calling InstrumentApi->Vendors");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -1444,10 +1450,7 @@ namespace Finbourne.Horizon.Sdk.Api
 
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "marketSector", marketSector));
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "securityType", securityType));
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
+            localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "generalSecurityType", generalSecurityType));
 
             localVarRequestOptions.Operation = "InstrumentApi.Vendors";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1489,13 +1492,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of List&lt;VendorProduct&gt;</returns>
-        public async System.Threading.Tasks.Task<List<VendorProduct>> VendorsAsync(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<VendorProduct>> VendorsAsync(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>> localVarResponse = await VendorsWithHttpInfoAsync(marketSector, securityType, limit, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>> localVarResponse = await VendorsWithHttpInfoAsync(marketSector, securityType, generalSecurityType, operationIndex, cancellationToken).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1505,11 +1508,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="marketSector"></param>
         /// <param name="securityType"></param>
-        /// <param name="limit"> (optional)</param>
+        /// <param name="generalSecurityType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;VendorProduct&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>>> VendorsWithHttpInfoAsync(string marketSector, string securityType, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>>> VendorsWithHttpInfoAsync(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
         {
             // verify the required parameter 'marketSector' is set
             if (marketSector == null)
@@ -1521,6 +1524,12 @@ namespace Finbourne.Horizon.Sdk.Api
             if (securityType == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'securityType' when calling InstrumentApi->Vendors");
+            }
+
+            // verify the required parameter 'generalSecurityType' is set
+            if (generalSecurityType == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'generalSecurityType' when calling InstrumentApi->Vendors");
             }
 
 
@@ -1548,10 +1557,7 @@ namespace Finbourne.Horizon.Sdk.Api
 
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "marketSector", marketSector));
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "securityType", securityType));
-            if (limit != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
-            }
+            localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "generalSecurityType", generalSecurityType));
 
             localVarRequestOptions.Operation = "InstrumentApi.Vendors";
             localVarRequestOptions.OperationIndex = operationIndex;
