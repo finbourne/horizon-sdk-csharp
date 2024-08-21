@@ -125,6 +125,54 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of string</returns>
         ApiResponse<string> GetExecutionIdsForInstanceWithHttpInfo(string instanceId, int? limit = default(int?), int operationIndex = 0);
         /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        Dictionary<string, LusidPropertyDefinitionOverrides> GetInstanceOptionalPropertyMapping(string integration, string instanceId, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;IntegrationPropertyConfiguration&gt;</returns>
+        List<IntegrationPropertyConfiguration> GetIntegrationConfiguration(string integration, int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;IntegrationPropertyConfiguration&gt;</returns>
+        ApiResponse<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0);
+        /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
         /// <remarks>
@@ -189,6 +237,33 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <returns>ApiResponse of List&lt;IntegrationDescription&gt;</returns>
         ApiResponse<List<IntegrationDescription>> ListIntegrationsWithHttpInfo(int operationIndex = 0);
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        Dictionary<string, LusidPropertyDefinitionOverrides> SetInstanceOptionalPropertyMapping(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0);
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> SetInstanceOptionalPropertyMappingWithHttpInfo(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0);
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
@@ -326,6 +401,58 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>Task of ApiResponse (string)</returns>
         System.Threading.Tasks.Task<ApiResponse<string>> GetExecutionIdsForInstanceWithHttpInfoAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverrides>> GetInstanceOptionalPropertyMappingAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;IntegrationPropertyConfiguration&gt;</returns>
+        System.Threading.Tasks.Task<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
+        /// </summary>
+        /// <remarks>
+        /// &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;IntegrationPropertyConfiguration&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<IntegrationPropertyConfiguration>>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
         /// <remarks>
@@ -396,6 +523,35 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <returns>Task of ApiResponse (List&lt;IntegrationDescription&gt;)</returns>
         System.Threading.Tasks.Task<ApiResponse<List<IntegrationDescription>>> ListIntegrationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverrides>> SetInstanceOptionalPropertyMappingAsync(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// </summary>
+        /// <remarks>
+        /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>>> SetInstanceOptionalPropertyMappingWithHttpInfoAsync(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
@@ -1245,6 +1401,376 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        public Dictionary<string, LusidPropertyDefinitionOverrides> GetInstanceOptionalPropertyMapping(string integration, string instanceId, int operationIndex = 0)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> localVarResponse = GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0)
+        {
+            // verify the required parameter 'integration' is set
+            if (integration == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'integration' when calling IntegrationsApi->GetInstanceOptionalPropertyMapping");
+            }
+
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->GetInstanceOptionalPropertyMapping");
+            }
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("integration", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(integration)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+
+            localVarRequestOptions.Operation = "IntegrationsApi.GetInstanceOptionalPropertyMapping";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<Dictionary<string, LusidPropertyDefinitionOverrides>>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstanceOptionalPropertyMapping", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverrides>> GetInstanceOptionalPropertyMappingAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> localVarResponse = await GetInstanceOptionalPropertyMappingWithHttpInfoAsync(integration, instanceId, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'integration' is set
+            if (integration == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'integration' when calling IntegrationsApi->GetInstanceOptionalPropertyMapping");
+            }
+
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->GetInstanceOptionalPropertyMapping");
+            }
+
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("integration", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(integration)); // path parameter
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+
+            localVarRequestOptions.Operation = "IntegrationsApi.GetInstanceOptionalPropertyMapping";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, LusidPropertyDefinitionOverrides>>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetInstanceOptionalPropertyMapping", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>List&lt;IntegrationPropertyConfiguration&gt;</returns>
+        public List<IntegrationPropertyConfiguration> GetIntegrationConfiguration(string integration, int operationIndex = 0)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>> localVarResponse = GetIntegrationConfigurationWithHttpInfo(integration);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of List&lt;IntegrationPropertyConfiguration&gt;</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0)
+        {
+            // verify the required parameter 'integration' is set
+            if (integration == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'integration' when calling IntegrationsApi->GetIntegrationConfiguration");
+            }
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("integration", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(integration)); // path parameter
+
+            localVarRequestOptions.Operation = "IntegrationsApi.GetIntegrationConfiguration";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<IntegrationPropertyConfiguration>>("/api/integrations/configuration/{integration}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIntegrationConfiguration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of List&lt;IntegrationPropertyConfiguration&gt;</returns>
+        public async System.Threading.Tasks.Task<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>> localVarResponse = await GetIntegrationConfigurationWithHttpInfoAsync(integration, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration &lt;br&gt;The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="integration"></param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (List&lt;IntegrationPropertyConfiguration&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'integration' is set
+            if (integration == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'integration' when calling IntegrationsApi->GetIntegrationConfiguration");
+            }
+
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("integration", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(integration)); // path parameter
+
+            localVarRequestOptions.Operation = "IntegrationsApi.GetIntegrationConfiguration";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<IntegrationPropertyConfiguration>>("/api/integrations/configuration/{integration}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("GetIntegrationConfiguration", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. &lt;br&gt;The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -1727,6 +2253,208 @@ namespace Finbourne.Horizon.Sdk.Api
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListIntegrations", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        public Dictionary<string, LusidPropertyDefinitionOverrides> SetInstanceOptionalPropertyMapping(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> localVarResponse = SetInstanceOptionalPropertyMappingWithHttpInfo(instanceId, integration, requestBody);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> SetInstanceOptionalPropertyMappingWithHttpInfo(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0)
+        {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->SetInstanceOptionalPropertyMapping");
+            }
+
+            // verify the required parameter 'integration' is set
+            if (integration == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'integration' when calling IntegrationsApi->SetInstanceOptionalPropertyMapping");
+            }
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("integration", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(integration)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "IntegrationsApi.SetInstanceOptionalPropertyMapping";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Put<Dictionary<string, LusidPropertyDefinitionOverrides>>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetInstanceOptionalPropertyMapping", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverrides>> SetInstanceOptionalPropertyMappingAsync(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> localVarResponse = await SetInstanceOptionalPropertyMappingWithHttpInfoAsync(instanceId, integration, requestBody, operationIndex, cancellationToken).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Identifier of the instance</param>
+        /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
+        /// <param name="requestBody">Properties to be included and any overrides (optional)</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>>> SetInstanceOptionalPropertyMappingWithHttpInfoAsync(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverrides>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->SetInstanceOptionalPropertyMapping");
+            }
+
+            // verify the required parameter 'integration' is set
+            if (integration == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'integration' when calling IntegrationsApi->SetInstanceOptionalPropertyMapping");
+            }
+
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("integration", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(integration)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "IntegrationsApi.SetInstanceOptionalPropertyMapping";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Dictionary<string, LusidPropertyDefinitionOverrides>>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("SetInstanceOptionalPropertyMapping", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

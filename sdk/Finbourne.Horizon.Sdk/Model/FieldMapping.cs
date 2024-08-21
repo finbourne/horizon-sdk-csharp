@@ -23,119 +23,105 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// A field on a LUSID entity
+    /// Mapping from a set of Vendor Fields to a LUSID core entity field
     /// </summary>
-    [DataContract(Name = "LusidField")]
-    public partial class LusidField : IEquatable<LusidField>, IValidatableObject
+    [DataContract(Name = "FieldMapping")]
+    public partial class FieldMapping : IEquatable<FieldMapping>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="LusidField" /> class.
+        /// Initializes a new instance of the <see cref="FieldMapping" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        protected LusidField() { }
+        protected FieldMapping() { }
         /// <summary>
-        /// Initializes a new instance of the <see cref="LusidField" /> class.
+        /// Initializes a new instance of the <see cref="FieldMapping" /> class.
         /// </summary>
-        /// <param name="fieldName">The name of the LUSID field. (required).</param>
-        /// <param name="defaultValue">The default value for the field..</param>
-        /// <param name="vendorPackages">The vendor package that contributes to this LUSID field. (required).</param>
-        /// <param name="vendorNamespaces">The vendor namespace that contributes to this LUSID field. (required).</param>
-        /// <param name="vendorFields">The underlying fields on the vendor package that contribute to this LUSID field (required).</param>
-        /// <param name="transformationDescription">A description of how the vendor package&#39;s field(s) get mapped to the LUSID field.</param>
-        /// <param name="entityType">LUSID Entity this refers to (e.g. Instrument) (required).</param>
-        /// <param name="entitySubType">Sub-Entity this field refers to (e.g. Equity).</param>
-        public LusidField(string fieldName = default(string), string defaultValue = default(string), List<string> vendorPackages = default(List<string>), List<string> vendorNamespaces = default(List<string>), List<string> vendorFields = default(List<string>), string transformationDescription = default(string), string entityType = default(string), string entitySubType = default(string))
+        /// <param name="fieldName">The LUSID core entity field (required).</param>
+        /// <param name="defaultValue">Default value if needed.</param>
+        /// <param name="vendorFields">Fields that will be used to map to this field (required).</param>
+        /// <param name="transformationDescription">The transformation, if required, to map from VendorFields to the LUSID Property.</param>
+        /// <param name="entityType">The LUSID Entity this is valid for (required).</param>
+        /// <param name="entitySubType">The LUSID Entity sub type this is valid for.</param>
+        /// <param name="versions">The versions of the Vendor integration this mapping is valid for (required).</param>
+        public FieldMapping(string fieldName = default(string), string defaultValue = default(string), List<VendorField> vendorFields = default(List<VendorField>), string transformationDescription = default(string), string entityType = default(string), string entitySubType = default(string), List<string> versions = default(List<string>))
         {
             // to ensure "fieldName" is required (not null)
             if (fieldName == null)
             {
-                throw new ArgumentNullException("fieldName is a required property for LusidField and cannot be null");
+                throw new ArgumentNullException("fieldName is a required property for FieldMapping and cannot be null");
             }
             this.FieldName = fieldName;
-            // to ensure "vendorPackages" is required (not null)
-            if (vendorPackages == null)
-            {
-                throw new ArgumentNullException("vendorPackages is a required property for LusidField and cannot be null");
-            }
-            this.VendorPackages = vendorPackages;
-            // to ensure "vendorNamespaces" is required (not null)
-            if (vendorNamespaces == null)
-            {
-                throw new ArgumentNullException("vendorNamespaces is a required property for LusidField and cannot be null");
-            }
-            this.VendorNamespaces = vendorNamespaces;
             // to ensure "vendorFields" is required (not null)
             if (vendorFields == null)
             {
-                throw new ArgumentNullException("vendorFields is a required property for LusidField and cannot be null");
+                throw new ArgumentNullException("vendorFields is a required property for FieldMapping and cannot be null");
             }
             this.VendorFields = vendorFields;
             // to ensure "entityType" is required (not null)
             if (entityType == null)
             {
-                throw new ArgumentNullException("entityType is a required property for LusidField and cannot be null");
+                throw new ArgumentNullException("entityType is a required property for FieldMapping and cannot be null");
             }
             this.EntityType = entityType;
+            // to ensure "versions" is required (not null)
+            if (versions == null)
+            {
+                throw new ArgumentNullException("versions is a required property for FieldMapping and cannot be null");
+            }
+            this.Versions = versions;
             this.DefaultValue = defaultValue;
             this.TransformationDescription = transformationDescription;
             this.EntitySubType = entitySubType;
         }
 
         /// <summary>
-        /// The name of the LUSID field.
+        /// The LUSID core entity field
         /// </summary>
-        /// <value>The name of the LUSID field.</value>
+        /// <value>The LUSID core entity field</value>
         [DataMember(Name = "fieldName", IsRequired = true, EmitDefaultValue = true)]
         public string FieldName { get; set; }
 
         /// <summary>
-        /// The default value for the field.
+        /// Default value if needed
         /// </summary>
-        /// <value>The default value for the field.</value>
+        /// <value>Default value if needed</value>
         [DataMember(Name = "defaultValue", EmitDefaultValue = true)]
         public string DefaultValue { get; set; }
 
         /// <summary>
-        /// The vendor package that contributes to this LUSID field.
+        /// Fields that will be used to map to this field
         /// </summary>
-        /// <value>The vendor package that contributes to this LUSID field.</value>
-        [DataMember(Name = "vendorPackages", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> VendorPackages { get; set; }
-
-        /// <summary>
-        /// The vendor namespace that contributes to this LUSID field.
-        /// </summary>
-        /// <value>The vendor namespace that contributes to this LUSID field.</value>
-        [DataMember(Name = "vendorNamespaces", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> VendorNamespaces { get; set; }
-
-        /// <summary>
-        /// The underlying fields on the vendor package that contribute to this LUSID field
-        /// </summary>
-        /// <value>The underlying fields on the vendor package that contribute to this LUSID field</value>
+        /// <value>Fields that will be used to map to this field</value>
         [DataMember(Name = "vendorFields", IsRequired = true, EmitDefaultValue = true)]
-        public List<string> VendorFields { get; set; }
+        public List<VendorField> VendorFields { get; set; }
 
         /// <summary>
-        /// A description of how the vendor package&#39;s field(s) get mapped to the LUSID field
+        /// The transformation, if required, to map from VendorFields to the LUSID Property
         /// </summary>
-        /// <value>A description of how the vendor package&#39;s field(s) get mapped to the LUSID field</value>
+        /// <value>The transformation, if required, to map from VendorFields to the LUSID Property</value>
         [DataMember(Name = "transformationDescription", EmitDefaultValue = true)]
         public string TransformationDescription { get; set; }
 
         /// <summary>
-        /// LUSID Entity this refers to (e.g. Instrument)
+        /// The LUSID Entity this is valid for
         /// </summary>
-        /// <value>LUSID Entity this refers to (e.g. Instrument)</value>
+        /// <value>The LUSID Entity this is valid for</value>
         [DataMember(Name = "entityType", IsRequired = true, EmitDefaultValue = true)]
         public string EntityType { get; set; }
 
         /// <summary>
-        /// Sub-Entity this field refers to (e.g. Equity)
+        /// The LUSID Entity sub type this is valid for
         /// </summary>
-        /// <value>Sub-Entity this field refers to (e.g. Equity)</value>
+        /// <value>The LUSID Entity sub type this is valid for</value>
         [DataMember(Name = "entitySubType", EmitDefaultValue = true)]
         public string EntitySubType { get; set; }
+
+        /// <summary>
+        /// The versions of the Vendor integration this mapping is valid for
+        /// </summary>
+        /// <value>The versions of the Vendor integration this mapping is valid for</value>
+        [DataMember(Name = "versions", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> Versions { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -144,15 +130,14 @@ namespace Finbourne.Horizon.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class LusidField {\n");
+            sb.Append("class FieldMapping {\n");
             sb.Append("  FieldName: ").Append(FieldName).Append("\n");
             sb.Append("  DefaultValue: ").Append(DefaultValue).Append("\n");
-            sb.Append("  VendorPackages: ").Append(VendorPackages).Append("\n");
-            sb.Append("  VendorNamespaces: ").Append(VendorNamespaces).Append("\n");
             sb.Append("  VendorFields: ").Append(VendorFields).Append("\n");
             sb.Append("  TransformationDescription: ").Append(TransformationDescription).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  EntitySubType: ").Append(EntitySubType).Append("\n");
+            sb.Append("  Versions: ").Append(Versions).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -173,15 +158,15 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as LusidField);
+            return this.Equals(input as FieldMapping);
         }
 
         /// <summary>
-        /// Returns true if LusidField instances are equal
+        /// Returns true if FieldMapping instances are equal
         /// </summary>
-        /// <param name="input">Instance of LusidField to be compared</param>
+        /// <param name="input">Instance of FieldMapping to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(LusidField input)
+        public bool Equals(FieldMapping input)
         {
             if (input == null)
             {
@@ -197,18 +182,6 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.DefaultValue == input.DefaultValue ||
                     (this.DefaultValue != null &&
                     this.DefaultValue.Equals(input.DefaultValue))
-                ) && 
-                (
-                    this.VendorPackages == input.VendorPackages ||
-                    this.VendorPackages != null &&
-                    input.VendorPackages != null &&
-                    this.VendorPackages.SequenceEqual(input.VendorPackages)
-                ) && 
-                (
-                    this.VendorNamespaces == input.VendorNamespaces ||
-                    this.VendorNamespaces != null &&
-                    input.VendorNamespaces != null &&
-                    this.VendorNamespaces.SequenceEqual(input.VendorNamespaces)
                 ) && 
                 (
                     this.VendorFields == input.VendorFields ||
@@ -230,6 +203,12 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.EntitySubType == input.EntitySubType ||
                     (this.EntitySubType != null &&
                     this.EntitySubType.Equals(input.EntitySubType))
+                ) && 
+                (
+                    this.Versions == input.Versions ||
+                    this.Versions != null &&
+                    input.Versions != null &&
+                    this.Versions.SequenceEqual(input.Versions)
                 );
         }
 
@@ -250,14 +229,6 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.DefaultValue.GetHashCode();
                 }
-                if (this.VendorPackages != null)
-                {
-                    hashCode = (hashCode * 59) + this.VendorPackages.GetHashCode();
-                }
-                if (this.VendorNamespaces != null)
-                {
-                    hashCode = (hashCode * 59) + this.VendorNamespaces.GetHashCode();
-                }
                 if (this.VendorFields != null)
                 {
                     hashCode = (hashCode * 59) + this.VendorFields.GetHashCode();
@@ -274,6 +245,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.EntitySubType.GetHashCode();
                 }
+                if (this.Versions != null)
+                {
+                    hashCode = (hashCode * 59) + this.Versions.GetHashCode();
+                }
                 return hashCode;
             }
         }
@@ -285,12 +260,6 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // FieldName (string) minLength
-            if (this.FieldName != null && this.FieldName.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FieldName, length must be greater than 1.", new [] { "FieldName" });
-            }
-
             yield break;
         }
     }

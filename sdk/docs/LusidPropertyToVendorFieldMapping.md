@@ -1,5 +1,5 @@
 # Finbourne.Horizon.Sdk.Model.LusidPropertyToVendorFieldMapping
-The mapping of a LUSID Property to the Vendor Field that would populate it
+The mapping of a LUSID Property from the Vendor Field that would populate it
 
 ## Properties
 

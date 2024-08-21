@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// The mapping of a LUSID Property to the Vendor Field that would populate it
+    /// The mapping of a LUSID Property from the Vendor Field that would populate it
     /// </summary>
     [DataContract(Name = "LusidPropertyToVendorFieldMapping")]
     public partial class LusidPropertyToVendorFieldMapping : IEquatable<LusidPropertyToVendorFieldMapping>, IValidatableObject
