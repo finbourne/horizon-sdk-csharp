@@ -39,8 +39,9 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="type">Unique identifier of the integration e.g. \&quot;copp-clark\&quot;. (required).</param>
         /// <param name="name">Readable name of the integration e.g. \&quot;Copp Clark\&quot;. (required).</param>
         /// <param name="description">Describes the purpose of the integration. (required).</param>
+        /// <param name="supportedTriggerTypes">Trigger types (Time, File) the integration supports. (required).</param>
         /// <param name="licensed">True if your domain is licensed to use this integration, otherwise false. (required).</param>
-        public IntegrationDescription(string type = default(string), string name = default(string), string description = default(string), bool licensed = default(bool))
+        public IntegrationDescription(string type = default(string), string name = default(string), string description = default(string), List<string> supportedTriggerTypes = default(List<string>), bool licensed = default(bool))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -60,6 +61,12 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("description is a required property for IntegrationDescription and cannot be null");
             }
             this.Description = description;
+            // to ensure "supportedTriggerTypes" is required (not null)
+            if (supportedTriggerTypes == null)
+            {
+                throw new ArgumentNullException("supportedTriggerTypes is a required property for IntegrationDescription and cannot be null");
+            }
+            this.SupportedTriggerTypes = supportedTriggerTypes;
             this.Licensed = licensed;
         }
 
@@ -85,6 +92,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public string Description { get; set; }
 
         /// <summary>
+        /// Trigger types (Time, File) the integration supports.
+        /// </summary>
+        /// <value>Trigger types (Time, File) the integration supports.</value>
+        [DataMember(Name = "supportedTriggerTypes", IsRequired = true, EmitDefaultValue = true)]
+        public List<string> SupportedTriggerTypes { get; set; }
+
+        /// <summary>
         /// True if your domain is licensed to use this integration, otherwise false.
         /// </summary>
         /// <value>True if your domain is licensed to use this integration, otherwise false.</value>
@@ -102,6 +116,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
+            sb.Append("  SupportedTriggerTypes: ").Append(SupportedTriggerTypes).Append("\n");
             sb.Append("  Licensed: ").Append(Licensed).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -154,6 +169,12 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Description.Equals(input.Description))
                 ) && 
                 (
+                    this.SupportedTriggerTypes == input.SupportedTriggerTypes ||
+                    this.SupportedTriggerTypes != null &&
+                    input.SupportedTriggerTypes != null &&
+                    this.SupportedTriggerTypes.SequenceEqual(input.SupportedTriggerTypes)
+                ) && 
+                (
                     this.Licensed == input.Licensed ||
                     this.Licensed.Equals(input.Licensed)
                 );
@@ -179,6 +200,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.Description != null)
                 {
                     hashCode = (hashCode * 59) + this.Description.GetHashCode();
+                }
+                if (this.SupportedTriggerTypes != null)
+                {
+                    hashCode = (hashCode * 59) + this.SupportedTriggerTypes.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Licensed.GetHashCode();
                 return hashCode;
