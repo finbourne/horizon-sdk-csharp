@@ -27,6 +27,7 @@ Class | Method | HTTP request | Description
 *ProcessHistoryApi* | [**GetLatestRuns**](docs/ProcessHistoryApi.md#getlatestruns) | **GET** /api/process-history/$latestRuns | [EARLY ACCESS] GetLatestRuns: Get latest run for each process
 *ProcessHistoryApi* | [**ProcessEntryUpdates**](docs/ProcessHistoryApi.md#processentryupdates) | **POST** /api/process-history/entries/$query | [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
 *ProcessHistoryApi* | [**ProcessHistoryEntries**](docs/ProcessHistoryApi.md#processhistoryentries) | **POST** /api/process-history/$query | [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
+*RunsApi* | [**GetRunResults**](docs/RunsApi.md#getrunresults) | **GET** /api/runs | [EXPERIMENTAL] GetRunResults: 
 *VendorApi* | [**GetCoreFieldMappingsForProductEntity**](docs/VendorApi.md#getcorefieldmappingsforproductentity) | **GET** /api/vendor/mappings/fields | [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
 *VendorApi* | [**GetOptionalMappingsForProductEntity**](docs/VendorApi.md#getoptionalmappingsforproductentity) | **GET** /api/vendor/mappings/optional | [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
 *VendorApi* | [**GetPropertyMappingsForProductEntity**](docs/VendorApi.md#getpropertymappingsforproductentity) | **GET** /api/vendor/mappings/properties | [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
@@ -55,6 +56,11 @@ Class | Method | HTTP request | Description
  - [IntegrationDescription](docs/IntegrationDescription.md)
  - [IntegrationInstance](docs/IntegrationInstance.md)
  - [IntegrationPropertyConfiguration](docs/IntegrationPropertyConfiguration.md)
+ - [IntegrationRunIntegration](docs/IntegrationRunIntegration.md)
+ - [IntegrationRunLog](docs/IntegrationRunLog.md)
+ - [IntegrationRunLogLink](docs/IntegrationRunLogLink.md)
+ - [IntegrationRunResponse](docs/IntegrationRunResponse.md)
+ - [IntegrationRunVersion](docs/IntegrationRunVersion.md)
  - [Link](docs/Link.md)
  - [LusidEntity](docs/LusidEntity.md)
  - [LusidField](docs/LusidField.md)
