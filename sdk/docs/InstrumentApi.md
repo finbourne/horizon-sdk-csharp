@@ -47,11 +47,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentApi>();
             var onboardInstrumentRequest = new OnboardInstrumentRequest(); // OnboardInstrumentRequest | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // OnboardInstrumentResponse result = apiInstance.CreateInstrument(onboardInstrumentRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateInstrument: Creates and masters instruments with third party vendors.
                 OnboardInstrumentResponse result = apiInstance.CreateInstrument(onboardInstrumentRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -148,12 +159,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentApi>();
             var vendorProductKey = "vendorProductKey_example";  // string | 
             var identifiers = new Identifiers(); // Identifiers | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // EnrichmentResponse result = apiInstance.EnrichInstrument(vendorProductKey, identifiers, opts: opts);
+
                 // [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
                 EnrichmentResponse result = apiInstance.EnrichInstrument(vendorProductKey, identifiers);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -251,11 +273,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentApi>();
             var parameterName = (OpenFigiParameterOptionName) "IdType";  // OpenFigiParameterOptionName | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<AllowedParameterValue> result = apiInstance.GetOpenFigiParameterOption(parameterName, opts: opts);
+
                 // [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search
                 List<AllowedParameterValue> result = apiInstance.GetOpenFigiParameterOption(parameterName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -351,11 +384,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentApi>();
             var id = "id_example";  // string | The execution ID returned by a previous query
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<PermIdData> result = apiInstance.RetrievePermIdResult(id, opts: opts);
+
                 // [EARLY ACCESS] RetrievePermIdResult: Retrieve PermId results from a previous query.
                 List<PermIdData> result = apiInstance.RetrievePermIdResult(id);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -451,6 +495,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentApi>();
             var query = "query_example";  // string | 
             var usePermId = false;  // bool | Should also search PermId for additional information, defaults to `false`. (default to false)
@@ -459,6 +511,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // OpenFigiSearchResult result = apiInstance.SearchOpenFigi(query, usePermId, limit, marketSector, opts: opts);
+
                 // [EARLY ACCESS] SearchOpenFigi: Search OpenFigi for instruments that match the specified terms.
                 OpenFigiSearchResult result = apiInstance.SearchOpenFigi(query, usePermId, limit, marketSector);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -557,6 +612,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<InstrumentApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<InstrumentApi>();
             var marketSector = "marketSector_example";  // string | 
             var securityType = "securityType_example";  // string | 
@@ -564,6 +627,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<VendorProduct> result = apiInstance.Vendors(marketSector, securityType, generalSecurityType, opts: opts);
+
                 // [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
                 List<VendorProduct> result = apiInstance.Vendors(marketSector, securityType, generalSecurityType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

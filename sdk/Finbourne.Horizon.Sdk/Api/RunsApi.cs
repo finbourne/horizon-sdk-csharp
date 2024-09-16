@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Client.Auth;
 using Finbourne.Horizon.Sdk.Model;
 
@@ -42,8 +43,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>IntegrationRunResponse</returns>
-        IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0);
+        IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRunResults: 
@@ -57,8 +59,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IntegrationRunResponse</returns>
-        ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0);
+        ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -81,8 +84,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of IntegrationRunResponse</returns>
-        System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRunResults: 
@@ -97,8 +101,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (IntegrationRunResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -131,9 +136,15 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns></returns>
         public RunsApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Horizon.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Horizon.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Horizon.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Horizon.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Horizon.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Horizon.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Horizon.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -225,10 +236,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>IntegrationRunResponse</returns>
-        public IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0)
+        public IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -241,10 +253,21 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="limit"> (optional, default to 10)</param>
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IntegrationRunResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -327,10 +350,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of IntegrationRunResponse</returns>
-        public async System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = await GetRunResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = await GetRunResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -344,11 +368,22 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken"> (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (IntegrationRunResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };

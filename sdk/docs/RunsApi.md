@@ -44,6 +44,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RunsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RunsApi>();
             var filter = "filter_example";  // string? |  (optional) 
             var sortBy = new List<string>?(); // List<string>? |  (optional) 
@@ -52,6 +60,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // IntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken, opts: opts);
+
                 // [EXPERIMENTAL] GetRunResults: 
                 IntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

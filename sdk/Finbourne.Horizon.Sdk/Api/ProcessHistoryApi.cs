@@ -18,6 +18,7 @@ using System.Linq;
 using System.Net;
 using System.Net.Mime;
 using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Client.Auth;
 using Finbourne.Horizon.Sdk.Model;
 
@@ -36,8 +37,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AuditCompleteResponse</returns>
-        AuditCompleteResponse CreateCompleteEvent(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0);
+        AuditCompleteResponse CreateCompleteEvent(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
@@ -48,16 +50,18 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AuditCompleteResponse</returns>
-        ApiResponse<AuditCompleteResponse> CreateCompleteEventWithHttpInfo(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0);
+        ApiResponse<AuditCompleteResponse> CreateCompleteEventWithHttpInfo(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AuditUpdateResponse</returns>
-        AuditUpdateResponse CreateUpdateEvent(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0);
+        AuditUpdateResponse CreateUpdateEvent(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
@@ -68,15 +72,17 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AuditUpdateResponse</returns>
-        ApiResponse<AuditUpdateResponse> CreateUpdateEventWithHttpInfo(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0);
+        ApiResponse<AuditUpdateResponse> CreateUpdateEventWithHttpInfo(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetLatestRuns: Get latest run for each process
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;ProcessInformation&gt;</returns>
-        List<ProcessInformation> GetLatestRuns(int operationIndex = 0);
+        List<ProcessInformation> GetLatestRuns(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetLatestRuns: Get latest run for each process
@@ -86,8 +92,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ProcessInformation&gt;</returns>
-        ApiResponse<List<ProcessInformation>> GetLatestRunsWithHttpInfo(int operationIndex = 0);
+        ApiResponse<List<ProcessInformation>> GetLatestRunsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
         /// </summary>
@@ -95,8 +102,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="runId"></param>
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfProcessUpdateResult</returns>
-        PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(string runId, QueryRequest queryRequest, int operationIndex = 0);
+        PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(string runId, QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
@@ -108,8 +116,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="runId"></param>
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessUpdateResult</returns>
-        ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(string runId, QueryRequest queryRequest, int operationIndex = 0);
+        ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(string runId, QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
         /// </summary>
@@ -117,8 +126,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfProcessInformation</returns>
-        PagedResourceListOfProcessInformation ProcessHistoryEntries(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0);
+        PagedResourceListOfProcessInformation ProcessHistoryEntries(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
@@ -130,8 +140,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessInformation</returns>
-        ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0);
+        ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -151,8 +162,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AuditCompleteResponse</returns>
-        System.Threading.Tasks.Task<AuditCompleteResponse> CreateCompleteEventAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AuditCompleteResponse> CreateCompleteEventAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
@@ -164,8 +176,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AuditCompleteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuditCompleteResponse>> CreateCompleteEventWithHttpInfoAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AuditCompleteResponse>> CreateCompleteEventWithHttpInfoAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
         /// </summary>
@@ -176,8 +189,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AuditUpdateResponse</returns>
-        System.Threading.Tasks.Task<AuditUpdateResponse> CreateUpdateEventAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<AuditUpdateResponse> CreateUpdateEventAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
@@ -189,8 +203,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AuditUpdateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuditUpdateResponse>> CreateUpdateEventWithHttpInfoAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<AuditUpdateResponse>> CreateUpdateEventWithHttpInfoAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetLatestRuns: Get latest run for each process
         /// </summary>
@@ -200,8 +215,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;ProcessInformation&gt;</returns>
-        System.Threading.Tasks.Task<List<ProcessInformation>> GetLatestRunsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<List<ProcessInformation>> GetLatestRunsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] GetLatestRuns: Get latest run for each process
@@ -212,8 +228,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProcessInformation&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ProcessInformation>>> GetLatestRunsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<List<ProcessInformation>>> GetLatestRunsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
         /// </summary>
@@ -225,8 +242,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfProcessUpdateResult</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
@@ -239,8 +257,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessUpdateResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
         /// </summary>
@@ -252,8 +271,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfProcessInformation</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
@@ -266,8 +286,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessInformation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken));
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -300,9 +321,15 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns></returns>
         public ProcessHistoryApi(string basePath)
         {
+            var globalConfiguration = Finbourne.Horizon.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Horizon.Sdk.Client.Configuration.MergeConfigurations(
-                Finbourne.Horizon.Sdk.Client.GlobalConfiguration.Instance,
-                new Finbourne.Horizon.Sdk.Client.Configuration { BasePath = basePath }
+                globalConfiguration,
+                new Finbourne.Horizon.Sdk.Client.Configuration
+                {
+                    BasePath = basePath,
+                    TimeoutMs = globalConfiguration.TimeoutMs,
+                    RateLimitRetries = globalConfiguration.RateLimitRetries
+                }
             );
             this.Client = new Finbourne.Horizon.Sdk.Client.ApiClient(this.Configuration.BasePath);
             this.AsynchronousClient = new Finbourne.Horizon.Sdk.Client.ApiClient(this.Configuration.BasePath);
@@ -391,10 +418,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AuditCompleteResponse</returns>
-        public AuditCompleteResponse CreateCompleteEvent(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0)
+        public AuditCompleteResponse CreateCompleteEvent(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse> localVarResponse = CreateCompleteEventWithHttpInfo(auditCompleteRequest);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse> localVarResponse = CreateCompleteEventWithHttpInfo(auditCompleteRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -404,8 +432,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AuditCompleteResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse> CreateCompleteEventWithHttpInfo(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse> CreateCompleteEventWithHttpInfo(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'auditCompleteRequest' is set
             if (auditCompleteRequest == null)
@@ -414,6 +443,16 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -482,10 +521,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AuditCompleteResponse</returns>
-        public async System.Threading.Tasks.Task<AuditCompleteResponse> CreateCompleteEventAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AuditCompleteResponse> CreateCompleteEventAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse> localVarResponse = await CreateCompleteEventWithHttpInfoAsync(auditCompleteRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse> localVarResponse = await CreateCompleteEventWithHttpInfoAsync(auditCompleteRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -496,8 +536,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditCompleteRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AuditCompleteResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse>> CreateCompleteEventWithHttpInfoAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse>> CreateCompleteEventWithHttpInfoAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'auditCompleteRequest' is set
             if (auditCompleteRequest == null)
@@ -507,6 +548,16 @@ namespace Finbourne.Horizon.Sdk.Api
 
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -575,10 +626,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>AuditUpdateResponse</returns>
-        public AuditUpdateResponse CreateUpdateEvent(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0)
+        public AuditUpdateResponse CreateUpdateEvent(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse> localVarResponse = CreateUpdateEventWithHttpInfo(auditUpdateRequest);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse> localVarResponse = CreateUpdateEventWithHttpInfo(auditUpdateRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -588,8 +640,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AuditUpdateResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse> CreateUpdateEventWithHttpInfo(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse> CreateUpdateEventWithHttpInfo(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'auditUpdateRequest' is set
             if (auditUpdateRequest == null)
@@ -598,6 +651,16 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -666,10 +729,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of AuditUpdateResponse</returns>
-        public async System.Threading.Tasks.Task<AuditUpdateResponse> CreateUpdateEventAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<AuditUpdateResponse> CreateUpdateEventAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse> localVarResponse = await CreateUpdateEventWithHttpInfoAsync(auditUpdateRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse> localVarResponse = await CreateUpdateEventWithHttpInfoAsync(auditUpdateRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -680,8 +744,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="auditUpdateRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AuditUpdateResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse>> CreateUpdateEventWithHttpInfoAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse>> CreateUpdateEventWithHttpInfoAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'auditUpdateRequest' is set
             if (auditUpdateRequest == null)
@@ -691,6 +756,16 @@ namespace Finbourne.Horizon.Sdk.Api
 
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -758,10 +833,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;ProcessInformation&gt;</returns>
-        public List<ProcessInformation> GetLatestRuns(int operationIndex = 0)
+        public List<ProcessInformation> GetLatestRuns(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>> localVarResponse = GetLatestRunsWithHttpInfo();
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>> localVarResponse = GetLatestRunsWithHttpInfo(opts: opts);
             return localVarResponse.Data;
         }
 
@@ -770,10 +846,21 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ProcessInformation&gt;</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>> GetLatestRunsWithHttpInfo(int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>> GetLatestRunsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -836,10 +923,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of List&lt;ProcessInformation&gt;</returns>
-        public async System.Threading.Tasks.Task<List<ProcessInformation>> GetLatestRunsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<List<ProcessInformation>> GetLatestRunsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>> localVarResponse = await GetLatestRunsWithHttpInfoAsync(operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>> localVarResponse = await GetLatestRunsWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -849,11 +937,22 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProcessInformation&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>>> GetLatestRunsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>>> GetLatestRunsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
             };
@@ -918,10 +1017,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="runId"></param>
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfProcessUpdateResult</returns>
-        public PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(string runId, QueryRequest queryRequest, int operationIndex = 0)
+        public PagedResourceListOfProcessUpdateResult ProcessEntryUpdates(string runId, QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = ProcessEntryUpdatesWithHttpInfo(runId, queryRequest);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = ProcessEntryUpdatesWithHttpInfo(runId, queryRequest, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -932,8 +1032,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="runId"></param>
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessUpdateResult</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(string runId, QueryRequest queryRequest, int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(string runId, QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runId' is set
             if (runId == null)
@@ -948,6 +1049,16 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1018,10 +1129,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfProcessUpdateResult</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = await ProcessEntryUpdatesWithHttpInfoAsync(runId, queryRequest, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> localVarResponse = await ProcessEntryUpdatesWithHttpInfoAsync(runId, queryRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1033,8 +1145,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessUpdateResult)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'runId' is set
             if (runId == null)
@@ -1050,6 +1163,16 @@ namespace Finbourne.Horizon.Sdk.Api
 
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 
@@ -1120,10 +1243,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfProcessInformation</returns>
-        public PagedResourceListOfProcessInformation ProcessHistoryEntries(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0)
+        public PagedResourceListOfProcessInformation ProcessHistoryEntries(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = ProcessHistoryEntriesWithHttpInfo(queryRequest, processName);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = ProcessHistoryEntriesWithHttpInfo(queryRequest, processName, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1134,8 +1258,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="queryRequest"></param>
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessInformation</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'queryRequest' is set
             if (queryRequest == null)
@@ -1144,6 +1269,16 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json",
@@ -1217,10 +1352,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfProcessInformation</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<PagedResourceListOfProcessInformation> ProcessHistoryEntriesAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = await ProcessHistoryEntriesWithHttpInfoAsync(queryRequest, processName, operationIndex, cancellationToken).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> localVarResponse = await ProcessHistoryEntriesWithHttpInfoAsync(queryRequest, processName, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1232,8 +1368,9 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="processName"> (optional)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessInformation)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken))
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'queryRequest' is set
             if (queryRequest == null)
@@ -1243,6 +1380,16 @@ namespace Finbourne.Horizon.Sdk.Api
 
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
 
             string[] _contentTypes = new string[] {
                 "application/json-patch+json", 

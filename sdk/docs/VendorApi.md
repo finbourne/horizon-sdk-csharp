@@ -46,6 +46,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VendorApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VendorApi>();
             var vendorName = "vendorName_example";  // string | 
             var productName = "productName_example";  // string | 
@@ -54,6 +62,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<LusidField> result = apiInstance.GetCoreFieldMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType, opts: opts);
+
                 // [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
                 List<LusidField> result = apiInstance.GetCoreFieldMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -152,6 +163,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VendorApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VendorApi>();
             var vendorName = "vendorName_example";  // string | 
             var productName = "productName_example";  // string | 
@@ -160,6 +179,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.GetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType, opts: opts);
+
                 // [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
                 Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.GetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -258,6 +280,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VendorApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VendorApi>();
             var vendorName = "vendorName_example";  // string | 
             var productName = "productName_example";  // string | 
@@ -266,6 +296,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<LusidPropertyToVendorFieldMapping> result = apiInstance.GetPropertyMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType, opts: opts);
+
                 // [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
                 List<LusidPropertyToVendorFieldMapping> result = apiInstance.GetPropertyMappingsForProductEntity(vendorName, productName, lusidEntityType, lusidEntitySubType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -364,11 +397,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VendorApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VendorApi>();
             var queryRequest = new QueryRequest(); // QueryRequest | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfVendorProduct result = apiInstance.QueryVendors(queryRequest, opts: opts);
+
                 // [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
                 PagedResourceListOfVendorProduct result = apiInstance.QueryVendors(queryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -464,6 +508,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VendorApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VendorApi>();
             var vendorName = "vendorName_example";  // string | 
             var productName = "productName_example";  // string | 
@@ -473,6 +525,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, LusidPropertyDefinitionOverridesResponse> result = apiInstance.SetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, requestBody, lusidEntitySubType, opts: opts);
+
                 // [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
                 Dictionary<string, LusidPropertyDefinitionOverridesResponse> result = apiInstance.SetOptionalMappingsForProductEntity(vendorName, productName, lusidEntityType, requestBody, lusidEntitySubType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));

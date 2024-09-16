@@ -54,11 +54,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var createInstanceRequest = new CreateInstanceRequest?(); // CreateInstanceRequest? | The new integration instance. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // InstanceIdentifier result = apiInstance.CreateInstance(createInstanceRequest, opts: opts);
+
                 // [EXPERIMENTAL] CreateInstance: Create a single integration instance.
                 InstanceIdentifier result = apiInstance.CreateInstance(createInstanceRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -157,11 +168,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var instanceId = "instanceId_example";  // string | Instance identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // apiInstance.DeleteInstance(instanceId, opts: opts);
+
                 // [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
                 apiInstance.DeleteInstance(instanceId);
             }
@@ -256,11 +278,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var instanceId = "instanceId_example";  // string | Instance identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // ExecuteInstanceResponse result = apiInstance.ExecuteInstance(instanceId, opts: opts);
+
                 // [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
                 ExecuteInstanceResponse result = apiInstance.ExecuteInstance(instanceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -359,12 +392,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var instanceId = "instanceId_example";  // string | Instance identifier e.g. \"30dc93c6-a127-46bf-aea8-e466d720b72d\".
             var limit = 56;  // int? | Maximum number of returned execution ids (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetExecutionIdsForInstance(instanceId, limit, opts: opts);
+
                 // [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
                 string result = apiInstance.GetExecutionIdsForInstance(instanceId, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -464,12 +508,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var integration = "integration_example";  // string | The type of the integration e.g. \"copp-clark\".
             var instanceId = "instanceId_example";  // string | Identifier of the instance
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
+
                 // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
                 Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -569,11 +624,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var integration = "integration_example";  // string | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<IntegrationPropertyConfiguration> result = apiInstance.GetIntegrationConfiguration(integration, opts: opts);
+
                 // [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
                 List<IntegrationPropertyConfiguration> result = apiInstance.GetIntegrationConfiguration(integration);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -672,11 +738,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var integration = "integration_example";  // string | The type of the integration e.g. \"copp-clark\".
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // string result = apiInstance.GetSchema(integration, opts: opts);
+
                 // [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
                 string result = apiInstance.GetSchema(integration);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -775,10 +852,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // IntegrationInstance result = apiInstance.ListInstances(opts: opts);
+
                 // [EXPERIMENTAL] ListInstances: List instances across all integrations.
                 IntegrationInstance result = apiInstance.ListInstances();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -873,10 +961,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<IntegrationDescription> result = apiInstance.ListIntegrations(opts: opts);
+
                 // [EXPERIMENTAL] ListIntegrations: List available integrations.
                 List<IntegrationDescription> result = apiInstance.ListIntegrations();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -970,6 +1069,14 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var instanceId = "instanceId_example";  // string | Identifier of the instance
             var integration = "integration_example";  // string | The type of the integration e.g. \"copp-clark\".
@@ -977,6 +1084,9 @@ namespace Examples
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody, opts: opts);
+
                 // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
                 Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -1077,12 +1187,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var instanceId = "instanceId_example";  // string | Instance identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
             var updateInstanceRequest = new UpdateInstanceRequest?(); // UpdateInstanceRequest? | The new integration instance. (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // apiInstance.UpdateInstance(instanceId, updateInstanceRequest, opts: opts);
+
                 // [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
                 apiInstance.UpdateInstance(instanceId, updateInstanceRequest);
             }

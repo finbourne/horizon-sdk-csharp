@@ -46,11 +46,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ProcessHistoryApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var auditCompleteRequest = new AuditCompleteRequest(); // AuditCompleteRequest | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AuditCompleteResponse result = apiInstance.CreateCompleteEvent(auditCompleteRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateCompleteEvent: Write a completed event to the Horizon Dashboard
                 AuditCompleteResponse result = apiInstance.CreateCompleteEvent(auditCompleteRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -146,11 +157,22 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ProcessHistoryApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var auditUpdateRequest = new AuditUpdateRequest(); // AuditUpdateRequest | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // AuditUpdateResponse result = apiInstance.CreateUpdateEvent(auditUpdateRequest, opts: opts);
+
                 // [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
                 AuditUpdateResponse result = apiInstance.CreateUpdateEvent(auditUpdateRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -246,10 +268,21 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ProcessHistoryApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // List<ProcessInformation> result = apiInstance.GetLatestRuns(opts: opts);
+
                 // [EARLY ACCESS] GetLatestRuns: Get latest run for each process
                 List<ProcessInformation> result = apiInstance.GetLatestRuns();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -341,12 +374,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ProcessHistoryApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var runId = "runId_example";  // string | 
             var queryRequest = new QueryRequest(); // QueryRequest | 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(runId, queryRequest, opts: opts);
+
                 // [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
                 PagedResourceListOfProcessUpdateResult result = apiInstance.ProcessEntryUpdates(runId, queryRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
@@ -443,12 +487,23 @@ namespace Examples
                         ""clientSecret"": ""<your-client-secret>""
                     }
                 }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ProcessHistoryApi>();
+
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ProcessHistoryApi>();
             var queryRequest = new QueryRequest(); // QueryRequest | 
             var processName = "processName_example";  // string? |  (optional) 
 
             try
             {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(queryRequest, processName, opts: opts);
+
                 // [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
                 PagedResourceListOfProcessInformation result = apiInstance.ProcessHistoryEntries(queryRequest, processName);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
