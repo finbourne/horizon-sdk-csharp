@@ -67,6 +67,7 @@ Class | Method | HTTP request | Description
  - [LusidProblemDetails](docs/LusidProblemDetails.md)
  - [LusidPropertyDefinition](docs/LusidPropertyDefinition.md)
  - [LusidPropertyDefinitionOverrides](docs/LusidPropertyDefinitionOverrides.md)
+ - [LusidPropertyDefinitionOverridesByType](docs/LusidPropertyDefinitionOverridesByType.md)
  - [LusidPropertyDefinitionOverridesResponse](docs/LusidPropertyDefinitionOverridesResponse.md)
  - [LusidPropertyToVendorFieldMapping](docs/LusidPropertyToVendorFieldMapping.md)
  - [LusidValidationProblemDetails](docs/LusidValidationProblemDetails.md)

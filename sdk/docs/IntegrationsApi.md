@@ -472,7 +472,7 @@ catch (ApiException e)
 
 <a id="getinstanceoptionalpropertymapping"></a>
 # **GetInstanceOptionalPropertyMapping**
-> Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt; GetInstanceOptionalPropertyMapping (string integration, string instanceId)
+> Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt; GetInstanceOptionalPropertyMapping (string integration, string instanceId)
 
 [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
 
@@ -523,10 +523,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
+                // Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
 
                 // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
-                Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
+                Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -547,7 +547,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
-    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> response = apiInstance.GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
+    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> response = apiInstance.GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -569,7 +569,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;**](LusidPropertyDefinitionOverrides.md)
+[**Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;**](LusidPropertyDefinitionOverridesByType.md)
 
 ### HTTP request headers
 
@@ -1033,7 +1033,7 @@ This endpoint does not need any parameter.
 
 <a id="setinstanceoptionalpropertymapping"></a>
 # **SetInstanceOptionalPropertyMapping**
-> Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt; SetInstanceOptionalPropertyMapping (string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverrides>? requestBody = null)
+> Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt; SetInstanceOptionalPropertyMapping (string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = null)
 
 [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
 
@@ -1080,15 +1080,15 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var instanceId = "instanceId_example";  // string | Identifier of the instance
             var integration = "integration_example";  // string | The type of the integration e.g. \"copp-clark\".
-            var requestBody = new Dictionary<string, LusidPropertyDefinitionOverrides>?(); // Dictionary<string, LusidPropertyDefinitionOverrides>? | Properties to be included and any overrides (optional) 
+            var requestBody = new Dictionary<string, LusidPropertyDefinitionOverridesByType>?(); // Dictionary<string, LusidPropertyDefinitionOverridesByType>? | Properties to be included and any overrides (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody, opts: opts);
+                // Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody, opts: opts);
 
                 // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
-                Dictionary<string, LusidPropertyDefinitionOverrides> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody);
+                Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1109,7 +1109,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
-    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> response = apiInstance.SetInstanceOptionalPropertyMappingWithHttpInfo(instanceId, integration, requestBody);
+    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> response = apiInstance.SetInstanceOptionalPropertyMappingWithHttpInfo(instanceId, integration, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1128,11 +1128,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **instanceId** | **string** | Identifier of the instance |  |
 | **integration** | **string** | The type of the integration e.g. \&quot;copp-clark\&quot;. |  |
-| **requestBody** | [**Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;?**](LusidPropertyDefinitionOverrides.md) | Properties to be included and any overrides | [optional]  |
+| **requestBody** | [**Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;?**](LusidPropertyDefinitionOverridesByType.md) | Properties to be included and any overrides | [optional]  |
 
 ### Return type
 
-[**Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;**](LusidPropertyDefinitionOverrides.md)
+[**Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;**](LusidPropertyDefinitionOverridesByType.md)
 
 ### HTTP request headers
 
