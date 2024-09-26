@@ -28,89 +28,89 @@ namespace Finbourne.Horizon.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRunsApiSync : IApiAccessor
+    public interface ILogsApiSync : IApiAccessor
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
         /// </summary>
         /// <remarks>
-        /// Get run results
+        /// Get integration log results
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IntegrationRunResponse</returns>
-        IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>IIntegrationLogResponse</returns>
+        IIntegrationLogResponse GetIntegrationLogResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
         /// </summary>
         /// <remarks>
-        /// Get run results
+        /// Get integration log results
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IntegrationRunResponse</returns>
-        ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of IIntegrationLogResponse</returns>
+        ApiResponse<IIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRunsApiAsync : IApiAccessor
+    public interface ILogsApiAsync : IApiAccessor
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
         /// </summary>
         /// <remarks>
-        /// Get run results
+        /// Get integration log results
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IntegrationRunResponse</returns>
-        System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of IIntegrationLogResponse</returns>
+        System.Threading.Tasks.Task<IIntegrationLogResponse> GetIntegrationLogResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
         /// </summary>
         /// <remarks>
-        /// Get run results
+        /// Get integration log results
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IntegrationRunResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (IIntegrationLogResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public interface IRunsApi : IRunsApiSync, IRunsApiAsync
+    public interface ILogsApi : ILogsApiSync, ILogsApiAsync
     {
 
     }
@@ -118,23 +118,23 @@ namespace Finbourne.Horizon.Sdk.Api
     /// <summary>
     /// Represents a collection of functions to interact with the API endpoints
     /// </summary>
-    public partial class RunsApi : IRunsApi
+    public partial class LogsApi : ILogsApi
     {
         private Finbourne.Horizon.Sdk.Client.ExceptionFactory _exceptionFactory = (name, response) => null;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RunsApi"/> class.
+        /// Initializes a new instance of the <see cref="LogsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public RunsApi() : this((string)null)
+        public LogsApi() : this((string)null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RunsApi"/> class.
+        /// Initializes a new instance of the <see cref="LogsApi"/> class.
         /// </summary>
         /// <returns></returns>
-        public RunsApi(string basePath)
+        public LogsApi(string basePath)
         {
             var globalConfiguration = Finbourne.Horizon.Sdk.Client.GlobalConfiguration.Instance;
             this.Configuration = Finbourne.Horizon.Sdk.Client.Configuration.MergeConfigurations(
@@ -152,12 +152,12 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RunsApi"/> class
+        /// Initializes a new instance of the <see cref="LogsApi"/> class
         /// using Configuration object
         /// </summary>
         /// <param name="configuration">An instance of Configuration</param>
         /// <returns></returns>
-        public RunsApi(Finbourne.Horizon.Sdk.Client.Configuration configuration)
+        public LogsApi(Finbourne.Horizon.Sdk.Client.Configuration configuration)
         {
             if (configuration == null) throw new ArgumentNullException("configuration");
 
@@ -168,13 +168,13 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="RunsApi"/> class
+        /// Initializes a new instance of the <see cref="LogsApi"/> class
         /// using a Configuration object and client instance.
         /// </summary>
         /// <param name="client">The client interface for synchronous API access.</param>
         /// <param name="asyncClient">The client interface for asynchronous API access.</param>
         /// <param name="configuration">The configuration object.</param>
-        public RunsApi(Finbourne.Horizon.Sdk.Client.ISynchronousClient client, Finbourne.Horizon.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Horizon.Sdk.Client.IReadableConfiguration configuration)
+        public LogsApi(Finbourne.Horizon.Sdk.Client.ISynchronousClient client, Finbourne.Horizon.Sdk.Client.IAsynchronousClient asyncClient, Finbourne.Horizon.Sdk.Client.IReadableConfiguration configuration)
         {
             if (client == null) throw new ArgumentNullException("client");
             if (asyncClient == null) throw new ArgumentNullException("asyncClient");
@@ -228,34 +228,34 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results Get integration log results
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IntegrationRunResponse</returns>
-        public IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>IIntegrationLogResponse</returns>
+        public IIntegrationLogResponse GetIntegrationLogResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse> localVarResponse = GetIntegrationLogResultsWithHttpInfo(filter, sortBy, limit, pageToken, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results Get integration log results
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IntegrationRunResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of IIntegrationLogResponse</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
 
@@ -306,7 +306,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "pageToken", pageToken));
             }
 
-            localVarRequestOptions.Operation = "RunsApi.GetRunResults";
+            localVarRequestOptions.Operation = "LogsApi.GetIntegrationLogResults";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -327,10 +327,10 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IntegrationRunResponse>("/api/runs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<IIntegrationLogResponse>("/api/logs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRunResults", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetIntegrationLogResults", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;
@@ -341,36 +341,36 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results Get integration log results
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IntegrationRunResponse</returns>
-        public async System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of IIntegrationLogResponse</returns>
+        public async System.Threading.Tasks.Task<IIntegrationLogResponse> GetIntegrationLogResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = await GetRunResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse> localVarResponse = await GetIntegrationLogResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetRunResults: Get run results Get run results
+        /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results Get integration log results
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IntegrationRunResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (IIntegrationLogResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -422,7 +422,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "pageToken", pageToken));
             }
 
-            localVarRequestOptions.Operation = "RunsApi.GetRunResults";
+            localVarRequestOptions.Operation = "LogsApi.GetIntegrationLogResults";
             localVarRequestOptions.OperationIndex = operationIndex;
 
             // authentication (oauth2) required
@@ -443,11 +443,11 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IntegrationRunResponse>("/api/runs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IIntegrationLogResponse>("/api/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
-                Exception _exception = this.ExceptionFactory("GetRunResults", localVarResponse);
+                Exception _exception = this.ExceptionFactory("GetIntegrationLogResults", localVarResponse);
                 if (_exception != null)
                 {
                     throw _exception;

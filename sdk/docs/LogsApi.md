@@ -1,18 +1,18 @@
-# Finbourne.Horizon.Sdk.Api.RunsApi
+# Finbourne.Horizon.Sdk.Api.LogsApi
 
 All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**GetRunResults**](RunsApi.md#getrunresults) | **GET** /api/runs | [EXPERIMENTAL] GetRunResults: Get run results |
+| [**GetIntegrationLogResults**](LogsApi.md#getintegrationlogresults) | **GET** /api/logs | [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results |
 
-<a id="getrunresults"></a>
-# **GetRunResults**
-> IntegrationRunResponse GetRunResults (string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
+<a id="getintegrationlogresults"></a>
+# **GetIntegrationLogResults**
+> IIntegrationLogResponse GetIntegrationLogResults (string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
 
-[EXPERIMENTAL] GetRunResults: Get run results
+[EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
 
-Get run results
+Get integration log results
 
 ### Example
 ```csharp
@@ -50,26 +50,26 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RunsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<LogsApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RunsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<LogsApi>();
             var filter = "filter_example";  // string? | Expression to filter the result set. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
-            var limit = 10;  // int? | When paginating, limit the results to this number. (optional)  (default to 10)
-            var pageToken = "\"\"";  // string? | The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the <i>sortBy</i> and <i>filter</i> fields must not have changed since the original request. (optional)  (default to "")
+            var limit = 100;  // int? | When paginating, limit the results to this number. (optional)  (default to 100)
+            var pageToken = "\"\"";  // string? | The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the <i>sortBy</i> and <i>filter</i> fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional)  (default to "")
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // IntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken, opts: opts);
+                // IIntegrationLogResponse result = apiInstance.GetIntegrationLogResults(filter, sortBy, limit, pageToken, opts: opts);
 
-                // [EXPERIMENTAL] GetRunResults: Get run results
-                IntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken);
+                // [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
+                IIntegrationLogResponse result = apiInstance.GetIntegrationLogResults(filter, sortBy, limit, pageToken);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling RunsApi.GetRunResults: " + e.Message);
+                Console.WriteLine("Exception when calling LogsApi.GetIntegrationLogResults: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -78,21 +78,21 @@ namespace Examples
 }
 ```
 
-#### Using the GetRunResultsWithHttpInfo variant
+#### Using the GetIntegrationLogResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetRunResults: Get run results
-    ApiResponse<IntegrationRunResponse> response = apiInstance.GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken);
+    // [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
+    ApiResponse<IIntegrationLogResponse> response = apiInstance.GetIntegrationLogResultsWithHttpInfo(filter, sortBy, limit, pageToken);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling RunsApi.GetRunResultsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling LogsApi.GetIntegrationLogResultsWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -104,12 +104,12 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **filter** | **string?** | Expression to filter the result set. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
-| **limit** | **int?** | When paginating, limit the results to this number. | [optional] [default to 10] |
-| **pageToken** | **string?** | The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. | [optional] [default to &quot;&quot;] |
+| **limit** | **int?** | When paginating, limit the results to this number. | [optional] [default to 100] |
+| **pageToken** | **string?** | The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. | [optional] [default to &quot;&quot;] |
 
 ### Return type
 
-[**IntegrationRunResponse**](IntegrationRunResponse.md)
+[**IIntegrationLogResponse**](IIntegrationLogResponse.md)
 
 ### HTTP request headers
 
