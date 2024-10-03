@@ -40,7 +40,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -56,7 +56,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -105,7 +105,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -122,7 +122,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -285,7 +285,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -302,7 +302,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
@@ -398,7 +398,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
@@ -416,7 +416,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
-        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 10)</param>
+        /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>

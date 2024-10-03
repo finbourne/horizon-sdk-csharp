@@ -56,7 +56,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RunsApi>();
             var filter = "filter_example";  // string? | Expression to filter the result set. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
-            var limit = 10;  // int? | When paginating, limit the results to this number. (optional)  (default to 10)
+            var limit = 100;  // int? | When paginating, limit the results to this number. (optional)  (default to 100)
             var pageToken = "\"\"";  // string? | The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the <i>sortBy</i> and <i>filter</i> fields must not have changed since the original request. (optional)  (default to "")
 
             try
@@ -105,7 +105,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **filter** | **string?** | Expression to filter the result set. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
-| **limit** | **int?** | When paginating, limit the results to this number. | [optional] [default to 10] |
+| **limit** | **int?** | When paginating, limit the results to this number. | [optional] [default to 100] |
 | **pageToken** | **string?** | The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. | [optional] [default to &quot;&quot;] |
 
 ### Return type
