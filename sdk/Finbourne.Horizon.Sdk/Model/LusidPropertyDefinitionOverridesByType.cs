@@ -35,12 +35,14 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="descriptionOverride">descriptionOverride.</param>
         /// <param name="entityType">entityType.</param>
         /// <param name="entitySubType">entitySubType.</param>
-        public LusidPropertyDefinitionOverridesByType(string displayNameOverride = default(string), string descriptionOverride = default(string), string entityType = default(string), List<string> entitySubType = default(List<string>))
+        /// <param name="vendorPackage">vendorPackage.</param>
+        public LusidPropertyDefinitionOverridesByType(string displayNameOverride = default(string), string descriptionOverride = default(string), string entityType = default(string), List<string> entitySubType = default(List<string>), List<string> vendorPackage = default(List<string>))
         {
             this.DisplayNameOverride = displayNameOverride;
             this.DescriptionOverride = descriptionOverride;
             this.EntityType = entityType;
             this.EntitySubType = entitySubType;
+            this.VendorPackage = vendorPackage;
         }
 
         /// <summary>
@@ -68,6 +70,12 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<string> EntitySubType { get; set; }
 
         /// <summary>
+        /// Gets or Sets VendorPackage
+        /// </summary>
+        [DataMember(Name = "vendorPackage", EmitDefaultValue = true)]
+        public List<string> VendorPackage { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -79,6 +87,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  DescriptionOverride: ").Append(DescriptionOverride).Append("\n");
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  EntitySubType: ").Append(EntitySubType).Append("\n");
+            sb.Append("  VendorPackage: ").Append(VendorPackage).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -134,6 +143,12 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.EntitySubType != null &&
                     input.EntitySubType != null &&
                     this.EntitySubType.SequenceEqual(input.EntitySubType)
+                ) && 
+                (
+                    this.VendorPackage == input.VendorPackage ||
+                    this.VendorPackage != null &&
+                    input.VendorPackage != null &&
+                    this.VendorPackage.SequenceEqual(input.VendorPackage)
                 );
         }
 
@@ -161,6 +176,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.EntitySubType != null)
                 {
                     hashCode = (hashCode * 59) + this.EntitySubType.GetHashCode();
+                }
+                if (this.VendorPackage != null)
+                {
+                    hashCode = (hashCode * 59) + this.VendorPackage.GetHashCode();
                 }
                 return hashCode;
             }
