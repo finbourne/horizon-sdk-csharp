@@ -170,8 +170,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="integration"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>List&lt;IntegrationPropertyConfiguration&gt;</returns>
-        List<IntegrationPropertyConfiguration> GetIntegrationConfiguration(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>IntegrationPropertyConfiguration</returns>
+        IntegrationPropertyConfiguration GetIntegrationConfiguration(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
@@ -183,8 +183,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="integration"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of List&lt;IntegrationPropertyConfiguration&gt;</returns>
-        ApiResponse<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of IntegrationPropertyConfiguration</returns>
+        ApiResponse<IntegrationPropertyConfiguration> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
@@ -219,8 +219,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IntegrationInstance</returns>
-        IntegrationInstance ListInstances(int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>List&lt;IntegrationInstance&gt;</returns>
+        List<IntegrationInstance> ListInstances(int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
@@ -231,8 +231,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IntegrationInstance</returns>
-        ApiResponse<IntegrationInstance> ListInstancesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of List&lt;IntegrationInstance&gt;</returns>
+        ApiResponse<List<IntegrationInstance>> ListInstancesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
@@ -471,8 +471,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of List&lt;IntegrationPropertyConfiguration&gt;</returns>
-        System.Threading.Tasks.Task<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of IntegrationPropertyConfiguration</returns>
+        System.Threading.Tasks.Task<IntegrationPropertyConfiguration> GetIntegrationConfigurationAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
@@ -485,8 +485,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (List&lt;IntegrationPropertyConfiguration&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IntegrationPropertyConfiguration>>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (IntegrationPropertyConfiguration)</returns>
+        System.Threading.Tasks.Task<ApiResponse<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
@@ -524,8 +524,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IntegrationInstance</returns>
-        System.Threading.Tasks.Task<IntegrationInstance> ListInstancesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of List&lt;IntegrationInstance&gt;</returns>
+        System.Threading.Tasks.Task<List<IntegrationInstance>> ListInstancesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
@@ -537,8 +537,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IntegrationInstance)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationInstance>> ListInstancesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (List&lt;IntegrationInstance&gt;)</returns>
+        System.Threading.Tasks.Task<ApiResponse<List<IntegrationInstance>>> ListInstancesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
@@ -1772,10 +1772,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="integration"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>List&lt;IntegrationPropertyConfiguration&gt;</returns>
-        public List<IntegrationPropertyConfiguration> GetIntegrationConfiguration(string integration, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>IntegrationPropertyConfiguration</returns>
+        public IntegrationPropertyConfiguration GetIntegrationConfiguration(string integration, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>> localVarResponse = GetIntegrationConfigurationWithHttpInfo(integration, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationPropertyConfiguration> localVarResponse = GetIntegrationConfigurationWithHttpInfo(integration, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1786,8 +1786,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="integration"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of List&lt;IntegrationPropertyConfiguration&gt;</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of IntegrationPropertyConfiguration</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationPropertyConfiguration> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'integration' is set
             if (integration == null)
@@ -1850,7 +1850,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<List<IntegrationPropertyConfiguration>>("/api/integrations/configuration/{integration}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<IntegrationPropertyConfiguration>("/api/integrations/configuration/{integration}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetIntegrationConfiguration", localVarResponse);
@@ -1871,10 +1871,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of List&lt;IntegrationPropertyConfiguration&gt;</returns>
-        public async System.Threading.Tasks.Task<List<IntegrationPropertyConfiguration>> GetIntegrationConfigurationAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of IntegrationPropertyConfiguration</returns>
+        public async System.Threading.Tasks.Task<IntegrationPropertyConfiguration> GetIntegrationConfigurationAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>> localVarResponse = await GetIntegrationConfigurationWithHttpInfoAsync(integration, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationPropertyConfiguration> localVarResponse = await GetIntegrationConfigurationWithHttpInfoAsync(integration, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1886,8 +1886,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (List&lt;IntegrationPropertyConfiguration&gt;)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationPropertyConfiguration>>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (IntegrationPropertyConfiguration)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'integration' is set
             if (integration == null)
@@ -1951,7 +1951,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<List<IntegrationPropertyConfiguration>>("/api/integrations/configuration/{integration}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<IntegrationPropertyConfiguration>("/api/integrations/configuration/{integration}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -2171,10 +2171,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IntegrationInstance</returns>
-        public IntegrationInstance ListInstances(int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>List&lt;IntegrationInstance&gt;</returns>
+        public List<IntegrationInstance> ListInstances(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationInstance> localVarResponse = ListInstancesWithHttpInfo(opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationInstance>> localVarResponse = ListInstancesWithHttpInfo(opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2184,8 +2184,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IntegrationInstance</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationInstance> ListInstancesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of List&lt;IntegrationInstance&gt;</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationInstance>> ListInstancesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
 
@@ -2241,7 +2241,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IntegrationInstance>("/api/integrations/instances", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<List<IntegrationInstance>>("/api/integrations/instances", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("ListInstances", localVarResponse);
@@ -2261,10 +2261,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IntegrationInstance</returns>
-        public async System.Threading.Tasks.Task<IntegrationInstance> ListInstancesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of List&lt;IntegrationInstance&gt;</returns>
+        public async System.Threading.Tasks.Task<List<IntegrationInstance>> ListInstancesAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationInstance> localVarResponse = await ListInstancesWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationInstance>> localVarResponse = await ListInstancesWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2275,8 +2275,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IntegrationInstance)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationInstance>> ListInstancesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (List&lt;IntegrationInstance&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationInstance>>> ListInstancesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -2333,7 +2333,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IntegrationInstance>("/api/integrations/instances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<IntegrationInstance>>("/api/integrations/instances", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

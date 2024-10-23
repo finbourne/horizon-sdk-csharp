@@ -588,7 +588,7 @@ catch (ApiException e)
 
 <a id="getintegrationconfiguration"></a>
 # **GetIntegrationConfiguration**
-> List&lt;IntegrationPropertyConfiguration&gt; GetIntegrationConfiguration (string integration)
+> IntegrationPropertyConfiguration GetIntegrationConfiguration (string integration)
 
 [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
 
@@ -638,10 +638,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // List<IntegrationPropertyConfiguration> result = apiInstance.GetIntegrationConfiguration(integration, opts: opts);
+                // IntegrationPropertyConfiguration result = apiInstance.GetIntegrationConfiguration(integration, opts: opts);
 
                 // [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
-                List<IntegrationPropertyConfiguration> result = apiInstance.GetIntegrationConfiguration(integration);
+                IntegrationPropertyConfiguration result = apiInstance.GetIntegrationConfiguration(integration);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -662,7 +662,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
-    ApiResponse<List<IntegrationPropertyConfiguration>> response = apiInstance.GetIntegrationConfigurationWithHttpInfo(integration);
+    ApiResponse<IntegrationPropertyConfiguration> response = apiInstance.GetIntegrationConfigurationWithHttpInfo(integration);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -683,7 +683,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;IntegrationPropertyConfiguration&gt;**](IntegrationPropertyConfiguration.md)
+[**IntegrationPropertyConfiguration**](IntegrationPropertyConfiguration.md)
 
 ### HTTP request headers
 
@@ -816,7 +816,7 @@ catch (ApiException e)
 
 <a id="listinstances"></a>
 # **ListInstances**
-> IntegrationInstance ListInstances ()
+> List&lt;IntegrationInstance&gt; ListInstances ()
 
 [EXPERIMENTAL] ListInstances: List instances across all integrations.
 
@@ -865,10 +865,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // IntegrationInstance result = apiInstance.ListInstances(opts: opts);
+                // List<IntegrationInstance> result = apiInstance.ListInstances(opts: opts);
 
                 // [EXPERIMENTAL] ListInstances: List instances across all integrations.
-                IntegrationInstance result = apiInstance.ListInstances();
+                List<IntegrationInstance> result = apiInstance.ListInstances();
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -889,7 +889,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListInstances: List instances across all integrations.
-    ApiResponse<IntegrationInstance> response = apiInstance.ListInstancesWithHttpInfo();
+    ApiResponse<List<IntegrationInstance>> response = apiInstance.ListInstancesWithHttpInfo();
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -906,7 +906,7 @@ catch (ApiException e)
 This endpoint does not need any parameter.
 ### Return type
 
-[**IntegrationInstance**](IntegrationInstance.md)
+[**List&lt;IntegrationInstance&gt;**](IntegrationInstance.md)
 
 ### HTTP request headers
 
