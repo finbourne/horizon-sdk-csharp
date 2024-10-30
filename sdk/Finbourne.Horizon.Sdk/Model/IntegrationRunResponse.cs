@@ -38,11 +38,12 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <param name="runId">runId (required).</param>
         /// <param name="instanceId">instanceId.</param>
+        /// <param name="instanceName">instanceName.</param>
         /// <param name="status">status.</param>
         /// <param name="integration">integration (required).</param>
         /// <param name="version">version (required).</param>
         /// <param name="integrationLogs">integrationLogs.</param>
-        public IntegrationRunResponse(Guid runId = default(Guid), Guid? instanceId = default(Guid?), string status = default(string), IntegrationRunIntegration integration = default(IntegrationRunIntegration), IntegrationRunVersion version = default(IntegrationRunVersion), Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = default(Dictionary<string, Dictionary<string, IntegrationRunLog>>))
+        public IntegrationRunResponse(Guid runId = default(Guid), Guid? instanceId = default(Guid?), string instanceName = default(string), string status = default(string), IntegrationRunIntegration integration = default(IntegrationRunIntegration), IntegrationRunVersion version = default(IntegrationRunVersion), Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = default(Dictionary<string, Dictionary<string, IntegrationRunLog>>))
         {
             this.RunId = runId;
             // to ensure "integration" is required (not null)
@@ -58,6 +59,7 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             this._Version = version;
             this.InstanceId = instanceId;
+            this.InstanceName = instanceName;
             this.Status = status;
             this.IntegrationLogs = integrationLogs;
         }
@@ -73,6 +75,12 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         [DataMember(Name = "instanceId", EmitDefaultValue = true)]
         public Guid? InstanceId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets InstanceName
+        /// </summary>
+        [DataMember(Name = "instanceName", EmitDefaultValue = true)]
+        public string InstanceName { get; set; }
 
         /// <summary>
         /// Gets or Sets Status
@@ -108,6 +116,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("class IntegrationRunResponse {\n");
             sb.Append("  RunId: ").Append(RunId).Append("\n");
             sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
+            sb.Append("  InstanceName: ").Append(InstanceName).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Integration: ").Append(Integration).Append("\n");
             sb.Append("  _Version: ").Append(_Version).Append("\n");
@@ -158,6 +167,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.InstanceId.Equals(input.InstanceId))
                 ) && 
                 (
+                    this.InstanceName == input.InstanceName ||
+                    (this.InstanceName != null &&
+                    this.InstanceName.Equals(input.InstanceName))
+                ) && 
+                (
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
@@ -196,6 +210,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.InstanceId != null)
                 {
                     hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();
+                }
+                if (this.InstanceName != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstanceName.GetHashCode();
                 }
                 if (this.Status != null)
                 {

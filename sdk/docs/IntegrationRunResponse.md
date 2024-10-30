@@ -6,6 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RunId** | **Guid** |  | 
 **InstanceId** | **Guid?** |  | [optional] 
+**InstanceName** | **string** |  | [optional] 
 **Status** | **string** |  | [optional] 
 **Integration** | [**IntegrationRunIntegration**](IntegrationRunIntegration.md) |  | 
 **_Version** | [**IntegrationRunVersion**](IntegrationRunVersion.md) |  | 
