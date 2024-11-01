@@ -83,6 +83,7 @@ Class | Method | HTTP request | Description
  - [OpenFigiPermIdResult](docs/OpenFigiPermIdResult.md)
  - [OpenFigiSearchResult](docs/OpenFigiSearchResult.md)
  - [Optionality](docs/Optionality.md)
+ - [PagedResourceListOfIIntegrationLogResponse](docs/PagedResourceListOfIIntegrationLogResponse.md)
  - [PagedResourceListOfProcessInformation](docs/PagedResourceListOfProcessInformation.md)
  - [PagedResourceListOfProcessUpdateResult](docs/PagedResourceListOfProcessUpdateResult.md)
  - [PagedResourceListOfVendorProduct](docs/PagedResourceListOfVendorProduct.md)

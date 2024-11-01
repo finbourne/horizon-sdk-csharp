@@ -8,7 +8,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 <a id="getintegrationlogresults"></a>
 # **GetIntegrationLogResults**
-> IIntegrationLogResponse GetIntegrationLogResults (string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
+> PagedResourceListOfIIntegrationLogResponse GetIntegrationLogResults (string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
 
 [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
 
@@ -61,10 +61,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // IIntegrationLogResponse result = apiInstance.GetIntegrationLogResults(filter, sortBy, limit, pageToken, opts: opts);
+                // PagedResourceListOfIIntegrationLogResponse result = apiInstance.GetIntegrationLogResults(filter, sortBy, limit, pageToken, opts: opts);
 
                 // [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
-                IIntegrationLogResponse result = apiInstance.GetIntegrationLogResults(filter, sortBy, limit, pageToken);
+                PagedResourceListOfIIntegrationLogResponse result = apiInstance.GetIntegrationLogResults(filter, sortBy, limit, pageToken);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -85,7 +85,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
-    ApiResponse<IIntegrationLogResponse> response = apiInstance.GetIntegrationLogResultsWithHttpInfo(filter, sortBy, limit, pageToken);
+    ApiResponse<PagedResourceListOfIIntegrationLogResponse> response = apiInstance.GetIntegrationLogResultsWithHttpInfo(filter, sortBy, limit, pageToken);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -109,7 +109,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**IIntegrationLogResponse**](IIntegrationLogResponse.md)
+[**PagedResourceListOfIIntegrationLogResponse**](PagedResourceListOfIIntegrationLogResponse.md)
 
 ### HTTP request headers
 

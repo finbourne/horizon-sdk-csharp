@@ -44,8 +44,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IIntegrationLogResponse</returns>
-        IIntegrationLogResponse GetIntegrationLogResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>PagedResourceListOfIIntegrationLogResponse</returns>
+        PagedResourceListOfIIntegrationLogResponse GetIntegrationLogResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
@@ -60,8 +60,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IIntegrationLogResponse</returns>
-        ApiResponse<IIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of PagedResourceListOfIIntegrationLogResponse</returns>
+        ApiResponse<PagedResourceListOfIIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -85,8 +85,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IIntegrationLogResponse</returns>
-        System.Threading.Tasks.Task<IIntegrationLogResponse> GetIntegrationLogResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of PagedResourceListOfIIntegrationLogResponse</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfIIntegrationLogResponse> GetIntegrationLogResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationLogResults: Get integration log results
@@ -102,8 +102,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IIntegrationLogResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (PagedResourceListOfIIntegrationLogResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfIIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -237,10 +237,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IIntegrationLogResponse</returns>
-        public IIntegrationLogResponse GetIntegrationLogResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>PagedResourceListOfIIntegrationLogResponse</returns>
+        public PagedResourceListOfIIntegrationLogResponse GetIntegrationLogResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse> localVarResponse = GetIntegrationLogResultsWithHttpInfo(filter, sortBy, limit, pageToken, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIIntegrationLogResponse> localVarResponse = GetIntegrationLogResultsWithHttpInfo(filter, sortBy, limit, pageToken, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -254,8 +254,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IIntegrationLogResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of PagedResourceListOfIIntegrationLogResponse</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
 
@@ -327,7 +327,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IIntegrationLogResponse>("/api/logs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedResourceListOfIIntegrationLogResponse>("/api/logs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetIntegrationLogResults", localVarResponse);
@@ -351,10 +351,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IIntegrationLogResponse</returns>
-        public async System.Threading.Tasks.Task<IIntegrationLogResponse> GetIntegrationLogResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of PagedResourceListOfIIntegrationLogResponse</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfIIntegrationLogResponse> GetIntegrationLogResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse> localVarResponse = await GetIntegrationLogResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIIntegrationLogResponse> localVarResponse = await GetIntegrationLogResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -369,8 +369,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IIntegrationLogResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (PagedResourceListOfIIntegrationLogResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -443,7 +443,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IIntegrationLogResponse>("/api/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfIIntegrationLogResponse>("/api/logs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
