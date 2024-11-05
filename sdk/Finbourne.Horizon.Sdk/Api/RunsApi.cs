@@ -44,8 +44,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IntegrationRunResponse</returns>
-        IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>PagedResourceListOfIntegrationRunResponse</returns>
+        PagedResourceListOfIntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRunResults: Get run results
@@ -60,8 +60,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IntegrationRunResponse</returns>
-        ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of PagedResourceListOfIntegrationRunResponse</returns>
+        ApiResponse<PagedResourceListOfIntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
@@ -110,8 +110,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IntegrationRunResponse</returns>
-        System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of PagedResourceListOfIntegrationRunResponse</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfIntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetRunResults: Get run results
@@ -127,8 +127,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IntegrationRunResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (PagedResourceListOfIntegrationRunResponse)</returns>
+        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfIntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
@@ -289,10 +289,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>IntegrationRunResponse</returns>
-        public IntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>PagedResourceListOfIntegrationRunResponse</returns>
+        public PagedResourceListOfIntegrationRunResponse GetRunResults(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIntegrationRunResponse> localVarResponse = GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -306,8 +306,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of IntegrationRunResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of PagedResourceListOfIntegrationRunResponse</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIntegrationRunResponse> GetRunResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
 
@@ -379,7 +379,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<IntegrationRunResponse>("/api/runs", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedResourceListOfIntegrationRunResponse>("/api/runs", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetRunResults", localVarResponse);
@@ -403,10 +403,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of IntegrationRunResponse</returns>
-        public async System.Threading.Tasks.Task<IntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of PagedResourceListOfIntegrationRunResponse</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfIntegrationRunResponse> GetRunResultsAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse> localVarResponse = await GetRunResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIntegrationRunResponse> localVarResponse = await GetRunResultsWithHttpInfoAsync(filter, sortBy, limit, pageToken, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -421,8 +421,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (IntegrationRunResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (PagedResourceListOfIntegrationRunResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIntegrationRunResponse>> GetRunResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -495,7 +495,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<IntegrationRunResponse>("/api/runs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfIntegrationRunResponse>("/api/runs", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

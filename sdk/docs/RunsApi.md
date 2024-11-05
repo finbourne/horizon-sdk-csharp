@@ -9,7 +9,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 <a id="getrunresults"></a>
 # **GetRunResults**
-> IntegrationRunResponse GetRunResults (string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
+> PagedResourceListOfIntegrationRunResponse GetRunResults (string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
 
 [EXPERIMENTAL] GetRunResults: Get run results
 
@@ -62,10 +62,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // IntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken, opts: opts);
+                // PagedResourceListOfIntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken, opts: opts);
 
                 // [EXPERIMENTAL] GetRunResults: Get run results
-                IntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken);
+                PagedResourceListOfIntegrationRunResponse result = apiInstance.GetRunResults(filter, sortBy, limit, pageToken);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -86,7 +86,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetRunResults: Get run results
-    ApiResponse<IntegrationRunResponse> response = apiInstance.GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken);
+    ApiResponse<PagedResourceListOfIntegrationRunResponse> response = apiInstance.GetRunResultsWithHttpInfo(filter, sortBy, limit, pageToken);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -110,7 +110,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**IntegrationRunResponse**](IntegrationRunResponse.md)
+[**PagedResourceListOfIntegrationRunResponse**](PagedResourceListOfIntegrationRunResponse.md)
 
 ### HTTP request headers
 

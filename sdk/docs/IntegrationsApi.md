@@ -234,7 +234,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | The instance was deleted. |  -  |
+| **204** | No Content |  -  |
 | **404** | The instance does not exist. |  -  |
 | **0** | Error response |  -  |
 
@@ -356,7 +356,7 @@ catch (ApiException e)
 
 <a id="getexecutionidsforinstance"></a>
 # **GetExecutionIdsForInstance**
-> string GetExecutionIdsForInstance (string instanceId, int? limit = null)
+> List&lt;string&gt; GetExecutionIdsForInstance (string instanceId, int? limit = null)
 
 [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
 
@@ -407,10 +407,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetExecutionIdsForInstance(instanceId, limit, opts: opts);
+                // List<string> result = apiInstance.GetExecutionIdsForInstance(instanceId, limit, opts: opts);
 
                 // [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
-                string result = apiInstance.GetExecutionIdsForInstance(instanceId, limit);
+                List<string> result = apiInstance.GetExecutionIdsForInstance(instanceId, limit);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -431,7 +431,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
-    ApiResponse<string> response = apiInstance.GetExecutionIdsForInstanceWithHttpInfo(instanceId, limit);
+    ApiResponse<List<string>> response = apiInstance.GetExecutionIdsForInstanceWithHttpInfo(instanceId, limit);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -453,7 +453,7 @@ catch (ApiException e)
 
 ### Return type
 
-**string**
+**List<string>**
 
 ### HTTP request headers
 
@@ -702,7 +702,7 @@ catch (ApiException e)
 
 <a id="getschema"></a>
 # **GetSchema**
-> string GetSchema (string integration)
+> JSchema GetSchema (string integration)
 
 [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
 
@@ -752,10 +752,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // string result = apiInstance.GetSchema(integration, opts: opts);
+                // JSchema result = apiInstance.GetSchema(integration, opts: opts);
 
                 // [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
-                string result = apiInstance.GetSchema(integration);
+                JSchema result = apiInstance.GetSchema(integration);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -776,7 +776,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
-    ApiResponse<string> response = apiInstance.GetSchemaWithHttpInfo(integration);
+    ApiResponse<JSchema> response = apiInstance.GetSchemaWithHttpInfo(integration);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -797,7 +797,7 @@ catch (ApiException e)
 
 ### Return type
 
-**string**
+[**JSchema**](JSchema.md)
 
 ### HTTP request headers
 
@@ -1255,7 +1255,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | The instance was updated. |  -  |
+| **204** | No Content |  -  |
 | **404** | The instance does not exist. |  -  |
 | **0** | Error response |  -  |
 
