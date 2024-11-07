@@ -36,13 +36,14 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="CreateInstanceRequest" /> class.
         /// </summary>
+        /// <param name="instanceOptionalProps">instanceOptionalProps.</param>
         /// <param name="integrationType">integrationType (required).</param>
         /// <param name="name">name (required).</param>
         /// <param name="description">description (required).</param>
         /// <param name="enabled">enabled (required).</param>
         /// <param name="triggers">triggers (required).</param>
         /// <param name="details">details (required).</param>
-        public CreateInstanceRequest(string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object))
+        public CreateInstanceRequest(Dictionary<string, InstancePropertyDefinitionOverrides> instanceOptionalProps = default(Dictionary<string, InstancePropertyDefinitionOverrides>), string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object))
         {
             // to ensure "integrationType" is required (not null)
             if (integrationType == null)
@@ -75,7 +76,14 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("details is a required property for CreateInstanceRequest and cannot be null");
             }
             this.Details = details;
+            this.InstanceOptionalProps = instanceOptionalProps;
         }
+
+        /// <summary>
+        /// Gets or Sets InstanceOptionalProps
+        /// </summary>
+        [DataMember(Name = "instanceOptionalProps", EmitDefaultValue = true)]
+        public Dictionary<string, InstancePropertyDefinitionOverrides> InstanceOptionalProps { get; set; }
 
         /// <summary>
         /// Gets or Sets IntegrationType
@@ -121,6 +129,7 @@ namespace Finbourne.Horizon.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class CreateInstanceRequest {\n");
+            sb.Append("  InstanceOptionalProps: ").Append(InstanceOptionalProps).Append("\n");
             sb.Append("  IntegrationType: ").Append(IntegrationType).Append("\n");
             sb.Append("  Name: ").Append(Name).Append("\n");
             sb.Append("  Description: ").Append(Description).Append("\n");
@@ -163,6 +172,12 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             return 
                 (
+                    this.InstanceOptionalProps == input.InstanceOptionalProps ||
+                    this.InstanceOptionalProps != null &&
+                    input.InstanceOptionalProps != null &&
+                    this.InstanceOptionalProps.SequenceEqual(input.InstanceOptionalProps)
+                ) && 
+                (
                     this.IntegrationType == input.IntegrationType ||
                     (this.IntegrationType != null &&
                     this.IntegrationType.Equals(input.IntegrationType))
@@ -203,6 +218,10 @@ namespace Finbourne.Horizon.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
+                if (this.InstanceOptionalProps != null)
+                {
+                    hashCode = (hashCode * 59) + this.InstanceOptionalProps.GetHashCode();
+                }
                 if (this.IntegrationType != null)
                 {
                     hashCode = (hashCode * 59) + this.IntegrationType.GetHashCode();

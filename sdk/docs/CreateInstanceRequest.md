@@ -4,6 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**InstanceOptionalProps** | [**Dictionary&lt;string, InstancePropertyDefinitionOverrides&gt;**](InstancePropertyDefinitionOverrides.md) |  | [optional] 
 **IntegrationType** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | **string** |  | 
