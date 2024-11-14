@@ -43,7 +43,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="enabled">enabled (required).</param>
         /// <param name="triggers">triggers (required).</param>
         /// <param name="details">details (required).</param>
-        public CreateInstanceRequest(Dictionary<string, InstancePropertyDefinitionOverrides> instanceOptionalProps = default(Dictionary<string, InstancePropertyDefinitionOverrides>), string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object))
+        public CreateInstanceRequest(Dictionary<string, LusidPropertyDefinitionOverridesByType> instanceOptionalProps = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>), string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object))
         {
             // to ensure "integrationType" is required (not null)
             if (integrationType == null)
@@ -83,7 +83,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// Gets or Sets InstanceOptionalProps
         /// </summary>
         [DataMember(Name = "instanceOptionalProps", EmitDefaultValue = true)]
-        public Dictionary<string, InstancePropertyDefinitionOverrides> InstanceOptionalProps { get; set; }
+        public Dictionary<string, LusidPropertyDefinitionOverridesByType> InstanceOptionalProps { get; set; }
 
         /// <summary>
         /// Gets or Sets IntegrationType

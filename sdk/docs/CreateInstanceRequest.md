@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**InstanceOptionalProps** | [**Dictionary&lt;string, InstancePropertyDefinitionOverrides&gt;**](InstancePropertyDefinitionOverrides.md) |  | [optional] 
+**InstanceOptionalProps** | [**Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;**](LusidPropertyDefinitionOverridesByType.md) |  | [optional] 
 **IntegrationType** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | **string** |  | 

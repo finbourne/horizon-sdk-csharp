@@ -57,7 +57,6 @@ Class | Method | HTTP request | Description
  - [Identifiers](docs/Identifiers.md)
  - [InstanceExecutionReferenceId](docs/InstanceExecutionReferenceId.md)
  - [InstanceIdentifier](docs/InstanceIdentifier.md)
- - [InstancePropertyDefinitionOverrides](docs/InstancePropertyDefinitionOverrides.md)
  - [IntegrationDescription](docs/IntegrationDescription.md)
  - [IntegrationInstance](docs/IntegrationInstance.md)
  - [IntegrationPropertyConfiguration](docs/IntegrationPropertyConfiguration.md)
