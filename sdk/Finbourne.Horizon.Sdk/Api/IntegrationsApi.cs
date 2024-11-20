@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Horizon.Sdk.Client;
+using IApiAccessor = Finbourne.Horizon.Sdk.Client.IApiAccessor;
 using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Client.Auth;
 using Finbourne.Horizon.Sdk.Model;
@@ -55,7 +55,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InstanceIdentifier</returns>
-        ApiResponse<InstanceIdentifier> CreateInstanceWithHttpInfo(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier> CreateInstanceWithHttpInfo(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
@@ -80,7 +80,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> DeleteInstanceWithHttpInfo(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> DeleteInstanceWithHttpInfo(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
         /// </summary>
@@ -105,7 +105,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
-        ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithHttpInfo(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithHttpInfo(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
         /// </summary>
@@ -132,7 +132,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
-        ApiResponse<List<string>> GetExecutionIdsForInstanceWithHttpInfo(string instanceId, int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<string>> GetExecutionIdsForInstanceWithHttpInfo(string instanceId, int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
         /// </summary>
@@ -159,7 +159,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
-        ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
@@ -184,7 +184,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of IntegrationPropertyConfiguration</returns>
-        ApiResponse<IntegrationPropertyConfiguration> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationPropertyConfiguration> GetIntegrationConfigurationWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
@@ -209,7 +209,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of JSchema</returns>
-        ApiResponse<JSchema> GetSchemaWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<JSchema> GetSchemaWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
@@ -232,7 +232,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;IntegrationInstance&gt;</returns>
-        ApiResponse<List<IntegrationInstance>> ListInstancesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationInstance>> ListInstancesWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
@@ -255,7 +255,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;IntegrationDescription&gt;</returns>
-        ApiResponse<List<IntegrationDescription>> ListIntegrationsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationDescription>> ListIntegrationsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
         /// </summary>
@@ -284,7 +284,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
-        ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> SetInstanceOptionalPropertyMappingWithHttpInfo(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> SetInstanceOptionalPropertyMappingWithHttpInfo(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
@@ -311,7 +311,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -347,7 +347,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InstanceIdentifier)</returns>
-        System.Threading.Tasks.Task<ApiResponse<InstanceIdentifier>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
@@ -374,7 +374,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> DeleteInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> DeleteInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
         /// </summary>
@@ -401,7 +401,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ExecuteInstanceResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
         /// </summary>
@@ -430,7 +430,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<string>>> GetExecutionIdsForInstanceWithHttpInfoAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<string>>> GetExecutionIdsForInstanceWithHttpInfoAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
         /// </summary>
@@ -459,7 +459,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
@@ -486,7 +486,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (IntegrationPropertyConfiguration)</returns>
-        System.Threading.Tasks.Task<ApiResponse<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationPropertyConfiguration>> GetIntegrationConfigurationWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
@@ -513,7 +513,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (JSchema)</returns>
-        System.Threading.Tasks.Task<ApiResponse<JSchema>> GetSchemaWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<JSchema>> GetSchemaWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
@@ -538,7 +538,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;IntegrationInstance&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IntegrationInstance>>> ListInstancesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationInstance>>> ListInstancesWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
@@ -563,7 +563,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;IntegrationDescription&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<IntegrationDescription>>> ListIntegrationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationDescription>>> ListIntegrationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
         /// </summary>
@@ -594,7 +594,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>>> SetInstanceOptionalPropertyMappingWithHttpInfoAsync(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>>> SetInstanceOptionalPropertyMappingWithHttpInfoAsync(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
@@ -623,7 +623,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

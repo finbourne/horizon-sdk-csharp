@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Horizon.Sdk.Client;
+using IApiAccessor = Finbourne.Horizon.Sdk.Client.IApiAccessor;
 using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Client.Auth;
 using Finbourne.Horizon.Sdk.Model;
@@ -61,7 +61,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfIIntegrationLogResponse</returns>
-        ApiResponse<PagedResourceListOfIIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIIntegrationLogResponse> GetIntegrationLogResultsWithHttpInfo(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -103,7 +103,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfIIntegrationLogResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfIIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfIIntegrationLogResponse>> GetIntegrationLogResultsWithHttpInfoAsync(string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

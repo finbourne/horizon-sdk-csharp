@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Horizon.Sdk.Client;
+using IApiAccessor = Finbourne.Horizon.Sdk.Client.IApiAccessor;
 using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Client.Auth;
 using Finbourne.Horizon.Sdk.Model;
@@ -52,7 +52,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of OnboardInstrumentResponse</returns>
-        ApiResponse<OnboardInstrumentResponse> CreateInstrumentWithHttpInfo(OnboardInstrumentRequest onboardInstrumentRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<OnboardInstrumentResponse> CreateInstrumentWithHttpInfo(OnboardInstrumentRequest onboardInstrumentRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
         /// </summary>
@@ -76,7 +76,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of EnrichmentResponse</returns>
-        ApiResponse<EnrichmentResponse> EnrichInstrumentWithHttpInfo(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<EnrichmentResponse> EnrichInstrumentWithHttpInfo(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search
         /// </summary>
@@ -98,7 +98,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;AllowedParameterValue&gt;</returns>
-        ApiResponse<List<AllowedParameterValue>> GetOpenFigiParameterOptionWithHttpInfo(OpenFigiParameterOptionName parameterName, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<AllowedParameterValue>> GetOpenFigiParameterOptionWithHttpInfo(OpenFigiParameterOptionName parameterName, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] RetrievePermIdResult: Retrieve PermId results from a previous query.
         /// </summary>
@@ -120,7 +120,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;PermIdData&gt;</returns>
-        ApiResponse<List<PermIdData>> RetrievePermIdResultWithHttpInfo(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<PermIdData>> RetrievePermIdResultWithHttpInfo(string id, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] SearchOpenFigi: Search OpenFigi for instruments that match the specified terms.
         /// </summary>
@@ -148,7 +148,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of OpenFigiSearchResult</returns>
-        ApiResponse<OpenFigiSearchResult> SearchOpenFigiWithHttpInfo(string query, bool usePermId, int? limit = default(int?), string? marketSector = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<OpenFigiSearchResult> SearchOpenFigiWithHttpInfo(string query, bool usePermId, int? limit = default(int?), string? marketSector = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
         /// </summary>
@@ -174,7 +174,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;VendorProduct&gt;</returns>
-        ApiResponse<List<VendorProduct>> VendorsWithHttpInfo(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>> VendorsWithHttpInfo(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -210,7 +210,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (OnboardInstrumentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OnboardInstrumentResponse>> CreateInstrumentWithHttpInfoAsync(OnboardInstrumentRequest onboardInstrumentRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<OnboardInstrumentResponse>> CreateInstrumentWithHttpInfoAsync(OnboardInstrumentRequest onboardInstrumentRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
         /// </summary>
@@ -239,7 +239,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (EnrichmentResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<EnrichmentResponse>> EnrichInstrumentWithHttpInfoAsync(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<EnrichmentResponse>> EnrichInstrumentWithHttpInfoAsync(string vendorProductKey, Identifiers identifiers, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search
         /// </summary>
@@ -266,7 +266,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;AllowedParameterValue&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<AllowedParameterValue>>> GetOpenFigiParameterOptionWithHttpInfoAsync(OpenFigiParameterOptionName parameterName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<AllowedParameterValue>>> GetOpenFigiParameterOptionWithHttpInfoAsync(OpenFigiParameterOptionName parameterName, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] RetrievePermIdResult: Retrieve PermId results from a previous query.
         /// </summary>
@@ -293,7 +293,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;PermIdData&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<PermIdData>>> RetrievePermIdResultWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<PermIdData>>> RetrievePermIdResultWithHttpInfoAsync(string id, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] SearchOpenFigi: Search OpenFigi for instruments that match the specified terms.
         /// </summary>
@@ -326,7 +326,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (OpenFigiSearchResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<OpenFigiSearchResult>> SearchOpenFigiWithHttpInfoAsync(string query, bool usePermId, int? limit = default(int?), string? marketSector = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<OpenFigiSearchResult>> SearchOpenFigiWithHttpInfoAsync(string query, bool usePermId, int? limit = default(int?), string? marketSector = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] Vendors: Gets the VendorProducts of any supported and licenced integrations for a given market sector and security type.
         /// </summary>
@@ -357,7 +357,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;VendorProduct&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<VendorProduct>>> VendorsWithHttpInfoAsync(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<VendorProduct>>> VendorsWithHttpInfoAsync(string marketSector, string securityType, string generalSecurityType, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

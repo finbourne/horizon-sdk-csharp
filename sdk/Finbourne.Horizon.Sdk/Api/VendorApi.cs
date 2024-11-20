@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Horizon.Sdk.Client;
+using IApiAccessor = Finbourne.Horizon.Sdk.Client.IApiAccessor;
 using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Client.Auth;
 using Finbourne.Horizon.Sdk.Model;
@@ -58,7 +58,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;LusidField&gt;</returns>
-        ApiResponse<List<LusidField>> GetCoreFieldMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<LusidField>> GetCoreFieldMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
         /// </summary>
@@ -86,7 +86,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;</returns>
-        ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> GetOptionalMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>> GetOptionalMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product&#39;s entity
         /// </summary>
@@ -114,7 +114,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;LusidPropertyToVendorFieldMapping&gt;</returns>
-        ApiResponse<List<LusidPropertyToVendorFieldMapping>> GetPropertyMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<LusidPropertyToVendorFieldMapping>> GetPropertyMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
         /// </summary>
@@ -136,7 +136,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfVendorProduct</returns>
-        ApiResponse<PagedResourceListOfVendorProduct> QueryVendorsWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct> QueryVendorsWithHttpInfo(QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
         /// </summary>
@@ -166,7 +166,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverridesResponse&gt;</returns>
-        ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesResponse>> SetOptionalMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, Dictionary<string, LusidPropertyDefinitionOverrides> requestBody, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesResponse>> SetOptionalMappingsForProductEntityWithHttpInfo(string vendorName, string productName, string lusidEntityType, Dictionary<string, LusidPropertyDefinitionOverrides> requestBody, string? lusidEntitySubType = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -208,7 +208,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;LusidField&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LusidField>>> GetCoreFieldMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<LusidField>>> GetCoreFieldMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
         /// </summary>
@@ -241,7 +241,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverrides&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>>> GetOptionalMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverrides>>> GetOptionalMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product&#39;s entity
         /// </summary>
@@ -274,7 +274,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;LusidPropertyToVendorFieldMapping&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<LusidPropertyToVendorFieldMapping>>> GetPropertyMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<LusidPropertyToVendorFieldMapping>>> GetPropertyMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
         /// </summary>
@@ -301,7 +301,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfVendorProduct)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfVendorProduct>> QueryVendorsWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfVendorProduct>> QueryVendorsWithHttpInfoAsync(QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
         /// </summary>
@@ -336,7 +336,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverridesResponse&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesResponse>>> SetOptionalMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, Dictionary<string, LusidPropertyDefinitionOverrides> requestBody, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesResponse>>> SetOptionalMappingsForProductEntityWithHttpInfoAsync(string vendorName, string productName, string lusidEntityType, Dictionary<string, LusidPropertyDefinitionOverrides> requestBody, string? lusidEntitySubType = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 

@@ -17,7 +17,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Net;
 using System.Net.Mime;
-using Finbourne.Horizon.Sdk.Client;
+using IApiAccessor = Finbourne.Horizon.Sdk.Client.IApiAccessor;
 using Finbourne.Horizon.Sdk.Extensions;
 using Finbourne.Horizon.Sdk.Client.Auth;
 using Finbourne.Horizon.Sdk.Model;
@@ -52,7 +52,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AuditCompleteResponse</returns>
-        ApiResponse<AuditCompleteResponse> CreateCompleteEventWithHttpInfo(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse> CreateCompleteEventWithHttpInfo(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
         /// </summary>
@@ -74,7 +74,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of AuditUpdateResponse</returns>
-        ApiResponse<AuditUpdateResponse> CreateUpdateEventWithHttpInfo(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse> CreateUpdateEventWithHttpInfo(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetLatestRuns: Get latest run for each process
         /// </summary>
@@ -94,7 +94,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;ProcessInformation&gt;</returns>
-        ApiResponse<List<ProcessInformation>> GetLatestRunsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>> GetLatestRunsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
         /// </summary>
@@ -118,7 +118,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessUpdateResult</returns>
-        ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(string runId, QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult> ProcessEntryUpdatesWithHttpInfo(string runId, QueryRequest queryRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
         /// </summary>
@@ -142,7 +142,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfProcessInformation</returns>
-        ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation> ProcessHistoryEntriesWithHttpInfo(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -178,7 +178,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AuditCompleteResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuditCompleteResponse>> CreateCompleteEventWithHttpInfoAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<AuditCompleteResponse>> CreateCompleteEventWithHttpInfoAsync(AuditCompleteRequest auditCompleteRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] CreateUpdateEvent: Write an update event to the Horizon Dashboard
         /// </summary>
@@ -205,7 +205,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (AuditUpdateResponse)</returns>
-        System.Threading.Tasks.Task<ApiResponse<AuditUpdateResponse>> CreateUpdateEventWithHttpInfoAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<AuditUpdateResponse>> CreateUpdateEventWithHttpInfoAsync(AuditUpdateRequest auditUpdateRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] GetLatestRuns: Get latest run for each process
         /// </summary>
@@ -230,7 +230,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (List&lt;ProcessInformation&gt;)</returns>
-        System.Threading.Tasks.Task<ApiResponse<List<ProcessInformation>>> GetLatestRunsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessInformation>>> GetLatestRunsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
         /// </summary>
@@ -259,7 +259,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessUpdateResult)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessUpdateResult>> ProcessEntryUpdatesWithHttpInfoAsync(string runId, QueryRequest queryRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
         /// </summary>
@@ -288,7 +288,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfProcessInformation)</returns>
-        System.Threading.Tasks.Task<ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfProcessInformation>> ProcessHistoryEntriesWithHttpInfoAsync(QueryRequest queryRequest, string? processName = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
