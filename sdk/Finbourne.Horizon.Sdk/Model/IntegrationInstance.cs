@@ -264,37 +264,6 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
-            // Id (string) maxLength
-            if (this.Id != null && this.Id.Length > 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 36.", new [] { "Id" });
-            }
-
-            // Id (string) minLength
-            if (this.Id != null && this.Id.Length < 36)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 36.", new [] { "Id" });
-            }
-
-            // IntegrationType (string) maxLength
-            if (this.IntegrationType != null && this.IntegrationType.Length > 64)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationType, length must be less than 64.", new [] { "IntegrationType" });
-            }
-
-            // IntegrationType (string) minLength
-            if (this.IntegrationType != null && this.IntegrationType.Length < 1)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationType, length must be greater than 1.", new [] { "IntegrationType" });
-            }
-
-            // IntegrationType (string) pattern
-            Regex regexIntegrationType = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
-            if (false == regexIntegrationType.Match(this.IntegrationType).Success)
-            {
-                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationType, must match a pattern of " + regexIntegrationType, new [] { "IntegrationType" });
-            }
-
             yield break;
         }
     }
