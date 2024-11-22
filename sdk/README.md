@@ -28,6 +28,7 @@ Class | Method | HTTP request | Description
 *ProcessHistoryApi* | [**GetLatestRuns**](docs/ProcessHistoryApi.md#getlatestruns) | **GET** /api/process-history/$latestRuns | [EARLY ACCESS] GetLatestRuns: Get latest run for each process
 *ProcessHistoryApi* | [**ProcessEntryUpdates**](docs/ProcessHistoryApi.md#processentryupdates) | **POST** /api/process-history/entries/$query | [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
 *ProcessHistoryApi* | [**ProcessHistoryEntries**](docs/ProcessHistoryApi.md#processhistoryentries) | **POST** /api/process-history/$query | [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
+*RunsApi* | [**CancelInstance**](docs/RunsApi.md#cancelinstance) | **PUT** /api/runs/{runId}/cancel | [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
 *RunsApi* | [**GetRunResults**](docs/RunsApi.md#getrunresults) | **GET** /api/runs | [EXPERIMENTAL] GetRunResults: Get run results
 *RunsApi* | [**RerunInstance**](docs/RunsApi.md#reruninstance) | **PUT** /api/runs/{runId}/rerun | [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
 *VendorApi* | [**GetCoreFieldMappingsForProductEntity**](docs/VendorApi.md#getcorefieldmappingsforproductentity) | **GET** /api/vendor/mappings/fields | [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
