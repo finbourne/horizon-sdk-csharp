@@ -41,9 +41,9 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="instanceName">instanceName.</param>
         /// <param name="status">status.</param>
         /// <param name="integration">integration (required).</param>
-        /// <param name="version">version (required).</param>
+        /// <param name="varVersion">varVersion (required).</param>
         /// <param name="integrationLogs">integrationLogs.</param>
-        public IntegrationRunResponse(Guid runId = default(Guid), Guid? instanceId = default(Guid?), string instanceName = default(string), string status = default(string), IntegrationRunIntegration integration = default(IntegrationRunIntegration), IntegrationRunVersion version = default(IntegrationRunVersion), Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = default(Dictionary<string, Dictionary<string, IntegrationRunLog>>))
+        public IntegrationRunResponse(Guid runId = default(Guid), Guid? instanceId = default(Guid?), string instanceName = default(string), string status = default(string), IntegrationRunIntegration integration = default(IntegrationRunIntegration), IntegrationRunVersion varVersion = default(IntegrationRunVersion), Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = default(Dictionary<string, Dictionary<string, IntegrationRunLog>>))
         {
             this.RunId = runId;
             // to ensure "integration" is required (not null)
@@ -52,12 +52,12 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("integration is a required property for IntegrationRunResponse and cannot be null");
             }
             this.Integration = integration;
-            // to ensure "version" is required (not null)
-            if (version == null)
+            // to ensure "varVersion" is required (not null)
+            if (varVersion == null)
             {
-                throw new ArgumentNullException("version is a required property for IntegrationRunResponse and cannot be null");
+                throw new ArgumentNullException("varVersion is a required property for IntegrationRunResponse and cannot be null");
             }
-            this._Version = version;
+            this.VarVersion = varVersion;
             this.InstanceId = instanceId;
             this.InstanceName = instanceName;
             this.Status = status;
@@ -95,10 +95,10 @@ namespace Finbourne.Horizon.Sdk.Model
         public IntegrationRunIntegration Integration { get; set; }
 
         /// <summary>
-        /// Gets or Sets _Version
+        /// Gets or Sets VarVersion
         /// </summary>
         [DataMember(Name = "version", IsRequired = true, EmitDefaultValue = true)]
-        public IntegrationRunVersion _Version { get; set; }
+        public IntegrationRunVersion VarVersion { get; set; }
 
         /// <summary>
         /// Gets or Sets IntegrationLogs
@@ -119,7 +119,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  InstanceName: ").Append(InstanceName).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
             sb.Append("  Integration: ").Append(Integration).Append("\n");
-            sb.Append("  _Version: ").Append(_Version).Append("\n");
+            sb.Append("  VarVersion: ").Append(VarVersion).Append("\n");
             sb.Append("  IntegrationLogs: ").Append(IntegrationLogs).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -182,9 +182,9 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Integration.Equals(input.Integration))
                 ) && 
                 (
-                    this._Version == input._Version ||
-                    (this._Version != null &&
-                    this._Version.Equals(input._Version))
+                    this.VarVersion == input.VarVersion ||
+                    (this.VarVersion != null &&
+                    this.VarVersion.Equals(input.VarVersion))
                 ) && 
                 (
                     this.IntegrationLogs == input.IntegrationLogs ||
@@ -223,9 +223,9 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Integration.GetHashCode();
                 }
-                if (this._Version != null)
+                if (this.VarVersion != null)
                 {
-                    hashCode = (hashCode * 59) + this._Version.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarVersion.GetHashCode();
                 }
                 if (this.IntegrationLogs != null)
                 {

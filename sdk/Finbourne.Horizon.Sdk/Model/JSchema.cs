@@ -45,21 +45,21 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="schemaVersion">schemaVersion.</param>
         /// <param name="valid">valid.</param>
         /// <param name="reference">reference.</param>
-        /// <param name="_ref">_ref.</param>
+        /// <param name="varRef">varRef.</param>
         /// <param name="recursiveReference">recursiveReference.</param>
         /// <param name="recursiveAnchor">recursiveAnchor.</param>
         /// <param name="id">id.</param>
         /// <param name="anchor">anchor.</param>
         /// <param name="type">type.</param>
-        /// <param name="_default">_default.</param>
+        /// <param name="varDefault">varDefault.</param>
         /// <param name="itemsPositionValidation">itemsPositionValidation (required).</param>
-        /// <param name="_if">_if.</param>
+        /// <param name="varIf">varIf.</param>
         /// <param name="then">then.</param>
-        /// <param name="_else">_else.</param>
+        /// <param name="varElse">varElse.</param>
         /// <param name="not">not.</param>
         /// <param name="contains">contains.</param>
         /// <param name="propertyNames">propertyNames.</param>
-        /// <param name="_const">_const.</param>
+        /// <param name="varConst">varConst.</param>
         /// <param name="uniqueItems">uniqueItems (required).</param>
         /// <param name="minimumLength">minimumLength.</param>
         /// <param name="maximumLength">maximumLength.</param>
@@ -92,7 +92,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="unevaluatedItems">unevaluatedItems.</param>
         /// <param name="allowUnevaluatedItems">allowUnevaluatedItems.</param>
         /// <param name="format">format.</param>
-        public JSchema(string schemaVersion = default(string), bool? valid = default(bool?), string reference = default(string), JSchema _ref = default(JSchema), string recursiveReference = default(string), bool? recursiveAnchor = default(bool?), string id = default(string), string anchor = default(string), JSchemaType? type = default(JSchemaType?), Object _default = default(Object), bool itemsPositionValidation = default(bool), JSchema _if = default(JSchema), JSchema then = default(JSchema), JSchema _else = default(JSchema), JSchema not = default(JSchema), JSchema contains = default(JSchema), JSchema propertyNames = default(JSchema), Object _const = default(Object), bool uniqueItems = default(bool), long? minimumLength = default(long?), long? maximumLength = default(long?), decimal? minimum = default(decimal?), decimal? maximum = default(decimal?), bool exclusiveMinimum = default(bool), bool exclusiveMaximum = default(bool), long? minimumItems = default(long?), long? maximumItems = default(long?), long? minimumProperties = default(long?), long? maximumProperties = default(long?), long? minimumContains = default(long?), long? maximumContains = default(long?), string contentEncoding = default(string), string contentMediaType = default(string), bool? writeOnly = default(bool?), bool? readOnly = default(bool?), string title = default(string), string description = default(string), decimal? multipleOf = default(decimal?), string pattern = default(string), JSchema additionalProperties = default(JSchema), bool allowAdditionalProperties = default(bool), bool allowAdditionalPropertiesSpecified = default(bool), JSchema unevaluatedProperties = default(JSchema), bool? allowUnevaluatedProperties = default(bool?), JSchema additionalItems = default(JSchema), bool allowAdditionalItems = default(bool), bool allowAdditionalItemsSpecified = default(bool), JSchema unevaluatedItems = default(JSchema), bool? allowUnevaluatedItems = default(bool?), string format = default(string))
+        public JSchema(string schemaVersion = default(string), bool? valid = default(bool?), string reference = default(string), JSchema varRef = default(JSchema), string recursiveReference = default(string), bool? recursiveAnchor = default(bool?), string id = default(string), string anchor = default(string), JSchemaType? type = default(JSchemaType?), Object varDefault = default(Object), bool itemsPositionValidation = default(bool), JSchema varIf = default(JSchema), JSchema then = default(JSchema), JSchema varElse = default(JSchema), JSchema not = default(JSchema), JSchema contains = default(JSchema), JSchema propertyNames = default(JSchema), Object varConst = default(Object), bool uniqueItems = default(bool), long? minimumLength = default(long?), long? maximumLength = default(long?), decimal? minimum = default(decimal?), decimal? maximum = default(decimal?), bool exclusiveMinimum = default(bool), bool exclusiveMaximum = default(bool), long? minimumItems = default(long?), long? maximumItems = default(long?), long? minimumProperties = default(long?), long? maximumProperties = default(long?), long? minimumContains = default(long?), long? maximumContains = default(long?), string contentEncoding = default(string), string contentMediaType = default(string), bool? writeOnly = default(bool?), bool? readOnly = default(bool?), string title = default(string), string description = default(string), decimal? multipleOf = default(decimal?), string pattern = default(string), JSchema additionalProperties = default(JSchema), bool allowAdditionalProperties = default(bool), bool allowAdditionalPropertiesSpecified = default(bool), JSchema unevaluatedProperties = default(JSchema), bool? allowUnevaluatedProperties = default(bool?), JSchema additionalItems = default(JSchema), bool allowAdditionalItems = default(bool), bool allowAdditionalItemsSpecified = default(bool), JSchema unevaluatedItems = default(JSchema), bool? allowUnevaluatedItems = default(bool?), string format = default(string))
         {
             this.ItemsPositionValidation = itemsPositionValidation;
             this.UniqueItems = uniqueItems;
@@ -105,20 +105,20 @@ namespace Finbourne.Horizon.Sdk.Model
             this.SchemaVersion = schemaVersion;
             this.Valid = valid;
             this.Reference = reference;
-            this.Ref = _ref;
+            this.Ref = varRef;
             this.RecursiveReference = recursiveReference;
             this.RecursiveAnchor = recursiveAnchor;
             this.Id = id;
             this.Anchor = anchor;
             this.Type = type;
-            this.Default = _default;
-            this.If = _if;
+            this.Default = varDefault;
+            this.If = varIf;
             this.Then = then;
-            this.Else = _else;
+            this.Else = varElse;
             this.Not = not;
             this.Contains = contains;
             this.PropertyNames = propertyNames;
-            this.Const = _const;
+            this.Const = varConst;
             this.MinimumLength = minimumLength;
             this.MaximumLength = maximumLength;
             this.Minimum = minimum;

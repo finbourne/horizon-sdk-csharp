@@ -76,7 +76,6 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         [EnumMember(Value = "StateCode")]
         StateCode = 8
-
     }
 
 }

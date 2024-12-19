@@ -75,7 +75,6 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Null")]
         Null = 8
-
     }
 
 }

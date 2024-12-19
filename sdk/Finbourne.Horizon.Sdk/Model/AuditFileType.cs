@@ -46,7 +46,6 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         [EnumMember(Value = "Error")]
         Error = 3
-
     }
 
 }

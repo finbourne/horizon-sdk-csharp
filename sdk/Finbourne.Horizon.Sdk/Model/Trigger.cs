@@ -38,8 +38,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <param name="type">type (required).</param>
         /// <param name="cronExpression">cronExpression (required).</param>
-        /// <param name="timeZone">timeZone (required).</param>
-        public Trigger(string type = default(string), string cronExpression = default(string), string timeZone = default(string))
+        /// <param name="varTimeZone">varTimeZone (required).</param>
+        public Trigger(string type = default(string), string cronExpression = default(string), string varTimeZone = default(string))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -53,12 +53,12 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("cronExpression is a required property for Trigger and cannot be null");
             }
             this.CronExpression = cronExpression;
-            // to ensure "timeZone" is required (not null)
-            if (timeZone == null)
+            // to ensure "varTimeZone" is required (not null)
+            if (varTimeZone == null)
             {
-                throw new ArgumentNullException("timeZone is a required property for Trigger and cannot be null");
+                throw new ArgumentNullException("varTimeZone is a required property for Trigger and cannot be null");
             }
-            this.TimeZone = timeZone;
+            this.VarTimeZone = varTimeZone;
         }
 
         /// <summary>
@@ -74,10 +74,10 @@ namespace Finbourne.Horizon.Sdk.Model
         public string CronExpression { get; set; }
 
         /// <summary>
-        /// Gets or Sets TimeZone
+        /// Gets or Sets VarTimeZone
         /// </summary>
         [DataMember(Name = "timeZone", IsRequired = true, EmitDefaultValue = true)]
-        public string TimeZone { get; set; }
+        public string VarTimeZone { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -89,7 +89,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("class Trigger {\n");
             sb.Append("  Type: ").Append(Type).Append("\n");
             sb.Append("  CronExpression: ").Append(CronExpression).Append("\n");
-            sb.Append("  TimeZone: ").Append(TimeZone).Append("\n");
+            sb.Append("  VarTimeZone: ").Append(VarTimeZone).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -136,9 +136,9 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.CronExpression.Equals(input.CronExpression))
                 ) && 
                 (
-                    this.TimeZone == input.TimeZone ||
-                    (this.TimeZone != null &&
-                    this.TimeZone.Equals(input.TimeZone))
+                    this.VarTimeZone == input.VarTimeZone ||
+                    (this.VarTimeZone != null &&
+                    this.VarTimeZone.Equals(input.VarTimeZone))
                 );
         }
 
@@ -159,9 +159,9 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.CronExpression.GetHashCode();
                 }
-                if (this.TimeZone != null)
+                if (this.VarTimeZone != null)
                 {
-                    hashCode = (hashCode * 59) + this.TimeZone.GetHashCode();
+                    hashCode = (hashCode * 59) + this.VarTimeZone.GetHashCode();
                 }
                 return hashCode;
             }
