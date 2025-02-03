@@ -32,8 +32,16 @@ namespace Finbourne.Horizon.Sdk.Model
         /// Initializes a new instance of the <see cref="IIntegrationLogResponse" /> class.
         /// </summary>
         [JsonConstructorAttribute]
-        public IIntegrationLogResponse()
+        protected IIntegrationLogResponse() { }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="IIntegrationLogResponse" /> class.
+        /// </summary>
+        /// <param name="sourceRecord">sourceRecord.</param>
+        /// <param name="targetRecord">targetRecord.</param>
+        public IIntegrationLogResponse(IntegrationLogRecord sourceRecord = default(IntegrationLogRecord), IntegrationLogTargetRecord targetRecord = default(IntegrationLogTargetRecord))
         {
+            this.SourceRecord = sourceRecord;
+            this.TargetRecord = targetRecord;
         }
 
         /// <summary>
@@ -51,6 +59,116 @@ namespace Finbourne.Horizon.Sdk.Model
             return false;
         }
         /// <summary>
+        /// Gets or Sets RunId
+        /// </summary>
+        [DataMember(Name = "runId", EmitDefaultValue = true)]
+        public Guid? RunId { get; private set; }
+
+        /// <summary>
+        /// Returns false as RunId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeRunId()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets ParentLogId
+        /// </summary>
+        [DataMember(Name = "parentLogId", EmitDefaultValue = true)]
+        public long? ParentLogId { get; private set; }
+
+        /// <summary>
+        /// Returns false as ParentLogId should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeParentLogId()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets LogType
+        /// </summary>
+        [DataMember(Name = "logType", IsRequired = true, EmitDefaultValue = true)]
+        public string LogType { get; private set; }
+
+        /// <summary>
+        /// Returns false as LogType should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLogType()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets FirstActivity
+        /// </summary>
+        [DataMember(Name = "firstActivity", EmitDefaultValue = true)]
+        public DateTimeOffset? FirstActivity { get; private set; }
+
+        /// <summary>
+        /// Returns false as FirstActivity should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeFirstActivity()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets LastActivity
+        /// </summary>
+        [DataMember(Name = "lastActivity", EmitDefaultValue = true)]
+        public DateTimeOffset? LastActivity { get; private set; }
+
+        /// <summary>
+        /// Returns false as LastActivity should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeLastActivity()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets Status
+        /// </summary>
+        [DataMember(Name = "status", EmitDefaultValue = true)]
+        public string Status { get; private set; }
+
+        /// <summary>
+        /// Returns false as Status should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeStatus()
+        {
+            return false;
+        }
+        /// <summary>
+        /// Gets or Sets SourceRecord
+        /// </summary>
+        [DataMember(Name = "sourceRecord", EmitDefaultValue = false)]
+        public IntegrationLogRecord SourceRecord { get; set; }
+
+        /// <summary>
+        /// Gets or Sets TargetRecord
+        /// </summary>
+        [DataMember(Name = "targetRecord", EmitDefaultValue = false)]
+        public IntegrationLogTargetRecord TargetRecord { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Activities
+        /// </summary>
+        [DataMember(Name = "activities", IsRequired = true, EmitDefaultValue = true)]
+        public List<IntegrationLogActivity> Activities { get; private set; }
+
+        /// <summary>
+        /// Returns false as Activities should not be serialized given that it's read-only.
+        /// </summary>
+        /// <returns>false (boolean)</returns>
+        public bool ShouldSerializeActivities()
+        {
+            return false;
+        }
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -59,6 +177,15 @@ namespace Finbourne.Horizon.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IIntegrationLogResponse {\n");
             sb.Append("  LogId: ").Append(LogId).Append("\n");
+            sb.Append("  RunId: ").Append(RunId).Append("\n");
+            sb.Append("  ParentLogId: ").Append(ParentLogId).Append("\n");
+            sb.Append("  LogType: ").Append(LogType).Append("\n");
+            sb.Append("  FirstActivity: ").Append(FirstActivity).Append("\n");
+            sb.Append("  LastActivity: ").Append(LastActivity).Append("\n");
+            sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  SourceRecord: ").Append(SourceRecord).Append("\n");
+            sb.Append("  TargetRecord: ").Append(TargetRecord).Append("\n");
+            sb.Append("  Activities: ").Append(Activities).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -97,6 +224,52 @@ namespace Finbourne.Horizon.Sdk.Model
                 (
                     this.LogId == input.LogId ||
                     this.LogId.Equals(input.LogId)
+                ) && 
+                (
+                    this.RunId == input.RunId ||
+                    (this.RunId != null &&
+                    this.RunId.Equals(input.RunId))
+                ) && 
+                (
+                    this.ParentLogId == input.ParentLogId ||
+                    (this.ParentLogId != null &&
+                    this.ParentLogId.Equals(input.ParentLogId))
+                ) && 
+                (
+                    this.LogType == input.LogType ||
+                    (this.LogType != null &&
+                    this.LogType.Equals(input.LogType))
+                ) && 
+                (
+                    this.FirstActivity == input.FirstActivity ||
+                    (this.FirstActivity != null &&
+                    this.FirstActivity.Equals(input.FirstActivity))
+                ) && 
+                (
+                    this.LastActivity == input.LastActivity ||
+                    (this.LastActivity != null &&
+                    this.LastActivity.Equals(input.LastActivity))
+                ) && 
+                (
+                    this.Status == input.Status ||
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.SourceRecord == input.SourceRecord ||
+                    (this.SourceRecord != null &&
+                    this.SourceRecord.Equals(input.SourceRecord))
+                ) && 
+                (
+                    this.TargetRecord == input.TargetRecord ||
+                    (this.TargetRecord != null &&
+                    this.TargetRecord.Equals(input.TargetRecord))
+                ) && 
+                (
+                    this.Activities == input.Activities ||
+                    this.Activities != null &&
+                    input.Activities != null &&
+                    this.Activities.SequenceEqual(input.Activities)
                 );
         }
 
@@ -110,6 +283,42 @@ namespace Finbourne.Horizon.Sdk.Model
             {
                 int hashCode = 41;
                 hashCode = (hashCode * 59) + this.LogId.GetHashCode();
+                if (this.RunId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RunId.GetHashCode();
+                }
+                if (this.ParentLogId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ParentLogId.GetHashCode();
+                }
+                if (this.LogType != null)
+                {
+                    hashCode = (hashCode * 59) + this.LogType.GetHashCode();
+                }
+                if (this.FirstActivity != null)
+                {
+                    hashCode = (hashCode * 59) + this.FirstActivity.GetHashCode();
+                }
+                if (this.LastActivity != null)
+                {
+                    hashCode = (hashCode * 59) + this.LastActivity.GetHashCode();
+                }
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.SourceRecord != null)
+                {
+                    hashCode = (hashCode * 59) + this.SourceRecord.GetHashCode();
+                }
+                if (this.TargetRecord != null)
+                {
+                    hashCode = (hashCode * 59) + this.TargetRecord.GetHashCode();
+                }
+                if (this.Activities != null)
+                {
+                    hashCode = (hashCode * 59) + this.Activities.GetHashCode();
+                }
                 return hashCode;
             }
         }

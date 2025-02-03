@@ -81,7 +81,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;AllowedParameterValue&gt;</returns>
@@ -94,7 +94,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;AllowedParameterValue&gt;</returns>
@@ -247,7 +247,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -261,7 +261,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -919,7 +919,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>List&lt;AllowedParameterValue&gt;</returns>
@@ -933,7 +933,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of List&lt;AllowedParameterValue&gt;</returns>
@@ -1011,7 +1011,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1026,7 +1026,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="parameterName"></param>
+        /// <param name="parameterName">OpenFigi API Parameters that have a restricted / permitted range of values.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
