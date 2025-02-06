@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **InstanceId** | **Guid?** |  | [optional] 
 **InstanceName** | **string** |  | [optional] 
 **Status** | **string** |  | [optional] 
+**Message** | **string** |  | [optional] 
 **Integration** | [**IntegrationRunIntegration**](IntegrationRunIntegration.md) |  | 
 **VarVersion** | [**IntegrationRunVersion**](IntegrationRunVersion.md) |  | 
 **IntegrationLogs** | **Dictionary&lt;string, Dictionary&lt;string, IntegrationRunLog&gt;&gt;** |  | [optional] 
