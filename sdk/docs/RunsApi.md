@@ -14,7 +14,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
 
- Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -250,7 +250,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
 
- Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp

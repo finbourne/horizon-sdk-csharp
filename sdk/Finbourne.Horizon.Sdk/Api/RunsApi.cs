@@ -35,7 +35,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -48,7 +48,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -91,7 +91,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -104,7 +104,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -125,7 +125,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -139,7 +139,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -185,7 +185,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -199,7 +199,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        ///  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -332,7 +332,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -346,7 +346,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -430,7 +430,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -445,7 +445,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.  Cancels an execution instance of an integration.         The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -762,7 +762,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -776,7 +776,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -860,7 +860,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -875,7 +875,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.  Reruns an execution instance of an integration.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>

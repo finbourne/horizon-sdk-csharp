@@ -35,7 +35,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -48,7 +48,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -60,7 +60,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -73,7 +73,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -82,35 +82,62 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of Object(void)</returns>
         Finbourne.Horizon.Sdk.Client.ApiResponse<Object> DeleteInstanceWithHttpInfo(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance: 
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
         /// </summary>
         /// <remarks>
-        /// Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ExecuteInstanceResponse</returns>
         ExecuteInstanceResponse ExecuteInstance(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance: 
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
         /// </summary>
         /// <remarks>
-        /// Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
         Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithHttpInfo(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
+        /// </summary>
+        /// <remarks>
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ExecuteInstanceResponse</returns>
+        ExecuteInstanceResponse ExecuteInstanceWithParams(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
+        /// </summary>
+        /// <remarks>
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
+        Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithParamsWithHttpInfo(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
         /// </summary>
         /// <remarks>
-        ///  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -124,7 +151,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
         /// </summary>
         /// <remarks>
-        ///  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -164,7 +191,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -177,7 +204,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -189,7 +216,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -202,7 +229,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -214,7 +241,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -226,7 +253,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -237,7 +264,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
         /// <remarks>
-        ///  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -249,7 +276,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
         /// <remarks>
-        ///  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -289,7 +316,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -303,7 +330,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -325,7 +352,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -339,7 +366,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -352,7 +379,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -366,7 +393,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -376,13 +403,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>Task of ApiResponse</returns>
         System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> DeleteInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance: 
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
         /// </summary>
         /// <remarks>
-        /// Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -390,23 +417,52 @@ namespace Finbourne.Horizon.Sdk.Api
         System.Threading.Tasks.Task<ExecuteInstanceResponse> ExecuteInstanceAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance: 
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
         /// </summary>
         /// <remarks>
-        /// Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ExecuteInstanceResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
+        /// </summary>
+        /// <remarks>
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ExecuteInstanceResponse</returns>
+        System.Threading.Tasks.Task<ExecuteInstanceResponse> ExecuteInstanceWithParamsAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
+        /// </summary>
+        /// <remarks>
+        /// Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ExecuteInstanceResponse)</returns>
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithParamsWithHttpInfoAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
         /// </summary>
         /// <remarks>
-        ///  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -421,7 +477,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
         /// </summary>
         /// <remarks>
-        ///  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -464,7 +520,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -478,7 +534,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -491,7 +547,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -505,7 +561,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -518,7 +574,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -531,7 +587,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
         /// <remarks>
-        ///  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -543,7 +599,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
         /// <remarks>
-        ///  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -556,7 +612,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListIntegrations: List available integrations.
         /// </summary>
         /// <remarks>
-        ///  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -599,7 +655,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -614,7 +670,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
         /// </summary>
         /// <remarks>
-        ///  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -748,7 +804,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -762,7 +818,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -841,7 +897,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -856,7 +912,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.  Creates a new instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
@@ -938,7 +994,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance. Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -951,7 +1007,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance. Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -1035,7 +1091,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance. Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -1049,7 +1105,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.  Deletes an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance. Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -1136,10 +1192,10 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance:  Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance. Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ExecuteInstanceResponse</returns>
@@ -1150,10 +1206,10 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance:  Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance. Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
@@ -1234,10 +1290,10 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance:  Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance. Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1249,10 +1305,10 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ExecuteInstance:  Starts an execution of an integration instance, returning an execution id. You can check the status of your execution using either the ProcessHistory API or in the Data Feed Monitoring dashboard in the LUSID UI.
+        /// [EXPERIMENTAL] ExecuteInstance: Execute an integration instance. Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="instanceId"></param>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -1336,7 +1392,227 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ExecuteInstanceResponse</returns>
+        public ExecuteInstanceResponse ExecuteInstanceWithParams(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> localVarResponse = ExecuteInstanceWithParamsWithHttpInfo(instanceId, requestBody, opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithParamsWithHttpInfo(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->ExecuteInstanceWithParams");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling IntegrationsApi->ExecuteInstanceWithParams");
+            }
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "IntegrationsApi.ExecuteInstanceWithParams";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Post<ExecuteInstanceResponse>("/api/integrations/instances/{instanceId}/executewithparams", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExecuteInstanceWithParams", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ExecuteInstanceResponse</returns>
+        public async System.Threading.Tasks.Task<ExecuteInstanceResponse> ExecuteInstanceWithParamsAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> localVarResponse = await ExecuteInstanceWithParamsWithHttpInfoAsync(instanceId, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (ExecuteInstanceResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithParamsWithHttpInfoAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->ExecuteInstanceWithParams");
+            }
+
+            // verify the required parameter 'requestBody' is set
+            if (requestBody == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'requestBody' when calling IntegrationsApi->ExecuteInstanceWithParams");
+            }
+
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+                "application/json"
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
+            localVarRequestOptions.Data = requestBody;
+
+            localVarRequestOptions.Operation = "IntegrationsApi.ExecuteInstanceWithParams";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.PostAsync<ExecuteInstanceResponse>("/api/integrations/instances/{instanceId}/executewithparams", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ExecuteInstanceWithParams", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -1351,7 +1627,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -1440,7 +1716,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -1456,7 +1732,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.  Get the most recent execution ids for an integration instance.      The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;30dc93c6-a127-46bf-aea8-e466d720b72d\&quot;.</param>
@@ -1766,7 +2042,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -1780,7 +2056,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -1864,7 +2140,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -1879,7 +2155,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration  The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
+        /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration The user must be authenticated, entitled to call this method, but the user&#39;s domain does not need to be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration"></param>
@@ -1966,7 +2242,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -1980,7 +2256,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -2064,7 +2340,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -2079,7 +2355,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -2166,7 +2442,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListInstances: List instances across all integrations.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] ListInstances: List instances across all integrations. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2179,7 +2455,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListInstances: List instances across all integrations.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] ListInstances: List instances across all integrations. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2255,7 +2531,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListInstances: List instances across all integrations.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] ListInstances: List instances across all integrations. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2269,7 +2545,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListInstances: List instances across all integrations.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] ListInstances: List instances across all integrations. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2348,7 +2624,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIntegrations: List available integrations.  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// [EXPERIMENTAL] ListIntegrations: List available integrations. List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2361,7 +2637,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIntegrations: List available integrations.  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// [EXPERIMENTAL] ListIntegrations: List available integrations. List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2437,7 +2713,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIntegrations: List available integrations.  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// [EXPERIMENTAL] ListIntegrations: List available integrations. List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2451,7 +2727,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListIntegrations: List available integrations.  List all available integrations.          &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence              contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).      Any authenticated user can call this method.
+        /// [EXPERIMENTAL] ListIntegrations: List available integrations. List all available integrations.  &#x60;&#x60;&#x60;\&quot;licensed\&quot;&#x60;&#x60;&#x60; indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -2756,7 +3032,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance. Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -2770,7 +3046,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance. Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -2857,7 +3133,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance. Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -2872,7 +3148,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.  Updates an existing instance of an integration, returning its identifier.         The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance. Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
