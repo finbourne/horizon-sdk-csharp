@@ -174,6 +174,42 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Type (string) maxLength
+            if (this.Type != null && this.Type.Length > 4096)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be less than 4096.", new [] { "Type" });
+            }
+
+            // Type (string) minLength
+            if (this.Type != null && this.Type.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Type, length must be greater than 0.", new [] { "Type" });
+            }
+
+            // CronExpression (string) maxLength
+            if (this.CronExpression != null && this.CronExpression.Length > 4096)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CronExpression, length must be less than 4096.", new [] { "CronExpression" });
+            }
+
+            // CronExpression (string) minLength
+            if (this.CronExpression != null && this.CronExpression.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CronExpression, length must be greater than 0.", new [] { "CronExpression" });
+            }
+
+            // VarTimeZone (string) maxLength
+            if (this.VarTimeZone != null && this.VarTimeZone.Length > 4096)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, length must be less than 4096.", new [] { "VarTimeZone" });
+            }
+
+            // VarTimeZone (string) minLength
+            if (this.VarTimeZone != null && this.VarTimeZone.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for VarTimeZone, length must be greater than 0.", new [] { "VarTimeZone" });
+            }
+
             yield break;
         }
     }

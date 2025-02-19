@@ -192,6 +192,42 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DisplayNameOverride (string) maxLength
+            if (this.DisplayNameOverride != null && this.DisplayNameOverride.Length > 4096)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayNameOverride, length must be less than 4096.", new [] { "DisplayNameOverride" });
+            }
+
+            // DisplayNameOverride (string) minLength
+            if (this.DisplayNameOverride != null && this.DisplayNameOverride.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayNameOverride, length must be greater than 0.", new [] { "DisplayNameOverride" });
+            }
+
+            // DescriptionOverride (string) maxLength
+            if (this.DescriptionOverride != null && this.DescriptionOverride.Length > 4096)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DescriptionOverride, length must be less than 4096.", new [] { "DescriptionOverride" });
+            }
+
+            // DescriptionOverride (string) minLength
+            if (this.DescriptionOverride != null && this.DescriptionOverride.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DescriptionOverride, length must be greater than 0.", new [] { "DescriptionOverride" });
+            }
+
+            // EntityType (string) maxLength
+            if (this.EntityType != null && this.EntityType.Length > 4096)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityType, length must be less than 4096.", new [] { "EntityType" });
+            }
+
+            // EntityType (string) minLength
+            if (this.EntityType != null && this.EntityType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityType, length must be greater than 0.", new [] { "EntityType" });
+            }
+
             yield break;
         }
     }

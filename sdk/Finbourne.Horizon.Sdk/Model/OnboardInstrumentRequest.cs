@@ -169,6 +169,18 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // PrimaryVendorKey (string) maxLength
+            if (this.PrimaryVendorKey != null && this.PrimaryVendorKey.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrimaryVendorKey, length must be less than 1024.", new [] { "PrimaryVendorKey" });
+            }
+
+            // PrimaryVendorKey (string) minLength
+            if (this.PrimaryVendorKey != null && this.PrimaryVendorKey.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for PrimaryVendorKey, length must be greater than 0.", new [] { "PrimaryVendorKey" });
+            }
+
             yield break;
         }
     }

@@ -254,6 +254,49 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // IntegrationType (string) maxLength
+            if (this.IntegrationType != null && this.IntegrationType.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationType, length must be less than 64.", new [] { "IntegrationType" });
+            }
+
+            // IntegrationType (string) minLength
+            if (this.IntegrationType != null && this.IntegrationType.Length < 1)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationType, length must be greater than 1.", new [] { "IntegrationType" });
+            }
+
+            // IntegrationType (string) pattern
+            Regex regexIntegrationType = new Regex(@"^[a-zA-Z0-9\-_]+$", RegexOptions.CultureInvariant);
+            if (false == regexIntegrationType.Match(this.IntegrationType).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for IntegrationType, must match a pattern of " + regexIntegrationType, new [] { "IntegrationType" });
+            }
+
+            // Name (string) maxLength
+            if (this.Name != null && this.Name.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 128.", new [] { "Name" });
+            }
+
+            // Name (string) minLength
+            if (this.Name != null && this.Name.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+            }
+
+            // Description (string) maxLength
+            if (this.Description != null && this.Description.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be less than 1024.", new [] { "Description" });
+            }
+
+            // Description (string) minLength
+            if (this.Description != null && this.Description.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Description, length must be greater than 0.", new [] { "Description" });
+            }
+
             yield break;
         }
     }

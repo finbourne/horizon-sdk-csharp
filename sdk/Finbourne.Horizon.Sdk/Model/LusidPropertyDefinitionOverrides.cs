@@ -136,6 +136,30 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // DisplayNameOverride (string) maxLength
+            if (this.DisplayNameOverride != null && this.DisplayNameOverride.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayNameOverride, length must be less than 1024.", new [] { "DisplayNameOverride" });
+            }
+
+            // DisplayNameOverride (string) minLength
+            if (this.DisplayNameOverride != null && this.DisplayNameOverride.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DisplayNameOverride, length must be greater than 0.", new [] { "DisplayNameOverride" });
+            }
+
+            // DescriptionOverride (string) maxLength
+            if (this.DescriptionOverride != null && this.DescriptionOverride.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DescriptionOverride, length must be less than 1024.", new [] { "DescriptionOverride" });
+            }
+
+            // DescriptionOverride (string) minLength
+            if (this.DescriptionOverride != null && this.DescriptionOverride.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for DescriptionOverride, length must be greater than 0.", new [] { "DescriptionOverride" });
+            }
+
             yield break;
         }
     }

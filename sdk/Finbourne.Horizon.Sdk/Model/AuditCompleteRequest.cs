@@ -357,6 +357,66 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Id (string) maxLength
+            if (this.Id != null && this.Id.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be less than 1024.", new [] { "Id" });
+            }
+
+            // Id (string) minLength
+            if (this.Id != null && this.Id.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Id, length must be greater than 0.", new [] { "Id" });
+            }
+
+            // UserId (string) maxLength
+            if (this.UserId != null && this.UserId.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserId, length must be less than 1024.", new [] { "UserId" });
+            }
+
+            // UserId (string) minLength
+            if (this.UserId != null && this.UserId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for UserId, length must be greater than 0.", new [] { "UserId" });
+            }
+
+            // SchedulerRunId (string) maxLength
+            if (this.SchedulerRunId != null && this.SchedulerRunId.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SchedulerRunId, length must be less than 1024.", new [] { "SchedulerRunId" });
+            }
+
+            // SchedulerRunId (string) minLength
+            if (this.SchedulerRunId != null && this.SchedulerRunId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SchedulerRunId, length must be greater than 0.", new [] { "SchedulerRunId" });
+            }
+
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 1024.", new [] { "Message" });
+            }
+
+            // Message (string) minLength
+            if (this.Message != null && this.Message.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 0.", new [] { "Message" });
+            }
+
+            // ProcessNameOverride (string) maxLength
+            if (this.ProcessNameOverride != null && this.ProcessNameOverride.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProcessNameOverride, length must be less than 1024.", new [] { "ProcessNameOverride" });
+            }
+
+            // ProcessNameOverride (string) minLength
+            if (this.ProcessNameOverride != null && this.ProcessNameOverride.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ProcessNameOverride, length must be greater than 0.", new [] { "ProcessNameOverride" });
+            }
+
             yield break;
         }
     }
