@@ -7,7 +7,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**CancelInstance**](RunsApi.md#cancelinstance) | **PUT** /api/runs/{runId}/cancel | [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. |
 | [**GetRunResults**](RunsApi.md#getrunresults) | **GET** /api/runs | [EXPERIMENTAL] GetRunResults: Get run results |
 | [**RerunInstance**](RunsApi.md#reruninstance) | **PUT** /api/runs/{runId}/rerun | [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. |
-| [**StopInstanceExecution**](RunsApi.md#stopinstanceexecution) | **PUT** /api/runs/{runId}/stop | [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. |
+| [**StopInstanceExecution**](RunsApi.md#stopinstanceexecution) | **PUT** /api/runs/{instanceId}/{runId}/stop | [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. |
 
 <a id="cancelinstance"></a>
 # **CancelInstance**
@@ -362,7 +362,7 @@ catch (ApiException e)
 
 <a id="stopinstanceexecution"></a>
 # **StopInstanceExecution**
-> Object StopInstanceExecution (string runId)
+> Object StopInstanceExecution (string instanceId, string runId)
 
 [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
 
@@ -407,15 +407,16 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RunsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RunsApi>();
+            var instanceId = "instanceId_example";  // string | 
             var runId = "runId_example";  // string | Run identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Object result = apiInstance.StopInstanceExecution(runId, opts: opts);
+                // Object result = apiInstance.StopInstanceExecution(instanceId, runId, opts: opts);
 
                 // [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
-                Object result = apiInstance.StopInstanceExecution(runId);
+                Object result = apiInstance.StopInstanceExecution(instanceId, runId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -436,7 +437,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
-    ApiResponse<Object> response = apiInstance.StopInstanceExecutionWithHttpInfo(runId);
+    ApiResponse<Object> response = apiInstance.StopInstanceExecutionWithHttpInfo(instanceId, runId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -453,6 +454,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
+| **instanceId** | **string** |  |  |
 | **runId** | **string** | Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;. |  |
 
 ### Return type

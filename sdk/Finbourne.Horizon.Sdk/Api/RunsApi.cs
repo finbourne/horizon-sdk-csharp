@@ -119,11 +119,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Object</returns>
-        Object StopInstanceExecution(string runId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Object StopInstanceExecution(string instanceId, string runId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
@@ -132,11 +133,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> StopInstanceExecutionWithHttpInfo(string runId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> StopInstanceExecutionWithHttpInfo(string instanceId, string runId, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -240,12 +242,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> StopInstanceExecutionAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Object> StopInstanceExecutionAsync(string instanceId, string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
@@ -254,12 +257,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> StopInstanceExecutionWithHttpInfoAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> StopInstanceExecutionWithHttpInfoAsync(string instanceId, string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -1017,13 +1021,14 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Object</returns>
-        public Object StopInstanceExecution(string runId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Object StopInstanceExecution(string instanceId, string runId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<Object> localVarResponse = StopInstanceExecutionWithHttpInfo(runId, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Object> localVarResponse = StopInstanceExecutionWithHttpInfo(instanceId, runId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -1031,12 +1036,19 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<Object> StopInstanceExecutionWithHttpInfo(string runId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<Object> StopInstanceExecutionWithHttpInfo(string instanceId, string runId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling RunsApi->StopInstanceExecution");
+            }
+
             // verify the required parameter 'runId' is set
             if (runId == null)
             {
@@ -1075,6 +1087,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
             localVarRequestOptions.PathParameters.Add("runId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
 
             localVarRequestOptions.Operation = "RunsApi.StopInstanceExecution";
@@ -1098,7 +1111,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/runs/{runId}/stop", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<Object>("/api/runs/{instanceId}/{runId}/stop", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("StopInstanceExecution", localVarResponse);
@@ -1115,14 +1128,15 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> StopInstanceExecutionAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Object> StopInstanceExecutionAsync(string instanceId, string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<Object> localVarResponse = await StopInstanceExecutionWithHttpInfoAsync(runId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Object> localVarResponse = await StopInstanceExecutionWithHttpInfoAsync(instanceId, runId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -1130,13 +1144,20 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="instanceId"></param>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> StopInstanceExecutionWithHttpInfoAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> StopInstanceExecutionWithHttpInfoAsync(string instanceId, string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'instanceId' is set
+            if (instanceId == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling RunsApi->StopInstanceExecution");
+            }
+
             // verify the required parameter 'runId' is set
             if (runId == null)
             {
@@ -1176,6 +1197,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
+            localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
             localVarRequestOptions.PathParameters.Add("runId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
 
             localVarRequestOptions.Operation = "RunsApi.StopInstanceExecution";
@@ -1199,7 +1221,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/runs/{runId}/stop", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/runs/{instanceId}/{runId}/stop", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
