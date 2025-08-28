@@ -10,5 +10,16 @@ Name | Type | Description | Notes
 **RowsIgnored** | **int?** | The number of rows that were not processed. | [optional] 
 **RowsFailed** | **int?** | The number of rows that failed when being processed. | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+
+RowDetails rowDetailsInstance = new RowDetails(
+    rowsTotal: rowsTotal,
+    rowsSucceeded: rowsSucceeded,
+    rowsIgnored: rowsIgnored,
+    rowsFailed: rowsFailed);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

@@ -7,5 +7,13 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Limit** | **int?** | The maximum number of results to be returned in a \&quot;page\&quot; | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+
+QuerySpecification querySpecificationInstance = new QuerySpecification(
+    limit: limit);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

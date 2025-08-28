@@ -16,5 +16,32 @@ Name | Type | Description | Notes
 **Lifetime** | **string** |  | 
 **ConstraintStyle** | **string** |  | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+string key = "key";
+string productEntityItemKey = "productEntityItemKey";
+string domain = "domain";
+string scope = "scope";
+string code = "code";
+string displayName = "displayName";
+ResourceId dataTypeId = new ResourceId();
+string description = "description";
+string lifetime = "lifetime";
+string constraintStyle = "constraintStyle";
+
+LusidPropertyDefinition lusidPropertyDefinitionInstance = new LusidPropertyDefinition(
+    key: key,
+    productEntityItemKey: productEntityItemKey,
+    domain: domain,
+    scope: scope,
+    code: code,
+    displayName: displayName,
+    dataTypeId: dataTypeId,
+    description: description,
+    lifetime: lifetime,
+    constraintStyle: constraintStyle);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

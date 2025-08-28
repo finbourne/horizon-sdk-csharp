@@ -68,5 +68,135 @@ Name | Type | Description | Notes
 **Format** | **string** |  | [optional] 
 **Validators** | **List&lt;Object&gt;** |  | [readonly] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+string schemaVersion = "example schemaVersion";
+bool? valid = //"True";
+string reference = "example reference";
+JSchema? ref = new JSchema();
+
+string recursiveReference = "example recursiveReference";
+bool? recursiveAnchor = //"True";
+string id = "example id";
+string anchor = "example anchor";
+Dictionary<string, JSchema> properties = new Dictionary<string, JSchema>();
+List<JSchema> items = new List<JSchema>();
+bool itemsPositionValidation = //"True";
+List<string> required = new List<string>();
+List<JSchema> allOf = new List<JSchema>();
+List<JSchema> anyOf = new List<JSchema>();
+List<JSchema> oneOf = new List<JSchema>();
+JSchema? if = new JSchema();
+
+JSchema? then = new JSchema();
+
+JSchema? else = new JSchema();
+
+JSchema? not = new JSchema();
+
+JSchema? contains = new JSchema();
+
+JSchema? propertyNames = new JSchema();
+
+List<Object> enum = new List<Object>();
+bool uniqueItems = //"True";
+bool exclusiveMinimum = //"True";
+bool exclusiveMaximum = //"True";
+string contentEncoding = "example contentEncoding";
+string contentMediaType = "example contentMediaType";
+bool? writeOnly = //"True";
+bool? readOnly = //"True";
+Dictionary<string, Object> extensionData = new Dictionary<string, Object>();
+string title = "example title";
+string description = "example description";
+string pattern = "example pattern";
+Dictionary<string, Object> dependencies = new Dictionary<string, Object>();
+Dictionary<string, List<string>> dependentRequired = new Dictionary<string, List<string>>();
+Dictionary<string, JSchema> dependentSchemas = new Dictionary<string, JSchema>();
+Dictionary<string, JSchema> patternProperties = new Dictionary<string, JSchema>();
+JSchema? additionalProperties = new JSchema();
+
+bool allowAdditionalProperties = //"True";
+bool allowAdditionalPropertiesSpecified = //"True";
+JSchema? unevaluatedProperties = new JSchema();
+
+bool? allowUnevaluatedProperties = //"True";
+JSchema? additionalItems = new JSchema();
+
+bool allowAdditionalItems = //"True";
+bool allowAdditionalItemsSpecified = //"True";
+JSchema? unevaluatedItems = new JSchema();
+
+bool? allowUnevaluatedItems = //"True";
+string format = "example format";
+List<Object> validators = new List<Object>();
+
+JSchema jSchemaInstance = new JSchema(
+    schemaVersion: schemaVersion,
+    valid: valid,
+    reference: reference,
+    ref: ref,
+    recursiveReference: recursiveReference,
+    recursiveAnchor: recursiveAnchor,
+    id: id,
+    anchor: anchor,
+    type: type,
+    default: default,
+    properties: properties,
+    items: items,
+    itemsPositionValidation: itemsPositionValidation,
+    required: required,
+    allOf: allOf,
+    anyOf: anyOf,
+    oneOf: oneOf,
+    if: if,
+    then: then,
+    else: else,
+    not: not,
+    contains: contains,
+    propertyNames: propertyNames,
+    enum: enum,
+    const: const,
+    uniqueItems: uniqueItems,
+    minimumLength: minimumLength,
+    maximumLength: maximumLength,
+    minimum: minimum,
+    maximum: maximum,
+    exclusiveMinimum: exclusiveMinimum,
+    exclusiveMaximum: exclusiveMaximum,
+    minimumItems: minimumItems,
+    maximumItems: maximumItems,
+    minimumProperties: minimumProperties,
+    maximumProperties: maximumProperties,
+    minimumContains: minimumContains,
+    maximumContains: maximumContains,
+    contentEncoding: contentEncoding,
+    contentMediaType: contentMediaType,
+    writeOnly: writeOnly,
+    readOnly: readOnly,
+    extensionData: extensionData,
+    title: title,
+    description: description,
+    multipleOf: multipleOf,
+    pattern: pattern,
+    dependencies: dependencies,
+    dependentRequired: dependentRequired,
+    dependentSchemas: dependentSchemas,
+    patternProperties: patternProperties,
+    additionalProperties: additionalProperties,
+    allowAdditionalProperties: allowAdditionalProperties,
+    allowAdditionalPropertiesSpecified: allowAdditionalPropertiesSpecified,
+    unevaluatedProperties: unevaluatedProperties,
+    allowUnevaluatedProperties: allowUnevaluatedProperties,
+    additionalItems: additionalItems,
+    allowAdditionalItems: allowAdditionalItems,
+    allowAdditionalItemsSpecified: allowAdditionalItemsSpecified,
+    unevaluatedItems: unevaluatedItems,
+    allowUnevaluatedItems: allowUnevaluatedItems,
+    format: format,
+    validators: validators);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

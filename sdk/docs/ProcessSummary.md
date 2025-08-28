@@ -12,5 +12,23 @@ Name | Type | Description | Notes
 **Rows** | [**RowDetails**](RowDetails.md) |  | 
 **FileDetails** | [**List&lt;FileDetails&gt;**](FileDetails.md) |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+string category = "example category";
+string status = "status";
+string message = "message";
+RowDetails rows = new RowDetails();
+List<FileDetails> fileDetails = new List<FileDetails>();
+
+ProcessSummary processSummaryInstance = new ProcessSummary(
+    endTime: endTime,
+    category: category,
+    status: status,
+    message: message,
+    rows: rows,
+    fileDetails: fileDetails);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

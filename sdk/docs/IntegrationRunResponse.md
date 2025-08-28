@@ -13,5 +13,28 @@ Name | Type | Description | Notes
 **VarVersion** | [**IntegrationRunVersion**](IntegrationRunVersion.md) |  | 
 **IntegrationLogs** | **Dictionary&lt;string, Dictionary&lt;string, IntegrationRunLog&gt;&gt;** |  | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+Guid runId = "runId";
+Guid? instanceId = "example instanceId";
+string instanceName = "example instanceName";
+string status = "example status";
+string message = "example message";
+IntegrationRunIntegration integration = new IntegrationRunIntegration();
+IntegrationRunVersion varVersion = new IntegrationRunVersion();
+Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = new Dictionary<string, Dictionary<string, IntegrationRunLog>>();
+
+IntegrationRunResponse integrationRunResponseInstance = new IntegrationRunResponse(
+    runId: runId,
+    instanceId: instanceId,
+    instanceName: instanceName,
+    status: status,
+    message: message,
+    integration: integration,
+    varVersion: varVersion,
+    integrationLogs: integrationLogs);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

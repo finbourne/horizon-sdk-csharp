@@ -13,5 +13,26 @@ Name | Type | Description | Notes
 **EntitySubType** | **string** | The LUSID Entity sub type this is valid for | [optional] 
 **Versions** | **List&lt;string&gt;** | The versions of the Vendor integration this mapping is valid for | 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+string fieldName = "fieldName";
+string defaultValue = "example defaultValue";
+List<VendorField> vendorFields = new List<VendorField>();
+string transformationDescription = "example transformationDescription";
+string entityType = "entityType";
+string entitySubType = "example entitySubType";
+List<string> versions = new List<string>();
+
+FieldMapping fieldMappingInstance = new FieldMapping(
+    fieldName: fieldName,
+    defaultValue: defaultValue,
+    vendorFields: vendorFields,
+    transformationDescription: transformationDescription,
+    entityType: entityType,
+    entitySubType: entitySubType,
+    versions: versions);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

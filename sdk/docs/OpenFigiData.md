@@ -22,5 +22,44 @@ Name | Type | Description | Notes
 **LusidInstrumentId** | **string** | If an instrument with this FIGI exists, the LUID of that instrument in LUSID | [optional] 
 **LusidInstrumentScope** | **string** | If an instrument with this FIGI exists, the Scope of that instrument in LUSID | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+string figi = "figi";
+string name = "example name";
+string ticker = "example ticker";
+string exchangeCode = "example exchangeCode";
+string mic = "example mic";
+string exchangeName = "example exchangeName";
+string marketSector = "example marketSector";
+string generalSecurityType = "example generalSecurityType";
+string securityType = "example securityType";
+string securityDescription = "example securityDescription";
+string compositeFigi = "example compositeFigi";
+string shareClassFigi = "example shareClassFigi";
+string matchType = "example matchType";
+string searchInput = "example searchInput";
+string lusidInstrumentId = "example lusidInstrumentId";
+string lusidInstrumentScope = "example lusidInstrumentScope";
+
+OpenFigiData openFigiDataInstance = new OpenFigiData(
+    figi: figi,
+    name: name,
+    ticker: ticker,
+    exchangeCode: exchangeCode,
+    mic: mic,
+    exchangeName: exchangeName,
+    marketSector: marketSector,
+    generalSecurityType: generalSecurityType,
+    securityType: securityType,
+    securityDescription: securityDescription,
+    compositeFigi: compositeFigi,
+    shareClassFigi: shareClassFigi,
+    matchType: matchType,
+    searchInput: searchInput,
+    lusidInstrumentId: lusidInstrumentId,
+    lusidInstrumentScope: lusidInstrumentScope);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

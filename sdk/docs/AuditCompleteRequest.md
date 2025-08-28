@@ -19,5 +19,31 @@ Name | Type | Description | Notes
 **AuditFiles** | [**List&lt;AuditFileDetails&gt;**](AuditFileDetails.md) | A list of file details for attaching to the event | 
 **ProcessNameOverride** | **string** | Optional Name for how the process appears in Data Feed Monitoring | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+string id = "id";
+string userId = "userId";
+string schedulerRunId = "schedulerRunId";
+string message = "message";
+List<AuditFileDetails> auditFiles = new List<AuditFileDetails>();
+string processNameOverride = "example processNameOverride";
+
+AuditCompleteRequest auditCompleteRequestInstance = new AuditCompleteRequest(
+    id: id,
+    userId: userId,
+    schedulerRunId: schedulerRunId,
+    startTime: startTime,
+    endTime: endTime,
+    message: message,
+    status: status,
+    rowsTotal: rowsTotal,
+    rowsSucceeded: rowsSucceeded,
+    rowsFailed: rowsFailed,
+    rowsIgnored: rowsIgnored,
+    auditFiles: auditFiles,
+    processNameOverride: processNameOverride);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

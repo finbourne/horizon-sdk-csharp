@@ -12,5 +12,23 @@ Name | Type | Description | Notes
 **Message** | **string** | A descriptive message to accompany the status | 
 **ProcessNameOverride** | **string** | Optional Name for how the process appears in Data Feed Monitoring | [optional] 
 
-[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
+```csharp
+using Finbourne.Horizon.Sdk.Model;
+using System;
 
+string id = "id";
+string userId = "userId";
+string schedulerRunId = "schedulerRunId";
+string message = "message";
+string processNameOverride = "example processNameOverride";
+
+AuditUpdateRequest auditUpdateRequestInstance = new AuditUpdateRequest(
+    id: id,
+    userId: userId,
+    schedulerRunId: schedulerRunId,
+    startTime: startTime,
+    message: message,
+    processNameOverride: processNameOverride);
+```
+
+[Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
