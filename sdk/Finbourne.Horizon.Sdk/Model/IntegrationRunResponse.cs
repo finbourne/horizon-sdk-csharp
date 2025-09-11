@@ -37,6 +37,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// Initializes a new instance of the <see cref="IntegrationRunResponse" /> class.
         /// </summary>
         /// <param name="runId">runId (required).</param>
+        /// <param name="refRunId">refRunId.</param>
+        /// <param name="attempt">attempt (required).</param>
         /// <param name="instanceId">instanceId.</param>
         /// <param name="instanceName">instanceName.</param>
         /// <param name="status">status.</param>
@@ -44,9 +46,10 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="integration">integration (required).</param>
         /// <param name="varVersion">varVersion (required).</param>
         /// <param name="integrationLogs">integrationLogs.</param>
-        public IntegrationRunResponse(Guid runId = default(Guid), Guid? instanceId = default(Guid?), string instanceName = default(string), string status = default(string), string message = default(string), IntegrationRunIntegration integration = default(IntegrationRunIntegration), IntegrationRunVersion varVersion = default(IntegrationRunVersion), Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = default(Dictionary<string, Dictionary<string, IntegrationRunLog>>))
+        public IntegrationRunResponse(Guid runId = default(Guid), Guid? refRunId = default(Guid?), int attempt = default(int), Guid? instanceId = default(Guid?), string instanceName = default(string), string status = default(string), string message = default(string), IntegrationRunIntegration integration = default(IntegrationRunIntegration), IntegrationRunVersion varVersion = default(IntegrationRunVersion), Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = default(Dictionary<string, Dictionary<string, IntegrationRunLog>>))
         {
             this.RunId = runId;
+            this.Attempt = attempt;
             // to ensure "integration" is required (not null)
             if (integration == null)
             {
@@ -59,6 +62,7 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("varVersion is a required property for IntegrationRunResponse and cannot be null");
             }
             this.VarVersion = varVersion;
+            this.RefRunId = refRunId;
             this.InstanceId = instanceId;
             this.InstanceName = instanceName;
             this.Status = status;
@@ -71,6 +75,18 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         [DataMember(Name = "runId", IsRequired = true, EmitDefaultValue = true)]
         public Guid RunId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets RefRunId
+        /// </summary>
+        [DataMember(Name = "refRunId", EmitDefaultValue = true)]
+        public Guid? RefRunId { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Attempt
+        /// </summary>
+        [DataMember(Name = "attempt", IsRequired = true, EmitDefaultValue = true)]
+        public int Attempt { get; set; }
 
         /// <summary>
         /// Gets or Sets InstanceId
@@ -123,6 +139,8 @@ namespace Finbourne.Horizon.Sdk.Model
             StringBuilder sb = new StringBuilder();
             sb.Append("class IntegrationRunResponse {\n");
             sb.Append("  RunId: ").Append(RunId).Append("\n");
+            sb.Append("  RefRunId: ").Append(RefRunId).Append("\n");
+            sb.Append("  Attempt: ").Append(Attempt).Append("\n");
             sb.Append("  InstanceId: ").Append(InstanceId).Append("\n");
             sb.Append("  InstanceName: ").Append(InstanceName).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
@@ -169,6 +187,15 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.RunId == input.RunId ||
                     (this.RunId != null &&
                     this.RunId.Equals(input.RunId))
+                ) && 
+                (
+                    this.RefRunId == input.RefRunId ||
+                    (this.RefRunId != null &&
+                    this.RefRunId.Equals(input.RefRunId))
+                ) && 
+                (
+                    this.Attempt == input.Attempt ||
+                    this.Attempt.Equals(input.Attempt)
                 ) && 
                 (
                     this.InstanceId == input.InstanceId ||
@@ -221,6 +248,11 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.RunId.GetHashCode();
                 }
+                if (this.RefRunId != null)
+                {
+                    hashCode = (hashCode * 59) + this.RefRunId.GetHashCode();
+                }
+                hashCode = (hashCode * 59) + this.Attempt.GetHashCode();
                 if (this.InstanceId != null)
                 {
                     hashCode = (hashCode * 59) + this.InstanceId.GetHashCode();

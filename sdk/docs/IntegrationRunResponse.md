@@ -5,6 +5,8 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RunId** | **Guid** |  | 
+**RefRunId** | **Guid?** |  | [optional] 
+**Attempt** | **int** |  | 
 **InstanceId** | **Guid?** |  | [optional] 
 **InstanceName** | **string** |  | [optional] 
 **Status** | **string** |  | [optional] 
@@ -18,6 +20,7 @@ using Finbourne.Horizon.Sdk.Model;
 using System;
 
 Guid runId = "runId";
+Guid? refRunId = "example refRunId";
 Guid? instanceId = "example instanceId";
 string instanceName = "example instanceName";
 string status = "example status";
@@ -28,6 +31,8 @@ Dictionary<string, Dictionary<string, IntegrationRunLog>> integrationLogs = new 
 
 IntegrationRunResponse integrationRunResponseInstance = new IntegrationRunResponse(
     runId: runId,
+    refRunId: refRunId,
+    attempt: attempt,
     instanceId: instanceId,
     instanceName: instanceName,
     status: status,
