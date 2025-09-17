@@ -6,7 +6,7 @@ Holds information about Horizon Audit Files
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **FileType** | **AuditFileType** |  | 
-**FilePathAndName** | **string** |  | 
+**FilePathAndName** | **string** | The file path and name | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;

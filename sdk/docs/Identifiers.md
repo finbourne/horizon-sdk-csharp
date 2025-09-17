@@ -5,7 +5,7 @@ A list of lusid instrument ids
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**LusidInstrumentIds** | **List&lt;string&gt;** |  | 
+**LusidInstrumentIds** | **List&lt;string&gt;** | The collection of LUSID instrument identifiers | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;

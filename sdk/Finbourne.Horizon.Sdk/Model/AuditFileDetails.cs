@@ -43,7 +43,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// Initializes a new instance of the <see cref="AuditFileDetails" /> class.
         /// </summary>
         /// <param name="fileType">fileType (required).</param>
-        /// <param name="filePathAndName">filePathAndName (required).</param>
+        /// <param name="filePathAndName">The file path and name (required).</param>
         public AuditFileDetails(AuditFileType fileType = default(AuditFileType), string filePathAndName = default(string))
         {
             this.FileType = fileType;
@@ -56,8 +56,9 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets FilePathAndName
+        /// The file path and name
         /// </summary>
+        /// <value>The file path and name</value>
         [DataMember(Name = "filePathAndName", IsRequired = true, EmitDefaultValue = true)]
         public string FilePathAndName { get; set; }
 
@@ -142,6 +143,18 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // FilePathAndName (string) maxLength
+            if (this.FilePathAndName != null && this.FilePathAndName.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FilePathAndName, length must be less than 1024.", new [] { "FilePathAndName" });
+            }
+
+            // FilePathAndName (string) minLength
+            if (this.FilePathAndName != null && this.FilePathAndName.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FilePathAndName, length must be greater than 0.", new [] { "FilePathAndName" });
+            }
+
             yield break;
         }
     }

@@ -36,7 +36,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="PermIdData" /> class.
         /// </summary>
-        /// <param name="figi">&gt;FIGI assigned to the instrument. (required).</param>
+        /// <param name="figi">FIGI assigned to the instrument. (required).</param>
         /// <param name="ticker">Ticker assigned to the instrument (required).</param>
         /// <param name="mic">ISO market identification code(MIC) of the desired instrument(s) (required).</param>
         /// <param name="quotePermId">QuotePermId of the instrument (required).</param>
@@ -73,9 +73,9 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
-        /// &gt;FIGI assigned to the instrument.
+        /// FIGI assigned to the instrument.
         /// </summary>
-        /// <value>&gt;FIGI assigned to the instrument.</value>
+        /// <value>FIGI assigned to the instrument.</value>
         [DataMember(Name = "figi", IsRequired = true, EmitDefaultValue = true)]
         public string Figi { get; set; }
 
@@ -235,6 +235,66 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Figi (string) maxLength
+            if (this.Figi != null && this.Figi.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Figi, length must be less than 1024.", new [] { "Figi" });
+            }
+
+            // Figi (string) minLength
+            if (this.Figi != null && this.Figi.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Figi, length must be greater than 0.", new [] { "Figi" });
+            }
+
+            // Ticker (string) maxLength
+            if (this.Ticker != null && this.Ticker.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ticker, length must be less than 1024.", new [] { "Ticker" });
+            }
+
+            // Ticker (string) minLength
+            if (this.Ticker != null && this.Ticker.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ticker, length must be greater than 0.", new [] { "Ticker" });
+            }
+
+            // Mic (string) maxLength
+            if (this.Mic != null && this.Mic.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Mic, length must be less than 1024.", new [] { "Mic" });
+            }
+
+            // Mic (string) minLength
+            if (this.Mic != null && this.Mic.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Mic, length must be greater than 0.", new [] { "Mic" });
+            }
+
+            // QuotePermId (string) maxLength
+            if (this.QuotePermId != null && this.QuotePermId.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QuotePermId, length must be less than 1024.", new [] { "QuotePermId" });
+            }
+
+            // QuotePermId (string) minLength
+            if (this.QuotePermId != null && this.QuotePermId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for QuotePermId, length must be greater than 0.", new [] { "QuotePermId" });
+            }
+
+            // LegalEntityIdentifier (string) maxLength
+            if (this.LegalEntityIdentifier != null && this.LegalEntityIdentifier.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LegalEntityIdentifier, length must be less than 1024.", new [] { "LegalEntityIdentifier" });
+            }
+
+            // LegalEntityIdentifier (string) minLength
+            if (this.LegalEntityIdentifier != null && this.LegalEntityIdentifier.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LegalEntityIdentifier, length must be greater than 0.", new [] { "LegalEntityIdentifier" });
+            }
+
             yield break;
         }
     }

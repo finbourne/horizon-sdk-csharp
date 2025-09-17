@@ -36,7 +36,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="Identifiers" /> class.
         /// </summary>
-        /// <param name="lusidInstrumentIds">lusidInstrumentIds (required).</param>
+        /// <param name="lusidInstrumentIds">The collection of LUSID instrument identifiers (required).</param>
         public Identifiers(List<string> lusidInstrumentIds = default(List<string>))
         {
             // to ensure "lusidInstrumentIds" is required (not null)
@@ -48,8 +48,9 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets LusidInstrumentIds
+        /// The collection of LUSID instrument identifiers
         /// </summary>
+        /// <value>The collection of LUSID instrument identifiers</value>
         [DataMember(Name = "lusidInstrumentIds", IsRequired = true, EmitDefaultValue = true)]
         public List<string> LusidInstrumentIds { get; set; }
 

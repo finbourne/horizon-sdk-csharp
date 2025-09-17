@@ -414,6 +414,198 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Figi (string) maxLength
+            if (this.Figi != null && this.Figi.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Figi, length must be less than 1024.", new [] { "Figi" });
+            }
+
+            // Figi (string) minLength
+            if (this.Figi != null && this.Figi.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Figi, length must be greater than 0.", new [] { "Figi" });
+            }
+
+            // Name (string) maxLength
+            if (this.Name != null && this.Name.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be less than 1024.", new [] { "Name" });
+            }
+
+            // Name (string) minLength
+            if (this.Name != null && this.Name.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Name, length must be greater than 0.", new [] { "Name" });
+            }
+
+            // Ticker (string) maxLength
+            if (this.Ticker != null && this.Ticker.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ticker, length must be less than 1024.", new [] { "Ticker" });
+            }
+
+            // Ticker (string) minLength
+            if (this.Ticker != null && this.Ticker.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Ticker, length must be greater than 0.", new [] { "Ticker" });
+            }
+
+            // ExchangeCode (string) maxLength
+            if (this.ExchangeCode != null && this.ExchangeCode.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeCode, length must be less than 1024.", new [] { "ExchangeCode" });
+            }
+
+            // ExchangeCode (string) minLength
+            if (this.ExchangeCode != null && this.ExchangeCode.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeCode, length must be greater than 0.", new [] { "ExchangeCode" });
+            }
+
+            // Mic (string) maxLength
+            if (this.Mic != null && this.Mic.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Mic, length must be less than 1024.", new [] { "Mic" });
+            }
+
+            // Mic (string) minLength
+            if (this.Mic != null && this.Mic.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Mic, length must be greater than 0.", new [] { "Mic" });
+            }
+
+            // ExchangeName (string) maxLength
+            if (this.ExchangeName != null && this.ExchangeName.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeName, length must be less than 1024.", new [] { "ExchangeName" });
+            }
+
+            // ExchangeName (string) minLength
+            if (this.ExchangeName != null && this.ExchangeName.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ExchangeName, length must be greater than 0.", new [] { "ExchangeName" });
+            }
+
+            // MarketSector (string) maxLength
+            if (this.MarketSector != null && this.MarketSector.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketSector, length must be less than 1024.", new [] { "MarketSector" });
+            }
+
+            // MarketSector (string) minLength
+            if (this.MarketSector != null && this.MarketSector.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MarketSector, length must be greater than 0.", new [] { "MarketSector" });
+            }
+
+            // GeneralSecurityType (string) maxLength
+            if (this.GeneralSecurityType != null && this.GeneralSecurityType.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralSecurityType, length must be less than 1024.", new [] { "GeneralSecurityType" });
+            }
+
+            // GeneralSecurityType (string) minLength
+            if (this.GeneralSecurityType != null && this.GeneralSecurityType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for GeneralSecurityType, length must be greater than 0.", new [] { "GeneralSecurityType" });
+            }
+
+            // SecurityType (string) maxLength
+            if (this.SecurityType != null && this.SecurityType.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityType, length must be less than 1024.", new [] { "SecurityType" });
+            }
+
+            // SecurityType (string) minLength
+            if (this.SecurityType != null && this.SecurityType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityType, length must be greater than 0.", new [] { "SecurityType" });
+            }
+
+            // SecurityDescription (string) maxLength
+            if (this.SecurityDescription != null && this.SecurityDescription.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityDescription, length must be less than 1024.", new [] { "SecurityDescription" });
+            }
+
+            // SecurityDescription (string) minLength
+            if (this.SecurityDescription != null && this.SecurityDescription.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SecurityDescription, length must be greater than 0.", new [] { "SecurityDescription" });
+            }
+
+            // CompositeFigi (string) maxLength
+            if (this.CompositeFigi != null && this.CompositeFigi.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompositeFigi, length must be less than 1024.", new [] { "CompositeFigi" });
+            }
+
+            // CompositeFigi (string) minLength
+            if (this.CompositeFigi != null && this.CompositeFigi.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for CompositeFigi, length must be greater than 0.", new [] { "CompositeFigi" });
+            }
+
+            // ShareClassFigi (string) maxLength
+            if (this.ShareClassFigi != null && this.ShareClassFigi.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassFigi, length must be less than 1024.", new [] { "ShareClassFigi" });
+            }
+
+            // ShareClassFigi (string) minLength
+            if (this.ShareClassFigi != null && this.ShareClassFigi.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for ShareClassFigi, length must be greater than 0.", new [] { "ShareClassFigi" });
+            }
+
+            // MatchType (string) maxLength
+            if (this.MatchType != null && this.MatchType.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchType, length must be less than 1024.", new [] { "MatchType" });
+            }
+
+            // MatchType (string) minLength
+            if (this.MatchType != null && this.MatchType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for MatchType, length must be greater than 0.", new [] { "MatchType" });
+            }
+
+            // SearchInput (string) maxLength
+            if (this.SearchInput != null && this.SearchInput.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchInput, length must be less than 1024.", new [] { "SearchInput" });
+            }
+
+            // SearchInput (string) minLength
+            if (this.SearchInput != null && this.SearchInput.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for SearchInput, length must be greater than 0.", new [] { "SearchInput" });
+            }
+
+            // LusidInstrumentId (string) maxLength
+            if (this.LusidInstrumentId != null && this.LusidInstrumentId.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LusidInstrumentId, length must be less than 1024.", new [] { "LusidInstrumentId" });
+            }
+
+            // LusidInstrumentId (string) minLength
+            if (this.LusidInstrumentId != null && this.LusidInstrumentId.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LusidInstrumentId, length must be greater than 0.", new [] { "LusidInstrumentId" });
+            }
+
+            // LusidInstrumentScope (string) maxLength
+            if (this.LusidInstrumentScope != null && this.LusidInstrumentScope.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LusidInstrumentScope, length must be less than 1024.", new [] { "LusidInstrumentScope" });
+            }
+
+            // LusidInstrumentScope (string) minLength
+            if (this.LusidInstrumentScope != null && this.LusidInstrumentScope.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for LusidInstrumentScope, length must be greater than 0.", new [] { "LusidInstrumentScope" });
+            }
+
             yield break;
         }
     }

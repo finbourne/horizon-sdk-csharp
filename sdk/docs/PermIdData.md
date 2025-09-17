@@ -5,7 +5,7 @@ PermId Data Structure
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Figi** | **string** | &gt;FIGI assigned to the instrument. | 
+**Figi** | **string** | FIGI assigned to the instrument. | 
 **Ticker** | **string** | Ticker assigned to the instrument | 
 **Mic** | **string** | ISO market identification code(MIC) of the desired instrument(s) | 
 **QuotePermId** | **string** | QuotePermId of the instrument | 

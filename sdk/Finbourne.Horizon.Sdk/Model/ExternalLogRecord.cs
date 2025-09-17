@@ -368,6 +368,150 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Loglevel (string) maxLength
+            if (this.Loglevel != null && this.Loglevel.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Loglevel, length must be less than 64.", new [] { "Loglevel" });
+            }
+
+            // Loglevel (string) minLength
+            if (this.Loglevel != null && this.Loglevel.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Loglevel, length must be greater than 0.", new [] { "Loglevel" });
+            }
+
+            // Logstatus (string) maxLength
+            if (this.Logstatus != null && this.Logstatus.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logstatus, length must be less than 64.", new [] { "Logstatus" });
+            }
+
+            // Logstatus (string) minLength
+            if (this.Logstatus != null && this.Logstatus.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Logstatus, length must be greater than 0.", new [] { "Logstatus" });
+            }
+
+            // Sourcerecordtype (string) maxLength
+            if (this.Sourcerecordtype != null && this.Sourcerecordtype.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sourcerecordtype, length must be less than 128.", new [] { "Sourcerecordtype" });
+            }
+
+            // Sourcerecordtype (string) minLength
+            if (this.Sourcerecordtype != null && this.Sourcerecordtype.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sourcerecordtype, length must be greater than 0.", new [] { "Sourcerecordtype" });
+            }
+
+            // Sourceprimaryidtype (string) maxLength
+            if (this.Sourceprimaryidtype != null && this.Sourceprimaryidtype.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sourceprimaryidtype, length must be less than 128.", new [] { "Sourceprimaryidtype" });
+            }
+
+            // Sourceprimaryidtype (string) minLength
+            if (this.Sourceprimaryidtype != null && this.Sourceprimaryidtype.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sourceprimaryidtype, length must be greater than 0.", new [] { "Sourceprimaryidtype" });
+            }
+
+            // Sourceprimaryidvalue (string) maxLength
+            if (this.Sourceprimaryidvalue != null && this.Sourceprimaryidvalue.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sourceprimaryidvalue, length must be less than 128.", new [] { "Sourceprimaryidvalue" });
+            }
+
+            // Sourceprimaryidvalue (string) minLength
+            if (this.Sourceprimaryidvalue != null && this.Sourceprimaryidvalue.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Sourceprimaryidvalue, length must be greater than 0.", new [] { "Sourceprimaryidvalue" });
+            }
+
+            // Targetrecordtype (string) maxLength
+            if (this.Targetrecordtype != null && this.Targetrecordtype.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetrecordtype, length must be less than 128.", new [] { "Targetrecordtype" });
+            }
+
+            // Targetrecordtype (string) minLength
+            if (this.Targetrecordtype != null && this.Targetrecordtype.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetrecordtype, length must be greater than 0.", new [] { "Targetrecordtype" });
+            }
+
+            // Targetrecordaction (string) maxLength
+            if (this.Targetrecordaction != null && this.Targetrecordaction.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetrecordaction, length must be less than 128.", new [] { "Targetrecordaction" });
+            }
+
+            // Targetrecordaction (string) minLength
+            if (this.Targetrecordaction != null && this.Targetrecordaction.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetrecordaction, length must be greater than 0.", new [] { "Targetrecordaction" });
+            }
+
+            // Targetprimaryidtype (string) maxLength
+            if (this.Targetprimaryidtype != null && this.Targetprimaryidtype.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetprimaryidtype, length must be less than 128.", new [] { "Targetprimaryidtype" });
+            }
+
+            // Targetprimaryidtype (string) minLength
+            if (this.Targetprimaryidtype != null && this.Targetprimaryidtype.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetprimaryidtype, length must be greater than 0.", new [] { "Targetprimaryidtype" });
+            }
+
+            // Targetprimaryidvalue (string) maxLength
+            if (this.Targetprimaryidvalue != null && this.Targetprimaryidvalue.Length > 128)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetprimaryidvalue, length must be less than 128.", new [] { "Targetprimaryidvalue" });
+            }
+
+            // Targetprimaryidvalue (string) minLength
+            if (this.Targetprimaryidvalue != null && this.Targetprimaryidvalue.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Targetprimaryidvalue, length must be greater than 0.", new [] { "Targetprimaryidvalue" });
+            }
+
+            // Message (string) maxLength
+            if (this.Message != null && this.Message.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be less than 1024.", new [] { "Message" });
+            }
+
+            // Message (string) minLength
+            if (this.Message != null && this.Message.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 0.", new [] { "Message" });
+            }
+
+            // Messagetype (string) maxLength
+            if (this.Messagetype != null && this.Messagetype.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Messagetype, length must be less than 64.", new [] { "Messagetype" });
+            }
+
+            // Messagetype (string) minLength
+            if (this.Messagetype != null && this.Messagetype.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Messagetype, length must be greater than 0.", new [] { "Messagetype" });
+            }
+
+            // Timestamp (string) maxLength
+            if (this.Timestamp != null && this.Timestamp.Length > 64)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timestamp, length must be less than 64.", new [] { "Timestamp" });
+            }
+
+            // Timestamp (string) minLength
+            if (this.Timestamp != null && this.Timestamp.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Timestamp, length must be greater than 0.", new [] { "Timestamp" });
+            }
+
             yield break;
         }
     }
