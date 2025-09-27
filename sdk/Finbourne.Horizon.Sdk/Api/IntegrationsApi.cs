@@ -1678,6 +1678,7 @@ namespace Finbourne.Horizon.Sdk.Api
             localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
 

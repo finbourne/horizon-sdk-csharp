@@ -1306,6 +1306,7 @@ namespace Finbourne.Horizon.Sdk.Api
 
             if (processName != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "processName", processName));
             }
             localVarRequestOptions.Data = queryRequest;

@@ -545,6 +545,7 @@ namespace Finbourne.Horizon.Sdk.Api
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntityType", lusidEntityType));
             if (lusidEntitySubType != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntitySubType", lusidEntitySubType));
             }
 
@@ -793,6 +794,7 @@ namespace Finbourne.Horizon.Sdk.Api
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntityType", lusidEntityType));
             if (lusidEntitySubType != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntitySubType", lusidEntitySubType));
             }
 
@@ -1041,6 +1043,7 @@ namespace Finbourne.Horizon.Sdk.Api
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntityType", lusidEntityType));
             if (lusidEntitySubType != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntitySubType", lusidEntitySubType));
             }
 
@@ -1509,6 +1512,7 @@ namespace Finbourne.Horizon.Sdk.Api
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntityType", lusidEntityType));
             if (lusidEntitySubType != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "lusidEntitySubType", lusidEntitySubType));
             }
             localVarRequestOptions.Data = requestBody;

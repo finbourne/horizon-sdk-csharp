@@ -1375,10 +1375,12 @@ namespace Finbourne.Horizon.Sdk.Api
             localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "usePermId", usePermId));
             if (limit != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "limit", limit));
             }
             if (marketSector != null)
             {
+
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "marketSector", marketSector));
             }
 
