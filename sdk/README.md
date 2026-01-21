@@ -16,8 +16,11 @@ Class | Method | HTTP request | Description
 *IntegrationsApi* | [**ExecuteInstance**](docs/IntegrationsApi.md#executeinstance) | **POST** /api/integrations/instances/{instanceId}/execute | [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
 *IntegrationsApi* | [**ExecuteInstanceWithParams**](docs/IntegrationsApi.md#executeinstancewithparams) | **POST** /api/integrations/instances/{instanceId}/executewithparams | [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
 *IntegrationsApi* | [**GetExecutionIdsForInstance**](docs/IntegrationsApi.md#getexecutionidsforinstance) | **GET** /api/integrations/instances/{instanceId}/executions | [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
+*IntegrationsApi* | [**GetInstance**](docs/IntegrationsApi.md#getinstance) | **GET** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
 *IntegrationsApi* | [**GetInstanceOptionalPropertyMapping**](docs/IntegrationsApi.md#getinstanceoptionalpropertymapping) | **GET** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
 *IntegrationsApi* | [**GetIntegrationConfiguration**](docs/IntegrationsApi.md#getintegrationconfiguration) | **GET** /api/integrations/configuration/{integration} | [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
+*IntegrationsApi* | [**GetIntegrationConfigurationFields**](docs/IntegrationsApi.md#getintegrationconfigurationfields) | **GET** /api/integrations/configuration/{integration}/fields | [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration
+*IntegrationsApi* | [**GetIntegrationConfigurationProperties**](docs/IntegrationsApi.md#getintegrationconfigurationproperties) | **GET** /api/integrations/configuration/{integration}/properties | [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration
 *IntegrationsApi* | [**GetSchema**](docs/IntegrationsApi.md#getschema) | **GET** /api/integrations/schema/{integration} | [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
 *IntegrationsApi* | [**ListInstances**](docs/IntegrationsApi.md#listinstances) | **GET** /api/integrations/instances | [EXPERIMENTAL] ListInstances: List instances across all integrations.
 *IntegrationsApi* | [**ListIntegrations**](docs/IntegrationsApi.md#listintegrations) | **GET** /api/integrations | [EXPERIMENTAL] ListIntegrations: List available integrations.
@@ -30,7 +33,7 @@ Class | Method | HTTP request | Description
 *ProcessHistoryApi* | [**GetLatestRuns**](docs/ProcessHistoryApi.md#getlatestruns) | **GET** /api/process-history/$latestRuns | [EARLY ACCESS] GetLatestRuns: Get latest run for each process
 *ProcessHistoryApi* | [**ProcessEntryUpdates**](docs/ProcessHistoryApi.md#processentryupdates) | **POST** /api/process-history/entries/$query | [EARLY ACCESS] ProcessEntryUpdates: Get process entry updates for a query
 *ProcessHistoryApi* | [**ProcessHistoryEntries**](docs/ProcessHistoryApi.md#processhistoryentries) | **POST** /api/process-history/$query | [EARLY ACCESS] ProcessHistoryEntries: Get process history entries
-*RunsApi* | [**CancelInstance**](docs/RunsApi.md#cancelinstance) | **PUT** /api/runs/{runId}/cancel | [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
+*RunsApi* | [**CancelInstance**](docs/RunsApi.md#cancelinstance) | **PUT** /api/runs/cancel | [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
 *RunsApi* | [**GetRunResults**](docs/RunsApi.md#getrunresults) | **GET** /api/runs | [EXPERIMENTAL] GetRunResults: Get run results
 *RunsApi* | [**RerunInstance**](docs/RunsApi.md#reruninstance) | **PUT** /api/runs/{runId}/rerun | [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
 *RunsApi* | [**StopInstanceExecution**](docs/RunsApi.md#stopinstanceexecution) | **PUT** /api/runs/{instanceId}/{runId}/stop | [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
@@ -47,11 +50,10 @@ Class | Method | HTTP request | Description
  - [AllowedParameterValue](docs/AllowedParameterValue.md)
  - [AuditCompleteRequest](docs/AuditCompleteRequest.md)
  - [AuditCompleteResponse](docs/AuditCompleteResponse.md)
- - [AuditCompleteStatus](docs/AuditCompleteStatus.md)
  - [AuditFileDetails](docs/AuditFileDetails.md)
- - [AuditFileType](docs/AuditFileType.md)
  - [AuditUpdateRequest](docs/AuditUpdateRequest.md)
  - [AuditUpdateResponse](docs/AuditUpdateResponse.md)
+ - [CancelRunRequest](docs/CancelRunRequest.md)
  - [CreateInstanceRequest](docs/CreateInstanceRequest.md)
  - [EnrichmentResponse](docs/EnrichmentResponse.md)
  - [ExecuteInstanceResponse](docs/ExecuteInstanceResponse.md)
@@ -59,12 +61,16 @@ Class | Method | HTTP request | Description
  - [ExternalLogRecord](docs/ExternalLogRecord.md)
  - [FieldMapping](docs/FieldMapping.md)
  - [FileDetails](docs/FileDetails.md)
+ - [IFieldMapping](docs/IFieldMapping.md)
  - [IIntegrationLogResponse](docs/IIntegrationLogResponse.md)
+ - [IPropertyMapping](docs/IPropertyMapping.md)
  - [Identifiers](docs/Identifiers.md)
  - [InstanceExecutionReferenceId](docs/InstanceExecutionReferenceId.md)
  - [InstanceIdentifier](docs/InstanceIdentifier.md)
+ - [IntegrationCancellationResponse](docs/IntegrationCancellationResponse.md)
  - [IntegrationDescription](docs/IntegrationDescription.md)
  - [IntegrationInstance](docs/IntegrationInstance.md)
+ - [IntegrationInstanceResponse](docs/IntegrationInstanceResponse.md)
  - [IntegrationLogActivity](docs/IntegrationLogActivity.md)
  - [IntegrationLogRecord](docs/IntegrationLogRecord.md)
  - [IntegrationLogTargetRecord](docs/IntegrationLogTargetRecord.md)
@@ -93,8 +99,9 @@ Class | Method | HTTP request | Description
  - [OpenFigiParameterOptionName](docs/OpenFigiParameterOptionName.md)
  - [OpenFigiPermIdResult](docs/OpenFigiPermIdResult.md)
  - [OpenFigiSearchResult](docs/OpenFigiSearchResult.md)
- - [Optionality](docs/Optionality.md)
+ - [PagedResourceListOfIFieldMapping](docs/PagedResourceListOfIFieldMapping.md)
  - [PagedResourceListOfIIntegrationLogResponse](docs/PagedResourceListOfIIntegrationLogResponse.md)
+ - [PagedResourceListOfIPropertyMapping](docs/PagedResourceListOfIPropertyMapping.md)
  - [PagedResourceListOfIntegrationRunResponse](docs/PagedResourceListOfIntegrationRunResponse.md)
  - [PagedResourceListOfProcessInformation](docs/PagedResourceListOfProcessInformation.md)
  - [PagedResourceListOfProcessUpdateResult](docs/PagedResourceListOfProcessUpdateResult.md)

@@ -4,18 +4,18 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CancelInstance**](RunsApi.md#cancelinstance) | **PUT** /api/runs/{runId}/cancel | [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. |
+| [**CancelInstance**](RunsApi.md#cancelinstance) | **PUT** /api/runs/cancel | [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions. |
 | [**GetRunResults**](RunsApi.md#getrunresults) | **GET** /api/runs | [EXPERIMENTAL] GetRunResults: Get run results |
 | [**RerunInstance**](RunsApi.md#reruninstance) | **PUT** /api/runs/{runId}/rerun | [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. |
 | [**StopInstanceExecution**](RunsApi.md#stopinstanceexecution) | **PUT** /api/runs/{instanceId}/{runId}/stop | [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. |
 
 <a id="cancelinstance"></a>
 # **CancelInstance**
-> Object CancelInstance (string runId)
+> IntegrationCancellationResponse CancelInstance (CancelRunRequest cancelRunRequest)
 
-[EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
+[EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
 
-Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -56,15 +56,15 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RunsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RunsApi>();
-            var runId = "runId_example";  // string | Run identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
+            var cancelRunRequest = new CancelRunRequest(); // CancelRunRequest | Contains the run identifiers and a message to be set e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Object result = apiInstance.CancelInstance(runId, opts: opts);
+                // IntegrationCancellationResponse result = apiInstance.CancelInstance(cancelRunRequest, opts: opts);
 
-                // [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
-                Object result = apiInstance.CancelInstance(runId);
+                // [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
+                IntegrationCancellationResponse result = apiInstance.CancelInstance(cancelRunRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -84,8 +84,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
-    ApiResponse<Object> response = apiInstance.CancelInstanceWithHttpInfo(runId);
+    // [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
+    ApiResponse<IntegrationCancellationResponse> response = apiInstance.CancelInstanceWithHttpInfo(cancelRunRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -102,24 +102,24 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **runId** | **string** | Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;. |  |
+| **cancelRunRequest** | [**CancelRunRequest**](CancelRunRequest.md) | Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;. |  |
 
 ### Return type
 
-**Object**
+[**IntegrationCancellationResponse**](IntegrationCancellationResponse.md)
 
 ### HTTP request headers
 
- - **Content-Type**: Not defined
+ - **Content-Type**: application/json
  - **Accept**: application/json
 
 
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **200** | The instance was cancelled. |  -  |
+| **200** | Some or all of the instances requested were cancelled. |  -  |
 | **400** | The details of the input related failure |  -  |
-| **404** | The execution does not exist. |  -  |
+| **404** | None of the executions does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
@@ -174,7 +174,7 @@ namespace Examples
             var filter = "filter_example";  // string? | Expression to filter the result set. (optional) 
             var sortBy = new List<string>?(); // List<string>? | A list of field names or properties to sort by, each suffixed by \" ASC\" or \" DESC\". (optional) 
             var limit = 100;  // int? | When paginating, limit the results to this number. (optional)  (default to 100)
-            var pageToken = "\"\"";  // string? | The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the <i>sortBy</i> and <i>filter</i> fields must not have changed since the original request. (optional)  (default to "")
+            var pageToken = "\"\"";  // string? | The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the <i>sortBy</i> and <i>filter</i> fields must not have changed since the original request. (optional)  (default to "")
 
             try
             {
@@ -223,7 +223,7 @@ catch (ApiException e)
 | **filter** | **string?** | Expression to filter the result set. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. | [optional]  |
 | **limit** | **int?** | When paginating, limit the results to this number. | [optional] [default to 100] |
-| **pageToken** | **string?** | The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. | [optional] [default to &quot;&quot;] |
+| **pageToken** | **string?** | The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. | [optional] [default to &quot;&quot;] |
 
 ### Return type
 
@@ -251,7 +251,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
 
-Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -366,7 +366,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
 
-Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp

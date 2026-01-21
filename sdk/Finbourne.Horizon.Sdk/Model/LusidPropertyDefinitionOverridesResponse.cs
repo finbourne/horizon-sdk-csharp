@@ -36,7 +36,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="LusidPropertyDefinitionOverridesResponse" /> class.
         /// </summary>
-        /// <param name="action">The action performed on this property. \&quot;upsert\&quot; for setting values for new and existing              properties. \&quot;delete\&quot; for existing properties that were removed (required).</param>
+        /// <param name="action">The action performed on this property. \&quot;upsert\&quot; for setting values for new and existing             properties. \&quot;delete\&quot; for existing properties that were removed (required).</param>
         /// <param name="writeError">writeError.</param>
         /// <param name="writeErrorDetail">writeErrorDetail.</param>
         /// <param name="displayNameOverride">displayNameOverride.</param>
@@ -56,9 +56,9 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
-        /// The action performed on this property. \&quot;upsert\&quot; for setting values for new and existing              properties. \&quot;delete\&quot; for existing properties that were removed
+        /// The action performed on this property. \&quot;upsert\&quot; for setting values for new and existing             properties. \&quot;delete\&quot; for existing properties that were removed
         /// </summary>
-        /// <value>The action performed on this property. \&quot;upsert\&quot; for setting values for new and existing              properties. \&quot;delete\&quot; for existing properties that were removed</value>
+        /// <value>The action performed on this property. \&quot;upsert\&quot; for setting values for new and existing             properties. \&quot;delete\&quot; for existing properties that were removed</value>
         [DataMember(Name = "action", IsRequired = true, EmitDefaultValue = true)]
         public string Action { get; set; }
 

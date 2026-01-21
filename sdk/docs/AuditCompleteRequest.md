@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **StartTime** | **DateTimeOffset** | When the run was started in UTC | 
 **EndTime** | **DateTimeOffset** | When the run finished in UTC | 
 **Message** | **string** | A descriptive message to accompany the status | 
-**Status** | **AuditCompleteStatus** |  | 
+**Status** | **string** | The final status of the run | 
 **RowsTotal** | **int** | The number of data rows operated on | 
 **RowsSucceeded** | **int** | The number of data rows successfully operated on | 
 **RowsFailed** | **int** | The number of data rows that failed to be operated on | 
@@ -27,6 +27,7 @@ string id = "id";
 string userId = "userId";
 string schedulerRunId = "schedulerRunId";
 string message = "message";
+string status = "status";
 List<AuditFileDetails> auditFiles = new List<AuditFileDetails>();
 string processNameOverride = "example processNameOverride";
 

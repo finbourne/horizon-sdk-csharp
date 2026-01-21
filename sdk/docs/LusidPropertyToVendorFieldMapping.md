@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **VendorField** | **string** |  | 
 **VendorPackage** | **string** |  | 
 **VendorNamespace** | **string** |  | 
-**Optionality** | **Optionality** |  | 
+**Optionality** | **string** |  | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -19,6 +19,7 @@ LusidPropertyDefinition property = new LusidPropertyDefinition();
 string vendorField = "vendorField";
 string vendorPackage = "vendorPackage";
 string vendorNamespace = "vendorNamespace";
+string optionality = "optionality";
 
 LusidPropertyToVendorFieldMapping lusidPropertyToVendorFieldMappingInstance = new LusidPropertyToVendorFieldMapping(
     property: property,

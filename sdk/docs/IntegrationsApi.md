@@ -9,8 +9,11 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**ExecuteInstance**](IntegrationsApi.md#executeinstance) | **POST** /api/integrations/instances/{instanceId}/execute | [EXPERIMENTAL] ExecuteInstance: Execute an integration instance. |
 | [**ExecuteInstanceWithParams**](IntegrationsApi.md#executeinstancewithparams) | **POST** /api/integrations/instances/{instanceId}/executewithparams | [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters |
 | [**GetExecutionIdsForInstance**](IntegrationsApi.md#getexecutionidsforinstance) | **GET** /api/integrations/instances/{instanceId}/executions | [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. |
+| [**GetInstance**](IntegrationsApi.md#getinstance) | **GET** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration. |
 | [**GetInstanceOptionalPropertyMapping**](IntegrationsApi.md#getinstanceoptionalpropertymapping) | **GET** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance |
 | [**GetIntegrationConfiguration**](IntegrationsApi.md#getintegrationconfiguration) | **GET** /api/integrations/configuration/{integration} | [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration |
+| [**GetIntegrationConfigurationFields**](IntegrationsApi.md#getintegrationconfigurationfields) | **GET** /api/integrations/configuration/{integration}/fields | [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration |
+| [**GetIntegrationConfigurationProperties**](IntegrationsApi.md#getintegrationconfigurationproperties) | **GET** /api/integrations/configuration/{integration}/properties | [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration |
 | [**GetSchema**](IntegrationsApi.md#getschema) | **GET** /api/integrations/schema/{integration} | [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. |
 | [**ListInstances**](IntegrationsApi.md#listinstances) | **GET** /api/integrations/instances | [EXPERIMENTAL] ListInstances: List instances across all integrations. |
 | [**ListIntegrations**](IntegrationsApi.md#listintegrations) | **GET** /api/integrations | [EXPERIMENTAL] ListIntegrations: List available integrations. |
@@ -23,7 +26,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 [EXPERIMENTAL] CreateInstance: Create a single integration instance.
 
-Creates a new instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -138,7 +141,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
 
-Deletes an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Deletes an existing instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -249,7 +252,7 @@ void (empty response body)
 
 [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
 
-Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Starts execution of an instance, returning its execution identifier. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -364,7 +367,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
 
-Starts execution of an instance, returning its execution identifier.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Starts execution of an instance, returning its execution identifier. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -481,7 +484,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
 
-Get the most recent execution ids for an integration instance.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Get the most recent execution ids for an integration instance. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp
@@ -588,6 +591,121 @@ catch (ApiException e)
 | **200** | The execution ids sorted by start date (descending) |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | The integration instance does not exist |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getinstance"></a>
+# **GetInstance**
+> IntegrationInstanceResponse GetInstance (string instanceId)
+
+[EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+
+The user must be authenticated to call this method.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
+            var instanceId = "instanceId_example";  // string | 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // IntegrationInstanceResponse result = apiInstance.GetInstance(instanceId, opts: opts);
+
+                // [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+                IntegrationInstanceResponse result = apiInstance.GetInstance(instanceId);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling IntegrationsApi.GetInstance: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetInstanceWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+    ApiResponse<IntegrationInstanceResponse> response = apiInstance.GetInstanceWithHttpInfo(instanceId);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling IntegrationsApi.GetInstanceWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** |  |  |
+
+### Return type
+
+[**IntegrationInstanceResponse**](IntegrationInstanceResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The requested instance does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
@@ -824,6 +942,252 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="getintegrationconfigurationfields"></a>
+# **GetIntegrationConfigurationFields**
+> PagedResourceListOfIFieldMapping GetIntegrationConfigurationFields (string integration, string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
+
+[EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration
+
+The user must be authenticated, entitled to call this method, but the user's domain does not need to be licensed for the integration.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
+            var integration = "integration_example";  // string | 
+            var filter = "filter_example";  // string? |  (optional) 
+            var sortBy = new List<string>?(); // List<string>? |  (optional) 
+            var limit = 100;  // int? |  (optional)  (default to 100)
+            var pageToken = "\"\"";  // string? |  (optional)  (default to "")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfIFieldMapping result = apiInstance.GetIntegrationConfigurationFields(integration, filter, sortBy, limit, pageToken, opts: opts);
+
+                // [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration
+                PagedResourceListOfIFieldMapping result = apiInstance.GetIntegrationConfigurationFields(integration, filter, sortBy, limit, pageToken);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling IntegrationsApi.GetIntegrationConfigurationFields: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetIntegrationConfigurationFieldsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration
+    ApiResponse<PagedResourceListOfIFieldMapping> response = apiInstance.GetIntegrationConfigurationFieldsWithHttpInfo(integration, filter, sortBy, limit, pageToken);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling IntegrationsApi.GetIntegrationConfigurationFieldsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **integration** | **string** |  |  |
+| **filter** | **string?** |  | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) |  | [optional]  |
+| **limit** | **int?** |  | [optional] [default to 100] |
+| **pageToken** | **string?** |  | [optional] [default to &quot;&quot;] |
+
+### Return type
+
+[**PagedResourceListOfIFieldMapping**](PagedResourceListOfIFieldMapping.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The requested integration does not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getintegrationconfigurationproperties"></a>
+# **GetIntegrationConfigurationProperties**
+> PagedResourceListOfIPropertyMapping GetIntegrationConfigurationProperties (string integration, string? filter = null, List<string>? sortBy = null, int? limit = null, string? pageToken = null)
+
+[EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration
+
+The user must be authenticated, entitled to call this method, but the user's domain does not need to be licensed for the integration.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
+            var integration = "integration_example";  // string | 
+            var filter = "filter_example";  // string? |  (optional) 
+            var sortBy = new List<string>?(); // List<string>? |  (optional) 
+            var limit = 100;  // int? |  (optional)  (default to 100)
+            var pageToken = "\"\"";  // string? |  (optional)  (default to "")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfIPropertyMapping result = apiInstance.GetIntegrationConfigurationProperties(integration, filter, sortBy, limit, pageToken, opts: opts);
+
+                // [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration
+                PagedResourceListOfIPropertyMapping result = apiInstance.GetIntegrationConfigurationProperties(integration, filter, sortBy, limit, pageToken);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling IntegrationsApi.GetIntegrationConfigurationProperties: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetIntegrationConfigurationPropertiesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration
+    ApiResponse<PagedResourceListOfIPropertyMapping> response = apiInstance.GetIntegrationConfigurationPropertiesWithHttpInfo(integration, filter, sortBy, limit, pageToken);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling IntegrationsApi.GetIntegrationConfigurationPropertiesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **integration** | **string** |  |  |
+| **filter** | **string?** |  | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) |  | [optional]  |
+| **limit** | **int?** |  | [optional] [default to 100] |
+| **pageToken** | **string?** |  | [optional] [default to &quot;&quot;] |
+
+### Return type
+
+[**PagedResourceListOfIPropertyMapping**](PagedResourceListOfIPropertyMapping.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The requested integration does not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="getschema"></a>
 # **GetSchema**
 > JSchema GetSchema (string integration)
@@ -945,7 +1309,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ListInstances: List instances across all integrations.
 
-The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+The user must be authenticated to call this method.
 
 ### Example
 ```csharp
@@ -1054,7 +1418,7 @@ This endpoint does not need any parameter.
 
 [EXPERIMENTAL] ListIntegrations: List available integrations.
 
-List all available integrations.  ```\"licensed\"``` indicates your domain is licensed to use this integration. To request a licence  contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/).  Any authenticated user can call this method.
+List all available integrations. ```\"licensed\"``` indicates your domain is licensed to use this integration. To request a licence contact your [FINBOURNE sales representative](https://www.finbourne.com/contact/). Any authenticated user can call this method.
 
 ### Example
 ```csharp
@@ -1281,7 +1645,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
 
-Updates an existing instance of an integration, returning its identifier.  The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+Updates an existing instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
 
 ### Example
 ```csharp

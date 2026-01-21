@@ -28,12 +28,6 @@ namespace Finbourne.Horizon.Sdk.Model
     [DataContract(Name = "LusidPropertyToVendorFieldMapping")]
     public partial class LusidPropertyToVendorFieldMapping : IEquatable<LusidPropertyToVendorFieldMapping>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Optionality
-        /// </summary>
-        [DataMember(Name = "optionality", IsRequired = true, EmitDefaultValue = true)]
-        public Optionality Optionality { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="LusidPropertyToVendorFieldMapping" /> class.
         /// </summary>
@@ -47,7 +41,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="vendorPackage">vendorPackage (required).</param>
         /// <param name="vendorNamespace">vendorNamespace (required).</param>
         /// <param name="optionality">optionality (required).</param>
-        public LusidPropertyToVendorFieldMapping(LusidPropertyDefinition property = default(LusidPropertyDefinition), string vendorField = default(string), string vendorPackage = default(string), string vendorNamespace = default(string), Optionality optionality = default(Optionality))
+        public LusidPropertyToVendorFieldMapping(LusidPropertyDefinition property = default(LusidPropertyDefinition), string vendorField = default(string), string vendorPackage = default(string), string vendorNamespace = default(string), string optionality = default(string))
         {
             // to ensure "property" is required (not null)
             if (property == null)
@@ -73,6 +67,11 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("vendorNamespace is a required property for LusidPropertyToVendorFieldMapping and cannot be null");
             }
             this.VendorNamespace = vendorNamespace;
+            // to ensure "optionality" is required (not null)
+            if (optionality == null)
+            {
+                throw new ArgumentNullException("optionality is a required property for LusidPropertyToVendorFieldMapping and cannot be null");
+            }
             this.Optionality = optionality;
         }
 
@@ -99,6 +98,12 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         [DataMember(Name = "vendorNamespace", IsRequired = true, EmitDefaultValue = true)]
         public string VendorNamespace { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Optionality
+        /// </summary>
+        [DataMember(Name = "optionality", IsRequired = true, EmitDefaultValue = true)]
+        public string Optionality { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -170,7 +175,8 @@ namespace Finbourne.Horizon.Sdk.Model
                 ) && 
                 (
                     this.Optionality == input.Optionality ||
-                    this.Optionality.Equals(input.Optionality)
+                    (this.Optionality != null &&
+                    this.Optionality.Equals(input.Optionality))
                 );
         }
 
@@ -199,7 +205,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.VendorNamespace.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Optionality.GetHashCode();
+                if (this.Optionality != null)
+                {
+                    hashCode = (hashCode * 59) + this.Optionality.GetHashCode();
+                }
                 return hashCode;
             }
         }

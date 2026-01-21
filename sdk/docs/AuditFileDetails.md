@@ -5,13 +5,14 @@ Holds information about Horizon Audit Files
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**FileType** | **AuditFileType** |  | 
+**FileType** | **string** | The type of the audit file | 
 **FilePathAndName** | **string** | The file path and name | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
 using System;
 
+string fileType = "fileType";
 string filePathAndName = "filePathAndName";
 
 AuditFileDetails auditFileDetailsInstance = new AuditFileDetails(

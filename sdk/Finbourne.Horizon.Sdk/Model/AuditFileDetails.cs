@@ -28,12 +28,6 @@ namespace Finbourne.Horizon.Sdk.Model
     [DataContract(Name = "AuditFileDetails")]
     public partial class AuditFileDetails : IEquatable<AuditFileDetails>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets FileType
-        /// </summary>
-        [DataMember(Name = "fileType", IsRequired = true, EmitDefaultValue = true)]
-        public AuditFileType FileType { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditFileDetails" /> class.
         /// </summary>
@@ -42,10 +36,15 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditFileDetails" /> class.
         /// </summary>
-        /// <param name="fileType">fileType (required).</param>
+        /// <param name="fileType">The type of the audit file (required).</param>
         /// <param name="filePathAndName">The file path and name (required).</param>
-        public AuditFileDetails(AuditFileType fileType = default(AuditFileType), string filePathAndName = default(string))
+        public AuditFileDetails(string fileType = default(string), string filePathAndName = default(string))
         {
+            // to ensure "fileType" is required (not null)
+            if (fileType == null)
+            {
+                throw new ArgumentNullException("fileType is a required property for AuditFileDetails and cannot be null");
+            }
             this.FileType = fileType;
             // to ensure "filePathAndName" is required (not null)
             if (filePathAndName == null)
@@ -54,6 +53,13 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             this.FilePathAndName = filePathAndName;
         }
+
+        /// <summary>
+        /// The type of the audit file
+        /// </summary>
+        /// <value>The type of the audit file</value>
+        [DataMember(Name = "fileType", IsRequired = true, EmitDefaultValue = true)]
+        public string FileType { get; set; }
 
         /// <summary>
         /// The file path and name
@@ -109,7 +115,8 @@ namespace Finbourne.Horizon.Sdk.Model
             return 
                 (
                     this.FileType == input.FileType ||
-                    this.FileType.Equals(input.FileType)
+                    (this.FileType != null &&
+                    this.FileType.Equals(input.FileType))
                 ) && 
                 (
                     this.FilePathAndName == input.FilePathAndName ||
@@ -127,7 +134,10 @@ namespace Finbourne.Horizon.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.FileType.GetHashCode();
+                if (this.FileType != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileType.GetHashCode();
+                }
                 if (this.FilePathAndName != null)
                 {
                     hashCode = (hashCode * 59) + this.FilePathAndName.GetHashCode();
@@ -143,6 +153,18 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // FileType (string) maxLength
+            if (this.FileType != null && this.FileType.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileType, length must be less than 1024.", new [] { "FileType" });
+            }
+
+            // FileType (string) minLength
+            if (this.FileType != null && this.FileType.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for FileType, length must be greater than 0.", new [] { "FileType" });
+            }
+
             // FilePathAndName (string) maxLength
             if (this.FilePathAndName != null && this.FilePathAndName.Length > 1024)
             {

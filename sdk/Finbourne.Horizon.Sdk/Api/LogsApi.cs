@@ -41,7 +41,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfIIntegrationLogResponse</returns>
@@ -57,7 +57,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfIIntegrationLogResponse</returns>
@@ -107,7 +107,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -124,7 +124,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -291,7 +291,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfIIntegrationLogResponse</returns>
@@ -308,7 +308,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfIIntegrationLogResponse</returns>
@@ -408,7 +408,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -426,7 +426,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.              For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration logs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request.             For more information, see https://support.lusid.com/knowledgebase/article/KA-01915. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>

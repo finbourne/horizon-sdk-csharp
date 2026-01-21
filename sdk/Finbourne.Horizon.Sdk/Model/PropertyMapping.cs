@@ -28,12 +28,6 @@ namespace Finbourne.Horizon.Sdk.Model
     [DataContract(Name = "PropertyMapping")]
     public partial class PropertyMapping : IEquatable<PropertyMapping>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Optionality
-        /// </summary>
-        [DataMember(Name = "optionality", IsRequired = true, EmitDefaultValue = true)]
-        public Optionality Optionality { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="PropertyMapping" /> class.
         /// </summary>
@@ -44,12 +38,12 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <param name="property">property (required).</param>
         /// <param name="vendorFields">Fields that will be used to map to this Property Definition (required).</param>
-        /// <param name="optionality">optionality (required).</param>
+        /// <param name="optionality">Whether the Property is Mandatory, Suggested or Optional (required).</param>
         /// <param name="entityType">The LUSID Entity this is valid for (required).</param>
         /// <param name="entitySubType">The LUSID Entity sub type this is valid for.</param>
         /// <param name="transformationDescription">The transformation, if required, to map from VendorFields to the LUSID Property.</param>
         /// <param name="versions">The versions of the Vendor integration this mapping is valid for (required).</param>
-        public PropertyMapping(LusidPropertyDefinition property = default(LusidPropertyDefinition), List<VendorField> vendorFields = default(List<VendorField>), Optionality optionality = default(Optionality), string entityType = default(string), string entitySubType = default(string), string transformationDescription = default(string), List<string> versions = default(List<string>))
+        public PropertyMapping(LusidPropertyDefinition property = default(LusidPropertyDefinition), List<VendorField> vendorFields = default(List<VendorField>), string optionality = default(string), string entityType = default(string), string entitySubType = default(string), string transformationDescription = default(string), List<string> versions = default(List<string>))
         {
             // to ensure "property" is required (not null)
             if (property == null)
@@ -63,6 +57,11 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("vendorFields is a required property for PropertyMapping and cannot be null");
             }
             this.VendorFields = vendorFields;
+            // to ensure "optionality" is required (not null)
+            if (optionality == null)
+            {
+                throw new ArgumentNullException("optionality is a required property for PropertyMapping and cannot be null");
+            }
             this.Optionality = optionality;
             // to ensure "entityType" is required (not null)
             if (entityType == null)
@@ -92,6 +91,13 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <value>Fields that will be used to map to this Property Definition</value>
         [DataMember(Name = "vendorFields", IsRequired = true, EmitDefaultValue = true)]
         public List<VendorField> VendorFields { get; set; }
+
+        /// <summary>
+        /// Whether the Property is Mandatory, Suggested or Optional
+        /// </summary>
+        /// <value>Whether the Property is Mandatory, Suggested or Optional</value>
+        [DataMember(Name = "optionality", IsRequired = true, EmitDefaultValue = true)]
+        public string Optionality { get; set; }
 
         /// <summary>
         /// The LUSID Entity this is valid for
@@ -184,7 +190,8 @@ namespace Finbourne.Horizon.Sdk.Model
                 ) && 
                 (
                     this.Optionality == input.Optionality ||
-                    this.Optionality.Equals(input.Optionality)
+                    (this.Optionality != null &&
+                    this.Optionality.Equals(input.Optionality))
                 ) && 
                 (
                     this.EntityType == input.EntityType ||
@@ -226,7 +233,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.VendorFields.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Optionality.GetHashCode();
+                if (this.Optionality != null)
+                {
+                    hashCode = (hashCode * 59) + this.Optionality.GetHashCode();
+                }
                 if (this.EntityType != null)
                 {
                     hashCode = (hashCode * 59) + this.EntityType.GetHashCode();

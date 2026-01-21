@@ -32,30 +32,30 @@ namespace Finbourne.Horizon.Sdk.Api
     {
         #region Synchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
         /// </summary>
         /// <remarks>
-        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Object</returns>
-        Object CancelInstance(string runId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>IntegrationCancellationResponse</returns>
+        IntegrationCancellationResponse CancelInstance(CancelRunRequest cancelRunRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
         /// </summary>
         /// <remarks>
-        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Object</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> CancelInstanceWithHttpInfo(string runId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of IntegrationCancellationResponse</returns>
+        Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationCancellationResponse> CancelInstanceWithHttpInfo(CancelRunRequest cancelRunRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetRunResults: Get run results
         /// </summary>
@@ -66,7 +66,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfIntegrationRunResponse</returns>
@@ -82,7 +82,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfIntegrationRunResponse</returns>
@@ -91,7 +91,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -104,7 +104,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -116,7 +116,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -130,7 +130,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -149,32 +149,32 @@ namespace Finbourne.Horizon.Sdk.Api
     {
         #region Asynchronous Operations
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
         /// </summary>
         /// <remarks>
-        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Object</returns>
-        System.Threading.Tasks.Task<Object> CancelInstanceAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of IntegrationCancellationResponse</returns>
+        System.Threading.Tasks.Task<IntegrationCancellationResponse> CancelInstanceAsync(CancelRunRequest cancelRunRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions.
         /// </summary>
         /// <remarks>
-        /// Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> CancelInstanceWithHttpInfoAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (IntegrationCancellationResponse)</returns>
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationCancellationResponse>> CancelInstanceWithHttpInfoAsync(CancelRunRequest cancelRunRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetRunResults: Get run results
         /// </summary>
@@ -185,7 +185,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -202,7 +202,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -212,7 +212,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -226,7 +226,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -239,7 +239,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -254,7 +254,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
         /// </summary>
         /// <remarks>
-        /// Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -388,33 +388,33 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions. Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Object</returns>
-        public Object CancelInstance(string runId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>IntegrationCancellationResponse</returns>
+        public IntegrationCancellationResponse CancelInstance(CancelRunRequest cancelRunRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<Object> localVarResponse = CancelInstanceWithHttpInfo(runId, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationCancellationResponse> localVarResponse = CancelInstanceWithHttpInfo(cancelRunRequest, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions. Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Object</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<Object> CancelInstanceWithHttpInfo(string runId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of IntegrationCancellationResponse</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationCancellationResponse> CancelInstanceWithHttpInfo(CancelRunRequest cancelRunRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            // verify the required parameter 'runId' is set
-            if (runId == null)
+            // verify the required parameter 'cancelRunRequest' is set
+            if (cancelRunRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling RunsApi->CancelInstance");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'cancelRunRequest' when calling RunsApi->CancelInstance");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -430,6 +430,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -449,7 +450,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("runId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.Data = cancelRunRequest;
 
             localVarRequestOptions.Operation = "RunsApi.CancelInstance";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -472,7 +473,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/runs/{runId}/cancel", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<IntegrationCancellationResponse>("/api/runs/cancel", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("CancelInstance", localVarResponse);
@@ -486,35 +487,35 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions. Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of Object</returns>
-        public async System.Threading.Tasks.Task<Object> CancelInstanceAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of IntegrationCancellationResponse</returns>
+        public async System.Threading.Tasks.Task<IntegrationCancellationResponse> CancelInstanceAsync(CancelRunRequest cancelRunRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<Object> localVarResponse = await CancelInstanceWithHttpInfoAsync(runId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationCancellationResponse> localVarResponse = await CancelInstanceWithHttpInfoAsync(cancelRunRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] CancelInstance: Cancels a single instance execution. Cancels an execution instance of an integration.  The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions. Cancels multiple execution instances of an integration. The execution instance must be queued, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
+        /// <param name="cancelRunRequest">Contains the run identifiers and a message to be set e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (Object)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> CancelInstanceWithHttpInfoAsync(string runId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (IntegrationCancellationResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationCancellationResponse>> CancelInstanceWithHttpInfoAsync(CancelRunRequest cancelRunRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            // verify the required parameter 'runId' is set
-            if (runId == null)
+            // verify the required parameter 'cancelRunRequest' is set
+            if (cancelRunRequest == null)
             {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling RunsApi->CancelInstance");
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'cancelRunRequest' when calling RunsApi->CancelInstance");
             }
 
 
@@ -531,6 +532,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             string[] _contentTypes = new string[] {
+                "application/json"
             };
 
             // to determine the Accept header
@@ -550,7 +552,7 @@ namespace Finbourne.Horizon.Sdk.Api
                 localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
             }
 
-            localVarRequestOptions.PathParameters.Add("runId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
+            localVarRequestOptions.Data = cancelRunRequest;
 
             localVarRequestOptions.Operation = "RunsApi.CancelInstance";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -573,7 +575,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/runs/{runId}/cancel", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<IntegrationCancellationResponse>("/api/runs/cancel", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {
@@ -594,7 +596,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfIntegrationRunResponse</returns>
@@ -611,7 +613,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfIntegrationRunResponse</returns>
@@ -711,7 +713,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -729,7 +731,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="filter">Expression to filter the result set. (optional)</param>
         /// <param name="sortBy">A list of field names or properties to sort by, each suffixed by \&quot; ASC\&quot; or \&quot; DESC\&quot;. (optional)</param>
         /// <param name="limit">When paginating, limit the results to this number. (optional, default to 100)</param>
-        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from              the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
+        /// <param name="pageToken">The pagination token to use to continue listing integration runs; this value is returned from             the previous call. If a pagination token is provided, the &lt;i&gt;sortBy&lt;/i&gt; and &lt;i&gt;filter&lt;/i&gt; fields must not have changed since the original request. (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
@@ -822,7 +824,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -836,7 +838,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -920,7 +922,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -935,7 +937,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration.  The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. Reruns an execution instance of an integration. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="runId">Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
@@ -1022,7 +1024,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -1037,7 +1039,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -1129,7 +1131,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -1145,7 +1147,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type.  The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
+        /// [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. Stops an execution instance of an External Client Application integration type. The execution instance must be started, the user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>

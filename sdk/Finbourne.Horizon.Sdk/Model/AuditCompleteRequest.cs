@@ -28,12 +28,6 @@ namespace Finbourne.Horizon.Sdk.Model
     [DataContract(Name = "AuditCompleteRequest")]
     public partial class AuditCompleteRequest : IEquatable<AuditCompleteRequest>, IValidatableObject
     {
-
-        /// <summary>
-        /// Gets or Sets Status
-        /// </summary>
-        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
-        public AuditCompleteStatus Status { get; set; }
         /// <summary>
         /// Initializes a new instance of the <see cref="AuditCompleteRequest" /> class.
         /// </summary>
@@ -48,14 +42,14 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="startTime">When the run was started in UTC (required).</param>
         /// <param name="endTime">When the run finished in UTC (required).</param>
         /// <param name="message">A descriptive message to accompany the status (required).</param>
-        /// <param name="status">status (required).</param>
+        /// <param name="status">The final status of the run (required).</param>
         /// <param name="rowsTotal">The number of data rows operated on (required).</param>
         /// <param name="rowsSucceeded">The number of data rows successfully operated on (required).</param>
         /// <param name="rowsFailed">The number of data rows that failed to be operated on (required).</param>
         /// <param name="rowsIgnored">The number of data rows that had no actions taken (required).</param>
         /// <param name="auditFiles">A list of file details for attaching to the event (required).</param>
         /// <param name="processNameOverride">Optional Name for how the process appears in Data Feed Monitoring.</param>
-        public AuditCompleteRequest(string id = default(string), string userId = default(string), string schedulerRunId = default(string), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset endTime = default(DateTimeOffset), string message = default(string), AuditCompleteStatus status = default(AuditCompleteStatus), int rowsTotal = default(int), int rowsSucceeded = default(int), int rowsFailed = default(int), int rowsIgnored = default(int), List<AuditFileDetails> auditFiles = default(List<AuditFileDetails>), string processNameOverride = default(string))
+        public AuditCompleteRequest(string id = default(string), string userId = default(string), string schedulerRunId = default(string), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset endTime = default(DateTimeOffset), string message = default(string), string status = default(string), int rowsTotal = default(int), int rowsSucceeded = default(int), int rowsFailed = default(int), int rowsIgnored = default(int), List<AuditFileDetails> auditFiles = default(List<AuditFileDetails>), string processNameOverride = default(string))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -83,6 +77,11 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("message is a required property for AuditCompleteRequest and cannot be null");
             }
             this.Message = message;
+            // to ensure "status" is required (not null)
+            if (status == null)
+            {
+                throw new ArgumentNullException("status is a required property for AuditCompleteRequest and cannot be null");
+            }
             this.Status = status;
             this.RowsTotal = rowsTotal;
             this.RowsSucceeded = rowsSucceeded;
@@ -138,6 +137,13 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <value>A descriptive message to accompany the status</value>
         [DataMember(Name = "message", IsRequired = true, EmitDefaultValue = true)]
         public string Message { get; set; }
+
+        /// <summary>
+        /// The final status of the run
+        /// </summary>
+        /// <value>The final status of the run</value>
+        [DataMember(Name = "status", IsRequired = true, EmitDefaultValue = true)]
+        public string Status { get; set; }
 
         /// <summary>
         /// The number of data rows operated on
@@ -269,7 +275,8 @@ namespace Finbourne.Horizon.Sdk.Model
                 ) && 
                 (
                     this.Status == input.Status ||
-                    this.Status.Equals(input.Status)
+                    (this.Status != null &&
+                    this.Status.Equals(input.Status))
                 ) && 
                 (
                     this.RowsTotal == input.RowsTotal ||
@@ -333,7 +340,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.Message.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                if (this.Status != null)
+                {
+                    hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
                 hashCode = (hashCode * 59) + this.RowsTotal.GetHashCode();
                 hashCode = (hashCode * 59) + this.RowsSucceeded.GetHashCode();
                 hashCode = (hashCode * 59) + this.RowsFailed.GetHashCode();
@@ -403,6 +413,18 @@ namespace Finbourne.Horizon.Sdk.Model
             if (this.Message != null && this.Message.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Message, length must be greater than 0.", new [] { "Message" });
+            }
+
+            // Status (string) maxLength
+            if (this.Status != null && this.Status.Length > 1024)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be less than 1024.", new [] { "Status" });
+            }
+
+            // Status (string) minLength
+            if (this.Status != null && this.Status.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 0.", new [] { "Status" });
             }
 
             // ProcessNameOverride (string) maxLength

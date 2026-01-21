@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Property** | [**LusidPropertyDefinition**](LusidPropertyDefinition.md) |  | 
 **VendorFields** | [**List&lt;VendorField&gt;**](VendorField.md) | Fields that will be used to map to this Property Definition | 
-**Optionality** | **Optionality** |  | 
+**Optionality** | **string** | Whether the Property is Mandatory, Suggested or Optional | 
 **EntityType** | **string** | The LUSID Entity this is valid for | 
 **EntitySubType** | **string** | The LUSID Entity sub type this is valid for | [optional] 
 **TransformationDescription** | **string** | The transformation, if required, to map from VendorFields to the LUSID Property | [optional] 
@@ -19,6 +19,7 @@ using System;
 
 LusidPropertyDefinition property = new LusidPropertyDefinition();
 List<VendorField> vendorFields = new List<VendorField>();
+string optionality = "optionality";
 string entityType = "entityType";
 string entitySubType = "example entitySubType";
 string transformationDescription = "example transformationDescription";
