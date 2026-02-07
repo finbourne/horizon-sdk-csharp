@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **Enabled** | **bool** |  | 
 **Triggers** | [**List&lt;Trigger&gt;**](Trigger.md) |  | 
 **Details** | **Object** |  | 
+**PostProcessTasks** | [**List&lt;PostProcessTask&gt;**](PostProcessTask.md) |  | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -22,6 +23,7 @@ string name = "name";
 string description = "description";
 bool enabled = //"True";
 List<Trigger> triggers = new List<Trigger>();
+List<PostProcessTask> postProcessTasks = new List<PostProcessTask>();
 
 CreateInstanceRequest createInstanceRequestInstance = new CreateInstanceRequest(
     instanceOptionalProps: instanceOptionalProps,
@@ -30,7 +32,8 @@ CreateInstanceRequest createInstanceRequestInstance = new CreateInstanceRequest(
     description: description,
     enabled: enabled,
     triggers: triggers,
-    details: details);
+    details: details,
+    postProcessTasks: postProcessTasks);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

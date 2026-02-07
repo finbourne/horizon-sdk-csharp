@@ -43,7 +43,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="enabled">enabled (required).</param>
         /// <param name="triggers">triggers (required).</param>
         /// <param name="details">details (required).</param>
-        public CreateInstanceRequest(Dictionary<string, LusidPropertyDefinitionOverridesByType> instanceOptionalProps = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>), string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object))
+        /// <param name="postProcessTasks">postProcessTasks (required).</param>
+        public CreateInstanceRequest(Dictionary<string, LusidPropertyDefinitionOverridesByType> instanceOptionalProps = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>), string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object), List<PostProcessTask> postProcessTasks = default(List<PostProcessTask>))
         {
             // to ensure "integrationType" is required (not null)
             if (integrationType == null)
@@ -76,6 +77,12 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("details is a required property for CreateInstanceRequest and cannot be null");
             }
             this.Details = details;
+            // to ensure "postProcessTasks" is required (not null)
+            if (postProcessTasks == null)
+            {
+                throw new ArgumentNullException("postProcessTasks is a required property for CreateInstanceRequest and cannot be null");
+            }
+            this.PostProcessTasks = postProcessTasks;
             this.InstanceOptionalProps = instanceOptionalProps;
         }
 
@@ -122,6 +129,12 @@ namespace Finbourne.Horizon.Sdk.Model
         public Object Details { get; set; }
 
         /// <summary>
+        /// Gets or Sets PostProcessTasks
+        /// </summary>
+        [DataMember(Name = "postProcessTasks", IsRequired = true, EmitDefaultValue = true)]
+        public List<PostProcessTask> PostProcessTasks { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -136,6 +149,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  Enabled: ").Append(Enabled).Append("\n");
             sb.Append("  Triggers: ").Append(Triggers).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
+            sb.Append("  PostProcessTasks: ").Append(PostProcessTasks).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -206,6 +220,12 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Details == input.Details ||
                     (this.Details != null &&
                     this.Details.Equals(input.Details))
+                ) && 
+                (
+                    this.PostProcessTasks == input.PostProcessTasks ||
+                    this.PostProcessTasks != null &&
+                    input.PostProcessTasks != null &&
+                    this.PostProcessTasks.SequenceEqual(input.PostProcessTasks)
                 );
         }
 
@@ -242,6 +262,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.Details != null)
                 {
                     hashCode = (hashCode * 59) + this.Details.GetHashCode();
+                }
+                if (this.PostProcessTasks != null)
+                {
+                    hashCode = (hashCode * 59) + this.PostProcessTasks.GetHashCode();
                 }
                 return hashCode;
             }

@@ -107,6 +107,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfProcessUpdateResult](docs/PagedResourceListOfProcessUpdateResult.md)
  - [PagedResourceListOfVendorProduct](docs/PagedResourceListOfVendorProduct.md)
  - [PermIdData](docs/PermIdData.md)
+ - [PostProcessTask](docs/PostProcessTask.md)
  - [ProcessInformation](docs/ProcessInformation.md)
  - [ProcessSummary](docs/ProcessSummary.md)
  - [ProcessUpdateResult](docs/ProcessUpdateResult.md)
