@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// Trigger
+    /// Response defining a trigger for an instance.
     /// </summary>
     [DataContract(Name = "Trigger")]
     public partial class Trigger : IEquatable<Trigger>, IValidatableObject

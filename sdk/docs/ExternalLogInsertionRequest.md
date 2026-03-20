@@ -1,10 +1,11 @@
 # Finbourne.Horizon.Sdk.Model.ExternalLogInsertionRequest
+A request to insert external log records.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Logs** | [**List&lt;ExternalLogRecord&gt;**](ExternalLogRecord.md) |  | 
+**Logs** | [**List&lt;ExternalLogRecord&gt;**](ExternalLogRecord.md) | The collection of external log records to insert. | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;

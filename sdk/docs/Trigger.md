@@ -1,4 +1,5 @@
 # Finbourne.Horizon.Sdk.Model.Trigger
+Response defining a trigger for an instance.
 
 ## Properties
 

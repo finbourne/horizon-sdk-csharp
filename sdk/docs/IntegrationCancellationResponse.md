@@ -1,4 +1,5 @@
 # Finbourne.Horizon.Sdk.Model.IntegrationCancellationResponse
+No content is returned when an instance is cancelled.
 
 ## Properties
 

@@ -1,4 +1,5 @@
 # Finbourne.Horizon.Sdk.Model.IntegrationRunResponse
+Integration run response
 
 ## Properties
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// IntegrationCancellationResponse
+    /// No content is returned when an instance is cancelled.
     /// </summary>
     [DataContract(Name = "IntegrationCancellationResponse")]
     public partial class IntegrationCancellationResponse : IEquatable<IntegrationCancellationResponse>, IValidatableObject

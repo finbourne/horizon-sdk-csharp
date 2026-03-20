@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// IntegrationRerunResponse
+    /// No content is returned when an instance is rerun.
     /// </summary>
     [DataContract(Name = "IntegrationRerunResponse")]
     public partial class IntegrationRerunResponse : IEquatable<IntegrationRerunResponse>, IValidatableObject

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// ExternalLogInsertionRequest
+    /// A request to insert external log records.
     /// </summary>
     [DataContract(Name = "ExternalLogInsertionRequest")]
     public partial class ExternalLogInsertionRequest : IEquatable<ExternalLogInsertionRequest>, IValidatableObject
@@ -36,7 +36,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="ExternalLogInsertionRequest" /> class.
         /// </summary>
-        /// <param name="logs">logs (required).</param>
+        /// <param name="logs">The collection of external log records to insert. (required).</param>
         public ExternalLogInsertionRequest(List<ExternalLogRecord> logs = default(List<ExternalLogRecord>))
         {
             // to ensure "logs" is required (not null)
@@ -48,8 +48,9 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
-        /// Gets or Sets Logs
+        /// The collection of external log records to insert.
         /// </summary>
+        /// <value>The collection of external log records to insert.</value>
         [DataMember(Name = "logs", IsRequired = true, EmitDefaultValue = true)]
         public List<ExternalLogRecord> Logs { get; set; }
 

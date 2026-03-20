@@ -1,23 +1,24 @@
 # Finbourne.Horizon.Sdk.Model.ExternalLogRecord
+Represents an external log record.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Logid** | **long** |  | 
-**Parentlogid** | **long?** |  | [optional] 
-**Loglevel** | **string** |  | 
-**Logstatus** | **string** |  | 
-**Sourcerecordtype** | **string** |  | [optional] 
-**Sourceprimaryidtype** | **string** |  | [optional] 
-**Sourceprimaryidvalue** | **string** |  | [optional] 
-**Targetrecordtype** | **string** |  | [optional] 
-**Targetrecordaction** | **string** |  | [optional] 
-**Targetprimaryidtype** | **string** |  | [optional] 
-**Targetprimaryidvalue** | **string** |  | [optional] 
-**Message** | **string** |  | [optional] 
-**Messagetype** | **string** |  | [optional] 
-**Timestamp** | **string** |  | 
+**Logid** | **long** | The unique log identifier. | 
+**Parentlogid** | **long?** | The parent log identifier (null is allowed). | [optional] 
+**Loglevel** | **string** | The log level. | 
+**Logstatus** | **string** | The log status. | 
+**Sourcerecordtype** | **string** | The source record type. | [optional] 
+**Sourceprimaryidtype** | **string** | The source primary ID type. | [optional] 
+**Sourceprimaryidvalue** | **string** | The source primary ID value. | [optional] 
+**Targetrecordtype** | **string** | The target record type. | [optional] 
+**Targetrecordaction** | **string** | The target record action. | [optional] 
+**Targetprimaryidtype** | **string** | The target primary ID type. | [optional] 
+**Targetprimaryidvalue** | **string** | The target primary ID value. | [optional] 
+**Message** | **string** | The log message. | [optional] 
+**Messagetype** | **string** | The message type. | [optional] 
+**Timestamp** | **string** | The timestamp of the log record. | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;

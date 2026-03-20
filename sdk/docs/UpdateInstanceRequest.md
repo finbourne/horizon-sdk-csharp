@@ -1,16 +1,17 @@
 # Finbourne.Horizon.Sdk.Model.UpdateInstanceRequest
+A request to update an existing integration instance.
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **string** |  | 
+**Id** | **string** | Instance identifier | 
 **IntegrationType** | **string** |  | 
 **Name** | **string** |  | 
 **Description** | **string** |  | 
 **Enabled** | **bool** |  | 
 **Triggers** | [**List&lt;Trigger&gt;**](Trigger.md) |  | 
-**Details** | **Object** |  | 
+**Details** | **Object** | Base DTO type of an integration configuration specific to the integration type.              N.B. ASP.NET Core model validation is normally applied automatically when [ApiController] is added to a controller, however it doesn&#39;t work here with the polymorphic integration subtypes of this class (see https://github.com/dotnet/aspnetcore/issues/27882). The workaround here is to implement the IValidatableObject interface and each subtype must call Validate() or ValidateContents() on its properties (the validation is not recursive).  Located in Horizon.Integrations.Web so both specific integration projects and Horizon.WebApi can reference it. | 
 **PostProcessTasks** | [**List&lt;PostProcessTask&gt;**](PostProcessTask.md) |  | 
 
 ```csharp
