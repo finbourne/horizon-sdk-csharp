@@ -15,6 +15,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**GetIntegrationConfigurationFields**](IntegrationsApi.md#getintegrationconfigurationfields) | **GET** /api/integrations/configuration/{integration}/fields | [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration |
 | [**GetIntegrationConfigurationProperties**](IntegrationsApi.md#getintegrationconfigurationproperties) | **GET** /api/integrations/configuration/{integration}/properties | [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration |
 | [**GetSchema**](IntegrationsApi.md#getschema) | **GET** /api/integrations/schema/{integration} | [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. |
+| [**ListDataflowProcessors**](IntegrationsApi.md#listdataflowprocessors) | **GET** /api/integrations/dataflow/processors | [EXPERIMENTAL] ListDataflowProcessors: List processor types. |
 | [**ListInstances**](IntegrationsApi.md#listinstances) | **GET** /api/integrations/instances | [EXPERIMENTAL] ListInstances: List instances across all integrations. |
 | [**ListIntegrations**](IntegrationsApi.md#listintegrations) | **GET** /api/integrations | [EXPERIMENTAL] ListIntegrations: List available integrations. |
 | [**SetInstanceOptionalPropertyMapping**](IntegrationsApi.md#setinstanceoptionalpropertymapping) | **PUT** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance |
@@ -22,7 +23,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 <a id="createinstance"></a>
 # **CreateInstance**
-> InstanceIdentifier CreateInstance (CreateInstanceRequest? createInstanceRequest = null)
+> InstanceIdentifier CreateInstance (CreateInstanceRequest createInstanceRequest)
 
 [EXPERIMENTAL] CreateInstance: Create a single integration instance.
 
@@ -67,7 +68,7 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
-            var createInstanceRequest = new CreateInstanceRequest?(); // CreateInstanceRequest? | The new integration instance. (optional) 
+            var createInstanceRequest = new CreateInstanceRequest(); // CreateInstanceRequest | The new integration instance.
 
             try
             {
@@ -113,7 +114,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **createInstanceRequest** | [**CreateInstanceRequest?**](CreateInstanceRequest?.md) | The new integration instance. | [optional]  |
+| **createInstanceRequest** | [**CreateInstanceRequest**](CreateInstanceRequest.md) | The new integration instance. |  |
 
 ### Return type
 
@@ -1303,6 +1304,115 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="listdataflowprocessors"></a>
+# **ListDataflowProcessors**
+> List&lt;ProcessorDescription&gt; ListDataflowProcessors ()
+
+[EXPERIMENTAL] ListDataflowProcessors: List processor types.
+
+The user must be authenticated to call this method.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // List<ProcessorDescription> result = apiInstance.ListDataflowProcessors(opts: opts);
+
+                // [EXPERIMENTAL] ListDataflowProcessors: List processor types.
+                List<ProcessorDescription> result = apiInstance.ListDataflowProcessors();
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling IntegrationsApi.ListDataflowProcessors: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListDataflowProcessorsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListDataflowProcessors: List processor types.
+    ApiResponse<List<ProcessorDescription>> response = apiInstance.ListDataflowProcessorsWithHttpInfo();
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling IntegrationsApi.ListDataflowProcessorsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;ProcessorDescription&gt;**](ProcessorDescription.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | The requested processors do not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="listinstances"></a>
 # **ListInstances**
 > List&lt;IntegrationInstance&gt; ListInstances ()
@@ -1641,7 +1751,7 @@ catch (ApiException e)
 
 <a id="updateinstance"></a>
 # **UpdateInstance**
-> void UpdateInstance (string instanceId, UpdateInstanceRequest? updateInstanceRequest = null)
+> void UpdateInstance (string instanceId, UpdateInstanceRequest updateInstanceRequest)
 
 [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
 
@@ -1687,7 +1797,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
             var instanceId = "instanceId_example";  // string | Instance identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
-            var updateInstanceRequest = new UpdateInstanceRequest?(); // UpdateInstanceRequest? | The new integration instance. (optional) 
+            var updateInstanceRequest = new UpdateInstanceRequest(); // UpdateInstanceRequest | The new integration instance.
 
             try
             {
@@ -1730,7 +1840,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instanceId** | **string** | Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;. |  |
-| **updateInstanceRequest** | [**UpdateInstanceRequest?**](UpdateInstanceRequest?.md) | The new integration instance. | [optional]  |
+| **updateInstanceRequest** | [**UpdateInstanceRequest**](UpdateInstanceRequest.md) | The new integration instance. |  |
 
 ### Return type
 

@@ -38,11 +38,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>InstanceIdentifier</returns>
-        InstanceIdentifier CreateInstance(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        InstanceIdentifier CreateInstance(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.
@@ -51,11 +51,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InstanceIdentifier</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier> CreateInstanceWithHttpInfo(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier> CreateInstanceWithHttpInfo(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
@@ -329,6 +329,29 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of JSchema</returns>
         Finbourne.Horizon.Sdk.Client.ApiResponse<JSchema> GetSchemaWithHttpInfo(string integration, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
+        /// </summary>
+        /// <remarks>
+        /// The user must be authenticated to call this method.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;ProcessorDescription&gt;</returns>
+        List<ProcessorDescription> ListDataflowProcessors(int operationIndex = 0, ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
+        /// </summary>
+        /// <remarks>
+        /// The user must be authenticated to call this method.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;ProcessorDescription&gt;</returns>
+        Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessorDescription>> ListDataflowProcessorsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
         /// <remarks>
@@ -411,11 +434,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        void UpdateInstance(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        void UpdateInstance(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
@@ -425,11 +448,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -446,12 +469,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InstanceIdentifier</returns>
-        System.Threading.Tasks.Task<InstanceIdentifier> CreateInstanceAsync(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<InstanceIdentifier> CreateInstanceAsync(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance.
@@ -460,12 +483,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InstanceIdentifier)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
         /// </summary>
@@ -759,6 +782,31 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>Task of ApiResponse (JSchema)</returns>
         System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<JSchema>> GetSchemaWithHttpInfoAsync(string integration, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
+        /// </summary>
+        /// <remarks>
+        /// The user must be authenticated to call this method.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;ProcessorDescription&gt;</returns>
+        System.Threading.Tasks.Task<List<ProcessorDescription>> ListDataflowProcessorsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
+        /// </summary>
+        /// <remarks>
+        /// The user must be authenticated to call this method.
+        /// </remarks>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;ProcessorDescription&gt;)</returns>
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessorDescription>>> ListDataflowProcessorsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <summary>
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations.
         /// </summary>
         /// <remarks>
@@ -847,12 +895,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateInstanceAsync(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task UpdateInstanceAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
@@ -862,12 +910,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -995,11 +1043,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>InstanceIdentifier</returns>
-        public InstanceIdentifier CreateInstance(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public InstanceIdentifier CreateInstance(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier> localVarResponse = CreateInstanceWithHttpInfo(createInstanceRequest, opts: opts);
             return localVarResponse.Data;
@@ -1009,12 +1057,18 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of InstanceIdentifier</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier> CreateInstanceWithHttpInfo(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier> CreateInstanceWithHttpInfo(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'createInstanceRequest' is set
+            if (createInstanceRequest == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'createInstanceRequest' when calling IntegrationsApi->CreateInstance");
+            }
+
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
 
             if (opts is { TimeoutMs: not null })
@@ -1088,12 +1142,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of InstanceIdentifier</returns>
-        public async System.Threading.Tasks.Task<InstanceIdentifier> CreateInstanceAsync(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<InstanceIdentifier> CreateInstanceAsync(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier> localVarResponse = await CreateInstanceWithHttpInfoAsync(createInstanceRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1103,13 +1157,19 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] CreateInstance: Create a single integration instance. Creates a new instance of an integration, returning its identifier. The user must be authenticated, entitled to call this method, and the user&#39;s domain must be licensed for the integration.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
-        /// <param name="createInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="createInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (InstanceIdentifier)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest? createInstanceRequest = default(CreateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<InstanceIdentifier>> CreateInstanceWithHttpInfoAsync(CreateInstanceRequest createInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
+            // verify the required parameter 'createInstanceRequest' is set
+            if (createInstanceRequest == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'createInstanceRequest' when calling IntegrationsApi->CreateInstance");
+            }
+
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
 
@@ -3335,6 +3395,188 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>List&lt;ProcessorDescription&gt;</returns>
+        public List<ProcessorDescription> ListDataflowProcessors(int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessorDescription>> localVarResponse = ListDataflowProcessorsWithHttpInfo(opts: opts);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>ApiResponse of List&lt;ProcessorDescription&gt;</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessorDescription>> ListDataflowProcessorsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null)
+        {
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "IntegrationsApi.ListDataflowProcessors";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = this.Client.Get<List<ProcessorDescription>>("/api/integrations/dataflow/processors", localVarRequestOptions, this.Configuration);
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDataflowProcessors", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of List&lt;ProcessorDescription&gt;</returns>
+        public async System.Threading.Tasks.Task<List<ProcessorDescription>> ListDataflowProcessorsAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+            Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessorDescription>> localVarResponse = await ListDataflowProcessorsWithHttpInfoAsync(operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
+        }
+
+        /// <summary>
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
+        /// </summary>
+        /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
+        /// <param name="operationIndex">Index associated with the operation.</param>
+        /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
+        /// <param name="opts">Options for this request.</param>
+        /// <returns>Task of ApiResponse (List&lt;ProcessorDescription&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<ProcessorDescription>>> ListDataflowProcessorsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        {
+
+            Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
+
+            if (opts is { TimeoutMs: not null })
+            {
+                localVarRequestOptions.TimeoutMs = opts.TimeoutMs.Value;
+            }
+            
+            if (opts is { RateLimitRetries: not null })
+            {
+                localVarRequestOptions.RateLimitRetries = opts.RateLimitRetries.Value;
+            }
+
+            string[] _contentTypes = new string[] {
+            };
+
+            // to determine the Accept header
+            string[] _accepts = new string[] {
+                "application/json"
+            };
+
+            var localVarContentType = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderContentType(_contentTypes);
+            if (localVarContentType != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Content-Type", localVarContentType);
+            }
+
+            var localVarAccept = Finbourne.Horizon.Sdk.Client.ClientUtils.SelectHeaderAccept(_accepts);
+            if (localVarAccept != null)
+            {
+                localVarRequestOptions.HeaderParameters.Add("Accept", localVarAccept);
+            }
+
+
+            localVarRequestOptions.Operation = "IntegrationsApi.ListDataflowProcessors";
+            localVarRequestOptions.OperationIndex = operationIndex;
+
+            // authentication (oauth2) required
+            // oauth required
+            if (!localVarRequestOptions.HeaderParameters.ContainsKey("Authorization"))
+            {
+                if (!string.IsNullOrEmpty(this.Configuration.AccessToken))
+                {
+                    localVarRequestOptions.HeaderParameters.Add("Authorization", "Bearer " + this.Configuration.AccessToken);
+                }
+                else if (!string.IsNullOrEmpty(this.Configuration.OAuthTokenUrl) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientId) &&
+                         !string.IsNullOrEmpty(this.Configuration.OAuthClientSecret) &&
+                         this.Configuration.OAuthFlow != null)
+                {
+                    localVarRequestOptions.OAuth = true;
+                }
+            }
+
+            // make the HTTP request
+            var localVarResponse = await this.AsynchronousClient.GetAsync<List<ProcessorDescription>>("/api/integrations/dataflow/processors", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+
+            if (this.ExceptionFactory != null)
+            {
+                Exception _exception = this.ExceptionFactory("ListDataflowProcessors", localVarResponse);
+                if (_exception != null)
+                {
+                    throw _exception;
+                }
+            }
+
+            return localVarResponse;
+        }
+
+        /// <summary>
         /// [EXPERIMENTAL] ListInstances: List instances across all integrations. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
@@ -3929,11 +4171,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns></returns>
-        public void UpdateInstance(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public void UpdateInstance(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             UpdateInstanceWithHttpInfo(instanceId, updateInstanceRequest, opts: opts);
         }
@@ -3943,16 +4185,22 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of Object(void)</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->UpdateInstance");
+            }
+
+            // verify the required parameter 'updateInstanceRequest' is set
+            if (updateInstanceRequest == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'updateInstanceRequest' when calling IntegrationsApi->UpdateInstance");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -4030,12 +4278,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateInstanceAsync(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task UpdateInstanceAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             await UpdateInstanceWithHttpInfoAsync(instanceId, updateInstanceRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
         }
@@ -4045,17 +4293,23 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="updateInstanceRequest">The new integration instance. (optional)</param>
+        /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest? updateInstanceRequest = default(UpdateInstanceRequest?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling IntegrationsApi->UpdateInstance");
+            }
+
+            // verify the required parameter 'updateInstanceRequest' is set
+            if (updateInstanceRequest == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'updateInstanceRequest' when calling IntegrationsApi->UpdateInstance");
             }
 
 
