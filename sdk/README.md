@@ -20,6 +20,7 @@ Class | Method | HTTP request | Description
 *IntegrationsApi* | [**DeleteInstance**](docs/IntegrationsApi.md#deleteinstance) | **DELETE** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] DeleteInstance: Delete a single integration instance.
 *IntegrationsApi* | [**ExecuteInstance**](docs/IntegrationsApi.md#executeinstance) | **POST** /api/integrations/instances/{instanceId}/execute | [EXPERIMENTAL] ExecuteInstance: Execute an integration instance.
 *IntegrationsApi* | [**ExecuteInstanceWithParams**](docs/IntegrationsApi.md#executeinstancewithparams) | **POST** /api/integrations/instances/{instanceId}/executewithparams | [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
+*IntegrationsApi* | [**GetDataflowProcessorSchema**](docs/IntegrationsApi.md#getdataflowprocessorschema) | **GET** /api/integrations/dataflow/processors/{processorType}/schema | [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
 *IntegrationsApi* | [**GetExecutionIdsForInstance**](docs/IntegrationsApi.md#getexecutionidsforinstance) | **GET** /api/integrations/instances/{instanceId}/executions | [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids.
 *IntegrationsApi* | [**GetInstance**](docs/IntegrationsApi.md#getinstance) | **GET** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
 *IntegrationsApi* | [**GetInstanceOptionalPropertyMapping**](docs/IntegrationsApi.md#getinstanceoptionalpropertymapping) | **GET** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
@@ -120,6 +121,7 @@ Class | Method | HTTP request | Description
  - [ProcessSummary](docs/ProcessSummary.md)
  - [ProcessUpdateResult](docs/ProcessUpdateResult.md)
  - [ProcessorDescription](docs/ProcessorDescription.md)
+ - [ProcessorSchemaResponse](docs/ProcessorSchemaResponse.md)
  - [PropertyMapping](docs/PropertyMapping.md)
  - [QueryRequest](docs/QueryRequest.md)
  - [QuerySpecification](docs/QuerySpecification.md)
