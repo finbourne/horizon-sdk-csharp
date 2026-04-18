@@ -588,7 +588,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **400** | The details of the input related failure |  -  |
 | **200** | OK |  -  |
-| **404** | The requested processors do not exist. |  -  |
+| **404** | The processor type does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
