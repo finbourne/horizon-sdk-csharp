@@ -1,5 +1,5 @@
-# Finbourne.Horizon.Sdk.Model.ClientConfigurationResponse
-Represents a versioned client configuration record.
+# Finbourne.Horizon.Sdk.Model.VersionedConfigurationResponse
+Represents a versioned configuration record.
 
 ## Properties
 
@@ -21,7 +21,7 @@ string configType = "configType";
 string value = "value";
 bool isDraft = //"True";
 
-ClientConfigurationResponse clientConfigurationResponseInstance = new ClientConfigurationResponse(
+VersionedConfigurationResponse versionedConfigurationResponseInstance = new VersionedConfigurationResponse(
     name: name,
     configType: configType,
     majorVersion: majorVersion,

@@ -1,20 +1,20 @@
-# Finbourne.Horizon.Sdk.Api.ClientConfigurationsApi
+# Finbourne.Horizon.Sdk.Api.VersionedConfigurationsApi
 
 All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
-| [**CreateClientConfigurationDraft**](ClientConfigurationsApi.md#createclientconfigurationdraft) | **POST** /api/clientconfiguration/{configType}/{name}/draft | [EXPERIMENTAL] CreateClientConfigurationDraft: Create a draft client configuration. |
-| [**GetClientConfiguration**](ClientConfigurationsApi.md#getclientconfiguration) | **GET** /api/clientconfiguration/{configType}/{name} | [EXPERIMENTAL] GetClientConfiguration: Get a client configuration. |
-| [**ListClientConfigurations**](ClientConfigurationsApi.md#listclientconfigurations) | **GET** /api/clientconfiguration/{configType} | [EXPERIMENTAL] ListClientConfigurations: List client configurations. |
-| [**LockClientConfigurationVersion**](ClientConfigurationsApi.md#lockclientconfigurationversion) | **POST** /api/clientconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/lock | [EXPERIMENTAL] LockClientConfigurationVersion: Lock a client configuration version. |
-| [**UpdateClientConfigurationDraft**](ClientConfigurationsApi.md#updateclientconfigurationdraft) | **PUT** /api/clientconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/draft | [EXPERIMENTAL] UpdateClientConfigurationDraft: Update a draft client configuration. |
+| [**CreateVersionedConfigurationDraft**](VersionedConfigurationsApi.md#createversionedconfigurationdraft) | **POST** /api/versionedconfiguration/{configType}/{name}/draft | [EXPERIMENTAL] CreateVersionedConfigurationDraft: Create a draft versioned configuration. |
+| [**GetVersionedConfiguration**](VersionedConfigurationsApi.md#getversionedconfiguration) | **GET** /api/versionedconfiguration/{configType}/{name} | [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. |
+| [**ListVersionedConfigurations**](VersionedConfigurationsApi.md#listversionedconfigurations) | **GET** /api/versionedconfiguration/{configType} | [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations. |
+| [**LockVersionedConfigurationVersion**](VersionedConfigurationsApi.md#lockversionedconfigurationversion) | **POST** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/lock | [EXPERIMENTAL] LockVersionedConfigurationVersion: Lock a versioned configuration version. |
+| [**UpdateVersionedConfigurationDraft**](VersionedConfigurationsApi.md#updateversionedconfigurationdraft) | **PUT** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/draft | [EXPERIMENTAL] UpdateVersionedConfigurationDraft: Update a draft versioned configuration. |
 
-<a id="createclientconfigurationdraft"></a>
-# **CreateClientConfigurationDraft**
-> ClientConfigurationResponse CreateClientConfigurationDraft (string configType, string name, CreateClientConfigurationDraftRequest? createClientConfigurationDraftRequest = null)
+<a id="createversionedconfigurationdraft"></a>
+# **CreateVersionedConfigurationDraft**
+> VersionedConfigurationResponse CreateVersionedConfigurationDraft (string configType, string name, CreateVersionedConfigurationDraftRequest? createVersionedConfigurationDraftRequest = null)
 
-[EXPERIMENTAL] CreateClientConfigurationDraft: Create a draft client configuration.
+[EXPERIMENTAL] CreateVersionedConfigurationDraft: Create a draft versioned configuration.
 
 Creates a new draft configuration record. Configurations follow a draft/locked lifecycle: create a draft here, refine it with the update endpoint, then commit it with the lock endpoint. If both majorVersion and minorVersion are omitted in the request body, the next version is assigned automatically by incrementing the minor version of the current highest version (starting at 1.0 if none exists). The user must be authenticated and entitled to call this method.
 
@@ -54,25 +54,25 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ClientConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ClientConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
             var configType = "configType_example";  // string | The category of configuration.
             var name = "name_example";  // string | The logical name of the configuration.
-            var createClientConfigurationDraftRequest = new CreateClientConfigurationDraftRequest?(); // CreateClientConfigurationDraftRequest? | Options for the new draft, including optional explicit version and source version. (optional) 
+            var createVersionedConfigurationDraftRequest = new CreateVersionedConfigurationDraftRequest?(); // CreateVersionedConfigurationDraftRequest? | Options for the new draft, including optional explicit version and source version. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ClientConfigurationResponse result = apiInstance.CreateClientConfigurationDraft(configType, name, createClientConfigurationDraftRequest, opts: opts);
+                // VersionedConfigurationResponse result = apiInstance.CreateVersionedConfigurationDraft(configType, name, createVersionedConfigurationDraftRequest, opts: opts);
 
-                // [EXPERIMENTAL] CreateClientConfigurationDraft: Create a draft client configuration.
-                ClientConfigurationResponse result = apiInstance.CreateClientConfigurationDraft(configType, name, createClientConfigurationDraftRequest);
+                // [EXPERIMENTAL] CreateVersionedConfigurationDraft: Create a draft versioned configuration.
+                VersionedConfigurationResponse result = apiInstance.CreateVersionedConfigurationDraft(configType, name, createVersionedConfigurationDraftRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling ClientConfigurationsApi.CreateClientConfigurationDraft: " + e.Message);
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.CreateVersionedConfigurationDraft: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -81,21 +81,21 @@ namespace Examples
 }
 ```
 
-#### Using the CreateClientConfigurationDraftWithHttpInfo variant
+#### Using the CreateVersionedConfigurationDraftWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] CreateClientConfigurationDraft: Create a draft client configuration.
-    ApiResponse<ClientConfigurationResponse> response = apiInstance.CreateClientConfigurationDraftWithHttpInfo(configType, name, createClientConfigurationDraftRequest);
+    // [EXPERIMENTAL] CreateVersionedConfigurationDraft: Create a draft versioned configuration.
+    ApiResponse<VersionedConfigurationResponse> response = apiInstance.CreateVersionedConfigurationDraftWithHttpInfo(configType, name, createVersionedConfigurationDraftRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling ClientConfigurationsApi.CreateClientConfigurationDraftWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.CreateVersionedConfigurationDraftWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -107,11 +107,11 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **configType** | **string** | The category of configuration. |  |
 | **name** | **string** | The logical name of the configuration. |  |
-| **createClientConfigurationDraftRequest** | [**CreateClientConfigurationDraftRequest?**](CreateClientConfigurationDraftRequest?.md) | Options for the new draft, including optional explicit version and source version. | [optional]  |
+| **createVersionedConfigurationDraftRequest** | [**CreateVersionedConfigurationDraftRequest?**](CreateVersionedConfigurationDraftRequest?.md) | Options for the new draft, including optional explicit version and source version. | [optional]  |
 
 ### Return type
 
-[**ClientConfigurationResponse**](ClientConfigurationResponse.md)
+[**VersionedConfigurationResponse**](VersionedConfigurationResponse.md)
 
 ### HTTP request headers
 
@@ -130,11 +130,11 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
-<a id="getclientconfiguration"></a>
-# **GetClientConfiguration**
-> ClientConfigurationResponse GetClientConfiguration (string configType, string name, int? majorVersion = null, int? minorVersion = null)
+<a id="getversionedconfiguration"></a>
+# **GetVersionedConfiguration**
+> VersionedConfigurationResponse GetVersionedConfiguration (string configType, string name, int? majorVersion = null, int? minorVersion = null)
 
-[EXPERIMENTAL] GetClientConfiguration: Get a client configuration.
+[EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
 
 Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
 
@@ -174,9 +174,9 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ClientConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ClientConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
             var configType = "configType_example";  // string | The category of configuration.
             var name = "name_example";  // string | The logical name of the configuration.
             var majorVersion = 56;  // int? | The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional) 
@@ -185,15 +185,15 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ClientConfigurationResponse result = apiInstance.GetClientConfiguration(configType, name, majorVersion, minorVersion, opts: opts);
+                // VersionedConfigurationResponse result = apiInstance.GetVersionedConfiguration(configType, name, majorVersion, minorVersion, opts: opts);
 
-                // [EXPERIMENTAL] GetClientConfiguration: Get a client configuration.
-                ClientConfigurationResponse result = apiInstance.GetClientConfiguration(configType, name, majorVersion, minorVersion);
+                // [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
+                VersionedConfigurationResponse result = apiInstance.GetVersionedConfiguration(configType, name, majorVersion, minorVersion);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling ClientConfigurationsApi.GetClientConfiguration: " + e.Message);
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.GetVersionedConfiguration: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -202,21 +202,21 @@ namespace Examples
 }
 ```
 
-#### Using the GetClientConfigurationWithHttpInfo variant
+#### Using the GetVersionedConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetClientConfiguration: Get a client configuration.
-    ApiResponse<ClientConfigurationResponse> response = apiInstance.GetClientConfigurationWithHttpInfo(configType, name, majorVersion, minorVersion);
+    // [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
+    ApiResponse<VersionedConfigurationResponse> response = apiInstance.GetVersionedConfigurationWithHttpInfo(configType, name, majorVersion, minorVersion);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling ClientConfigurationsApi.GetClientConfigurationWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.GetVersionedConfigurationWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -233,7 +233,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ClientConfigurationResponse**](ClientConfigurationResponse.md)
+[**VersionedConfigurationResponse**](VersionedConfigurationResponse.md)
 
 ### HTTP request headers
 
@@ -251,11 +251,11 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
-<a id="listclientconfigurations"></a>
-# **ListClientConfigurations**
-> List&lt;ClientConfigurationResponse&gt; ListClientConfigurations (string configType)
+<a id="listversionedconfigurations"></a>
+# **ListVersionedConfigurations**
+> List&lt;VersionedConfigurationResponse&gt; ListVersionedConfigurations (string configType)
 
-[EXPERIMENTAL] ListClientConfigurations: List client configurations.
+[EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
 
 Returns all configuration records for the given config type, across all versions and states (both draft and locked), ordered by version descending. The user must be authenticated and entitled to call this method.
 
@@ -295,23 +295,23 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ClientConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ClientConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
             var configType = "configType_example";  // string | The category of configuration to list.
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // List<ClientConfigurationResponse> result = apiInstance.ListClientConfigurations(configType, opts: opts);
+                // List<VersionedConfigurationResponse> result = apiInstance.ListVersionedConfigurations(configType, opts: opts);
 
-                // [EXPERIMENTAL] ListClientConfigurations: List client configurations.
-                List<ClientConfigurationResponse> result = apiInstance.ListClientConfigurations(configType);
+                // [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
+                List<VersionedConfigurationResponse> result = apiInstance.ListVersionedConfigurations(configType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling ClientConfigurationsApi.ListClientConfigurations: " + e.Message);
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.ListVersionedConfigurations: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -320,21 +320,21 @@ namespace Examples
 }
 ```
 
-#### Using the ListClientConfigurationsWithHttpInfo variant
+#### Using the ListVersionedConfigurationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListClientConfigurations: List client configurations.
-    ApiResponse<List<ClientConfigurationResponse>> response = apiInstance.ListClientConfigurationsWithHttpInfo(configType);
+    // [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
+    ApiResponse<List<VersionedConfigurationResponse>> response = apiInstance.ListVersionedConfigurationsWithHttpInfo(configType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling ClientConfigurationsApi.ListClientConfigurationsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.ListVersionedConfigurationsWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -348,7 +348,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**List&lt;ClientConfigurationResponse&gt;**](ClientConfigurationResponse.md)
+[**List&lt;VersionedConfigurationResponse&gt;**](VersionedConfigurationResponse.md)
 
 ### HTTP request headers
 
@@ -366,11 +366,11 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
-<a id="lockclientconfigurationversion"></a>
-# **LockClientConfigurationVersion**
-> ClientConfigurationResponse LockClientConfigurationVersion (string configType, string name, int majorVersion, int minorVersion)
+<a id="lockversionedconfigurationversion"></a>
+# **LockVersionedConfigurationVersion**
+> VersionedConfigurationResponse LockVersionedConfigurationVersion (string configType, string name, int majorVersion, int minorVersion)
 
-[EXPERIMENTAL] LockClientConfigurationVersion: Lock a client configuration version.
+[EXPERIMENTAL] LockVersionedConfigurationVersion: Lock a versioned configuration version.
 
 Locks a draft configuration version, making it immutable and ready for use. Once locked, a version cannot be edited or unlocked. All versions are retained permanently. The user must be authenticated and entitled to call this method.
 
@@ -410,9 +410,9 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ClientConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ClientConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
             var configType = "configType_example";  // string | The category of configuration.
             var name = "name_example";  // string | The logical name of the configuration.
             var majorVersion = 56;  // int | The major version to lock.
@@ -421,15 +421,15 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ClientConfigurationResponse result = apiInstance.LockClientConfigurationVersion(configType, name, majorVersion, minorVersion, opts: opts);
+                // VersionedConfigurationResponse result = apiInstance.LockVersionedConfigurationVersion(configType, name, majorVersion, minorVersion, opts: opts);
 
-                // [EXPERIMENTAL] LockClientConfigurationVersion: Lock a client configuration version.
-                ClientConfigurationResponse result = apiInstance.LockClientConfigurationVersion(configType, name, majorVersion, minorVersion);
+                // [EXPERIMENTAL] LockVersionedConfigurationVersion: Lock a versioned configuration version.
+                VersionedConfigurationResponse result = apiInstance.LockVersionedConfigurationVersion(configType, name, majorVersion, minorVersion);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling ClientConfigurationsApi.LockClientConfigurationVersion: " + e.Message);
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.LockVersionedConfigurationVersion: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -438,21 +438,21 @@ namespace Examples
 }
 ```
 
-#### Using the LockClientConfigurationVersionWithHttpInfo variant
+#### Using the LockVersionedConfigurationVersionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] LockClientConfigurationVersion: Lock a client configuration version.
-    ApiResponse<ClientConfigurationResponse> response = apiInstance.LockClientConfigurationVersionWithHttpInfo(configType, name, majorVersion, minorVersion);
+    // [EXPERIMENTAL] LockVersionedConfigurationVersion: Lock a versioned configuration version.
+    ApiResponse<VersionedConfigurationResponse> response = apiInstance.LockVersionedConfigurationVersionWithHttpInfo(configType, name, majorVersion, minorVersion);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling ClientConfigurationsApi.LockClientConfigurationVersionWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.LockVersionedConfigurationVersionWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -469,7 +469,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**ClientConfigurationResponse**](ClientConfigurationResponse.md)
+[**VersionedConfigurationResponse**](VersionedConfigurationResponse.md)
 
 ### HTTP request headers
 
@@ -487,11 +487,11 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
-<a id="updateclientconfigurationdraft"></a>
-# **UpdateClientConfigurationDraft**
-> ClientConfigurationResponse UpdateClientConfigurationDraft (string configType, string name, int majorVersion, int minorVersion, UpdateClientConfigurationDraftRequest? updateClientConfigurationDraftRequest = null)
+<a id="updateversionedconfigurationdraft"></a>
+# **UpdateVersionedConfigurationDraft**
+> VersionedConfigurationResponse UpdateVersionedConfigurationDraft (string configType, string name, int majorVersion, int minorVersion, UpdateVersionedConfigurationDraftRequest? updateVersionedConfigurationDraftRequest = null)
 
-[EXPERIMENTAL] UpdateClientConfigurationDraft: Update a draft client configuration.
+[EXPERIMENTAL] UpdateVersionedConfigurationDraft: Update a draft versioned configuration.
 
 Updates the value of an existing draft configuration. Only draft versions can be updated; locked versions are immutable. This endpoint can be called multiple times before locking. The user must be authenticated and entitled to call this method.
 
@@ -531,27 +531,27 @@ namespace Examples
             // opts.TimeoutMs = 30_000;
 
             // uncomment the below to use an api factory with overrides
-            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<ClientConfigurationsApi>();
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
 
-            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<ClientConfigurationsApi>();
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
             var configType = "configType_example";  // string | The category of configuration.
             var name = "name_example";  // string | The logical name of the configuration.
             var majorVersion = 56;  // int | The major version of the draft to update.
             var minorVersion = 56;  // int | The minor version of the draft to update.
-            var updateClientConfigurationDraftRequest = new UpdateClientConfigurationDraftRequest?(); // UpdateClientConfigurationDraftRequest? | The updated value. (optional) 
+            var updateVersionedConfigurationDraftRequest = new UpdateVersionedConfigurationDraftRequest?(); // UpdateVersionedConfigurationDraftRequest? | The updated value. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // ClientConfigurationResponse result = apiInstance.UpdateClientConfigurationDraft(configType, name, majorVersion, minorVersion, updateClientConfigurationDraftRequest, opts: opts);
+                // VersionedConfigurationResponse result = apiInstance.UpdateVersionedConfigurationDraft(configType, name, majorVersion, minorVersion, updateVersionedConfigurationDraftRequest, opts: opts);
 
-                // [EXPERIMENTAL] UpdateClientConfigurationDraft: Update a draft client configuration.
-                ClientConfigurationResponse result = apiInstance.UpdateClientConfigurationDraft(configType, name, majorVersion, minorVersion, updateClientConfigurationDraftRequest);
+                // [EXPERIMENTAL] UpdateVersionedConfigurationDraft: Update a draft versioned configuration.
+                VersionedConfigurationResponse result = apiInstance.UpdateVersionedConfigurationDraft(configType, name, majorVersion, minorVersion, updateVersionedConfigurationDraftRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
-                Console.WriteLine("Exception when calling ClientConfigurationsApi.UpdateClientConfigurationDraft: " + e.Message);
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.UpdateVersionedConfigurationDraft: " + e.Message);
                 Console.WriteLine("Status Code: " + e.ErrorCode);
                 Console.WriteLine(e.StackTrace);
             }
@@ -560,21 +560,21 @@ namespace Examples
 }
 ```
 
-#### Using the UpdateClientConfigurationDraftWithHttpInfo variant
+#### Using the UpdateVersionedConfigurationDraftWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
 ```csharp
 try
 {
-    // [EXPERIMENTAL] UpdateClientConfigurationDraft: Update a draft client configuration.
-    ApiResponse<ClientConfigurationResponse> response = apiInstance.UpdateClientConfigurationDraftWithHttpInfo(configType, name, majorVersion, minorVersion, updateClientConfigurationDraftRequest);
+    // [EXPERIMENTAL] UpdateVersionedConfigurationDraft: Update a draft versioned configuration.
+    ApiResponse<VersionedConfigurationResponse> response = apiInstance.UpdateVersionedConfigurationDraftWithHttpInfo(configType, name, majorVersion, minorVersion, updateVersionedConfigurationDraftRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
-    Console.WriteLine("Exception when calling ClientConfigurationsApi.UpdateClientConfigurationDraftWithHttpInfo: " + e.Message);
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.UpdateVersionedConfigurationDraftWithHttpInfo: " + e.Message);
     Console.WriteLine("Status Code: " + e.ErrorCode);
     Console.WriteLine(e.StackTrace);
 }
@@ -588,11 +588,11 @@ catch (ApiException e)
 | **name** | **string** | The logical name of the configuration. |  |
 | **majorVersion** | **int** | The major version of the draft to update. |  |
 | **minorVersion** | **int** | The minor version of the draft to update. |  |
-| **updateClientConfigurationDraftRequest** | [**UpdateClientConfigurationDraftRequest?**](UpdateClientConfigurationDraftRequest?.md) | The updated value. | [optional]  |
+| **updateVersionedConfigurationDraftRequest** | [**UpdateVersionedConfigurationDraftRequest?**](UpdateVersionedConfigurationDraftRequest?.md) | The updated value. | [optional]  |
 
 ### Return type
 
-[**ClientConfigurationResponse**](ClientConfigurationResponse.md)
+[**VersionedConfigurationResponse**](VersionedConfigurationResponse.md)
 
 ### HTTP request headers
 

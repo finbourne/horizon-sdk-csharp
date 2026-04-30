@@ -1,5 +1,5 @@
-# Finbourne.Horizon.Sdk.Model.CreateClientConfigurationDraftRequest
-Request to create a new draft client configuration.
+# Finbourne.Horizon.Sdk.Model.CreateVersionedConfigurationDraftRequest
+Request to create a new draft versioned configuration.
 
 ## Properties
 
@@ -15,7 +15,7 @@ using Finbourne.Horizon.Sdk.Model;
 using System;
 
 
-CreateClientConfigurationDraftRequest createClientConfigurationDraftRequestInstance = new CreateClientConfigurationDraftRequest(
+CreateVersionedConfigurationDraftRequest createVersionedConfigurationDraftRequestInstance = new CreateVersionedConfigurationDraftRequest(
     majorVersion: majorVersion,
     minorVersion: minorVersion,
     sourceMajorVersion: sourceMajorVersion,

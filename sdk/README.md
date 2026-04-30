@@ -5,11 +5,6 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 Class | Method | HTTP request | Description
 ------------ | ------------- | ------------- | -------------
-*ClientConfigurationsApi* | [**CreateClientConfigurationDraft**](docs/ClientConfigurationsApi.md#createclientconfigurationdraft) | **POST** /api/clientconfiguration/{configType}/{name}/draft | [EXPERIMENTAL] CreateClientConfigurationDraft: Create a draft client configuration.
-*ClientConfigurationsApi* | [**GetClientConfiguration**](docs/ClientConfigurationsApi.md#getclientconfiguration) | **GET** /api/clientconfiguration/{configType}/{name} | [EXPERIMENTAL] GetClientConfiguration: Get a client configuration.
-*ClientConfigurationsApi* | [**ListClientConfigurations**](docs/ClientConfigurationsApi.md#listclientconfigurations) | **GET** /api/clientconfiguration/{configType} | [EXPERIMENTAL] ListClientConfigurations: List client configurations.
-*ClientConfigurationsApi* | [**LockClientConfigurationVersion**](docs/ClientConfigurationsApi.md#lockclientconfigurationversion) | **POST** /api/clientconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/lock | [EXPERIMENTAL] LockClientConfigurationVersion: Lock a client configuration version.
-*ClientConfigurationsApi* | [**UpdateClientConfigurationDraft**](docs/ClientConfigurationsApi.md#updateclientconfigurationdraft) | **PUT** /api/clientconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/draft | [EXPERIMENTAL] UpdateClientConfigurationDraft: Update a draft client configuration.
 *InstrumentApi* | [**CreateInstrument**](docs/InstrumentApi.md#createinstrument) | **POST** /api/instrument/onboarding/create | [EARLY ACCESS] CreateInstrument: Creates and masters instruments with third party vendors.
 *InstrumentApi* | [**EnrichInstrument**](docs/InstrumentApi.md#enrichinstrument) | **POST** /api/instrument/onboarding/enrich | [EARLY ACCESS] EnrichInstrument: Enriches an existing LUSID instrument using vendor data. Enrichment included identifiers, properties and market data.
 *InstrumentApi* | [**GetOpenFigiParameterOption**](docs/InstrumentApi.md#getopenfigiparameteroption) | **GET** /api/instrument/onboarding/search/openfigi/parameterOptions | [EARLY ACCESS] GetOpenFigiParameterOption: Get all supported market sector values for OpenFigi search
@@ -28,6 +23,7 @@ Class | Method | HTTP request | Description
 *IntegrationsApi* | [**GetIntegrationConfigurationFields**](docs/IntegrationsApi.md#getintegrationconfigurationfields) | **GET** /api/integrations/configuration/{integration}/fields | [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration
 *IntegrationsApi* | [**GetIntegrationConfigurationProperties**](docs/IntegrationsApi.md#getintegrationconfigurationproperties) | **GET** /api/integrations/configuration/{integration}/properties | [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration
 *IntegrationsApi* | [**GetSchema**](docs/IntegrationsApi.md#getschema) | **GET** /api/integrations/schema/{integration} | [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance.
+*IntegrationsApi* | [**GetTpfTransactionHistorySearch**](docs/IntegrationsApi.md#gettpftransactionhistorysearch) | **GET** /api/integrations/trade-publication-framework/transactions/search | [EARLY ACCESS] GetTpfTransactionHistorySearch: Endpoint to search TPF transaction by transaction ID and/or instrument identifier, with filtering by instance and date range
 *IntegrationsApi* | [**ListDataflowProcessors**](docs/IntegrationsApi.md#listdataflowprocessors) | **GET** /api/integrations/dataflow/processors | [EXPERIMENTAL] ListDataflowProcessors: List processor types.
 *IntegrationsApi* | [**ListInstances**](docs/IntegrationsApi.md#listinstances) | **GET** /api/integrations/instances | [EXPERIMENTAL] ListInstances: List instances across all integrations.
 *IntegrationsApi* | [**ListIntegrations**](docs/IntegrationsApi.md#listintegrations) | **GET** /api/integrations | [EXPERIMENTAL] ListIntegrations: List available integrations.
@@ -49,6 +45,11 @@ Class | Method | HTTP request | Description
 *VendorApi* | [**GetPropertyMappingsForProductEntity**](docs/VendorApi.md#getpropertymappingsforproductentity) | **GET** /api/vendor/mappings/properties | [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
 *VendorApi* | [**QueryVendors**](docs/VendorApi.md#queryvendors) | **POST** /api/vendor/$query | [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
 *VendorApi* | [**SetOptionalMappingsForProductEntity**](docs/VendorApi.md#setoptionalmappingsforproductentity) | **POST** /api/vendor/mappings/optional | [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
+*VersionedConfigurationsApi* | [**CreateVersionedConfigurationDraft**](docs/VersionedConfigurationsApi.md#createversionedconfigurationdraft) | **POST** /api/versionedconfiguration/{configType}/{name}/draft | [EXPERIMENTAL] CreateVersionedConfigurationDraft: Create a draft versioned configuration.
+*VersionedConfigurationsApi* | [**GetVersionedConfiguration**](docs/VersionedConfigurationsApi.md#getversionedconfiguration) | **GET** /api/versionedconfiguration/{configType}/{name} | [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
+*VersionedConfigurationsApi* | [**ListVersionedConfigurations**](docs/VersionedConfigurationsApi.md#listversionedconfigurations) | **GET** /api/versionedconfiguration/{configType} | [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
+*VersionedConfigurationsApi* | [**LockVersionedConfigurationVersion**](docs/VersionedConfigurationsApi.md#lockversionedconfigurationversion) | **POST** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/lock | [EXPERIMENTAL] LockVersionedConfigurationVersion: Lock a versioned configuration version.
+*VersionedConfigurationsApi* | [**UpdateVersionedConfigurationDraft**](docs/VersionedConfigurationsApi.md#updateversionedconfigurationdraft) | **PUT** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/draft | [EXPERIMENTAL] UpdateVersionedConfigurationDraft: Update a draft versioned configuration.
 
 
 <a id="documentation-for-models"></a>
@@ -61,9 +62,8 @@ Class | Method | HTTP request | Description
  - [AuditUpdateRequest](docs/AuditUpdateRequest.md)
  - [AuditUpdateResponse](docs/AuditUpdateResponse.md)
  - [CancelRunRequest](docs/CancelRunRequest.md)
- - [ClientConfigurationResponse](docs/ClientConfigurationResponse.md)
- - [CreateClientConfigurationDraftRequest](docs/CreateClientConfigurationDraftRequest.md)
  - [CreateInstanceRequest](docs/CreateInstanceRequest.md)
+ - [CreateVersionedConfigurationDraftRequest](docs/CreateVersionedConfigurationDraftRequest.md)
  - [EnrichmentResponse](docs/EnrichmentResponse.md)
  - [ExecuteInstanceResponse](docs/ExecuteInstanceResponse.md)
  - [ExternalLogInsertionRequest](docs/ExternalLogInsertionRequest.md)
@@ -114,6 +114,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfIntegrationRunResponse](docs/PagedResourceListOfIntegrationRunResponse.md)
  - [PagedResourceListOfProcessInformation](docs/PagedResourceListOfProcessInformation.md)
  - [PagedResourceListOfProcessUpdateResult](docs/PagedResourceListOfProcessUpdateResult.md)
+ - [PagedResourceListOfTpfTransactionSearchResponse](docs/PagedResourceListOfTpfTransactionSearchResponse.md)
  - [PagedResourceListOfVendorProduct](docs/PagedResourceListOfVendorProduct.md)
  - [PermIdData](docs/PermIdData.md)
  - [PostProcessTask](docs/PostProcessTask.md)
@@ -127,9 +128,11 @@ Class | Method | HTTP request | Description
  - [QuerySpecification](docs/QuerySpecification.md)
  - [ResourceId](docs/ResourceId.md)
  - [RowDetails](docs/RowDetails.md)
+ - [TpfTransactionSearchResponse](docs/TpfTransactionSearchResponse.md)
  - [Trigger](docs/Trigger.md)
- - [UpdateClientConfigurationDraftRequest](docs/UpdateClientConfigurationDraftRequest.md)
  - [UpdateInstanceRequest](docs/UpdateInstanceRequest.md)
+ - [UpdateVersionedConfigurationDraftRequest](docs/UpdateVersionedConfigurationDraftRequest.md)
  - [VendorField](docs/VendorField.md)
  - [VendorProduct](docs/VendorProduct.md)
+ - [VersionedConfigurationResponse](docs/VersionedConfigurationResponse.md)
 

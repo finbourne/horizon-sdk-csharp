@@ -1,5 +1,5 @@
-# Finbourne.Horizon.Sdk.Model.UpdateClientConfigurationDraftRequest
-Request to update the value of an existing draft client configuration.
+# Finbourne.Horizon.Sdk.Model.UpdateVersionedConfigurationDraftRequest
+Request to update the value of an existing draft versioned configuration.
 
 ## Properties
 
@@ -13,7 +13,7 @@ using System;
 
 string value = "value";
 
-UpdateClientConfigurationDraftRequest updateClientConfigurationDraftRequestInstance = new UpdateClientConfigurationDraftRequest(
+UpdateVersionedConfigurationDraftRequest updateVersionedConfigurationDraftRequestInstance = new UpdateVersionedConfigurationDraftRequest(
     value: value);
 ```
 

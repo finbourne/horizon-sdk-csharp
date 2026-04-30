@@ -23,19 +23,19 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// Request to create a new draft client configuration.
+    /// Request to create a new draft versioned configuration.
     /// </summary>
-    [DataContract(Name = "CreateClientConfigurationDraftRequest")]
-    public partial class CreateClientConfigurationDraftRequest : IEquatable<CreateClientConfigurationDraftRequest>, IValidatableObject
+    [DataContract(Name = "CreateVersionedConfigurationDraftRequest")]
+    public partial class CreateVersionedConfigurationDraftRequest : IEquatable<CreateVersionedConfigurationDraftRequest>, IValidatableObject
     {
         /// <summary>
-        /// Initializes a new instance of the <see cref="CreateClientConfigurationDraftRequest" /> class.
+        /// Initializes a new instance of the <see cref="CreateVersionedConfigurationDraftRequest" /> class.
         /// </summary>
         /// <param name="majorVersion">The major version for the new draft. Must be supplied together with minorVersion, or both omitted to auto-assign the next version..</param>
         /// <param name="minorVersion">The minor version for the new draft. Must be supplied together with MajorVersion, or both omitted to auto-assign the next version..</param>
         /// <param name="sourceMajorVersion">The major version of an existing record to copy the value from. Must be supplied together with SourceMinorVersion. If omitted, the new draft is initialised with an empty JSON object..</param>
         /// <param name="sourceMinorVersion">The minor version of an existing record to copy the value from. Must be supplied together with SourceMajorVersion. If omitted, the new draft is initialised with an empty JSON object..</param>
-        public CreateClientConfigurationDraftRequest(int? majorVersion = default(int?), int? minorVersion = default(int?), int? sourceMajorVersion = default(int?), int? sourceMinorVersion = default(int?))
+        public CreateVersionedConfigurationDraftRequest(int? majorVersion = default(int?), int? minorVersion = default(int?), int? sourceMajorVersion = default(int?), int? sourceMinorVersion = default(int?))
         {
             this.MajorVersion = majorVersion;
             this.MinorVersion = minorVersion;
@@ -78,7 +78,7 @@ namespace Finbourne.Horizon.Sdk.Model
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            sb.Append("class CreateClientConfigurationDraftRequest {\n");
+            sb.Append("class CreateVersionedConfigurationDraftRequest {\n");
             sb.Append("  MajorVersion: ").Append(MajorVersion).Append("\n");
             sb.Append("  MinorVersion: ").Append(MinorVersion).Append("\n");
             sb.Append("  SourceMajorVersion: ").Append(SourceMajorVersion).Append("\n");
@@ -103,15 +103,15 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Boolean</returns>
         public override bool Equals(object input)
         {
-            return this.Equals(input as CreateClientConfigurationDraftRequest);
+            return this.Equals(input as CreateVersionedConfigurationDraftRequest);
         }
 
         /// <summary>
-        /// Returns true if CreateClientConfigurationDraftRequest instances are equal
+        /// Returns true if CreateVersionedConfigurationDraftRequest instances are equal
         /// </summary>
-        /// <param name="input">Instance of CreateClientConfigurationDraftRequest to be compared</param>
+        /// <param name="input">Instance of CreateVersionedConfigurationDraftRequest to be compared</param>
         /// <returns>Boolean</returns>
-        public bool Equals(CreateClientConfigurationDraftRequest input)
+        public bool Equals(CreateVersionedConfigurationDraftRequest input)
         {
             if (input == null)
             {
