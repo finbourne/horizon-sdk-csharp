@@ -46,8 +46,11 @@ Class | Method | HTTP request | Description
 *VendorApi* | [**QueryVendors**](docs/VendorApi.md#queryvendors) | **POST** /api/vendor/$query | [EARLY ACCESS] QueryVendors: Query for vendors and their packages with entities and sub-entities.
 *VendorApi* | [**SetOptionalMappingsForProductEntity**](docs/VendorApi.md#setoptionalmappingsforproductentity) | **POST** /api/vendor/mappings/optional | [EARLY ACCESS] SetOptionalMappingsForProductEntity: Create a user defined LUSID property mappings for the specified vendor / LUSID entity.
 *VersionedConfigurationsApi* | [**CreateVersionedConfigurationDraft**](docs/VersionedConfigurationsApi.md#createversionedconfigurationdraft) | **POST** /api/versionedconfiguration/{configType}/{name}/draft | [EXPERIMENTAL] CreateVersionedConfigurationDraft: Create a draft versioned configuration.
+*VersionedConfigurationsApi* | [**DeleteVersionedConfigurationVersion**](docs/VersionedConfigurationsApi.md#deleteversionedconfigurationversion) | **DELETE** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion} | [EXPERIMENTAL] DeleteVersionedConfigurationVersion: Delete a versioned configuration version.
 *VersionedConfigurationsApi* | [**GetVersionedConfiguration**](docs/VersionedConfigurationsApi.md#getversionedconfiguration) | **GET** /api/versionedconfiguration/{configType}/{name} | [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
-*VersionedConfigurationsApi* | [**ListVersionedConfigurations**](docs/VersionedConfigurationsApi.md#listversionedconfigurations) | **GET** /api/versionedconfiguration/{configType} | [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
+*VersionedConfigurationsApi* | [**GetVersionedConfigurationTypes**](docs/VersionedConfigurationsApi.md#getversionedconfigurationtypes) | **GET** /api/versionedconfiguration/config-types | [EXPERIMENTAL] GetVersionedConfigurationTypes: List available versioned configuration types.
+*VersionedConfigurationsApi* | [**ListAllVersionedConfigurations**](docs/VersionedConfigurationsApi.md#listallversionedconfigurations) | **GET** /api/versionedconfiguration/all | [EXPERIMENTAL] ListAllVersionedConfigurations: List all versioned configurations.
+*VersionedConfigurationsApi* | [**ListVersionedConfigurations**](docs/VersionedConfigurationsApi.md#listversionedconfigurations) | **GET** /api/versionedconfiguration/{configType} | [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations for a config type.
 *VersionedConfigurationsApi* | [**LockVersionedConfigurationVersion**](docs/VersionedConfigurationsApi.md#lockversionedconfigurationversion) | **POST** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/lock | [EXPERIMENTAL] LockVersionedConfigurationVersion: Lock a versioned configuration version.
 *VersionedConfigurationsApi* | [**UpdateVersionedConfigurationDraft**](docs/VersionedConfigurationsApi.md#updateversionedconfigurationdraft) | **PUT** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/draft | [EXPERIMENTAL] UpdateVersionedConfigurationDraft: Update a draft versioned configuration.
 
@@ -135,4 +138,5 @@ Class | Method | HTTP request | Description
  - [VendorField](docs/VendorField.md)
  - [VendorProduct](docs/VendorProduct.md)
  - [VersionedConfigurationResponse](docs/VersionedConfigurationResponse.md)
+ - [VersionedConfigurationTypeResponse](docs/VersionedConfigurationTypeResponse.md)
 

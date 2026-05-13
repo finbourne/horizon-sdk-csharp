@@ -35,12 +35,14 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="minorVersion">The minor version for the new draft. Must be supplied together with MajorVersion, or both omitted to auto-assign the next version..</param>
         /// <param name="sourceMajorVersion">The major version of an existing record to copy the value from. Must be supplied together with SourceMinorVersion. If omitted, the new draft is initialised with an empty JSON object..</param>
         /// <param name="sourceMinorVersion">The minor version of an existing record to copy the value from. Must be supplied together with SourceMajorVersion. If omitted, the new draft is initialised with an empty JSON object..</param>
-        public CreateVersionedConfigurationDraftRequest(int? majorVersion = default(int?), int? minorVersion = default(int?), int? sourceMajorVersion = default(int?), int? sourceMinorVersion = default(int?))
+        /// <param name="value">The initial JSON value for the new draft. If omitted, the draft is initialised with an empty JSON object. Cannot be supplied together with SourceMajorVersion/SourceMinorVersion..</param>
+        public CreateVersionedConfigurationDraftRequest(int? majorVersion = default(int?), int? minorVersion = default(int?), int? sourceMajorVersion = default(int?), int? sourceMinorVersion = default(int?), string value = default(string))
         {
             this.MajorVersion = majorVersion;
             this.MinorVersion = minorVersion;
             this.SourceMajorVersion = sourceMajorVersion;
             this.SourceMinorVersion = sourceMinorVersion;
+            this.Value = value;
         }
 
         /// <summary>
@@ -72,6 +74,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public int? SourceMinorVersion { get; set; }
 
         /// <summary>
+        /// The initial JSON value for the new draft. If omitted, the draft is initialised with an empty JSON object. Cannot be supplied together with SourceMajorVersion/SourceMinorVersion.
+        /// </summary>
+        /// <value>The initial JSON value for the new draft. If omitted, the draft is initialised with an empty JSON object. Cannot be supplied together with SourceMajorVersion/SourceMinorVersion.</value>
+        [DataMember(Name = "value", EmitDefaultValue = true)]
+        public string Value { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -83,6 +92,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  MinorVersion: ").Append(MinorVersion).Append("\n");
             sb.Append("  SourceMajorVersion: ").Append(SourceMajorVersion).Append("\n");
             sb.Append("  SourceMinorVersion: ").Append(SourceMinorVersion).Append("\n");
+            sb.Append("  Value: ").Append(Value).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -137,6 +147,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.SourceMinorVersion == input.SourceMinorVersion ||
                     (this.SourceMinorVersion != null &&
                     this.SourceMinorVersion.Equals(input.SourceMinorVersion))
+                ) && 
+                (
+                    this.Value == input.Value ||
+                    (this.Value != null &&
+                    this.Value.Equals(input.Value))
                 );
         }
 
@@ -164,6 +179,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.SourceMinorVersion != null)
                 {
                     hashCode = (hashCode * 59) + this.SourceMinorVersion.GetHashCode();
+                }
+                if (this.Value != null)
+                {
+                    hashCode = (hashCode * 59) + this.Value.GetHashCode();
                 }
                 return hashCode;
             }

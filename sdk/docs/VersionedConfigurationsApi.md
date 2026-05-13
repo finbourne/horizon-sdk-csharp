@@ -5,8 +5,11 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
 | [**CreateVersionedConfigurationDraft**](VersionedConfigurationsApi.md#createversionedconfigurationdraft) | **POST** /api/versionedconfiguration/{configType}/{name}/draft | [EXPERIMENTAL] CreateVersionedConfigurationDraft: Create a draft versioned configuration. |
+| [**DeleteVersionedConfigurationVersion**](VersionedConfigurationsApi.md#deleteversionedconfigurationversion) | **DELETE** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion} | [EXPERIMENTAL] DeleteVersionedConfigurationVersion: Delete a versioned configuration version. |
 | [**GetVersionedConfiguration**](VersionedConfigurationsApi.md#getversionedconfiguration) | **GET** /api/versionedconfiguration/{configType}/{name} | [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. |
-| [**ListVersionedConfigurations**](VersionedConfigurationsApi.md#listversionedconfigurations) | **GET** /api/versionedconfiguration/{configType} | [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations. |
+| [**GetVersionedConfigurationTypes**](VersionedConfigurationsApi.md#getversionedconfigurationtypes) | **GET** /api/versionedconfiguration/config-types | [EXPERIMENTAL] GetVersionedConfigurationTypes: List available versioned configuration types. |
+| [**ListAllVersionedConfigurations**](VersionedConfigurationsApi.md#listallversionedconfigurations) | **GET** /api/versionedconfiguration/all | [EXPERIMENTAL] ListAllVersionedConfigurations: List all versioned configurations. |
+| [**ListVersionedConfigurations**](VersionedConfigurationsApi.md#listversionedconfigurations) | **GET** /api/versionedconfiguration/{configType} | [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations for a config type. |
 | [**LockVersionedConfigurationVersion**](VersionedConfigurationsApi.md#lockversionedconfigurationversion) | **POST** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/lock | [EXPERIMENTAL] LockVersionedConfigurationVersion: Lock a versioned configuration version. |
 | [**UpdateVersionedConfigurationDraft**](VersionedConfigurationsApi.md#updateversionedconfigurationdraft) | **PUT** /api/versionedconfiguration/{configType}/{name}/{majorVersion}/{minorVersion}/draft | [EXPERIMENTAL] UpdateVersionedConfigurationDraft: Update a draft versioned configuration. |
 
@@ -126,6 +129,127 @@ catch (ApiException e)
 | **400** | The details of the input related failure |  -  |
 | **404** | The client does not exist. |  -  |
 | **409** | A configuration with the specified version already exists. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="deleteversionedconfigurationversion"></a>
+# **DeleteVersionedConfigurationVersion**
+> VersionedConfigurationResponse DeleteVersionedConfigurationVersion (string configType, string name, int majorVersion, int minorVersion)
+
+[EXPERIMENTAL] DeleteVersionedConfigurationVersion: Delete a versioned configuration version.
+
+Permanently deletes the specified configuration version regardless of whether it is locked. Returns the deleted record. The user must be authenticated and entitled to call this method.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
+            var configType = "configType_example";  // string | The category of configuration.
+            var name = "name_example";  // string | The logical name of the configuration.
+            var majorVersion = 56;  // int | The major version to delete.
+            var minorVersion = 56;  // int | The minor version to delete.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // VersionedConfigurationResponse result = apiInstance.DeleteVersionedConfigurationVersion(configType, name, majorVersion, minorVersion, opts: opts);
+
+                // [EXPERIMENTAL] DeleteVersionedConfigurationVersion: Delete a versioned configuration version.
+                VersionedConfigurationResponse result = apiInstance.DeleteVersionedConfigurationVersion(configType, name, majorVersion, minorVersion);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.DeleteVersionedConfigurationVersion: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the DeleteVersionedConfigurationVersionWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] DeleteVersionedConfigurationVersion: Delete a versioned configuration version.
+    ApiResponse<VersionedConfigurationResponse> response = apiInstance.DeleteVersionedConfigurationVersionWithHttpInfo(configType, name, majorVersion, minorVersion);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.DeleteVersionedConfigurationVersionWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **configType** | **string** | The category of configuration. |  |
+| **name** | **string** | The logical name of the configuration. |  |
+| **majorVersion** | **int** | The major version to delete. |  |
+| **minorVersion** | **int** | The minor version to delete. |  |
+
+### Return type
+
+[**VersionedConfigurationResponse**](VersionedConfigurationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The client or configuration version does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
@@ -251,11 +375,229 @@ catch (ApiException e)
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
+<a id="getversionedconfigurationtypes"></a>
+# **GetVersionedConfigurationTypes**
+> List&lt;VersionedConfigurationTypeResponse&gt; GetVersionedConfigurationTypes ()
+
+[EXPERIMENTAL] GetVersionedConfigurationTypes: List available versioned configuration types.
+
+Returns all registered configuration types with their display names. The user must be authenticated and entitled to call this method.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // List<VersionedConfigurationTypeResponse> result = apiInstance.GetVersionedConfigurationTypes(opts: opts);
+
+                // [EXPERIMENTAL] GetVersionedConfigurationTypes: List available versioned configuration types.
+                List<VersionedConfigurationTypeResponse> result = apiInstance.GetVersionedConfigurationTypes();
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.GetVersionedConfigurationTypes: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetVersionedConfigurationTypesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetVersionedConfigurationTypes: List available versioned configuration types.
+    ApiResponse<List<VersionedConfigurationTypeResponse>> response = apiInstance.GetVersionedConfigurationTypesWithHttpInfo();
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.GetVersionedConfigurationTypesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;VersionedConfigurationTypeResponse&gt;**](VersionedConfigurationTypeResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | The client does not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listallversionedconfigurations"></a>
+# **ListAllVersionedConfigurations**
+> List&lt;VersionedConfigurationResponse&gt; ListAllVersionedConfigurations ()
+
+[EXPERIMENTAL] ListAllVersionedConfigurations: List all versioned configurations.
+
+Returns all configuration records across all config types, versions and states (both draft and locked), ordered by version descending. The user must be authenticated and entitled to call this method.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<VersionedConfigurationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<VersionedConfigurationsApi>();
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // List<VersionedConfigurationResponse> result = apiInstance.ListAllVersionedConfigurations(opts: opts);
+
+                // [EXPERIMENTAL] ListAllVersionedConfigurations: List all versioned configurations.
+                List<VersionedConfigurationResponse> result = apiInstance.ListAllVersionedConfigurations();
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling VersionedConfigurationsApi.ListAllVersionedConfigurations: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListAllVersionedConfigurationsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListAllVersionedConfigurations: List all versioned configurations.
+    ApiResponse<List<VersionedConfigurationResponse>> response = apiInstance.ListAllVersionedConfigurationsWithHttpInfo();
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling VersionedConfigurationsApi.ListAllVersionedConfigurationsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+This endpoint does not need any parameter.
+### Return type
+
+[**List&lt;VersionedConfigurationResponse&gt;**](VersionedConfigurationResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **404** | The client does not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
 <a id="listversionedconfigurations"></a>
 # **ListVersionedConfigurations**
 > List&lt;VersionedConfigurationResponse&gt; ListVersionedConfigurations (string configType)
 
-[EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
+[EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations for a config type.
 
 Returns all configuration records for the given config type, across all versions and states (both draft and locked), ordered by version descending. The user must be authenticated and entitled to call this method.
 
@@ -305,7 +647,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // List<VersionedConfigurationResponse> result = apiInstance.ListVersionedConfigurations(configType, opts: opts);
 
-                // [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
+                // [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations for a config type.
                 List<VersionedConfigurationResponse> result = apiInstance.ListVersionedConfigurations(configType);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -326,7 +668,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations.
+    // [EXPERIMENTAL] ListVersionedConfigurations: List versioned configurations for a config type.
     ApiResponse<List<VersionedConfigurationResponse>> response = apiInstance.ListVersionedConfigurationsWithHttpInfo(configType);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
