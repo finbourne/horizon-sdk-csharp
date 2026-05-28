@@ -10,6 +10,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**ListInstancesWithStatus**](TradePublicationFrameworkApi.md#listinstanceswithstatus) | **GET** /api/trade-publication-framework/instances | [EXPERIMENTAL] ListInstancesWithStatus: Lists all instances of the Trade Publication Framework (TPF). |
 | [**ListRunFiles**](TradePublicationFrameworkApi.md#listrunfiles) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/files | [EXPERIMENTAL] ListRunFiles: List Files in a run |
 | [**ListRunTransactions**](TradePublicationFrameworkApi.md#listruntransactions) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions | [EXPERIMENTAL] ListRunTransactions: List Transactions in a run. |
+| [**ReplayTransactions**](TradePublicationFrameworkApi.md#replaytransactions) | **POST** /api/trade-publication-framework/instances/{instanceId}/replay | [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance |
 
 <a id="gettpftransactionhistorysearch"></a>
 # **GetTpfTransactionHistorySearch**
@@ -712,6 +713,121 @@ catch (ApiException e)
 | **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | The requested TPF instance or run does not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="replaytransactions"></a>
+# **ReplayTransactions**
+> ReplayTransactionsResponse ReplayTransactions (string instanceId, ReplayTransactionsRequest replayTransactionsRequest)
+
+[EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
+            var instanceId = "instanceId_example";  // string | 
+            var replayTransactionsRequest = new ReplayTransactionsRequest(); // ReplayTransactionsRequest | 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ReplayTransactionsResponse result = apiInstance.ReplayTransactions(instanceId, replayTransactionsRequest, opts: opts);
+
+                // [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance
+                ReplayTransactionsResponse result = apiInstance.ReplayTransactions(instanceId, replayTransactionsRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TradePublicationFrameworkApi.ReplayTransactions: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ReplayTransactionsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance
+    ApiResponse<ReplayTransactionsResponse> response = apiInstance.ReplayTransactionsWithHttpInfo(instanceId, replayTransactionsRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TradePublicationFrameworkApi.ReplayTransactionsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** |  |  |
+| **replayTransactionsRequest** | [**ReplayTransactionsRequest**](ReplayTransactionsRequest.md) |  |  |
+
+### Return type
+
+[**ReplayTransactionsResponse**](ReplayTransactionsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The requested TPF instance does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

@@ -45,6 +45,7 @@ Class | Method | HTTP request | Description
 *TradePublicationFrameworkApi* | [**ListInstancesWithStatus**](docs/TradePublicationFrameworkApi.md#listinstanceswithstatus) | **GET** /api/trade-publication-framework/instances | [EXPERIMENTAL] ListInstancesWithStatus: Lists all instances of the Trade Publication Framework (TPF).
 *TradePublicationFrameworkApi* | [**ListRunFiles**](docs/TradePublicationFrameworkApi.md#listrunfiles) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/files | [EXPERIMENTAL] ListRunFiles: List Files in a run
 *TradePublicationFrameworkApi* | [**ListRunTransactions**](docs/TradePublicationFrameworkApi.md#listruntransactions) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions | [EXPERIMENTAL] ListRunTransactions: List Transactions in a run.
+*TradePublicationFrameworkApi* | [**ReplayTransactions**](docs/TradePublicationFrameworkApi.md#replaytransactions) | **POST** /api/trade-publication-framework/instances/{instanceId}/replay | [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance
 *VendorApi* | [**GetCoreFieldMappingsForProductEntity**](docs/VendorApi.md#getcorefieldmappingsforproductentity) | **GET** /api/vendor/mappings/fields | [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
 *VendorApi* | [**GetOptionalMappingsForProductEntity**](docs/VendorApi.md#getoptionalmappingsforproductentity) | **GET** /api/vendor/mappings/optional | [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
 *VendorApi* | [**GetPropertyMappingsForProductEntity**](docs/VendorApi.md#getpropertymappingsforproductentity) | **GET** /api/vendor/mappings/properties | [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
@@ -143,6 +144,9 @@ Class | Method | HTTP request | Description
  - [PropertyMapping](docs/PropertyMapping.md)
  - [QueryRequest](docs/QueryRequest.md)
  - [QuerySpecification](docs/QuerySpecification.md)
+ - [ReplayOptions](docs/ReplayOptions.md)
+ - [ReplayTransactionsRequest](docs/ReplayTransactionsRequest.md)
+ - [ReplayTransactionsResponse](docs/ReplayTransactionsResponse.md)
  - [ResourceId](docs/ResourceId.md)
  - [RowDetails](docs/RowDetails.md)
  - [RunFileResponse](docs/RunFileResponse.md)
