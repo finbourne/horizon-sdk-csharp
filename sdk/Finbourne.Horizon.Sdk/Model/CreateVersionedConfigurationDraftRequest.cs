@@ -195,6 +195,18 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <returns>Validation Result</returns>
         IEnumerable<System.ComponentModel.DataAnnotations.ValidationResult> IValidatableObject.Validate(ValidationContext validationContext)
         {
+            // Value (string) maxLength
+            if (this.Value != null && this.Value.Length > 100000)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be less than 100000.", new [] { "Value" });
+            }
+
+            // Value (string) minLength
+            if (this.Value != null && this.Value.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Value, length must be greater than 0.", new [] { "Value" });
+            }
+
             yield break;
         }
     }

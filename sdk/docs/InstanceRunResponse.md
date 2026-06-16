@@ -6,7 +6,7 @@ Response containing details of a single run for an instance.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **RunId** | **Guid** |  | 
-**BatchReferenceId** | **string** |  | [optional] 
+**BatchReferenceId** | **Guid** |  | 
 **Attempt** | **int?** |  | [optional] 
 **StartTime** | **DateTimeOffset** |  | 
 **EndTime** | **DateTimeOffset?** |  | [optional] 
@@ -24,7 +24,7 @@ using Finbourne.Horizon.Sdk.Model;
 using System;
 
 Guid runId = "runId";
-string batchReferenceId = "example batchReferenceId";
+Guid batchReferenceId = "batchReferenceId";
 string duration = "example duration";
 string status = "status";
 string triggeredBy = "example triggeredBy";

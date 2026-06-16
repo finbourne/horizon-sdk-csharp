@@ -4,14 +4,141 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**GetTpfFileDeliveries**](TradePublicationFrameworkApi.md#gettpffiledeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/deliveries | [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance |
 | [**GetTpfTransactionHistorySearch**](TradePublicationFrameworkApi.md#gettpftransactionhistorysearch) | **GET** /api/trade-publication-framework/transactions/search | [EXPERIMENTAL] GetTpfTransactionHistorySearch: Endpoint to search TPF transaction by transaction ID and/or instrument identifier, with filtering by instance and date range |
 | [**GetTransactionPayload**](TradePublicationFrameworkApi.md#gettransactionpayload) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/{transactionId}/payload | [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail |
+| [**ListFailedDeliveries**](TradePublicationFrameworkApi.md#listfaileddeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/failed | [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support. |
 | [**ListInstanceRunHistory**](TradePublicationFrameworkApi.md#listinstancerunhistory) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs | [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support. |
 | [**ListInstancesWithStatus**](TradePublicationFrameworkApi.md#listinstanceswithstatus) | **GET** /api/trade-publication-framework/instances | [EXPERIMENTAL] ListInstancesWithStatus: Lists all instances of the Trade Publication Framework (TPF). |
 | [**ListRunFiles**](TradePublicationFrameworkApi.md#listrunfiles) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/files | [EXPERIMENTAL] ListRunFiles: List Files in a run |
 | [**ListRunTransactions**](TradePublicationFrameworkApi.md#listruntransactions) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions | [EXPERIMENTAL] ListRunTransactions: List Transactions in a run. |
 | [**ReplayTransactions**](TradePublicationFrameworkApi.md#replaytransactions) | **POST** /api/trade-publication-framework/instances/{instanceId}/replay | [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance |
+| [**ResolveFailedDelivery**](TradePublicationFrameworkApi.md#resolvefaileddelivery) | **PUT** /api/trade-publication-framework/instances/{instanceId}/failed/{batchReferenceId}/resolve | [EXPERIMENTAL] ResolveFailedDelivery: Resolve a failed delivery without retry |
 | [**RetryTpfSftpDelivery**](TradePublicationFrameworkApi.md#retrytpfsftpdelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/files/{fileId}/retry-sftp | [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file |
+
+<a id="gettpffiledeliveries"></a>
+# **GetTpfFileDeliveries**
+> PagedResourceListOfTpfFileDeliveryResponse GetTpfFileDeliveries (string instanceId, FileDeliveryStatus? status = null, DateTimeOffset? dateFrom = null, DateTimeOffset? dateTo = null, int? limit = null, string? page = null)
+
+[EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
+
+Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
+            var instanceId = "instanceId_example";  // string | Integration instance ID
+            var status = new FileDeliveryStatus?(); // FileDeliveryStatus? | Filter by delivery status (Completed, Error, Pending) (optional) 
+            var dateFrom = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Filter deliveries from this time (inclusive) (optional) 
+            var dateTo = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Filter deliveries to this time (inclusive) (optional) 
+            var limit = 50;  // int? | Page size for pagination (default 50, max 500) (optional)  (default to 50)
+            var page = "\"\"";  // string? | Pagination token from previous response (optional)  (default to "")
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfTpfFileDeliveryResponse result = apiInstance.GetTpfFileDeliveries(instanceId, status, dateFrom, dateTo, limit, page, opts: opts);
+
+                // [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
+                PagedResourceListOfTpfFileDeliveryResponse result = apiInstance.GetTpfFileDeliveries(instanceId, status, dateFrom, dateTo, limit, page);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TradePublicationFrameworkApi.GetTpfFileDeliveries: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetTpfFileDeliveriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
+    ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> response = apiInstance.GetTpfFileDeliveriesWithHttpInfo(instanceId, status, dateFrom, dateTo, limit, page);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TradePublicationFrameworkApi.GetTpfFileDeliveriesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** | Integration instance ID |  |
+| **status** | [**FileDeliveryStatus?**](FileDeliveryStatus?.md) | Filter by delivery status (Completed, Error, Pending) | [optional]  |
+| **dateFrom** | **DateTimeOffset?** | Filter deliveries from this time (inclusive) | [optional]  |
+| **dateTo** | **DateTimeOffset?** | Filter deliveries to this time (inclusive) | [optional]  |
+| **limit** | **int?** | Page size for pagination (default 50, max 500) | [optional] [default to 50] |
+| **page** | **string?** | Pagination token from previous response | [optional] [default to &quot;&quot;] |
+
+### Return type
+
+[**PagedResourceListOfTpfFileDeliveryResponse**](PagedResourceListOfTpfFileDeliveryResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="gettpftransactionhistorysearch"></a>
 # **GetTpfTransactionHistorySearch**
@@ -252,6 +379,125 @@ catch (ApiException e)
 | **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | The requested TPF instance, run, or transaction payload does not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="listfaileddeliveries"></a>
+# **ListFailedDeliveries**
+> PagedResourceListOfFailedDeliveryResponse ListFailedDeliveries (string instanceId, bool? resolved = null, string? page = null, int? pageSize = null)
+
+[EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
+            var instanceId = "instanceId_example";  // string | 
+            var resolved = false;  // bool? |  (optional)  (default to false)
+            var page = "\"\"";  // string? |  (optional)  (default to "")
+            var pageSize = 100;  // int? |  (optional)  (default to 100)
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // PagedResourceListOfFailedDeliveryResponse result = apiInstance.ListFailedDeliveries(instanceId, resolved, page, pageSize, opts: opts);
+
+                // [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support.
+                PagedResourceListOfFailedDeliveryResponse result = apiInstance.ListFailedDeliveries(instanceId, resolved, page, pageSize);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TradePublicationFrameworkApi.ListFailedDeliveries: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ListFailedDeliveriesWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support.
+    ApiResponse<PagedResourceListOfFailedDeliveryResponse> response = apiInstance.ListFailedDeliveriesWithHttpInfo(instanceId, resolved, page, pageSize);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TradePublicationFrameworkApi.ListFailedDeliveriesWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** |  |  |
+| **resolved** | **bool?** |  | [optional] [default to false] |
+| **page** | **string?** |  | [optional] [default to &quot;&quot;] |
+| **pageSize** | **int?** |  | [optional] [default to 100] |
+
+### Return type
+
+[**PagedResourceListOfFailedDeliveryResponse**](PagedResourceListOfFailedDeliveryResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The requested TPF instance does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
@@ -599,7 +845,7 @@ catch (ApiException e)
 
 <a id="listruntransactions"></a>
 # **ListRunTransactions**
-> PagedResourceListOfTransactionResponse ListRunTransactions (string instanceId, string runId, string status, string? page = null, int? pageSize = null)
+> PagedResourceListOfTransactionResponse ListRunTransactions (string instanceId, string runId, string? status = null, string? page = null, int? pageSize = null)
 
 [EXPERIMENTAL] ListRunTransactions: List Transactions in a run.
 
@@ -644,7 +890,7 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
             var instanceId = "instanceId_example";  // string | 
             var runId = "runId_example";  // string | 
-            var status = "status_example";  // string | 
+            var status = "status_example";  // string? |  (optional) 
             var page = "\"\"";  // string? |  (optional)  (default to "")
             var pageSize = 100;  // int? |  (optional)  (default to 100)
 
@@ -694,7 +940,7 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **instanceId** | **string** |  |  |
 | **runId** | **string** |  |  |
-| **status** | **string** |  |  |
+| **status** | **string?** |  | [optional]  |
 | **page** | **string?** |  | [optional] [default to &quot;&quot;] |
 | **pageSize** | **int?** |  | [optional] [default to 100] |
 
@@ -829,6 +1075,124 @@ catch (ApiException e)
 | **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | The requested TPF instance does not exist. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="resolvefaileddelivery"></a>
+# **ResolveFailedDelivery**
+> ResolveFailedDeliveryResponse ResolveFailedDelivery (string instanceId, string batchReferenceId, ResolveFailedDeliveryRequest resolveFailedDeliveryRequest)
+
+[EXPERIMENTAL] ResolveFailedDelivery: Resolve a failed delivery without retry
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
+            var instanceId = "instanceId_example";  // string | 
+            var batchReferenceId = "batchReferenceId_example";  // string | 
+            var resolveFailedDeliveryRequest = new ResolveFailedDeliveryRequest(); // ResolveFailedDeliveryRequest | 
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // ResolveFailedDeliveryResponse result = apiInstance.ResolveFailedDelivery(instanceId, batchReferenceId, resolveFailedDeliveryRequest, opts: opts);
+
+                // [EXPERIMENTAL] ResolveFailedDelivery: Resolve a failed delivery without retry
+                ResolveFailedDeliveryResponse result = apiInstance.ResolveFailedDelivery(instanceId, batchReferenceId, resolveFailedDeliveryRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TradePublicationFrameworkApi.ResolveFailedDelivery: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the ResolveFailedDeliveryWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] ResolveFailedDelivery: Resolve a failed delivery without retry
+    ApiResponse<ResolveFailedDeliveryResponse> response = apiInstance.ResolveFailedDeliveryWithHttpInfo(instanceId, batchReferenceId, resolveFailedDeliveryRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TradePublicationFrameworkApi.ResolveFailedDeliveryWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** |  |  |
+| **batchReferenceId** | **string** |  |  |
+| **resolveFailedDeliveryRequest** | [**ResolveFailedDeliveryRequest**](ResolveFailedDeliveryRequest.md) |  |  |
+
+### Return type
+
+[**ResolveFailedDeliveryResponse**](ResolveFailedDeliveryResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: application/json-patch+json, application/json, text/json, application/*+json
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | No failed delivery was found for the batch. |  -  |
+| **409** | The failed deliveries for the batch have already been resolved. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
