@@ -183,7 +183,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of List&lt;string&gt;</returns>
         Finbourne.Horizon.Sdk.Client.ApiResponse<List<string>> GetExecutionIdsForInstanceWithHttpInfo(string instanceId, int? limit = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration.
         /// </summary>
         /// <remarks>
         /// The user must be authenticated to call this method.
@@ -196,7 +196,7 @@ namespace Finbourne.Horizon.Sdk.Api
         IntegrationInstanceResponse GetInstance(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration.
         /// </summary>
         /// <remarks>
         /// The user must be authenticated to call this method.
@@ -208,7 +208,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of IntegrationInstanceResponse</returns>
         Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationInstanceResponse> GetInstanceWithHttpInfo(string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// Will return the full list of optional properties configured for this integration instance and any naming overrides
@@ -222,7 +222,7 @@ namespace Finbourne.Horizon.Sdk.Api
         Dictionary<string, LusidPropertyDefinitionOverridesByType> GetInstanceOptionalPropertyMapping(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// Will return the full list of optional properties configured for this integration instance and any naming overrides
@@ -420,7 +420,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of List&lt;IntegrationDescription&gt;</returns>
         Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationDescription>> ListIntegrationsWithHttpInfo(int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
@@ -435,7 +435,7 @@ namespace Finbourne.Horizon.Sdk.Api
         Dictionary<string, LusidPropertyDefinitionOverridesByType> SetInstanceOptionalPropertyMapping(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
@@ -651,7 +651,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;string&gt;)</returns>
         System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<string>>> GetExecutionIdsForInstanceWithHttpInfoAsync(string instanceId, int? limit = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration.
         /// </summary>
         /// <remarks>
         /// The user must be authenticated to call this method.
@@ -665,7 +665,7 @@ namespace Finbourne.Horizon.Sdk.Api
         System.Threading.Tasks.Task<IntegrationInstanceResponse> GetInstanceAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration.
         /// </summary>
         /// <remarks>
         /// The user must be authenticated to call this method.
@@ -678,7 +678,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>Task of ApiResponse (IntegrationInstanceResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<IntegrationInstanceResponse>> GetInstanceWithHttpInfoAsync(string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// Will return the full list of optional properties configured for this integration instance and any naming overrides
@@ -693,7 +693,7 @@ namespace Finbourne.Horizon.Sdk.Api
         System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverridesByType>> GetInstanceOptionalPropertyMappingAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// Will return the full list of optional properties configured for this integration instance and any naming overrides
@@ -906,7 +906,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>Task of ApiResponse (List&lt;IntegrationDescription&gt;)</returns>
         System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<List<IntegrationDescription>>> ListIntegrationsWithHttpInfoAsync(int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
@@ -922,7 +922,7 @@ namespace Finbourne.Horizon.Sdk.Api
         System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverridesByType>> SetInstanceOptionalPropertyMappingAsync(string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = default(Dictionary<string, LusidPropertyDefinitionOverridesByType>?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
         /// </summary>
         /// <remarks>
         /// The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
@@ -2322,7 +2322,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration. The user must be authenticated to call this method.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -2336,7 +2336,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration. The user must be authenticated to call this method.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -2420,7 +2420,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration. The user must be authenticated to call this method.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -2435,7 +2435,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration. The user must be authenticated to call this method.
+        /// [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
@@ -2522,7 +2522,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance Will return the full list of optional properties configured for this integration instance and any naming overrides
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -2537,7 +2537,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance Will return the full list of optional properties configured for this integration instance and any naming overrides
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -2629,7 +2629,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance Will return the full list of optional properties configured for this integration instance and any naming overrides
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -2645,7 +2645,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance Will return the full list of optional properties configured for this integration instance and any naming overrides
+        /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance Will return the full list of optional properties configured for this integration instance and any naming overrides
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="integration">The type of the integration e.g. \&quot;copp-clark\&quot;.</param>
@@ -4190,7 +4190,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Identifier of the instance</param>
@@ -4206,7 +4206,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Identifier of the instance</param>
@@ -4301,7 +4301,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Identifier of the instance</param>
@@ -4318,7 +4318,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
+        /// [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Identifier of the instance</param>

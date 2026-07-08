@@ -95,33 +95,35 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
         /// </summary>
         /// <remarks>
-        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedConfigurationResponse</returns>
-        VersionedConfigurationResponse GetVersionedConfiguration(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        VersionedConfigurationResponse GetVersionedConfiguration(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
         /// </summary>
         /// <remarks>
-        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedConfigurationResponse</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> GetVersionedConfigurationWithHttpInfo(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> GetVersionedConfigurationWithHttpInfo(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetVersionedConfigurationTypes: List available versioned configuration types.
         /// </summary>
@@ -334,35 +336,37 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
         /// </summary>
         /// <remarks>
-        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedConfigurationResponse</returns>
-        System.Threading.Tasks.Task<VersionedConfigurationResponse> GetVersionedConfigurationAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<VersionedConfigurationResponse> GetVersionedConfigurationAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
         /// </summary>
         /// <remarks>
-        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedConfigurationResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse>> GetVersionedConfigurationWithHttpInfoAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse>> GetVersionedConfigurationWithHttpInfoAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetVersionedConfigurationTypes: List available versioned configuration types.
         /// </summary>
@@ -1088,34 +1092,36 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>VersionedConfigurationResponse</returns>
-        public VersionedConfigurationResponse GetVersionedConfiguration(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public VersionedConfigurationResponse GetVersionedConfiguration(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> localVarResponse = GetVersionedConfigurationWithHttpInfo(configType, name, majorVersion, minorVersion, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> localVarResponse = GetVersionedConfigurationWithHttpInfo(configType, name, majorVersion, minorVersion, includeDrafts, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of VersionedConfigurationResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> GetVersionedConfigurationWithHttpInfo(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> GetVersionedConfigurationWithHttpInfo(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'configType' is set
             if (configType == null)
@@ -1172,6 +1178,11 @@ namespace Finbourne.Horizon.Sdk.Api
             {
 
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "minorVersion", minorVersion));
+            }
+            if (includeDrafts != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeDrafts", includeDrafts));
             }
 
             localVarRequestOptions.Operation = "VersionedConfigurationsApi.GetVersionedConfiguration";
@@ -1209,36 +1220,38 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of VersionedConfigurationResponse</returns>
-        public async System.Threading.Tasks.Task<VersionedConfigurationResponse> GetVersionedConfigurationAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<VersionedConfigurationResponse> GetVersionedConfigurationAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> localVarResponse = await GetVersionedConfigurationWithHttpInfoAsync(configType, name, majorVersion, minorVersion, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse> localVarResponse = await GetVersionedConfigurationWithHttpInfoAsync(configType, name, majorVersion, minorVersion, includeDrafts, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+        /// [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration. Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="configType">The category of configuration.</param>
         /// <param name="name">The logical name of the configuration.</param>
         /// <param name="majorVersion">The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional)</param>
         /// <param name="minorVersion">The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional)</param>
+        /// <param name="includeDrafts">When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional, default to false)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (VersionedConfigurationResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse>> GetVersionedConfigurationWithHttpInfoAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<VersionedConfigurationResponse>> GetVersionedConfigurationWithHttpInfoAsync(string configType, string name, int? majorVersion = default(int?), int? minorVersion = default(int?), bool? includeDrafts = default(bool?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'configType' is set
             if (configType == null)
@@ -1294,6 +1307,10 @@ namespace Finbourne.Horizon.Sdk.Api
             if (minorVersion != null)
             {
                 localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "minorVersion", minorVersion));
+            }
+            if (includeDrafts != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "includeDrafts", includeDrafts));
             }
 
             localVarRequestOptions.Operation = "VersionedConfigurationsApi.GetVersionedConfiguration";

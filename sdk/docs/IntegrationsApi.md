@@ -10,8 +10,8 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**ExecuteInstanceWithParams**](IntegrationsApi.md#executeinstancewithparams) | **POST** /api/integrations/instances/{instanceId}/executewithparams | [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters |
 | [**GetDataflowProcessorSchema**](IntegrationsApi.md#getdataflowprocessorschema) | **GET** /api/integrations/dataflow/processors/{processorType}/schema | [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. |
 | [**GetExecutionIdsForInstance**](IntegrationsApi.md#getexecutionidsforinstance) | **GET** /api/integrations/instances/{instanceId}/executions | [EXPERIMENTAL] GetExecutionIdsForInstance: Get integration instance execution ids. |
-| [**GetInstance**](IntegrationsApi.md#getinstance) | **GET** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration. |
-| [**GetInstanceOptionalPropertyMapping**](IntegrationsApi.md#getinstanceoptionalpropertymapping) | **GET** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance |
+| [**GetInstance**](IntegrationsApi.md#getinstance) | **GET** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration. |
+| [**GetInstanceOptionalPropertyMapping**](IntegrationsApi.md#getinstanceoptionalpropertymapping) | **GET** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance |
 | [**GetIntegrationConfiguration**](IntegrationsApi.md#getintegrationconfiguration) | **GET** /api/integrations/configuration/{integration} | [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration |
 | [**GetIntegrationConfigurationFields**](IntegrationsApi.md#getintegrationconfigurationfields) | **GET** /api/integrations/configuration/{integration}/fields | [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration |
 | [**GetIntegrationConfigurationProperties**](IntegrationsApi.md#getintegrationconfigurationproperties) | **GET** /api/integrations/configuration/{integration}/properties | [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration |
@@ -19,7 +19,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**ListDataflowProcessors**](IntegrationsApi.md#listdataflowprocessors) | **GET** /api/integrations/dataflow/processors | [EXPERIMENTAL] ListDataflowProcessors: List processor types. |
 | [**ListInstances**](IntegrationsApi.md#listinstances) | **GET** /api/integrations/instances | [EXPERIMENTAL] ListInstances: List instances across all integrations. |
 | [**ListIntegrations**](IntegrationsApi.md#listintegrations) | **GET** /api/integrations | [EXPERIMENTAL] ListIntegrations: List available integrations. |
-| [**SetInstanceOptionalPropertyMapping**](IntegrationsApi.md#setinstanceoptionalpropertymapping) | **PUT** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance |
+| [**SetInstanceOptionalPropertyMapping**](IntegrationsApi.md#setinstanceoptionalpropertymapping) | **PUT** /api/integrations/instances/configuration/{integration}/{instanceId} | [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance |
 | [**UpdateInstance**](IntegrationsApi.md#updateinstance) | **PUT** /api/integrations/instances/{instanceId} | [EXPERIMENTAL] UpdateInstance: Update a single integration instance. |
 
 <a id="createinstance"></a>
@@ -714,7 +714,7 @@ catch (ApiException e)
 # **GetInstance**
 > IntegrationInstanceResponse GetInstance (string instanceId)
 
-[EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+[EXPERIMENTAL] GetInstance: Get a specified instance for a given integration.
 
 The user must be authenticated to call this method.
 
@@ -764,7 +764,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // IntegrationInstanceResponse result = apiInstance.GetInstance(instanceId, opts: opts);
 
-                // [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+                // [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration.
                 IntegrationInstanceResponse result = apiInstance.GetInstance(instanceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -785,7 +785,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetInstance: Get a specified Instance for a given integration.
+    // [EXPERIMENTAL] GetInstance: Get a specified instance for a given integration.
     ApiResponse<IntegrationInstanceResponse> response = apiInstance.GetInstanceWithHttpInfo(instanceId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -829,7 +829,7 @@ catch (ApiException e)
 # **GetInstanceOptionalPropertyMapping**
 > Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt; GetInstanceOptionalPropertyMapping (string integration, string instanceId)
 
-[EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+[EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
 
 Will return the full list of optional properties configured for this integration instance and any naming overrides
 
@@ -880,7 +880,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
 
-                // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+                // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
                 Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -901,7 +901,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an Integration Instance
+    // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
     ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> response = apiInstance.GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -1748,7 +1748,7 @@ This endpoint does not need any parameter.
 # **SetInstanceOptionalPropertyMapping**
 > Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt; SetInstanceOptionalPropertyMapping (string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = null)
 
-[EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+[EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
 
 The full list of properties must be supplied, the removal of a property from this list will remove it from the integration instance
 
@@ -1800,7 +1800,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody, opts: opts);
 
-                // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+                // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
                 Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -1821,7 +1821,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an Integration Instance
+    // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
     ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> response = apiInstance.SetInstanceOptionalPropertyMappingWithHttpInfo(instanceId, integration, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));

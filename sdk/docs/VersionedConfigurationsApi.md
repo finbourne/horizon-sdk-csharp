@@ -256,11 +256,11 @@ catch (ApiException e)
 
 <a id="getversionedconfiguration"></a>
 # **GetVersionedConfiguration**
-> VersionedConfigurationResponse GetVersionedConfiguration (string configType, string name, int? majorVersion = null, int? minorVersion = null)
+> VersionedConfigurationResponse GetVersionedConfiguration (string configType, string name, int? majorVersion = null, int? minorVersion = null, bool? includeDrafts = null)
 
 [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
 
-Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available version is returned. Both must be supplied together or both omitted. The user must be authenticated and entitled to call this method.
+Returns a specific configuration record. When both majorVersion and minorVersion are omitted, the highest available locked version is returned. Both must be supplied together or both omitted. When includeDrafts is true and no version is specified, the highest available version regardless of draft state is returned. When an explicit version is supplied via majorVersion and minorVersion, includeDrafts is ignored and the exact version is returned regardless of its draft state. The user must be authenticated and entitled to call this method.
 
 ### Example
 ```csharp
@@ -305,14 +305,15 @@ namespace Examples
             var name = "name_example";  // string | The logical name of the configuration.
             var majorVersion = 56;  // int? | The major version to retrieve. Must be supplied together with minorVersion, or both omitted. (optional) 
             var minorVersion = 56;  // int? | The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. (optional) 
+            var includeDrafts = false;  // bool? | When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. (optional)  (default to false)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // VersionedConfigurationResponse result = apiInstance.GetVersionedConfiguration(configType, name, majorVersion, minorVersion, opts: opts);
+                // VersionedConfigurationResponse result = apiInstance.GetVersionedConfiguration(configType, name, majorVersion, minorVersion, includeDrafts, opts: opts);
 
                 // [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
-                VersionedConfigurationResponse result = apiInstance.GetVersionedConfiguration(configType, name, majorVersion, minorVersion);
+                VersionedConfigurationResponse result = apiInstance.GetVersionedConfiguration(configType, name, majorVersion, minorVersion, includeDrafts);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -333,7 +334,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetVersionedConfiguration: Get a versioned configuration.
-    ApiResponse<VersionedConfigurationResponse> response = apiInstance.GetVersionedConfigurationWithHttpInfo(configType, name, majorVersion, minorVersion);
+    ApiResponse<VersionedConfigurationResponse> response = apiInstance.GetVersionedConfigurationWithHttpInfo(configType, name, majorVersion, minorVersion, includeDrafts);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -354,6 +355,7 @@ catch (ApiException e)
 | **name** | **string** | The logical name of the configuration. |  |
 | **majorVersion** | **int?** | The major version to retrieve. Must be supplied together with minorVersion, or both omitted. | [optional]  |
 | **minorVersion** | **int?** | The minor version to retrieve. Must be supplied together with majorVersion, or both omitted. | [optional]  |
+| **includeDrafts** | **bool?** | When true and no explicit version is supplied, includes draft versions when determining the highest available version. Defaults to false. | [optional] [default to false] |
 
 ### Return type
 
