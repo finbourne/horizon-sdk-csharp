@@ -6,7 +6,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 |--------|--------------|-------------|
 | [**GetTpfFileDeliveries**](TradePublicationFrameworkApi.md#gettpffiledeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/deliveries | [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance |
 | [**GetTpfTransactionHistorySearch**](TradePublicationFrameworkApi.md#gettpftransactionhistorysearch) | **GET** /api/trade-publication-framework/transactions/search | [EXPERIMENTAL] GetTpfTransactionHistorySearch: Endpoint to search TPF transaction by transaction ID and/or instrument identifier, with filtering by instance and date range |
-| [**GetTransactionPayload**](TradePublicationFrameworkApi.md#gettransactionpayload) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/{transactionId}/payload | [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail |
+| [**GetTransactionPayload**](TradePublicationFrameworkApi.md#gettransactionpayload) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/payload | [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned. |
 | [**ListFailedDeliveries**](TradePublicationFrameworkApi.md#listfaileddeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/failed | [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support. |
 | [**ListInstanceRunHistory**](TradePublicationFrameworkApi.md#listinstancerunhistory) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs | [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support. |
 | [**ListInstancesWithStatus**](TradePublicationFrameworkApi.md#listinstanceswithstatus) | **GET** /api/trade-publication-framework/instances | [EXPERIMENTAL] ListInstancesWithStatus: Lists all instances of the Trade Publication Framework (TPF). |
@@ -269,9 +269,9 @@ catch (ApiException e)
 
 <a id="gettransactionpayload"></a>
 # **GetTransactionPayload**
-> TransactionPayloadResponse GetTransactionPayload (string instanceId, string runId, string transactionId)
+> PagedResourceListOfTransactionPayload GetTransactionPayload (string instanceId, string runId, string? transactionId = null, string? page = null, int? pageSize = null)
 
-[EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
+[EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
 
 ### Example
 ```csharp
@@ -314,15 +314,17 @@ namespace Examples
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
             var instanceId = "instanceId_example";  // string | 
             var runId = "runId_example";  // string | 
-            var transactionId = "transactionId_example";  // string | 
+            var transactionId = "transactionId_example";  // string? |  (optional) 
+            var page = "\"\"";  // string? |  (optional)  (default to "")
+            var pageSize = 100;  // int? |  (optional)  (default to 100)
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // TransactionPayloadResponse result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId, opts: opts);
+                // PagedResourceListOfTransactionPayload result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId, page, pageSize, opts: opts);
 
-                // [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
-                TransactionPayloadResponse result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId);
+                // [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
+                PagedResourceListOfTransactionPayload result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId, page, pageSize);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -342,8 +344,8 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
-    ApiResponse<TransactionPayloadResponse> response = apiInstance.GetTransactionPayloadWithHttpInfo(instanceId, runId, transactionId);
+    // [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
+    ApiResponse<PagedResourceListOfTransactionPayload> response = apiInstance.GetTransactionPayloadWithHttpInfo(instanceId, runId, transactionId, page, pageSize);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -362,11 +364,13 @@ catch (ApiException e)
 |------|------|-------------|-------|
 | **instanceId** | **string** |  |  |
 | **runId** | **string** |  |  |
-| **transactionId** | **string** |  |  |
+| **transactionId** | **string?** |  | [optional]  |
+| **page** | **string?** |  | [optional] [default to &quot;&quot;] |
+| **pageSize** | **int?** |  | [optional] [default to 100] |
 
 ### Return type
 
-[**TransactionPayloadResponse**](TransactionPayloadResponse.md)
+[**PagedResourceListOfTransactionPayload**](PagedResourceListOfTransactionPayload.md)
 
 ### HTTP request headers
 
@@ -379,7 +383,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
-| **404** | The requested TPF instance, run, or transaction payload does not exist. |  -  |
+| **404** | The requested TPF instance or run does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

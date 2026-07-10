@@ -103,19 +103,21 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>ApiResponse of PagedResourceListOfTpfTransactionSearchResponse</returns>
         Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfTransactionSearchResponse> GetTpfTransactionHistorySearchWithHttpInfo(string? transactionId = default(string?), string? instrumentId = default(string?), string? dateFrom = default(string?), string? dateTo = default(string?), string? status = default(string?), string? instanceId = default(string?), int? pageSize = default(int?), string? pageToken = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionPayloadResponse</returns>
-        TransactionPayloadResponse GetTransactionPayload(string instanceId, string runId, string transactionId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>PagedResourceListOfTransactionPayload</returns>
+        PagedResourceListOfTransactionPayload GetTransactionPayload(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
         /// </summary>
         /// <remarks>
         /// 
@@ -123,11 +125,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionPayloadResponse</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<TransactionPayloadResponse> GetTransactionPayloadWithHttpInfo(string instanceId, string runId, string transactionId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of PagedResourceListOfTransactionPayload</returns>
+        Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTransactionPayload> GetTransactionPayloadWithHttpInfo(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support.
         /// </summary>
@@ -449,7 +453,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <returns>Task of ApiResponse (PagedResourceListOfTpfTransactionSearchResponse)</returns>
         System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfTransactionSearchResponse>> GetTpfTransactionHistorySearchWithHttpInfoAsync(string? transactionId = default(string?), string? instrumentId = default(string?), string? dateFrom = default(string?), string? dateTo = default(string?), string? status = default(string?), string? instanceId = default(string?), int? pageSize = default(int?), string? pageToken = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
         /// </summary>
         /// <remarks>
         /// 
@@ -457,15 +461,17 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionPayloadResponse</returns>
-        System.Threading.Tasks.Task<TransactionPayloadResponse> GetTransactionPayloadAsync(string instanceId, string runId, string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of PagedResourceListOfTransactionPayload</returns>
+        System.Threading.Tasks.Task<PagedResourceListOfTransactionPayload> GetTransactionPayloadAsync(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
         /// </summary>
         /// <remarks>
         /// 
@@ -473,12 +479,14 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionPayloadResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<TransactionPayloadResponse>> GetTransactionPayloadWithHttpInfoAsync(string instanceId, string runId, string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (PagedResourceListOfTransactionPayload)</returns>
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTransactionPayload>> GetTransactionPayloadWithHttpInfoAsync(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support.
         /// </summary>
@@ -1429,32 +1437,36 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail 
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>TransactionPayloadResponse</returns>
-        public TransactionPayloadResponse GetTransactionPayload(string instanceId, string runId, string transactionId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>PagedResourceListOfTransactionPayload</returns>
+        public PagedResourceListOfTransactionPayload GetTransactionPayload(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<TransactionPayloadResponse> localVarResponse = GetTransactionPayloadWithHttpInfo(instanceId, runId, transactionId, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTransactionPayload> localVarResponse = GetTransactionPayloadWithHttpInfo(instanceId, runId, transactionId, page, pageSize, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail 
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of TransactionPayloadResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<TransactionPayloadResponse> GetTransactionPayloadWithHttpInfo(string instanceId, string runId, string transactionId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of PagedResourceListOfTransactionPayload</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTransactionPayload> GetTransactionPayloadWithHttpInfo(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
@@ -1466,12 +1478,6 @@ namespace Finbourne.Horizon.Sdk.Api
             if (runId == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling TradePublicationFrameworkApi->GetTransactionPayload");
-            }
-
-            // verify the required parameter 'transactionId' is set
-            if (transactionId == null)
-            {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TradePublicationFrameworkApi->GetTransactionPayload");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -1508,7 +1514,21 @@ namespace Finbourne.Horizon.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
             localVarRequestOptions.PathParameters.Add("runId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("transactionId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
+            if (transactionId != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "transactionId", transactionId));
+            }
+            if (page != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (pageSize != null)
+            {
+
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
 
             localVarRequestOptions.Operation = "TradePublicationFrameworkApi.GetTransactionPayload";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1531,7 +1551,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<TransactionPayloadResponse>("/api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/{transactionId}/payload", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<PagedResourceListOfTransactionPayload>("/api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/payload", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetTransactionPayload", localVarResponse);
@@ -1545,34 +1565,38 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail 
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of TransactionPayloadResponse</returns>
-        public async System.Threading.Tasks.Task<TransactionPayloadResponse> GetTransactionPayloadAsync(string instanceId, string runId, string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of PagedResourceListOfTransactionPayload</returns>
+        public async System.Threading.Tasks.Task<PagedResourceListOfTransactionPayload> GetTransactionPayloadAsync(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<TransactionPayloadResponse> localVarResponse = await GetTransactionPayloadWithHttpInfoAsync(instanceId, runId, transactionId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTransactionPayload> localVarResponse = await GetTransactionPayloadWithHttpInfoAsync(instanceId, runId, transactionId, page, pageSize, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail 
+        /// [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId"></param>
         /// <param name="runId"></param>
-        /// <param name="transactionId"></param>
+        /// <param name="transactionId"> (optional)</param>
+        /// <param name="page"> (optional, default to &quot;&quot;)</param>
+        /// <param name="pageSize"> (optional, default to 100)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (TransactionPayloadResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<TransactionPayloadResponse>> GetTransactionPayloadWithHttpInfoAsync(string instanceId, string runId, string transactionId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (PagedResourceListOfTransactionPayload)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTransactionPayload>> GetTransactionPayloadWithHttpInfoAsync(string instanceId, string runId, string? transactionId = default(string?), string? page = default(string?), int? pageSize = default(int?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
@@ -1584,12 +1608,6 @@ namespace Finbourne.Horizon.Sdk.Api
             if (runId == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'runId' when calling TradePublicationFrameworkApi->GetTransactionPayload");
-            }
-
-            // verify the required parameter 'transactionId' is set
-            if (transactionId == null)
-            {
-                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'transactionId' when calling TradePublicationFrameworkApi->GetTransactionPayload");
             }
 
 
@@ -1627,7 +1645,18 @@ namespace Finbourne.Horizon.Sdk.Api
 
             localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
             localVarRequestOptions.PathParameters.Add("runId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(runId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("transactionId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(transactionId)); // path parameter
+            if (transactionId != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "transactionId", transactionId));
+            }
+            if (page != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "page", page));
+            }
+            if (pageSize != null)
+            {
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "pageSize", pageSize));
+            }
 
             localVarRequestOptions.Operation = "TradePublicationFrameworkApi.GetTransactionPayload";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -1650,7 +1679,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<TransactionPayloadResponse>("/api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/{transactionId}/payload", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<PagedResourceListOfTransactionPayload>("/api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/payload", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

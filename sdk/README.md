@@ -41,7 +41,7 @@ Class | Method | HTTP request | Description
 *RunsApi* | [**StopInstanceExecution**](docs/RunsApi.md#stopinstanceexecution) | **PUT** /api/runs/{instanceId}/{runId}/stop | [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution.
 *TradePublicationFrameworkApi* | [**GetTpfFileDeliveries**](docs/TradePublicationFrameworkApi.md#gettpffiledeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/deliveries | [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
 *TradePublicationFrameworkApi* | [**GetTpfTransactionHistorySearch**](docs/TradePublicationFrameworkApi.md#gettpftransactionhistorysearch) | **GET** /api/trade-publication-framework/transactions/search | [EXPERIMENTAL] GetTpfTransactionHistorySearch: Endpoint to search TPF transaction by transaction ID and/or instrument identifier, with filtering by instance and date range
-*TradePublicationFrameworkApi* | [**GetTransactionPayload**](docs/TradePublicationFrameworkApi.md#gettransactionpayload) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/{transactionId}/payload | [EXPERIMENTAL] GetTransactionPayload: Transaction payload detail
+*TradePublicationFrameworkApi* | [**GetTransactionPayload**](docs/TradePublicationFrameworkApi.md#gettransactionpayload) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/payload | [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
 *TradePublicationFrameworkApi* | [**ListFailedDeliveries**](docs/TradePublicationFrameworkApi.md#listfaileddeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/failed | [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support.
 *TradePublicationFrameworkApi* | [**ListInstanceRunHistory**](docs/TradePublicationFrameworkApi.md#listinstancerunhistory) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs | [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support.
 *TradePublicationFrameworkApi* | [**ListInstancesWithStatus**](docs/TradePublicationFrameworkApi.md#listinstanceswithstatus) | **GET** /api/trade-publication-framework/instances | [EXPERIMENTAL] ListInstancesWithStatus: Lists all instances of the Trade Publication Framework (TPF).
@@ -141,6 +141,7 @@ Class | Method | HTTP request | Description
  - [PagedResourceListOfRunFileResponse](docs/PagedResourceListOfRunFileResponse.md)
  - [PagedResourceListOfTpfFileDeliveryResponse](docs/PagedResourceListOfTpfFileDeliveryResponse.md)
  - [PagedResourceListOfTpfTransactionSearchResponse](docs/PagedResourceListOfTpfTransactionSearchResponse.md)
+ - [PagedResourceListOfTransactionPayload](docs/PagedResourceListOfTransactionPayload.md)
  - [PagedResourceListOfTransactionResponse](docs/PagedResourceListOfTransactionResponse.md)
  - [PagedResourceListOfVendorProduct](docs/PagedResourceListOfVendorProduct.md)
  - [PermIdData](docs/PermIdData.md)
@@ -169,7 +170,7 @@ Class | Method | HTTP request | Description
  - [TpfRetryFailedDeliveryRequest](docs/TpfRetryFailedDeliveryRequest.md)
  - [TpfRetrySftpResponse](docs/TpfRetrySftpResponse.md)
  - [TpfTransactionSearchResponse](docs/TpfTransactionSearchResponse.md)
- - [TransactionPayloadResponse](docs/TransactionPayloadResponse.md)
+ - [TransactionPayload](docs/TransactionPayload.md)
  - [TransactionResponse](docs/TransactionResponse.md)
  - [Trigger](docs/Trigger.md)
  - [UpdateInstanceRequest](docs/UpdateInstanceRequest.md)
