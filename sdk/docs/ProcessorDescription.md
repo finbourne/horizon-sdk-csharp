@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **Description** | **string** |  | 
 **Category** | **string** |  | 
 **IsActive** | **bool** |  | 
+**IsConnectionRequired** | **bool** |  | 
+**Relationships** | **List&lt;string&gt;** |  | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -20,13 +22,17 @@ string displayName = "displayName";
 string description = "description";
 string category = "category";
 bool isActive = //"True";
+bool isConnectionRequired = //"True";
+List<string> relationships = new List<string>();
 
 ProcessorDescription processorDescriptionInstance = new ProcessorDescription(
     name: name,
     displayName: displayName,
     description: description,
     category: category,
-    isActive: isActive);
+    isActive: isActive,
+    isConnectionRequired: isConnectionRequired,
+    relationships: relationships);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
