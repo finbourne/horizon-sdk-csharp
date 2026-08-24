@@ -6,6 +6,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 |--------|--------------|-------------|
 | [**CancelInstance**](RunsApi.md#cancelinstance) | **PUT** /api/runs/cancel | [EXPERIMENTAL] CancelInstance: Cancels multiple instance executions. |
 | [**GetRunResults**](RunsApi.md#getrunresults) | **GET** /api/runs | [EXPERIMENTAL] GetRunResults: Get run results |
+| [**GetWorkflowRunResults**](RunsApi.md#getworkflowrunresults) | **GET** /api/runs/{runId}/workflow/results | [EXPERIMENTAL] GetWorkflowRunResults: Get the status and published result values of an integration run |
 | [**RerunInstance**](RunsApi.md#reruninstance) | **PUT** /api/runs/{runId}/rerun | [EXPERIMENTAL] RerunInstance: Reruns a single instance execution. |
 | [**StopInstanceExecution**](RunsApi.md#stopinstanceexecution) | **PUT** /api/runs/{instanceId}/{runId}/stop | [EXPERIMENTAL] StopInstanceExecution: Stops a single instance execution. |
 
@@ -241,6 +242,121 @@ catch (ApiException e)
 | **200** | OK |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | Not Found |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getworkflowrunresults"></a>
+# **GetWorkflowRunResults**
+> WorkflowRunResultsResponse GetWorkflowRunResults (string runId)
+
+[EXPERIMENTAL] GetWorkflowRunResults: Get the status and published result values of an integration run
+
+Returns the run's status alongside the result values the run published, so a caller waiting on an integration it started can poll one route rather than combining a status call with a results call. The response carries one entry per field the instance declares, matching the shape the instance reported when the caller discovered it, and a declared field the run published nothing for carries a null value. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<RunsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<RunsApi>();
+            var runId = "runId_example";  // string | Run identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // WorkflowRunResultsResponse result = apiInstance.GetWorkflowRunResults(runId, opts: opts);
+
+                // [EXPERIMENTAL] GetWorkflowRunResults: Get the status and published result values of an integration run
+                WorkflowRunResultsResponse result = apiInstance.GetWorkflowRunResults(runId);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling RunsApi.GetWorkflowRunResults: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetWorkflowRunResultsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetWorkflowRunResults: Get the status and published result values of an integration run
+    ApiResponse<WorkflowRunResultsResponse> response = apiInstance.GetWorkflowRunResultsWithHttpInfo(runId);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling RunsApi.GetWorkflowRunResultsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **runId** | **string** | Run identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;. |  |
+
+### Return type
+
+[**WorkflowRunResultsResponse**](WorkflowRunResultsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The run status and its published result values. |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The run does not exist. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

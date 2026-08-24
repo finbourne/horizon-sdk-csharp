@@ -12,6 +12,8 @@ Name | Type | Description | Notes
 **Encrypted** | **bool** |  | 
 **Destinations** | [**List&lt;FileDestinationResponse&gt;**](FileDestinationResponse.md) |  | 
 **TransactionIds** | **List&lt;Guid&gt;** |  | 
+**FileUuid** | **Guid** |  | 
+**FailedTransactionIds** | **List&lt;Guid&gt;** |  | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -22,6 +24,8 @@ string fileHash = "fileHash";
 bool encrypted = //"True";
 List<FileDestinationResponse> destinations = new List<FileDestinationResponse>();
 List<Guid> transactionIds = new List<Guid>();
+Guid fileUuid = "fileUuid";
+List<Guid> failedTransactionIds = new List<Guid>();
 
 RunFileResponse runFileResponseInstance = new RunFileResponse(
     fileName: fileName,
@@ -30,7 +34,9 @@ RunFileResponse runFileResponseInstance = new RunFileResponse(
     fileHash: fileHash,
     encrypted: encrypted,
     destinations: destinations,
-    transactionIds: transactionIds);
+    transactionIds: transactionIds,
+    fileUuid: fileUuid,
+    failedTransactionIds: failedTransactionIds);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

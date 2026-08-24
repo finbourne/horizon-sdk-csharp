@@ -36,15 +36,15 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TpfFileDeliveryInfo" /> class.
         /// </summary>
-        /// <param name="id">File delivery ID (required).</param>
+        /// <param name="fileUuid">File delivery UUID — the identifier the retry endpoint accepts (required).</param>
         /// <param name="fileName">File name (required).</param>
         /// <param name="fileHash">SHA-256 hash of the file content (required).</param>
         /// <param name="destinationPath">SFTP destination path (required).</param>
         /// <param name="status">Delivery status (required).</param>
         /// <param name="generatedAt">Timestamp when the file was originally generated (required).</param>
-        public TpfFileDeliveryInfo(long id = default(long), string fileName = default(string), string fileHash = default(string), string destinationPath = default(string), string status = default(string), DateTimeOffset generatedAt = default(DateTimeOffset))
+        public TpfFileDeliveryInfo(Guid fileUuid = default(Guid), string fileName = default(string), string fileHash = default(string), string destinationPath = default(string), string status = default(string), DateTimeOffset generatedAt = default(DateTimeOffset))
         {
-            this.Id = id;
+            this.FileUuid = fileUuid;
             // to ensure "fileName" is required (not null)
             if (fileName == null)
             {
@@ -73,11 +73,11 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
-        /// File delivery ID
+        /// File delivery UUID — the identifier the retry endpoint accepts
         /// </summary>
-        /// <value>File delivery ID</value>
-        [DataMember(Name = "id", IsRequired = true, EmitDefaultValue = true)]
-        public long Id { get; set; }
+        /// <value>File delivery UUID — the identifier the retry endpoint accepts</value>
+        [DataMember(Name = "fileUuid", IsRequired = true, EmitDefaultValue = true)]
+        public Guid FileUuid { get; set; }
 
         /// <summary>
         /// File name
@@ -122,7 +122,7 @@ namespace Finbourne.Horizon.Sdk.Model
         {
             StringBuilder sb = new StringBuilder();
             sb.Append("class TpfFileDeliveryInfo {\n");
-            sb.Append("  Id: ").Append(Id).Append("\n");
+            sb.Append("  FileUuid: ").Append(FileUuid).Append("\n");
             sb.Append("  FileName: ").Append(FileName).Append("\n");
             sb.Append("  FileHash: ").Append(FileHash).Append("\n");
             sb.Append("  DestinationPath: ").Append(DestinationPath).Append("\n");
@@ -164,8 +164,9 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             return 
                 (
-                    this.Id == input.Id ||
-                    this.Id.Equals(input.Id)
+                    this.FileUuid == input.FileUuid ||
+                    (this.FileUuid != null &&
+                    this.FileUuid.Equals(input.FileUuid))
                 ) && 
                 (
                     this.FileName == input.FileName ||
@@ -203,7 +204,10 @@ namespace Finbourne.Horizon.Sdk.Model
             unchecked // Overflow is fine, just wrap
             {
                 int hashCode = 41;
-                hashCode = (hashCode * 59) + this.Id.GetHashCode();
+                if (this.FileUuid != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileUuid.GetHashCode();
+                }
                 if (this.FileName != null)
                 {
                     hashCode = (hashCode * 59) + this.FileName.GetHashCode();

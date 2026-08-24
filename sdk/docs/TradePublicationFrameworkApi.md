@@ -15,7 +15,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**ReplayTransactions**](TradePublicationFrameworkApi.md#replaytransactions) | **POST** /api/trade-publication-framework/instances/{instanceId}/replay | [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance |
 | [**ResolveFailedDelivery**](TradePublicationFrameworkApi.md#resolvefaileddelivery) | **PUT** /api/trade-publication-framework/instances/{instanceId}/failed/{batchReferenceId}/resolve | [EXPERIMENTAL] ResolveFailedDelivery: Resolve a failed delivery without retry |
 | [**RetryFailedDelivery**](TradePublicationFrameworkApi.md#retryfaileddelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/failed/retry | [EXPERIMENTAL] RetryFailedDelivery: Retry failed deliveries for Trade Publication Framework |
-| [**RetryTpfSftpDelivery**](TradePublicationFrameworkApi.md#retrytpfsftpdelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/files/{fileId}/retry-sftp | [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file |
+| [**RetryTpfSftpDelivery**](TradePublicationFrameworkApi.md#retrytpfsftpdelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/files/{fileUuid}/retry-sftp | [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file |
 
 <a id="gettpffiledeliveries"></a>
 # **GetTpfFileDeliveries**
@@ -1307,7 +1307,7 @@ catch (ApiException e)
 
 <a id="retrytpfsftpdelivery"></a>
 # **RetryTpfSftpDelivery**
-> TpfRetrySftpResponse RetryTpfSftpDelivery (string instanceId, long fileId)
+> TpfRetrySftpResponse RetryTpfSftpDelivery (string instanceId, string fileUuid)
 
 [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file
 
@@ -1351,15 +1351,15 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
             var instanceId = "instanceId_example";  // string | Integration instance ID
-            var fileId = 789L;  // long | File delivery ID to retry
+            var fileUuid = "fileUuid_example";  // string | File delivery UUID to retry, as returned by the run-files and file-deliveries listings
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // TpfRetrySftpResponse result = apiInstance.RetryTpfSftpDelivery(instanceId, fileId, opts: opts);
+                // TpfRetrySftpResponse result = apiInstance.RetryTpfSftpDelivery(instanceId, fileUuid, opts: opts);
 
                 // [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file
-                TpfRetrySftpResponse result = apiInstance.RetryTpfSftpDelivery(instanceId, fileId);
+                TpfRetrySftpResponse result = apiInstance.RetryTpfSftpDelivery(instanceId, fileUuid);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1380,7 +1380,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file
-    ApiResponse<TpfRetrySftpResponse> response = apiInstance.RetryTpfSftpDeliveryWithHttpInfo(instanceId, fileId);
+    ApiResponse<TpfRetrySftpResponse> response = apiInstance.RetryTpfSftpDeliveryWithHttpInfo(instanceId, fileUuid);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1398,7 +1398,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instanceId** | **string** | Integration instance ID |  |
-| **fileId** | **long** | File delivery ID to retry |  |
+| **fileUuid** | **string** | File delivery UUID to retry, as returned by the run-files and file-deliveries listings |  |
 
 ### Return type
 

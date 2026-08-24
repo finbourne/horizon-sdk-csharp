@@ -332,11 +332,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TpfRetrySftpResponse</returns>
-        TpfRetrySftpResponse RetryTpfSftpDelivery(string instanceId, long fileId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        TpfRetrySftpResponse RetryTpfSftpDelivery(string instanceId, string fileUuid, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file
@@ -346,11 +346,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TpfRetrySftpResponse</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> RetryTpfSftpDeliveryWithHttpInfo(string instanceId, long fileId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> RetryTpfSftpDeliveryWithHttpInfo(string instanceId, string fileUuid, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -713,12 +713,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TpfRetrySftpResponse</returns>
-        System.Threading.Tasks.Task<TpfRetrySftpResponse> RetryTpfSftpDeliveryAsync(string instanceId, long fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<TpfRetrySftpResponse> RetryTpfSftpDeliveryAsync(string instanceId, string fileUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file
@@ -728,12 +728,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TpfRetrySftpResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse>> RetryTpfSftpDeliveryWithHttpInfoAsync(string instanceId, long fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse>> RetryTpfSftpDeliveryWithHttpInfoAsync(string instanceId, string fileUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -3424,13 +3424,13 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>TpfRetrySftpResponse</returns>
-        public TpfRetrySftpResponse RetryTpfSftpDelivery(string instanceId, long fileId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public TpfRetrySftpResponse RetryTpfSftpDelivery(string instanceId, string fileUuid, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> localVarResponse = RetryTpfSftpDeliveryWithHttpInfo(instanceId, fileId, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> localVarResponse = RetryTpfSftpDeliveryWithHttpInfo(instanceId, fileUuid, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -3439,16 +3439,22 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of TpfRetrySftpResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> RetryTpfSftpDeliveryWithHttpInfo(string instanceId, long fileId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> RetryTpfSftpDeliveryWithHttpInfo(string instanceId, string fileUuid, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling TradePublicationFrameworkApi->RetryTpfSftpDelivery");
+            }
+
+            // verify the required parameter 'fileUuid' is set
+            if (fileUuid == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'fileUuid' when calling TradePublicationFrameworkApi->RetryTpfSftpDelivery");
             }
 
             Finbourne.Horizon.Sdk.Client.RequestOptions localVarRequestOptions = new Finbourne.Horizon.Sdk.Client.RequestOptions();
@@ -3484,7 +3490,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("fileId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("fileUuid", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(fileUuid)); // path parameter
 
             localVarRequestOptions.Operation = "TradePublicationFrameworkApi.RetryTpfSftpDelivery";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3507,7 +3513,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Post<TpfRetrySftpResponse>("/api/trade-publication-framework/instances/{instanceId}/files/{fileId}/retry-sftp", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Post<TpfRetrySftpResponse>("/api/trade-publication-framework/instances/{instanceId}/files/{fileUuid}/retry-sftp", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("RetryTpfSftpDelivery", localVarResponse);
@@ -3525,14 +3531,14 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of TpfRetrySftpResponse</returns>
-        public async System.Threading.Tasks.Task<TpfRetrySftpResponse> RetryTpfSftpDeliveryAsync(string instanceId, long fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<TpfRetrySftpResponse> RetryTpfSftpDeliveryAsync(string instanceId, string fileUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> localVarResponse = await RetryTpfSftpDeliveryWithHttpInfoAsync(instanceId, fileId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse> localVarResponse = await RetryTpfSftpDeliveryWithHttpInfoAsync(instanceId, fileUuid, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -3541,17 +3547,23 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="fileId">File delivery ID to retry</param>
+        /// <param name="fileUuid">File delivery UUID to retry, as returned by the run-files and file-deliveries listings</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (TpfRetrySftpResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse>> RetryTpfSftpDeliveryWithHttpInfoAsync(string instanceId, long fileId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<TpfRetrySftpResponse>> RetryTpfSftpDeliveryWithHttpInfoAsync(string instanceId, string fileUuid, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
             {
                 throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'instanceId' when calling TradePublicationFrameworkApi->RetryTpfSftpDelivery");
+            }
+
+            // verify the required parameter 'fileUuid' is set
+            if (fileUuid == null)
+            {
+                throw new Finbourne.Horizon.Sdk.Client.ApiException(400, "Missing required parameter 'fileUuid' when calling TradePublicationFrameworkApi->RetryTpfSftpDelivery");
             }
 
 
@@ -3588,7 +3600,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-            localVarRequestOptions.PathParameters.Add("fileId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(fileId)); // path parameter
+            localVarRequestOptions.PathParameters.Add("fileUuid", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(fileUuid)); // path parameter
 
             localVarRequestOptions.Operation = "TradePublicationFrameworkApi.RetryTpfSftpDelivery";
             localVarRequestOptions.OperationIndex = operationIndex;
@@ -3611,7 +3623,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PostAsync<TpfRetrySftpResponse>("/api/trade-publication-framework/instances/{instanceId}/files/{fileId}/retry-sftp", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PostAsync<TpfRetrySftpResponse>("/api/trade-publication-framework/instances/{instanceId}/files/{fileUuid}/retry-sftp", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

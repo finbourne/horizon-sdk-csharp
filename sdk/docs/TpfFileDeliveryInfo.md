@@ -5,7 +5,7 @@ Information about a file delivery
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**Id** | **long** | File delivery ID | 
+**FileUuid** | **Guid** | File delivery UUID — the identifier the retry endpoint accepts | 
 **FileName** | **string** | File name | 
 **FileHash** | **string** | SHA-256 hash of the file content | 
 **DestinationPath** | **string** | SFTP destination path | 
@@ -16,13 +16,14 @@ Name | Type | Description | Notes
 using Finbourne.Horizon.Sdk.Model;
 using System;
 
+Guid fileUuid = "fileUuid";
 string fileName = "fileName";
 string fileHash = "fileHash";
 string destinationPath = "destinationPath";
 string status = "status";
 
 TpfFileDeliveryInfo tpfFileDeliveryInfoInstance = new TpfFileDeliveryInfo(
-    id: id,
+    fileUuid: fileUuid,
     fileName: fileName,
     fileHash: fileHash,
     destinationPath: destinationPath,

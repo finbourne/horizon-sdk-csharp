@@ -16,6 +16,7 @@ Name | Type | Description | Notes
 **DestinationStatus** | **string** |  | 
 **DestinationError** | **string** |  | [optional] 
 **DestinationName** | **string** |  | [optional] 
+**FileUuid** | **Guid** |  | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -29,6 +30,7 @@ string destinationPath = "example destinationPath";
 string destinationStatus = "destinationStatus";
 string destinationError = "example destinationError";
 string destinationName = "example destinationName";
+Guid fileUuid = "fileUuid";
 
 TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryResponse(
     runId: runId,
@@ -41,7 +43,8 @@ TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryRes
     destinationPath: destinationPath,
     destinationStatus: destinationStatus,
     destinationError: destinationError,
-    destinationName: destinationName);
+    destinationName: destinationName,
+    fileUuid: fileUuid);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

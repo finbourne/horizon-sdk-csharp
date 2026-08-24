@@ -7,7 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Success** | **bool** | Whether the retry was successful | 
 **Message** | **string** | Status message describing the result | 
-**NewFileDeliveryId** | **long?** | ID of the new file delivery record created for this retry (if successful) | [optional] 
+**NewFileDeliveryUuid** | **Guid?** | UUID of the new file delivery record created for this retry (if successful) | [optional] 
 **RetriedAt** | **DateTimeOffset?** | Timestamp when the retry was executed | [optional] 
 **OriginalFile** | [**TpfFileDeliveryInfo**](TpfFileDeliveryInfo.md) |  | [optional] 
 **DuplicateFile** | [**TpfFileDeliveryInfo**](TpfFileDeliveryInfo.md) |  | [optional] 
@@ -18,6 +18,7 @@ using System;
 
 bool success = //"True";
 string message = "message";
+Guid? newFileDeliveryUuid = "example newFileDeliveryUuid";
 TpfFileDeliveryInfo? originalFile = new TpfFileDeliveryInfo();
 
 TpfFileDeliveryInfo? duplicateFile = new TpfFileDeliveryInfo();
@@ -26,7 +27,7 @@ TpfFileDeliveryInfo? duplicateFile = new TpfFileDeliveryInfo();
 TpfRetrySftpResponse tpfRetrySftpResponseInstance = new TpfRetrySftpResponse(
     success: success,
     message: message,
-    newFileDeliveryId: newFileDeliveryId,
+    newFileDeliveryUuid: newFileDeliveryUuid,
     retriedAt: retriedAt,
     originalFile: originalFile,
     duplicateFile: duplicateFile);

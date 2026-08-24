@@ -16,6 +16,7 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 | [**GetIntegrationConfigurationFields**](IntegrationsApi.md#getintegrationconfigurationfields) | **GET** /api/integrations/configuration/{integration}/fields | [EXPERIMENTAL] GetIntegrationConfigurationFields: Get the Field Mapping configuration for a given integration |
 | [**GetIntegrationConfigurationProperties**](IntegrationsApi.md#getintegrationconfigurationproperties) | **GET** /api/integrations/configuration/{integration}/properties | [EXPERIMENTAL] GetIntegrationConfigurationProperties: Get the Property Mapping configuration for a given integration |
 | [**GetSchema**](IntegrationsApi.md#getschema) | **GET** /api/integrations/schema/{integration} | [EXPERIMENTAL] GetSchema: Get the JSON schema for the details section of an integration instance. |
+| [**GetWorkflowResultFields**](IntegrationsApi.md#getworkflowresultfields) | **GET** /api/integrations/instances/{instanceId}/workflow/resultfields | [EXPERIMENTAL] GetWorkflowResultFields: Get the Workflow result fields an integration instance returns |
 | [**ListDataflowProcessors**](IntegrationsApi.md#listdataflowprocessors) | **GET** /api/integrations/dataflow/processors | [EXPERIMENTAL] ListDataflowProcessors: List processor types. |
 | [**ListInstances**](IntegrationsApi.md#listinstances) | **GET** /api/integrations/instances | [EXPERIMENTAL] ListInstances: List instances across all integrations. |
 | [**ListIntegrations**](IntegrationsApi.md#listintegrations) | **GET** /api/integrations | [EXPERIMENTAL] ListIntegrations: List available integrations. |
@@ -1414,6 +1415,121 @@ catch (ApiException e)
 | **200** | The system defined JSON schema for the details of a specified integration. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | The integration type does not exist or is not enabled. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
+
+<a id="getworkflowresultfields"></a>
+# **GetWorkflowResultFields**
+> WorkflowResultFieldsResponse GetWorkflowResultFields (string instanceId)
+
+[EXPERIMENTAL] GetWorkflowResultFields: Get the Workflow result fields an integration instance returns
+
+Returns the result fields this instance's `RunWorkflow` post-process tasks declare, so a caller can discover what a run will report back before starting one. An instance with no enabled `RunWorkflow` post-process task is not an error: the response has `reportsToWorkflow` false and no fields. Note that such an instance will not report back at all, even when a Workflow task starts the run — configuring a `RunWorkflow` post-process task is what closes that loop. The user must be authenticated, entitled to call this method, and the user's domain must be licensed for the integration.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
+            var instanceId = "instanceId_example";  // string | Instance identifier e.g. \"b64135e7-98a0-41af-a845-d86167d54cc7\".
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // WorkflowResultFieldsResponse result = apiInstance.GetWorkflowResultFields(instanceId, opts: opts);
+
+                // [EXPERIMENTAL] GetWorkflowResultFields: Get the Workflow result fields an integration instance returns
+                WorkflowResultFieldsResponse result = apiInstance.GetWorkflowResultFields(instanceId);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling IntegrationsApi.GetWorkflowResultFields: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetWorkflowResultFieldsWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetWorkflowResultFields: Get the Workflow result fields an integration instance returns
+    ApiResponse<WorkflowResultFieldsResponse> response = apiInstance.GetWorkflowResultFieldsWithHttpInfo(instanceId);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling IntegrationsApi.GetWorkflowResultFieldsWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** | Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;. |  |
+
+### Return type
+
+[**WorkflowResultFieldsResponse**](WorkflowResultFieldsResponse.md)
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The declared result fields |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The integration instance does not exist |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)

@@ -43,7 +43,9 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="encrypted">encrypted (required).</param>
         /// <param name="destinations">destinations (required).</param>
         /// <param name="transactionIds">transactionIds (required).</param>
-        public RunFileResponse(string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), bool encrypted = default(bool), List<FileDestinationResponse> destinations = default(List<FileDestinationResponse>), List<Guid> transactionIds = default(List<Guid>))
+        /// <param name="fileUuid">fileUuid (required).</param>
+        /// <param name="failedTransactionIds">failedTransactionIds (required).</param>
+        public RunFileResponse(string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), bool encrypted = default(bool), List<FileDestinationResponse> destinations = default(List<FileDestinationResponse>), List<Guid> transactionIds = default(List<Guid>), Guid fileUuid = default(Guid), List<Guid> failedTransactionIds = default(List<Guid>))
         {
             // to ensure "fileName" is required (not null)
             if (fileName == null)
@@ -72,6 +74,13 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("transactionIds is a required property for RunFileResponse and cannot be null");
             }
             this.TransactionIds = transactionIds;
+            this.FileUuid = fileUuid;
+            // to ensure "failedTransactionIds" is required (not null)
+            if (failedTransactionIds == null)
+            {
+                throw new ArgumentNullException("failedTransactionIds is a required property for RunFileResponse and cannot be null");
+            }
+            this.FailedTransactionIds = failedTransactionIds;
         }
 
         /// <summary>
@@ -117,6 +126,18 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<Guid> TransactionIds { get; set; }
 
         /// <summary>
+        /// Gets or Sets FileUuid
+        /// </summary>
+        [DataMember(Name = "fileUuid", IsRequired = true, EmitDefaultValue = true)]
+        public Guid FileUuid { get; set; }
+
+        /// <summary>
+        /// Gets or Sets FailedTransactionIds
+        /// </summary>
+        [DataMember(Name = "failedTransactionIds", IsRequired = true, EmitDefaultValue = true)]
+        public List<Guid> FailedTransactionIds { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -131,6 +152,8 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  Encrypted: ").Append(Encrypted).Append("\n");
             sb.Append("  Destinations: ").Append(Destinations).Append("\n");
             sb.Append("  TransactionIds: ").Append(TransactionIds).Append("\n");
+            sb.Append("  FileUuid: ").Append(FileUuid).Append("\n");
+            sb.Append("  FailedTransactionIds: ").Append(FailedTransactionIds).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -200,6 +223,17 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.TransactionIds != null &&
                     input.TransactionIds != null &&
                     this.TransactionIds.SequenceEqual(input.TransactionIds)
+                ) && 
+                (
+                    this.FileUuid == input.FileUuid ||
+                    (this.FileUuid != null &&
+                    this.FileUuid.Equals(input.FileUuid))
+                ) && 
+                (
+                    this.FailedTransactionIds == input.FailedTransactionIds ||
+                    this.FailedTransactionIds != null &&
+                    input.FailedTransactionIds != null &&
+                    this.FailedTransactionIds.SequenceEqual(input.FailedTransactionIds)
                 );
         }
 
@@ -233,6 +267,14 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.TransactionIds != null)
                 {
                     hashCode = (hashCode * 59) + this.TransactionIds.GetHashCode();
+                }
+                if (this.FileUuid != null)
+                {
+                    hashCode = (hashCode * 59) + this.FileUuid.GetHashCode();
+                }
+                if (this.FailedTransactionIds != null)
+                {
+                    hashCode = (hashCode * 59) + this.FailedTransactionIds.GetHashCode();
                 }
                 return hashCode;
             }
