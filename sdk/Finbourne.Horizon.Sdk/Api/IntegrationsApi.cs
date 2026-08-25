@@ -136,9 +136,6 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <summary>
         /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
         /// </summary>
-        /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
-        /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -150,7 +147,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
         /// </summary>
         /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
@@ -382,7 +379,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
         /// </summary>
         /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// The user must be authenticated to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -394,7 +391,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
         /// </summary>
         /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// The user must be authenticated to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -626,7 +623,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
         /// </summary>
         /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
@@ -640,7 +637,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
         /// </summary>
         /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// 
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
@@ -889,7 +886,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
         /// </summary>
         /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// The user must be authenticated to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -902,7 +899,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] ListDataflowProcessors: List processor types.
         /// </summary>
         /// <remarks>
-        /// The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// The user must be authenticated to call this method.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -1964,7 +1961,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
@@ -1978,7 +1975,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
@@ -2062,7 +2059,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
@@ -2077,7 +2074,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype. 
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="processorType"></param>
@@ -3899,7 +3896,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3912,7 +3909,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -3988,7 +3985,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
@@ -4002,7 +3999,7 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated and the user&#39;s domain must be licensed for integration dataflow to call this method.
+        /// [EXPERIMENTAL] ListDataflowProcessors: List processor types. The user must be authenticated to call this method.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="operationIndex">Index associated with the operation.</param>
