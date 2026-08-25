@@ -487,6 +487,8 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
 
+The user must be authenticated and the user's domain must be licensed for integration dataflow to call this method.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -1540,7 +1542,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ListDataflowProcessors: List processor types.
 
-The user must be authenticated to call this method.
+The user must be authenticated and the user's domain must be licensed for integration dataflow to call this method.
 
 ### Example
 ```csharp
