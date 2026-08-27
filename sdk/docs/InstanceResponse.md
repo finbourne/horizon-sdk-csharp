@@ -13,7 +13,7 @@ Name | Type | Description | Notes
 **ScheduleTimezone** | **string** |  | [optional] 
 **LastRunAt** | **DateTimeOffset?** |  | [optional] 
 **LastRunStatus** | **string** |  | [optional] 
-**LatestRunsIn24Hours** | **string** |  | [optional] 
+**LatestRunsIn24Hours** | [**LatestRunsResponse**](LatestRunsResponse.md) |  | [optional] 
 **Destinations** | [**List&lt;InstanceDestinations&gt;**](InstanceDestinations.md) |  | 
 
 ```csharp
@@ -27,7 +27,8 @@ List<TpfPortfolio> portfolios = new List<TpfPortfolio>();
 string schedule = "example schedule";
 string scheduleTimezone = "example scheduleTimezone";
 string lastRunStatus = "example lastRunStatus";
-string latestRunsIn24Hours = "example latestRunsIn24Hours";
+LatestRunsResponse? latestRunsIn24Hours = new LatestRunsResponse();
+
 List<InstanceDestinations> destinations = new List<InstanceDestinations>();
 
 InstanceResponse instanceResponseInstance = new InstanceResponse(

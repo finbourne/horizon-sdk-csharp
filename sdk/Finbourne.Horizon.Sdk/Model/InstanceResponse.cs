@@ -46,7 +46,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="lastRunStatus">lastRunStatus.</param>
         /// <param name="latestRunsIn24Hours">latestRunsIn24Hours.</param>
         /// <param name="destinations">destinations (required).</param>
-        public InstanceResponse(Guid id = default(Guid), string name = default(string), bool enabled = default(bool), List<TpfPortfolio> portfolios = default(List<TpfPortfolio>), string schedule = default(string), string scheduleTimezone = default(string), DateTimeOffset? lastRunAt = default(DateTimeOffset?), string lastRunStatus = default(string), string latestRunsIn24Hours = default(string), List<InstanceDestinations> destinations = default(List<InstanceDestinations>))
+        public InstanceResponse(Guid id = default(Guid), string name = default(string), bool enabled = default(bool), List<TpfPortfolio> portfolios = default(List<TpfPortfolio>), string schedule = default(string), string scheduleTimezone = default(string), DateTimeOffset? lastRunAt = default(DateTimeOffset?), string lastRunStatus = default(string), LatestRunsResponse latestRunsIn24Hours = default(LatestRunsResponse), List<InstanceDestinations> destinations = default(List<InstanceDestinations>))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -126,8 +126,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Gets or Sets LatestRunsIn24Hours
         /// </summary>
-        [DataMember(Name = "latestRunsIn24Hours", EmitDefaultValue = true)]
-        public string LatestRunsIn24Hours { get; set; }
+        [DataMember(Name = "latestRunsIn24Hours", EmitDefaultValue = false)]
+        public LatestRunsResponse LatestRunsIn24Hours { get; set; }
 
         /// <summary>
         /// Gets or Sets Destinations
