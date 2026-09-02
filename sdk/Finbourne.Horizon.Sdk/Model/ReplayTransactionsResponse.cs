@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// Response from a replay transactions operation containing the CSV output.
+    /// Response from a replay transactions operation. For DryRun, Finbourne.Horizon.Integrations.Web.Dto.Integrations.TradePublicationFramework.Response.ReplayTransactionsResponse.PayloadOutput carries the preview payload in the instance&#39;s configured output format (CSV or XML); for Committed it is empty.
     /// </summary>
     [DataContract(Name = "ReplayTransactionsResponse")]
     public partial class ReplayTransactionsResponse : IEquatable<ReplayTransactionsResponse>, IValidatableObject
@@ -39,9 +39,9 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="batchReferenceId">batchReferenceId (required).</param>
         /// <param name="mode">mode (required).</param>
         /// <param name="transactionCount">transactionCount (required).</param>
-        /// <param name="csvOutput">csvOutput (required).</param>
+        /// <param name="payloadOutput">payloadOutput (required).</param>
         /// <param name="message">message (required).</param>
-        public ReplayTransactionsResponse(string batchReferenceId = default(string), string mode = default(string), int transactionCount = default(int), string csvOutput = default(string), string message = default(string))
+        public ReplayTransactionsResponse(string batchReferenceId = default(string), string mode = default(string), int transactionCount = default(int), string payloadOutput = default(string), string message = default(string))
         {
             // to ensure "batchReferenceId" is required (not null)
             if (batchReferenceId == null)
@@ -56,12 +56,12 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             this.Mode = mode;
             this.TransactionCount = transactionCount;
-            // to ensure "csvOutput" is required (not null)
-            if (csvOutput == null)
+            // to ensure "payloadOutput" is required (not null)
+            if (payloadOutput == null)
             {
-                throw new ArgumentNullException("csvOutput is a required property for ReplayTransactionsResponse and cannot be null");
+                throw new ArgumentNullException("payloadOutput is a required property for ReplayTransactionsResponse and cannot be null");
             }
-            this.CsvOutput = csvOutput;
+            this.PayloadOutput = payloadOutput;
             // to ensure "message" is required (not null)
             if (message == null)
             {
@@ -89,10 +89,10 @@ namespace Finbourne.Horizon.Sdk.Model
         public int TransactionCount { get; set; }
 
         /// <summary>
-        /// Gets or Sets CsvOutput
+        /// Gets or Sets PayloadOutput
         /// </summary>
-        [DataMember(Name = "csvOutput", IsRequired = true, EmitDefaultValue = true)]
-        public string CsvOutput { get; set; }
+        [DataMember(Name = "payloadOutput", IsRequired = true, EmitDefaultValue = true)]
+        public string PayloadOutput { get; set; }
 
         /// <summary>
         /// Gets or Sets Message
@@ -111,7 +111,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  BatchReferenceId: ").Append(BatchReferenceId).Append("\n");
             sb.Append("  Mode: ").Append(Mode).Append("\n");
             sb.Append("  TransactionCount: ").Append(TransactionCount).Append("\n");
-            sb.Append("  CsvOutput: ").Append(CsvOutput).Append("\n");
+            sb.Append("  PayloadOutput: ").Append(PayloadOutput).Append("\n");
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -163,9 +163,9 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.TransactionCount.Equals(input.TransactionCount)
                 ) && 
                 (
-                    this.CsvOutput == input.CsvOutput ||
-                    (this.CsvOutput != null &&
-                    this.CsvOutput.Equals(input.CsvOutput))
+                    this.PayloadOutput == input.PayloadOutput ||
+                    (this.PayloadOutput != null &&
+                    this.PayloadOutput.Equals(input.PayloadOutput))
                 ) && 
                 (
                     this.Message == input.Message ||
@@ -192,9 +192,9 @@ namespace Finbourne.Horizon.Sdk.Model
                     hashCode = (hashCode * 59) + this.Mode.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.TransactionCount.GetHashCode();
-                if (this.CsvOutput != null)
+                if (this.PayloadOutput != null)
                 {
-                    hashCode = (hashCode * 59) + this.CsvOutput.GetHashCode();
+                    hashCode = (hashCode * 59) + this.PayloadOutput.GetHashCode();
                 }
                 if (this.Message != null)
                 {
