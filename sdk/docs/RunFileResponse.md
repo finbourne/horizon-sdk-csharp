@@ -11,9 +11,9 @@ Name | Type | Description | Notes
 **FileHash** | **string** |  | 
 **Encrypted** | **bool** |  | 
 **Destinations** | [**List&lt;FileDestinationResponse&gt;**](FileDestinationResponse.md) |  | 
-**TransactionIds** | **List&lt;Guid&gt;** |  | 
+**TransactionIds** | **List&lt;string&gt;** |  | 
 **FileUuid** | **Guid** |  | 
-**FailedTransactionIds** | **List&lt;Guid&gt;** |  | 
+**FailedTransactionIds** | **List&lt;string&gt;** |  | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -23,9 +23,9 @@ string fileName = "fileName";
 string fileHash = "fileHash";
 bool encrypted = //"True";
 List<FileDestinationResponse> destinations = new List<FileDestinationResponse>();
-List<Guid> transactionIds = new List<Guid>();
+List<string> transactionIds = new List<string>();
 Guid fileUuid = "fileUuid";
-List<Guid> failedTransactionIds = new List<Guid>();
+List<string> failedTransactionIds = new List<string>();
 
 RunFileResponse runFileResponseInstance = new RunFileResponse(
     fileName: fileName,
