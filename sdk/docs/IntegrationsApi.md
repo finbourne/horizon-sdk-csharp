@@ -487,6 +487,8 @@ catch (ApiException e)
 
 [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
 
+The user must be authenticated and the user's domain must be licensed for integration dataflow to call this method. An unlicensed domain is answered with a 404, as for an unknown processor type.
+
 ### Example
 ```csharp
 using System.Collections.Generic;
@@ -589,7 +591,7 @@ catch (ApiException e)
 |-------------|-------------|------------------|
 | **400** | The details of the input related failure |  -  |
 | **200** | OK |  -  |
-| **404** | The processor type does not exist. |  -  |
+| **404** | The processor type does not exist, or your domain is not licensed for integration dataflow. |  -  |
 | **0** | Error response |  -  |
 
 [Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
@@ -828,7 +830,7 @@ catch (ApiException e)
 
 <a id="getinstanceoptionalpropertymapping"></a>
 # **GetInstanceOptionalPropertyMapping**
-> Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt; GetInstanceOptionalPropertyMapping (string integration, string instanceId)
+> SetInstanceOptionalPropertyMappingResponse GetInstanceOptionalPropertyMapping (string integration, string instanceId)
 
 [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
 
@@ -879,10 +881,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
+                // SetInstanceOptionalPropertyMappingResponse result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
 
                 // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
-                Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
+                SetInstanceOptionalPropertyMappingResponse result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -903,7 +905,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
-    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> response = apiInstance.GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
+    ApiResponse<SetInstanceOptionalPropertyMappingResponse> response = apiInstance.GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -925,7 +927,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;**](LusidPropertyDefinitionOverridesByType.md)
+[**SetInstanceOptionalPropertyMappingResponse**](SetInstanceOptionalPropertyMappingResponse.md)
 
 ### HTTP request headers
 
@@ -1540,7 +1542,7 @@ catch (ApiException e)
 
 [EXPERIMENTAL] ListDataflowProcessors: List processor types.
 
-The user must be authenticated to call this method.
+Any authenticated user can call this method. The processor list is empty unless the user's domain is licensed for integration dataflow.
 
 ### Example
 ```csharp
@@ -1645,7 +1647,7 @@ This endpoint does not need any parameter.
 
 <a id="listinstances"></a>
 # **ListInstances**
-> List&lt;IntegrationInstance&gt; ListInstances ()
+> List&lt;IntegrationInstance&gt; ListInstances (List<string>? integrationTypes = null, string? filter = null)
 
 [EXPERIMENTAL] ListInstances: List instances across all integrations.
 
@@ -1690,14 +1692,16 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<IntegrationsApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<IntegrationsApi>();
+            var integrationTypes = new List<string>?(); // List<string>? | Restrict results to these integration types e.g. \"copp-clark\". Types the caller is not licensed and entitled for match nothing. (optional) 
+            var filter = "filter_example";  // string? | A Finbourne filter over Name, Description and Enabled e.g. Name eq 'Market data'. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // List<IntegrationInstance> result = apiInstance.ListInstances(opts: opts);
+                // List<IntegrationInstance> result = apiInstance.ListInstances(integrationTypes, filter, opts: opts);
 
                 // [EXPERIMENTAL] ListInstances: List instances across all integrations.
-                List<IntegrationInstance> result = apiInstance.ListInstances();
+                List<IntegrationInstance> result = apiInstance.ListInstances(integrationTypes, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1718,7 +1722,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListInstances: List instances across all integrations.
-    ApiResponse<List<IntegrationInstance>> response = apiInstance.ListInstancesWithHttpInfo();
+    ApiResponse<List<IntegrationInstance>> response = apiInstance.ListInstancesWithHttpInfo(integrationTypes, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1732,7 +1736,12 @@ catch (ApiException e)
 ```
 
 ### Parameters
-This endpoint does not need any parameter.
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **integrationTypes** | [**List&lt;string&gt;?**](string.md) | Restrict results to these integration types e.g. \&quot;copp-clark\&quot;. Types the caller is not licensed and entitled for match nothing. | [optional]  |
+| **filter** | **string?** | A Finbourne filter over Name, Description and Enabled e.g. Name eq &#39;Market data&#39;. | [optional]  |
+
 ### Return type
 
 [**List&lt;IntegrationInstance&gt;**](IntegrationInstance.md)
@@ -1747,6 +1756,7 @@ This endpoint does not need any parameter.
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 | **200** | OK |  -  |
+| **400** | The details of the input related failure |  -  |
 | **404** | The requested instance(s) do not exist. |  -  |
 | **0** | Error response |  -  |
 
@@ -1862,7 +1872,7 @@ This endpoint does not need any parameter.
 
 <a id="setinstanceoptionalpropertymapping"></a>
 # **SetInstanceOptionalPropertyMapping**
-> Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt; SetInstanceOptionalPropertyMapping (string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = null)
+> SetInstanceOptionalPropertyMappingResponse SetInstanceOptionalPropertyMapping (string instanceId, string integration, Dictionary<string, LusidPropertyDefinitionOverridesByType>? requestBody = null)
 
 [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
 
@@ -1914,10 +1924,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody, opts: opts);
+                // SetInstanceOptionalPropertyMappingResponse result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody, opts: opts);
 
                 // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
-                Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody);
+                SetInstanceOptionalPropertyMappingResponse result = apiInstance.SetInstanceOptionalPropertyMapping(instanceId, integration, requestBody);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -1938,7 +1948,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] SetInstanceOptionalPropertyMapping: Set the Optional Property Mapping for an integration instance
-    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> response = apiInstance.SetInstanceOptionalPropertyMappingWithHttpInfo(instanceId, integration, requestBody);
+    ApiResponse<SetInstanceOptionalPropertyMappingResponse> response = apiInstance.SetInstanceOptionalPropertyMappingWithHttpInfo(instanceId, integration, requestBody);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -1961,7 +1971,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;**](LusidPropertyDefinitionOverridesByType.md)
+[**SetInstanceOptionalPropertyMappingResponse**](SetInstanceOptionalPropertyMappingResponse.md)
 
 ### HTTP request headers
 

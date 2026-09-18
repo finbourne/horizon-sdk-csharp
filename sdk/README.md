@@ -166,6 +166,7 @@ Class | Method | HTTP request | Description
  - [RowDetails](docs/RowDetails.md)
  - [RunFileResponse](docs/RunFileResponse.md)
  - [RunStatusCount](docs/RunStatusCount.md)
+ - [SetInstanceOptionalPropertyMappingResponse](docs/SetInstanceOptionalPropertyMappingResponse.md)
  - [TpfFailedDeliveryResponse](docs/TpfFailedDeliveryResponse.md)
  - [TpfFileDeliveryInfo](docs/TpfFileDeliveryInfo.md)
  - [TpfFileDeliveryResponse](docs/TpfFileDeliveryResponse.md)

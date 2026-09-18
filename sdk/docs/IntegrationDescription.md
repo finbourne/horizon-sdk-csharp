@@ -10,6 +10,7 @@ Name | Type | Description | Notes
 **Description** | **string** | Describes the purpose of the integration. | 
 **SupportedTriggerTypes** | **List&lt;string&gt;** | Trigger types (Time, File) the integration supports. | 
 **Licensed** | **bool** | True if your domain is licensed to use this integration, otherwise false. | 
+**SupportsEffectiveFromOverride** | **bool** | True if this integration allows a per-property effectiveFromOverride to be set via the optional property mapping endpoints, otherwise false. | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -20,13 +21,15 @@ string name = "name";
 string description = "description";
 List<string> supportedTriggerTypes = new List<string>();
 bool licensed = //"True";
+bool supportsEffectiveFromOverride = //"True";
 
 IntegrationDescription integrationDescriptionInstance = new IntegrationDescription(
     type: type,
     name: name,
     description: description,
     supportedTriggerTypes: supportedTriggerTypes,
-    licensed: licensed);
+    licensed: licensed,
+    supportsEffectiveFromOverride: supportsEffectiveFromOverride);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

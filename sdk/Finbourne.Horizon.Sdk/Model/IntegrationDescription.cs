@@ -41,7 +41,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="description">Describes the purpose of the integration. (required).</param>
         /// <param name="supportedTriggerTypes">Trigger types (Time, File) the integration supports. (required).</param>
         /// <param name="licensed">True if your domain is licensed to use this integration, otherwise false. (required).</param>
-        public IntegrationDescription(string type = default(string), string name = default(string), string description = default(string), List<string> supportedTriggerTypes = default(List<string>), bool licensed = default(bool))
+        /// <param name="supportsEffectiveFromOverride">True if this integration allows a per-property effectiveFromOverride to be set via the optional property mapping endpoints, otherwise false. (required).</param>
+        public IntegrationDescription(string type = default(string), string name = default(string), string description = default(string), List<string> supportedTriggerTypes = default(List<string>), bool licensed = default(bool), bool supportsEffectiveFromOverride = default(bool))
         {
             // to ensure "type" is required (not null)
             if (type == null)
@@ -68,6 +69,7 @@ namespace Finbourne.Horizon.Sdk.Model
             }
             this.SupportedTriggerTypes = supportedTriggerTypes;
             this.Licensed = licensed;
+            this.SupportsEffectiveFromOverride = supportsEffectiveFromOverride;
         }
 
         /// <summary>
@@ -106,6 +108,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public bool Licensed { get; set; }
 
         /// <summary>
+        /// True if this integration allows a per-property effectiveFromOverride to be set via the optional property mapping endpoints, otherwise false.
+        /// </summary>
+        /// <value>True if this integration allows a per-property effectiveFromOverride to be set via the optional property mapping endpoints, otherwise false.</value>
+        [DataMember(Name = "supportsEffectiveFromOverride", IsRequired = true, EmitDefaultValue = true)]
+        public bool SupportsEffectiveFromOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -118,6 +127,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  Description: ").Append(Description).Append("\n");
             sb.Append("  SupportedTriggerTypes: ").Append(SupportedTriggerTypes).Append("\n");
             sb.Append("  Licensed: ").Append(Licensed).Append("\n");
+            sb.Append("  SupportsEffectiveFromOverride: ").Append(SupportsEffectiveFromOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -177,6 +187,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 (
                     this.Licensed == input.Licensed ||
                     this.Licensed.Equals(input.Licensed)
+                ) && 
+                (
+                    this.SupportsEffectiveFromOverride == input.SupportsEffectiveFromOverride ||
+                    this.SupportsEffectiveFromOverride.Equals(input.SupportsEffectiveFromOverride)
                 );
         }
 
@@ -206,6 +220,7 @@ namespace Finbourne.Horizon.Sdk.Model
                     hashCode = (hashCode * 59) + this.SupportedTriggerTypes.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.Licensed.GetHashCode();
+                hashCode = (hashCode * 59) + this.SupportsEffectiveFromOverride.GetHashCode();
                 return hashCode;
             }
         }

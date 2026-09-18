@@ -36,13 +36,15 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="entityType">entityType.</param>
         /// <param name="entitySubType">entitySubType.</param>
         /// <param name="vendorPackage">vendorPackage.</param>
-        public LusidPropertyDefinitionOverridesByType(string displayNameOverride = default(string), string descriptionOverride = default(string), string entityType = default(string), List<string> entitySubType = default(List<string>), List<string> vendorPackage = default(List<string>))
+        /// <param name="effectiveFromOverride">ISO-8601 instant to use as the property value&#39;s effectiveFrom instead of the date the integration derives, e.g. \&quot;0001-01-01T00:00:00Z\&quot;. Only accepted for integrations reporting supportsEffectiveFromOverride, and only for TimeVariant property definitions. Omit to leave any stored value untouched; send an empty string to clear it..</param>
+        public LusidPropertyDefinitionOverridesByType(string displayNameOverride = default(string), string descriptionOverride = default(string), string entityType = default(string), List<string> entitySubType = default(List<string>), List<string> vendorPackage = default(List<string>), string effectiveFromOverride = default(string))
         {
             this.DisplayNameOverride = displayNameOverride;
             this.DescriptionOverride = descriptionOverride;
             this.EntityType = entityType;
             this.EntitySubType = entitySubType;
             this.VendorPackage = vendorPackage;
+            this.EffectiveFromOverride = effectiveFromOverride;
         }
 
         /// <summary>
@@ -76,6 +78,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<string> VendorPackage { get; set; }
 
         /// <summary>
+        /// ISO-8601 instant to use as the property value&#39;s effectiveFrom instead of the date the integration derives, e.g. \&quot;0001-01-01T00:00:00Z\&quot;. Only accepted for integrations reporting supportsEffectiveFromOverride, and only for TimeVariant property definitions. Omit to leave any stored value untouched; send an empty string to clear it.
+        /// </summary>
+        /// <value>ISO-8601 instant to use as the property value&#39;s effectiveFrom instead of the date the integration derives, e.g. \&quot;0001-01-01T00:00:00Z\&quot;. Only accepted for integrations reporting supportsEffectiveFromOverride, and only for TimeVariant property definitions. Omit to leave any stored value untouched; send an empty string to clear it.</value>
+        [DataMember(Name = "effectiveFromOverride", EmitDefaultValue = true)]
+        public string EffectiveFromOverride { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -88,6 +97,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  EntityType: ").Append(EntityType).Append("\n");
             sb.Append("  EntitySubType: ").Append(EntitySubType).Append("\n");
             sb.Append("  VendorPackage: ").Append(VendorPackage).Append("\n");
+            sb.Append("  EffectiveFromOverride: ").Append(EffectiveFromOverride).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -149,6 +159,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.VendorPackage != null &&
                     input.VendorPackage != null &&
                     this.VendorPackage.SequenceEqual(input.VendorPackage)
+                ) && 
+                (
+                    this.EffectiveFromOverride == input.EffectiveFromOverride ||
+                    (this.EffectiveFromOverride != null &&
+                    this.EffectiveFromOverride.Equals(input.EffectiveFromOverride))
                 );
         }
 
@@ -180,6 +195,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.VendorPackage != null)
                 {
                     hashCode = (hashCode * 59) + this.VendorPackage.GetHashCode();
+                }
+                if (this.EffectiveFromOverride != null)
+                {
+                    hashCode = (hashCode * 59) + this.EffectiveFromOverride.GetHashCode();
                 }
                 return hashCode;
             }
@@ -226,6 +245,18 @@ namespace Finbourne.Horizon.Sdk.Model
             if (this.EntityType != null && this.EntityType.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EntityType, length must be greater than 0.", new [] { "EntityType" });
+            }
+
+            // EffectiveFromOverride (string) maxLength
+            if (this.EffectiveFromOverride != null && this.EffectiveFromOverride.Length > 4096)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveFromOverride, length must be less than 4096.", new [] { "EffectiveFromOverride" });
+            }
+
+            // EffectiveFromOverride (string) minLength
+            if (this.EffectiveFromOverride != null && this.EffectiveFromOverride.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for EffectiveFromOverride, length must be greater than 0.", new [] { "EffectiveFromOverride" });
             }
 
             yield break;
