@@ -9,11 +9,11 @@ Name | Type | Description | Notes
 **PublicationStatus** | **string** |  | 
 **PortfolioScope** | **string** |  | [optional] 
 **PortfolioCode** | **string** |  | [optional] 
-**InstrumentId** | **string** |  | 
-**InstrumentType** | **string** |  | 
-**InstrumentName** | **string** |  | 
-**TradeDate** | **DateTimeOffset** |  | 
-**SettlementDate** | **DateTimeOffset** |  | 
+**InstrumentId** | **string** |  | [optional] 
+**InstrumentType** | **string** |  | [optional] 
+**InstrumentName** | **string** |  | [optional] 
+**TradeDate** | **DateTimeOffset?** |  | [optional] 
+**SettlementDate** | **DateTimeOffset?** |  | [optional] 
 **Status** | **string** |  | 
 **SkipReason** | **string** |  | [optional] 
 **FailureReason** | **string** |  | [optional] 
@@ -29,9 +29,9 @@ string transactionId = "transactionId";
 string publicationStatus = "publicationStatus";
 string portfolioScope = "example portfolioScope";
 string portfolioCode = "example portfolioCode";
-string instrumentId = "instrumentId";
-string instrumentType = "instrumentType";
-string instrumentName = "instrumentName";
+string instrumentId = "example instrumentId";
+string instrumentType = "example instrumentType";
+string instrumentName = "example instrumentName";
 string status = "status";
 string skipReason = "example skipReason";
 string failureReason = "example failureReason";

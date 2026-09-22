@@ -221,8 +221,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="instanceId">Identifier of the instance</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>SetInstanceOptionalPropertyMappingResponse</returns>
-        SetInstanceOptionalPropertyMappingResponse GetInstanceOptionalPropertyMapping(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
+        Dictionary<string, LusidPropertyDefinitionOverridesByType> GetInstanceOptionalPropertyMapping(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
@@ -235,8 +235,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="instanceId">Identifier of the instance</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of SetInstanceOptionalPropertyMappingResponse</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<SetInstanceOptionalPropertyMappingResponse> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
+        Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
@@ -721,8 +721,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of SetInstanceOptionalPropertyMappingResponse</returns>
-        System.Threading.Tasks.Task<SetInstanceOptionalPropertyMappingResponse> GetInstanceOptionalPropertyMappingAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
+        System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverridesByType>> GetInstanceOptionalPropertyMappingAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
@@ -736,8 +736,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (SetInstanceOptionalPropertyMappingResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<SetInstanceOptionalPropertyMappingResponse>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;)</returns>
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetIntegrationConfiguration: Get the Field and Property Mapping configuration for a given integration
         /// </summary>
@@ -2592,10 +2592,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="instanceId">Identifier of the instance</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>SetInstanceOptionalPropertyMappingResponse</returns>
-        public SetInstanceOptionalPropertyMappingResponse GetInstanceOptionalPropertyMapping(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
+        public Dictionary<string, LusidPropertyDefinitionOverridesByType> GetInstanceOptionalPropertyMapping(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<SetInstanceOptionalPropertyMappingResponse> localVarResponse = GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> localVarResponse = GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId, opts: opts);
             return localVarResponse.Data;
         }
 
@@ -2607,8 +2607,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="instanceId">Identifier of the instance</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of SetInstanceOptionalPropertyMappingResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<SetInstanceOptionalPropertyMappingResponse> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> GetInstanceOptionalPropertyMappingWithHttpInfo(string integration, string instanceId, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'integration' is set
             if (integration == null)
@@ -2678,7 +2678,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Get<SetInstanceOptionalPropertyMappingResponse>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Get<Dictionary<string, LusidPropertyDefinitionOverridesByType>>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("GetInstanceOptionalPropertyMapping", localVarResponse);
@@ -2700,10 +2700,10 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of SetInstanceOptionalPropertyMappingResponse</returns>
-        public async System.Threading.Tasks.Task<SetInstanceOptionalPropertyMappingResponse> GetInstanceOptionalPropertyMappingAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;</returns>
+        public async System.Threading.Tasks.Task<Dictionary<string, LusidPropertyDefinitionOverridesByType>> GetInstanceOptionalPropertyMappingAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<SetInstanceOptionalPropertyMappingResponse> localVarResponse = await GetInstanceOptionalPropertyMappingWithHttpInfoAsync(integration, instanceId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> localVarResponse = await GetInstanceOptionalPropertyMappingWithHttpInfoAsync(integration, instanceId, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
@@ -2716,8 +2716,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse (SetInstanceOptionalPropertyMappingResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<SetInstanceOptionalPropertyMappingResponse>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>>> GetInstanceOptionalPropertyMappingWithHttpInfoAsync(string integration, string instanceId, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'integration' is set
             if (integration == null)
@@ -2788,7 +2788,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.GetAsync<SetInstanceOptionalPropertyMappingResponse>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.GetAsync<Dictionary<string, LusidPropertyDefinitionOverridesByType>>("/api/integrations/instances/configuration/{integration}/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

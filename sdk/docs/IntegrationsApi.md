@@ -830,7 +830,7 @@ catch (ApiException e)
 
 <a id="getinstanceoptionalpropertymapping"></a>
 # **GetInstanceOptionalPropertyMapping**
-> SetInstanceOptionalPropertyMappingResponse GetInstanceOptionalPropertyMapping (string integration, string instanceId)
+> Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt; GetInstanceOptionalPropertyMapping (string integration, string instanceId)
 
 [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
 
@@ -881,10 +881,10 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // SetInstanceOptionalPropertyMappingResponse result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
+                // Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId, opts: opts);
 
                 // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
-                SetInstanceOptionalPropertyMappingResponse result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
+                Dictionary<string, LusidPropertyDefinitionOverridesByType> result = apiInstance.GetInstanceOptionalPropertyMapping(integration, instanceId);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -905,7 +905,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetInstanceOptionalPropertyMapping: Get the Optional Property Mapping for an integration instance
-    ApiResponse<SetInstanceOptionalPropertyMappingResponse> response = apiInstance.GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
+    ApiResponse<Dictionary<string, LusidPropertyDefinitionOverridesByType>> response = apiInstance.GetInstanceOptionalPropertyMappingWithHttpInfo(integration, instanceId);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -927,7 +927,7 @@ catch (ApiException e)
 
 ### Return type
 
-[**SetInstanceOptionalPropertyMappingResponse**](SetInstanceOptionalPropertyMappingResponse.md)
+[**Dictionary&lt;string, LusidPropertyDefinitionOverridesByType&gt;**](LusidPropertyDefinitionOverridesByType.md)
 
 ### HTTP request headers
 
