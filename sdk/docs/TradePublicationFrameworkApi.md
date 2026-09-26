@@ -495,7 +495,7 @@ catch (ApiException e)
 
 <a id="listinstancerunhistory"></a>
 # **ListInstanceRunHistory**
-> PagedResourceListOfInstanceRunResponse ListInstanceRunHistory (string instanceId, string? page = null, int? pageSize = null)
+> PagedResourceListOfInstanceRunResponse ListInstanceRunHistory (string instanceId, string? page = null, int? pageSize = null, string? filter = null)
 
 [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support.
 
@@ -541,14 +541,15 @@ namespace Examples
             var instanceId = "instanceId_example";  // string | 
             var page = "\"\"";  // string? |  (optional)  (default to "")
             var pageSize = 100;  // int? |  (optional)  (default to 100)
+            var filter = "filter_example";  // string? | A Finbourne filter over runId, referenceId, attempt, total, sentCount, skippedCount, failedCount and failedFiles e.g. failedCount gt 0. status, triggeredBy, duration, startTime and endTime are not filterable and will result in a 400 response. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize, opts: opts);
+                // PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize, filter, opts: opts);
 
                 // [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support.
-                PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize);
+                PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize, filter);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -569,7 +570,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support.
-    ApiResponse<PagedResourceListOfInstanceRunResponse> response = apiInstance.ListInstanceRunHistoryWithHttpInfo(instanceId, page, pageSize);
+    ApiResponse<PagedResourceListOfInstanceRunResponse> response = apiInstance.ListInstanceRunHistoryWithHttpInfo(instanceId, page, pageSize, filter);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -589,6 +590,7 @@ catch (ApiException e)
 | **instanceId** | **string** |  |  |
 | **page** | **string?** |  | [optional] [default to &quot;&quot;] |
 | **pageSize** | **int?** |  | [optional] [default to 100] |
+| **filter** | **string?** | A Finbourne filter over runId, referenceId, attempt, total, sentCount, skippedCount, failedCount and failedFiles e.g. failedCount gt 0. status, triggeredBy, duration, startTime and endTime are not filterable and will result in a 400 response. | [optional]  |
 
 ### Return type
 
