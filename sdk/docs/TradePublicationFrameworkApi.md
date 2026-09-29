@@ -495,7 +495,7 @@ catch (ApiException e)
 
 <a id="listinstancerunhistory"></a>
 # **ListInstanceRunHistory**
-> PagedResourceListOfInstanceRunResponse ListInstanceRunHistory (string instanceId, string? page = null, int? pageSize = null, string? filter = null)
+> PagedResourceListOfInstanceRunResponse ListInstanceRunHistory (string instanceId, string? page = null, int? pageSize = null, string? filter = null, List<string>? sortBy = null)
 
 [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support.
 
@@ -539,17 +539,18 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
             var instanceId = "instanceId_example";  // string | 
-            var page = "\"\"";  // string? |  (optional)  (default to "")
+            var page = "\"\"";  // string? | The pagination token from the previous response; <i>filter</i> and <i>sortBy</i> must be unchanged. (optional)  (default to "")
             var pageSize = 100;  // int? |  (optional)  (default to 100)
-            var filter = "filter_example";  // string? | A Finbourne filter over runId, referenceId, attempt, total, sentCount, skippedCount, failedCount and failedFiles e.g. failedCount gt 0. status, triggeredBy, duration, startTime and endTime are not filterable and will result in a 400 response. (optional) 
+            var filter = "filter_example";  // string? | A Finbourne filter on any response field except duration, e.g. startTime gte '2026-04-01T00:00:00Z' and status eq 'Auto-retry'. status is the displayed status. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Up to two filterable fields, each suffixed \" ASC\" or \" DESC\". Defaults to newest first. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize, filter, opts: opts);
+                // PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize, filter, sortBy, opts: opts);
 
                 // [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support.
-                PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize, filter);
+                PagedResourceListOfInstanceRunResponse result = apiInstance.ListInstanceRunHistory(instanceId, page, pageSize, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -570,7 +571,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support.
-    ApiResponse<PagedResourceListOfInstanceRunResponse> response = apiInstance.ListInstanceRunHistoryWithHttpInfo(instanceId, page, pageSize, filter);
+    ApiResponse<PagedResourceListOfInstanceRunResponse> response = apiInstance.ListInstanceRunHistoryWithHttpInfo(instanceId, page, pageSize, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -588,9 +589,10 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instanceId** | **string** |  |  |
-| **page** | **string?** |  | [optional] [default to &quot;&quot;] |
+| **page** | **string?** | The pagination token from the previous response; &lt;i&gt;filter&lt;/i&gt; and &lt;i&gt;sortBy&lt;/i&gt; must be unchanged. | [optional] [default to &quot;&quot;] |
 | **pageSize** | **int?** |  | [optional] [default to 100] |
-| **filter** | **string?** | A Finbourne filter over runId, referenceId, attempt, total, sentCount, skippedCount, failedCount and failedFiles e.g. failedCount gt 0. status, triggeredBy, duration, startTime and endTime are not filterable and will result in a 400 response. | [optional]  |
+| **filter** | **string?** | A Finbourne filter on any response field except duration, e.g. startTime gte &#39;2026-04-01T00:00:00Z&#39; and status eq &#39;Auto-retry&#39;. status is the displayed status. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Up to two filterable fields, each suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Defaults to newest first. | [optional]  |
 
 ### Return type
 
