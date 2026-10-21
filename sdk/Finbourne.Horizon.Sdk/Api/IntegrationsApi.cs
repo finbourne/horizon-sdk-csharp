@@ -114,11 +114,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ExecuteInstanceResponse</returns>
-        ExecuteInstanceResponse ExecuteInstanceWithParams(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        ExecuteInstanceResponse ExecuteInstanceWithParams(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
@@ -128,11 +128,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithParamsWithHttpInfo(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithParamsWithHttpInfo(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
         /// </summary>
@@ -605,12 +605,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ExecuteInstanceResponse</returns>
-        System.Threading.Tasks.Task<ExecuteInstanceResponse> ExecuteInstanceWithParamsAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<ExecuteInstanceResponse> ExecuteInstanceWithParamsAsync(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] ExecuteInstanceWithParams: Execute an integration instance with runtime parameters
@@ -620,12 +620,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ExecuteInstanceResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithParamsWithHttpInfoAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithParamsWithHttpInfoAsync(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetDataflowProcessorSchema: Returns processor configuration schema for a given processor type. This is used by the UI to render the configuration form for a processortype.
         /// </summary>
@@ -1756,11 +1756,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ExecuteInstanceResponse</returns>
-        public ExecuteInstanceResponse ExecuteInstanceWithParams(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public ExecuteInstanceResponse ExecuteInstanceWithParams(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> localVarResponse = ExecuteInstanceWithParamsWithHttpInfo(instanceId, requestBody, opts: opts);
             return localVarResponse.Data;
@@ -1771,11 +1771,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of ExecuteInstanceResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithParamsWithHttpInfo(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> ExecuteInstanceWithParamsWithHttpInfo(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
@@ -1864,12 +1864,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ExecuteInstanceResponse</returns>
-        public async System.Threading.Tasks.Task<ExecuteInstanceResponse> ExecuteInstanceWithParamsAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<ExecuteInstanceResponse> ExecuteInstanceWithParamsAsync(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse> localVarResponse = await ExecuteInstanceWithParamsWithHttpInfoAsync(instanceId, requestBody, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
@@ -1880,12 +1880,12 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Instance identifier e.g. \&quot;b64135e7-98a0-41af-a845-d86167d54cc7\&quot;.</param>
-        /// <param name="requestBody">Dictionary(string,string) of runtime parameters passed to the integration instance</param>
+        /// <param name="requestBody">JSON object of runtime parameters passed to the integration instance. A processorName:configPath key overrides one processor config value for this run; any other key is a named run parameter. Nested objects are flattened to dotted keys.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (ExecuteInstanceResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithParamsWithHttpInfoAsync(string instanceId, Dictionary<string, string> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<ExecuteInstanceResponse>> ExecuteInstanceWithParamsWithHttpInfoAsync(string instanceId, Dictionary<string, Object> requestBody, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
