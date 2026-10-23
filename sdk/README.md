@@ -71,6 +71,7 @@ Class | Method | HTTP request | Description
 <a id="documentation-for-models"></a>
 ## Documentation for Models
 
+ - [AlertRule](docs/AlertRule.md)
  - [AllowedParameterValue](docs/AllowedParameterValue.md)
  - [AuditCompleteRequest](docs/AuditCompleteRequest.md)
  - [AuditCompleteResponse](docs/AuditCompleteResponse.md)

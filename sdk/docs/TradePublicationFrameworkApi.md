@@ -721,7 +721,7 @@ This endpoint does not need any parameter.
 
 <a id="listrunfiles"></a>
 # **ListRunFiles**
-> PagedResourceListOfRunFileResponse ListRunFiles (string instanceId, string runId, string? page = null, int? pageSize = null)
+> PagedResourceListOfRunFileResponse ListRunFiles (string instanceId, string runId, string? page = null, int? pageSize = null, string? filter = null, List<string>? sortBy = null)
 
 [EXPERIMENTAL] ListRunFiles: List Files in a run
 
@@ -764,18 +764,20 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
-            var instanceId = "instanceId_example";  // string | 
-            var runId = "runId_example";  // string | 
-            var page = "\"\"";  // string? |  (optional)  (default to "")
-            var pageSize = 100;  // int? |  (optional)  (default to 100)
+            var instanceId = "instanceId_example";  // string | Integration instance ID.
+            var runId = "runId_example";  // string | Run ID within the instance.
+            var page = "\"\"";  // string? | The pagination token from the previous response; <i>filter</i> and <i>sortBy</i> must be unchanged. (optional)  (default to "")
+            var pageSize = 100;  // int? | Number of results per page. (optional)  (default to 100)
+            var filter = "filter_example";  // string? | A Finbourne filter on: fileName, generatedAt, rowCount, fileHash, encrypted, destinationType, destinationPath, status, fileUuid. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Up to two filterable fields, each suffixed \" ASC\" or \" DESC\". Defaults to newest first (GeneratedAt DESC, Id DESC). (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfRunFileResponse result = apiInstance.ListRunFiles(instanceId, runId, page, pageSize, opts: opts);
+                // PagedResourceListOfRunFileResponse result = apiInstance.ListRunFiles(instanceId, runId, page, pageSize, filter, sortBy, opts: opts);
 
                 // [EXPERIMENTAL] ListRunFiles: List Files in a run
-                PagedResourceListOfRunFileResponse result = apiInstance.ListRunFiles(instanceId, runId, page, pageSize);
+                PagedResourceListOfRunFileResponse result = apiInstance.ListRunFiles(instanceId, runId, page, pageSize, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -796,7 +798,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListRunFiles: List Files in a run
-    ApiResponse<PagedResourceListOfRunFileResponse> response = apiInstance.ListRunFilesWithHttpInfo(instanceId, runId, page, pageSize);
+    ApiResponse<PagedResourceListOfRunFileResponse> response = apiInstance.ListRunFilesWithHttpInfo(instanceId, runId, page, pageSize, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -813,10 +815,12 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **instanceId** | **string** |  |  |
-| **runId** | **string** |  |  |
-| **page** | **string?** |  | [optional] [default to &quot;&quot;] |
-| **pageSize** | **int?** |  | [optional] [default to 100] |
+| **instanceId** | **string** | Integration instance ID. |  |
+| **runId** | **string** | Run ID within the instance. |  |
+| **page** | **string?** | The pagination token from the previous response; &lt;i&gt;filter&lt;/i&gt; and &lt;i&gt;sortBy&lt;/i&gt; must be unchanged. | [optional] [default to &quot;&quot;] |
+| **pageSize** | **int?** | Number of results per page. | [optional] [default to 100] |
+| **filter** | **string?** | A Finbourne filter on: fileName, generatedAt, rowCount, fileHash, encrypted, destinationType, destinationPath, status, fileUuid. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Up to two filterable fields, each suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Defaults to newest first (GeneratedAt DESC, Id DESC). | [optional]  |
 
 ### Return type
 
@@ -840,7 +844,7 @@ catch (ApiException e)
 
 <a id="listruntransactions"></a>
 # **ListRunTransactions**
-> PagedResourceListOfTransactionResponse ListRunTransactions (string instanceId, string runId, string? status = null, string? page = null, int? pageSize = null)
+> PagedResourceListOfTransactionResponse ListRunTransactions (string instanceId, string runId, string? status = null, string? page = null, int? pageSize = null, string? filter = null, List<string>? sortBy = null)
 
 [EXPERIMENTAL] ListRunTransactions: List Transactions in a run.
 
@@ -883,19 +887,21 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
-            var instanceId = "instanceId_example";  // string | 
-            var runId = "runId_example";  // string | 
-            var status = "status_example";  // string? |  (optional) 
-            var page = "\"\"";  // string? |  (optional)  (default to "")
-            var pageSize = 100;  // int? |  (optional)  (default to 100)
+            var instanceId = "instanceId_example";  // string | Integration instance ID.
+            var runId = "runId_example";  // string | Run ID within the instance.
+            var status = "status_example";  // string? | Filter by publication status (Sent, Skipped, Failed). This is the publication outcome, not the batched-transaction status. (optional) 
+            var page = "\"\"";  // string? | The pagination token from the previous response; <i>filter</i> and <i>sortBy</i> must be unchanged. (optional)  (default to "")
+            var pageSize = 100;  // int? | Number of results per page. (optional)  (default to 100)
+            var filter = "filter_example";  // string? | A Finbourne filter on: transactionId, portfolioScope, portfolioCode, instrumentId, instrumentType, instrumentName, tradeDate, settlementDate, status, skipReason, failureReason, outputFileName, sentAt. The status field here is the batched-transaction status (Complete, Skipped, Failed), not the publication status — use the ?status= query parameter for that. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Up to two filterable fields, each suffixed \" ASC\" or \" DESC\". Defaults to Id ASC. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfTransactionResponse result = apiInstance.ListRunTransactions(instanceId, runId, status, page, pageSize, opts: opts);
+                // PagedResourceListOfTransactionResponse result = apiInstance.ListRunTransactions(instanceId, runId, status, page, pageSize, filter, sortBy, opts: opts);
 
                 // [EXPERIMENTAL] ListRunTransactions: List Transactions in a run.
-                PagedResourceListOfTransactionResponse result = apiInstance.ListRunTransactions(instanceId, runId, status, page, pageSize);
+                PagedResourceListOfTransactionResponse result = apiInstance.ListRunTransactions(instanceId, runId, status, page, pageSize, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -916,7 +922,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] ListRunTransactions: List Transactions in a run.
-    ApiResponse<PagedResourceListOfTransactionResponse> response = apiInstance.ListRunTransactionsWithHttpInfo(instanceId, runId, status, page, pageSize);
+    ApiResponse<PagedResourceListOfTransactionResponse> response = apiInstance.ListRunTransactionsWithHttpInfo(instanceId, runId, status, page, pageSize, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -933,11 +939,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **instanceId** | **string** |  |  |
-| **runId** | **string** |  |  |
-| **status** | **string?** |  | [optional]  |
-| **page** | **string?** |  | [optional] [default to &quot;&quot;] |
-| **pageSize** | **int?** |  | [optional] [default to 100] |
+| **instanceId** | **string** | Integration instance ID. |  |
+| **runId** | **string** | Run ID within the instance. |  |
+| **status** | **string?** | Filter by publication status (Sent, Skipped, Failed). This is the publication outcome, not the batched-transaction status. | [optional]  |
+| **page** | **string?** | The pagination token from the previous response; &lt;i&gt;filter&lt;/i&gt; and &lt;i&gt;sortBy&lt;/i&gt; must be unchanged. | [optional] [default to &quot;&quot;] |
+| **pageSize** | **int?** | Number of results per page. | [optional] [default to 100] |
+| **filter** | **string?** | A Finbourne filter on: transactionId, portfolioScope, portfolioCode, instrumentId, instrumentType, instrumentName, tradeDate, settlementDate, status, skipReason, failureReason, outputFileName, sentAt. The status field here is the batched-transaction status (Complete, Skipped, Failed), not the publication status — use the ?status&#x3D; query parameter for that. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Up to two filterable fields, each suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Defaults to Id ASC. | [optional]  |
 
 ### Return type
 

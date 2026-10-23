@@ -44,7 +44,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="triggers">triggers (required).</param>
         /// <param name="details">Base DTO type of an integration configuration specific to the integration type.              N.B. ASP.NET Core model validation is normally applied automatically when [ApiController] is added to a controller, however it doesn&#39;t work here with the polymorphic integration subtypes of this class (see https://github.com/dotnet/aspnetcore/issues/27882). The workaround here is to implement the IValidatableObject interface and each subtype must call Validate() or ValidateContents() on its properties (the validation is not recursive).  Located in Horizon.Integrations.Web so both specific integration projects and Horizon.WebApi can reference it. (required).</param>
         /// <param name="postProcessTasks">postProcessTasks (required).</param>
-        public UpdateInstanceRequest(string id = default(string), string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object), List<PostProcessTask> postProcessTasks = default(List<PostProcessTask>))
+        /// <param name="alertRules">Alert rules for the instance. On update the stored rules are replaced by this set when it is present, an empty set clears them, and omitting the field leaves them unchanged..</param>
+        public UpdateInstanceRequest(string id = default(string), string integrationType = default(string), string name = default(string), string description = default(string), bool enabled = default(bool), List<Trigger> triggers = default(List<Trigger>), Object details = default(Object), List<PostProcessTask> postProcessTasks = default(List<PostProcessTask>), List<AlertRule> alertRules = default(List<AlertRule>))
         {
             // to ensure "id" is required (not null)
             if (id == null)
@@ -89,6 +90,7 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("postProcessTasks is a required property for UpdateInstanceRequest and cannot be null");
             }
             this.PostProcessTasks = postProcessTasks;
+            this.AlertRules = alertRules;
         }
 
         /// <summary>
@@ -142,6 +144,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<PostProcessTask> PostProcessTasks { get; set; }
 
         /// <summary>
+        /// Alert rules for the instance. On update the stored rules are replaced by this set when it is present, an empty set clears them, and omitting the field leaves them unchanged.
+        /// </summary>
+        /// <value>Alert rules for the instance. On update the stored rules are replaced by this set when it is present, an empty set clears them, and omitting the field leaves them unchanged.</value>
+        [DataMember(Name = "alertRules", EmitDefaultValue = true)]
+        public List<AlertRule> AlertRules { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -157,6 +166,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  Triggers: ").Append(Triggers).Append("\n");
             sb.Append("  Details: ").Append(Details).Append("\n");
             sb.Append("  PostProcessTasks: ").Append(PostProcessTasks).Append("\n");
+            sb.Append("  AlertRules: ").Append(AlertRules).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -232,6 +242,12 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.PostProcessTasks != null &&
                     input.PostProcessTasks != null &&
                     this.PostProcessTasks.SequenceEqual(input.PostProcessTasks)
+                ) && 
+                (
+                    this.AlertRules == input.AlertRules ||
+                    this.AlertRules != null &&
+                    input.AlertRules != null &&
+                    this.AlertRules.SequenceEqual(input.AlertRules)
                 );
         }
 
@@ -272,6 +288,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.PostProcessTasks != null)
                 {
                     hashCode = (hashCode * 59) + this.PostProcessTasks.GetHashCode();
+                }
+                if (this.AlertRules != null)
+                {
+                    hashCode = (hashCode * 59) + this.AlertRules.GetHashCode();
                 }
                 return hashCode;
             }
