@@ -6,15 +6,18 @@ Identifies a single instance of an integration.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Id** | **string** | Instance identifier. | 
+**Warnings** | [**List&lt;ValidationNoticeResponse&gt;**](ValidationNoticeResponse.md) | Non-blocking findings about the saved configuration. Empty when there are none. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
 using System;
 
 string id = "id";
+List<ValidationNoticeResponse> warnings = new List<ValidationNoticeResponse>();
 
 InstanceIdentifier instanceIdentifierInstance = new InstanceIdentifier(
-    id: id);
+    id: id,
+    warnings: warnings);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

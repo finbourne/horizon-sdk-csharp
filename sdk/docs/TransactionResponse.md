@@ -1,12 +1,12 @@
 # Finbourne.Horizon.Sdk.Model.TransactionResponse
-Response containing details of a single transaction for a run.
+Response containing details of a single transaction for a run. A transaction built twice in one batch appears once per build. FailureStage says whether a failed transaction failed while being built (Build) or while its file was being delivered (Delivery).
 
 ## Properties
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TransactionId** | **string** |  | 
-**PublicationStatus** | **string** |  | 
+**PublicationStatus** | **string** | The outcome the screens show for this row: Sent, Skipped or Failed. | 
 **PortfolioScope** | **string** |  | [optional] 
 **PortfolioCode** | **string** |  | [optional] 
 **InstrumentId** | **string** |  | [optional] 
@@ -14,12 +14,13 @@ Name | Type | Description | Notes
 **InstrumentName** | **string** |  | [optional] 
 **TradeDate** | **DateTimeOffset?** |  | [optional] 
 **SettlementDate** | **DateTimeOffset?** |  | [optional] 
-**Status** | **string** |  | 
+**Status** | **string** | The batch element&#39;s processing state as the worker left it, not the outcome; read PublicationStatus for that. | 
 **SkipReason** | **string** |  | [optional] 
 **FailureReason** | **string** |  | [optional] 
 **OutputFileName** | **string** |  | [optional] 
 **SentAt** | **DateTimeOffset?** |  | [optional] 
 **Destinations** | [**List&lt;DestinationResponse&gt;**](DestinationResponse.md) |  | 
+**FailureStage** | **string** |  | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -37,6 +38,7 @@ string skipReason = "example skipReason";
 string failureReason = "example failureReason";
 string outputFileName = "example outputFileName";
 List<DestinationResponse> destinations = new List<DestinationResponse>();
+string failureStage = "example failureStage";
 
 TransactionResponse transactionResponseInstance = new TransactionResponse(
     transactionId: transactionId,
@@ -53,7 +55,8 @@ TransactionResponse transactionResponseInstance = new TransactionResponse(
     failureReason: failureReason,
     outputFileName: outputFileName,
     sentAt: sentAt,
-    destinations: destinations);
+    destinations: destinations,
+    failureStage: failureStage);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

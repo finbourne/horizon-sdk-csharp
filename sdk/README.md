@@ -51,8 +51,7 @@ Class | Method | HTTP request | Description
 *TradePublicationFrameworkApi* | [**ListRunTransactions**](docs/TradePublicationFrameworkApi.md#listruntransactions) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions | [EXPERIMENTAL] ListRunTransactions: List Transactions in a run.
 *TradePublicationFrameworkApi* | [**ReplayTransactions**](docs/TradePublicationFrameworkApi.md#replaytransactions) | **POST** /api/trade-publication-framework/instances/{instanceId}/replay | [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance
 *TradePublicationFrameworkApi* | [**ResolveFailedDelivery**](docs/TradePublicationFrameworkApi.md#resolvefaileddelivery) | **PUT** /api/trade-publication-framework/instances/{instanceId}/failed/{batchReferenceId}/resolve | [EXPERIMENTAL] ResolveFailedDelivery: Resolve a failed delivery without retry
-*TradePublicationFrameworkApi* | [**RetryFailedDelivery**](docs/TradePublicationFrameworkApi.md#retryfaileddelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/failed/retry | [EXPERIMENTAL] RetryFailedDelivery: Retry failed deliveries for Trade Publication Framework
-*TradePublicationFrameworkApi* | [**RetryTpfSftpDelivery**](docs/TradePublicationFrameworkApi.md#retrytpfsftpdelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/files/{fileUuid}/retry-sftp | [EXPERIMENTAL] RetryTpfSftpDelivery: Retry SFTP delivery for a previously sent TPF file
+*TradePublicationFrameworkApi* | [**RetryTpfSftpDelivery**](docs/TradePublicationFrameworkApi.md#retrytpfsftpdelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/files/{fileUuid}/retry-sftp | [EXPERIMENTAL] RetryTpfSftpDelivery: Resend a TPF file to the destination it was delivered to or failed to reach (SFTP or Drive)
 *VendorApi* | [**GetCoreFieldMappingsForProductEntity**](docs/VendorApi.md#getcorefieldmappingsforproductentity) | **GET** /api/vendor/mappings/fields | [EARLY ACCESS] GetCoreFieldMappingsForProductEntity: Get core field mappings for a given vendor product's entity.
 *VendorApi* | [**GetOptionalMappingsForProductEntity**](docs/VendorApi.md#getoptionalmappingsforproductentity) | **GET** /api/vendor/mappings/optional | [EARLY ACCESS] GetOptionalMappingsForProductEntity: Get a user defined LUSID property mappings for the specified vendor / LUSID entity.
 *VendorApi* | [**GetPropertyMappingsForProductEntity**](docs/VendorApi.md#getpropertymappingsforproductentity) | **GET** /api/vendor/mappings/properties | [EARLY ACCESS] GetPropertyMappingsForProductEntity: Gets the property mappings for a given vendor product's entity
@@ -88,7 +87,6 @@ Class | Method | HTTP request | Description
  - [ExternalLogRecord](docs/ExternalLogRecord.md)
  - [FailedDeliveryResponse](docs/FailedDeliveryResponse.md)
  - [FieldMapping](docs/FieldMapping.md)
- - [FileDeliveryStatus](docs/FileDeliveryStatus.md)
  - [FileDestinationResponse](docs/FileDestinationResponse.md)
  - [FileDetails](docs/FileDetails.md)
  - [IFieldMapping](docs/IFieldMapping.md)
@@ -168,12 +166,10 @@ Class | Method | HTTP request | Description
  - [RunFileResponse](docs/RunFileResponse.md)
  - [RunStatusCount](docs/RunStatusCount.md)
  - [SetInstanceOptionalPropertyMappingResponse](docs/SetInstanceOptionalPropertyMappingResponse.md)
- - [TpfFailedDeliveryResponse](docs/TpfFailedDeliveryResponse.md)
+ - [TpfFileDeliveryDisplayStatus](docs/TpfFileDeliveryDisplayStatus.md)
  - [TpfFileDeliveryInfo](docs/TpfFileDeliveryInfo.md)
  - [TpfFileDeliveryResponse](docs/TpfFileDeliveryResponse.md)
  - [TpfPortfolio](docs/TpfPortfolio.md)
- - [TpfRetryElementResult](docs/TpfRetryElementResult.md)
- - [TpfRetryFailedDeliveryRequest](docs/TpfRetryFailedDeliveryRequest.md)
  - [TpfRetrySftpResponse](docs/TpfRetrySftpResponse.md)
  - [TpfTransactionSearchRequest](docs/TpfTransactionSearchRequest.md)
  - [TpfTransactionSearchResponse](docs/TpfTransactionSearchResponse.md)
@@ -181,7 +177,9 @@ Class | Method | HTTP request | Description
  - [TransactionResponse](docs/TransactionResponse.md)
  - [Trigger](docs/Trigger.md)
  - [UpdateInstanceRequest](docs/UpdateInstanceRequest.md)
+ - [UpdateInstanceResponse](docs/UpdateInstanceResponse.md)
  - [UpdateVersionedConfigurationDraftRequest](docs/UpdateVersionedConfigurationDraftRequest.md)
+ - [ValidationNoticeResponse](docs/ValidationNoticeResponse.md)
  - [VendorField](docs/VendorField.md)
  - [VendorProduct](docs/VendorProduct.md)
  - [VersionedConfigurationResponse](docs/VersionedConfigurationResponse.md)

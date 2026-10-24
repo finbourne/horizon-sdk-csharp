@@ -38,9 +38,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// </summary>
         /// <param name="transactionIds">List of transaction IDs to replay. (required).</param>
         /// <param name="mode">Replay mode - DryRun (preview only) or Committed (real send). (required).</param>
-        /// <param name="destinations">Target destinations for Committed mode. Required for Committed, forbidden for DryRun. Valid values: Drive, Sftp, S3, Local.</param>
         /// <param name="options">options.</param>
-        public ReplayTransactionsRequest(List<string> transactionIds = default(List<string>), string mode = default(string), List<string> destinations = default(List<string>), ReplayOptions options = default(ReplayOptions))
+        public ReplayTransactionsRequest(List<string> transactionIds = default(List<string>), string mode = default(string), ReplayOptions options = default(ReplayOptions))
         {
             // to ensure "transactionIds" is required (not null)
             if (transactionIds == null)
@@ -54,7 +53,6 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("mode is a required property for ReplayTransactionsRequest and cannot be null");
             }
             this.Mode = mode;
-            this.Destinations = destinations;
             this.Options = options;
         }
 
@@ -73,13 +71,6 @@ namespace Finbourne.Horizon.Sdk.Model
         public string Mode { get; set; }
 
         /// <summary>
-        /// Target destinations for Committed mode. Required for Committed, forbidden for DryRun. Valid values: Drive, Sftp, S3, Local
-        /// </summary>
-        /// <value>Target destinations for Committed mode. Required for Committed, forbidden for DryRun. Valid values: Drive, Sftp, S3, Local</value>
-        [DataMember(Name = "destinations", EmitDefaultValue = true)]
-        public List<string> Destinations { get; set; }
-
-        /// <summary>
         /// Gets or Sets Options
         /// </summary>
         [DataMember(Name = "options", EmitDefaultValue = false)]
@@ -95,7 +86,6 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("class ReplayTransactionsRequest {\n");
             sb.Append("  TransactionIds: ").Append(TransactionIds).Append("\n");
             sb.Append("  Mode: ").Append(Mode).Append("\n");
-            sb.Append("  Destinations: ").Append(Destinations).Append("\n");
             sb.Append("  Options: ").Append(Options).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
@@ -144,12 +134,6 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Mode.Equals(input.Mode))
                 ) && 
                 (
-                    this.Destinations == input.Destinations ||
-                    this.Destinations != null &&
-                    input.Destinations != null &&
-                    this.Destinations.SequenceEqual(input.Destinations)
-                ) && 
-                (
                     this.Options == input.Options ||
                     (this.Options != null &&
                     this.Options.Equals(input.Options))
@@ -172,10 +156,6 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.Mode != null)
                 {
                     hashCode = (hashCode * 59) + this.Mode.GetHashCode();
-                }
-                if (this.Destinations != null)
-                {
-                    hashCode = (hashCode * 59) + this.Destinations.GetHashCode();
                 }
                 if (this.Options != null)
                 {

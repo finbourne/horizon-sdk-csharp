@@ -17,6 +17,7 @@ Name | Type | Description | Notes
 **DestinationError** | **string** |  | [optional] 
 **DestinationName** | **string** |  | [optional] 
 **FileUuid** | **Guid** |  | 
+**CanResend** | **bool** | Whether the data the file is rebuilt from is still retained, so a resend can be requested. | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -31,6 +32,7 @@ string destinationStatus = "destinationStatus";
 string destinationError = "example destinationError";
 string destinationName = "example destinationName";
 Guid fileUuid = "fileUuid";
+bool canResend = //"True";
 
 TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryResponse(
     runId: runId,
@@ -44,7 +46,8 @@ TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryRes
     destinationStatus: destinationStatus,
     destinationError: destinationError,
     destinationName: destinationName,
-    fileUuid: fileUuid);
+    fileUuid: fileUuid,
+    canResend: canResend);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

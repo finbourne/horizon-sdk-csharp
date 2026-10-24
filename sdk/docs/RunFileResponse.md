@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **TransactionIds** | **List&lt;string&gt;** |  | 
 **FileUuid** | **Guid** |  | 
 **FailedTransactionIds** | **List&lt;string&gt;** |  | 
+**CanResend** | **bool** | Whether the data the file is rebuilt from is still retained, so a resend can be requested. | 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -26,6 +27,7 @@ List<FileDestinationResponse> destinations = new List<FileDestinationResponse>()
 List<string> transactionIds = new List<string>();
 Guid fileUuid = "fileUuid";
 List<string> failedTransactionIds = new List<string>();
+bool canResend = //"True";
 
 RunFileResponse runFileResponseInstance = new RunFileResponse(
     fileName: fileName,
@@ -36,7 +38,8 @@ RunFileResponse runFileResponseInstance = new RunFileResponse(
     destinations: destinations,
     transactionIds: transactionIds,
     fileUuid: fileUuid,
-    failedTransactionIds: failedTransactionIds);
+    failedTransactionIds: failedTransactionIds,
+    canResend: canResend);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

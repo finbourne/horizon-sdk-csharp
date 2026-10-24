@@ -23,16 +23,16 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// Defines FileDeliveryStatus
+    /// Defines TpfFileDeliveryDisplayStatus
     /// </summary>
     [JsonConverter(typeof(StringEnumConverter))]
-    public enum FileDeliveryStatus
+    public enum TpfFileDeliveryDisplayStatus
     {
         /// <summary>
-        /// Enum Completed for value: Completed
+        /// Enum Delivered for value: Delivered
         /// </summary>
-        [EnumMember(Value = "Completed")]
-        Completed = 1,
+        [EnumMember(Value = "Delivered")]
+        Delivered = 1,
 
         /// <summary>
         /// Enum Pending for value: Pending
@@ -41,10 +41,10 @@ namespace Finbourne.Horizon.Sdk.Model
         Pending = 2,
 
         /// <summary>
-        /// Enum Error for value: Error
+        /// Enum Failed for value: Failed
         /// </summary>
-        [EnumMember(Value = "Error")]
-        Error = 3
+        [EnumMember(Value = "Failed")]
+        Failed = 3
     }
 
 }

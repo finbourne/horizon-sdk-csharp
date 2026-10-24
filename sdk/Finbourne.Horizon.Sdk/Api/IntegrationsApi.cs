@@ -491,8 +491,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns></returns>
-        void UpdateInstance(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>UpdateInstanceResponse</returns>
+        UpdateInstanceResponse UpdateInstance(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
@@ -505,8 +505,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
+        /// <returns>ApiResponse of UpdateInstanceResponse</returns>
+        Finbourne.Horizon.Sdk.Client.ApiResponse<UpdateInstanceResponse> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null);
         #endregion Synchronous Operations
     }
 
@@ -1011,8 +1011,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of void</returns>
-        System.Threading.Tasks.Task UpdateInstanceAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of UpdateInstanceResponse</returns>
+        System.Threading.Tasks.Task<UpdateInstanceResponse> UpdateInstanceAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
@@ -1026,8 +1026,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        /// <returns>Task of ApiResponse (UpdateInstanceResponse)</returns>
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<UpdateInstanceResponse>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         #endregion Asynchronous Operations
     }
 
@@ -4712,10 +4712,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns></returns>
-        public void UpdateInstance(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>UpdateInstanceResponse</returns>
+        public UpdateInstanceResponse UpdateInstance(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            UpdateInstanceWithHttpInfo(instanceId, updateInstanceRequest, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<UpdateInstanceResponse> localVarResponse = UpdateInstanceWithHttpInfo(instanceId, updateInstanceRequest, opts: opts);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -4726,8 +4727,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="updateInstanceRequest">The new integration instance.</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>ApiResponse of Object(void)</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<Object> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
+        /// <returns>ApiResponse of UpdateInstanceResponse</returns>
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<UpdateInstanceResponse> UpdateInstanceWithHttpInfo(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
@@ -4798,7 +4799,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = this.Client.Put<Object>("/api/integrations/instances/{instanceId}", localVarRequestOptions, this.Configuration);
+            var localVarResponse = this.Client.Put<UpdateInstanceResponse>("/api/integrations/instances/{instanceId}", localVarRequestOptions, this.Configuration);
             if (this.ExceptionFactory != null)
             {
                 Exception _exception = this.ExceptionFactory("UpdateInstance", localVarResponse);
@@ -4820,10 +4821,11 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of void</returns>
-        public async System.Threading.Tasks.Task UpdateInstanceAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of UpdateInstanceResponse</returns>
+        public async System.Threading.Tasks.Task<UpdateInstanceResponse> UpdateInstanceAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            await UpdateInstanceWithHttpInfoAsync(instanceId, updateInstanceRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<UpdateInstanceResponse> localVarResponse = await UpdateInstanceWithHttpInfoAsync(instanceId, updateInstanceRequest, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            return localVarResponse.Data;
         }
 
         /// <summary>
@@ -4835,8 +4837,8 @@ namespace Finbourne.Horizon.Sdk.Api
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
-        /// <returns>Task of ApiResponse</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<Object>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        /// <returns>Task of ApiResponse (UpdateInstanceResponse)</returns>
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<UpdateInstanceResponse>> UpdateInstanceWithHttpInfoAsync(string instanceId, UpdateInstanceRequest updateInstanceRequest, int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
@@ -4908,7 +4910,7 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             // make the HTTP request
-            var localVarResponse = await this.AsynchronousClient.PutAsync<Object>("/api/integrations/instances/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
+            var localVarResponse = await this.AsynchronousClient.PutAsync<UpdateInstanceResponse>("/api/integrations/instances/{instanceId}", localVarRequestOptions, this.Configuration, cancellationToken).ConfigureAwait(false);
 
             if (this.ExceptionFactory != null)
             {

@@ -1991,7 +1991,7 @@ catch (ApiException e)
 
 <a id="updateinstance"></a>
 # **UpdateInstance**
-> void UpdateInstance (string instanceId, UpdateInstanceRequest updateInstanceRequest)
+> UpdateInstanceResponse UpdateInstance (string instanceId, UpdateInstanceRequest updateInstanceRequest)
 
 [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
 
@@ -2042,10 +2042,11 @@ namespace Examples
             try
             {
                 // uncomment the below to set overrides at the request level
-                // apiInstance.UpdateInstance(instanceId, updateInstanceRequest, opts: opts);
+                // UpdateInstanceResponse result = apiInstance.UpdateInstance(instanceId, updateInstanceRequest, opts: opts);
 
                 // [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
-                apiInstance.UpdateInstance(instanceId, updateInstanceRequest);
+                UpdateInstanceResponse result = apiInstance.UpdateInstance(instanceId, updateInstanceRequest);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
             {
@@ -2065,7 +2066,10 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] UpdateInstance: Update a single integration instance.
-    apiInstance.UpdateInstanceWithHttpInfo(instanceId, updateInstanceRequest);
+    ApiResponse<UpdateInstanceResponse> response = apiInstance.UpdateInstanceWithHttpInfo(instanceId, updateInstanceRequest);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
 }
 catch (ApiException e)
 {
@@ -2084,7 +2088,7 @@ catch (ApiException e)
 
 ### Return type
 
-void (empty response body)
+[**UpdateInstanceResponse**](UpdateInstanceResponse.md)
 
 ### HTTP request headers
 
@@ -2095,7 +2099,7 @@ void (empty response body)
 ### HTTP response details
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
-| **204** | No Content |  -  |
+| **200** | The instance was updated. Warnings describe non-blocking findings about the saved configuration. |  -  |
 | **400** | The details of the input related failure |  -  |
 | **404** | The instance does not exist. |  -  |
 | **0** | Error response |  -  |

@@ -7,7 +7,6 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TransactionIds** | **List&lt;string&gt;** | List of transaction IDs to replay. | 
 **Mode** | **string** | Replay mode - DryRun (preview only) or Committed (real send). | 
-**Destinations** | **List&lt;string&gt;** | Target destinations for Committed mode. Required for Committed, forbidden for DryRun. Valid values: Drive, Sftp, S3, Local | [optional] 
 **Options** | [**ReplayOptions**](ReplayOptions.md) |  | [optional] 
 
 ```csharp
@@ -16,14 +15,12 @@ using System;
 
 List<string> transactionIds = new List<string>();
 string mode = "mode";
-List<string> destinations = new List<string>();
 ReplayOptions? options = new ReplayOptions();
 
 
 ReplayTransactionsRequest replayTransactionsRequestInstance = new ReplayTransactionsRequest(
     transactionIds: transactionIds,
     mode: mode,
-    destinations: destinations,
     options: options);
 ```
 

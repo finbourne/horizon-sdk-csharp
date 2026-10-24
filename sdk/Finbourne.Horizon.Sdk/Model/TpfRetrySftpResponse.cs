@@ -40,9 +40,10 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="message">Status message describing the result (required).</param>
         /// <param name="newFileDeliveryUuid">UUID of the new file delivery record created for this retry (if successful).</param>
         /// <param name="retriedAt">Timestamp when the retry was executed.</param>
+        /// <param name="resendRunId">The run queued to resend the file; it appears in run history as a further attempt of the original run.</param>
         /// <param name="originalFile">originalFile.</param>
         /// <param name="duplicateFile">duplicateFile.</param>
-        public TpfRetrySftpResponse(bool success = default(bool), string message = default(string), Guid? newFileDeliveryUuid = default(Guid?), DateTimeOffset? retriedAt = default(DateTimeOffset?), TpfFileDeliveryInfo originalFile = default(TpfFileDeliveryInfo), TpfFileDeliveryInfo duplicateFile = default(TpfFileDeliveryInfo))
+        public TpfRetrySftpResponse(bool success = default(bool), string message = default(string), Guid? newFileDeliveryUuid = default(Guid?), DateTimeOffset? retriedAt = default(DateTimeOffset?), Guid? resendRunId = default(Guid?), TpfFileDeliveryInfo originalFile = default(TpfFileDeliveryInfo), TpfFileDeliveryInfo duplicateFile = default(TpfFileDeliveryInfo))
         {
             this.Success = success;
             // to ensure "message" is required (not null)
@@ -53,6 +54,7 @@ namespace Finbourne.Horizon.Sdk.Model
             this.Message = message;
             this.NewFileDeliveryUuid = newFileDeliveryUuid;
             this.RetriedAt = retriedAt;
+            this.ResendRunId = resendRunId;
             this.OriginalFile = originalFile;
             this.DuplicateFile = duplicateFile;
         }
@@ -86,6 +88,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public DateTimeOffset? RetriedAt { get; set; }
 
         /// <summary>
+        /// The run queued to resend the file; it appears in run history as a further attempt of the original run
+        /// </summary>
+        /// <value>The run queued to resend the file; it appears in run history as a further attempt of the original run</value>
+        [DataMember(Name = "resendRunId", EmitDefaultValue = true)]
+        public Guid? ResendRunId { get; set; }
+
+        /// <summary>
         /// Gets or Sets OriginalFile
         /// </summary>
         [DataMember(Name = "originalFile", EmitDefaultValue = false)]
@@ -109,6 +118,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("  NewFileDeliveryUuid: ").Append(NewFileDeliveryUuid).Append("\n");
             sb.Append("  RetriedAt: ").Append(RetriedAt).Append("\n");
+            sb.Append("  ResendRunId: ").Append(ResendRunId).Append("\n");
             sb.Append("  OriginalFile: ").Append(OriginalFile).Append("\n");
             sb.Append("  DuplicateFile: ").Append(DuplicateFile).Append("\n");
             sb.Append("}\n");
@@ -166,6 +176,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.RetriedAt.Equals(input.RetriedAt))
                 ) && 
                 (
+                    this.ResendRunId == input.ResendRunId ||
+                    (this.ResendRunId != null &&
+                    this.ResendRunId.Equals(input.ResendRunId))
+                ) && 
+                (
                     this.OriginalFile == input.OriginalFile ||
                     (this.OriginalFile != null &&
                     this.OriginalFile.Equals(input.OriginalFile))
@@ -198,6 +213,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.RetriedAt != null)
                 {
                     hashCode = (hashCode * 59) + this.RetriedAt.GetHashCode();
+                }
+                if (this.ResendRunId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ResendRunId.GetHashCode();
                 }
                 if (this.OriginalFile != null)
                 {

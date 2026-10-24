@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **InstanceId** | **Guid** | Integration instance ID where the transaction was processed | 
 **InstanceName** | **string** | Integration instance name | 
 **BatchId** | **Guid** | Unique identifier of the batch | 
+**RunId** | **Guid** | The run that processed the transaction for this instance, as shown in run monitoring | 
 **RunStartTime** | **DateTimeOffset** | Timestamp when the batch/run started | 
 **PublicationStatus** | **string** | Publication status of the transaction (Sent | Skipped | Failed) | 
 **InstrumentName** | **string** | Instrument name | 
@@ -21,6 +22,8 @@ Name | Type | Description | Notes
 **PortfolioCode** | **string** | PortfolioCode showing portfolio code | [optional] 
 **PortfolioScope** | **string** | PortfolioScope displaying portfolio scope | [optional] 
 **FailureReason** | **string** | FailureReason to show failure reason | [optional] 
+**FailureStage** | **string** | Stage at which a failed transaction failed: Build or Delivery | [optional] 
+**SentAt** | **DateTimeOffset?** | When the transaction was sent, which is when its file reached a destination. Empty for Skipped and Failed rows | [optional] 
 **InstrumentId** | **string** | InstrumentId showing instrument id of transaction | [optional] 
 
 ```csharp
@@ -31,6 +34,7 @@ string transactionId = "transactionId";
 Guid instanceId = "instanceId";
 string instanceName = "instanceName";
 Guid batchId = "batchId";
+Guid runId = "runId";
 string publicationStatus = "publicationStatus";
 string instrumentName = "instrumentName";
 string instrumentType = "instrumentType";
@@ -40,6 +44,7 @@ List<string> destinations = new List<string>();
 string portfolioCode = "example portfolioCode";
 string portfolioScope = "example portfolioScope";
 string failureReason = "example failureReason";
+string failureStage = "example failureStage";
 string instrumentId = "example instrumentId";
 
 TpfTransactionSearchResponse tpfTransactionSearchResponseInstance = new TpfTransactionSearchResponse(
@@ -47,6 +52,7 @@ TpfTransactionSearchResponse tpfTransactionSearchResponseInstance = new TpfTrans
     instanceId: instanceId,
     instanceName: instanceName,
     batchId: batchId,
+    runId: runId,
     runStartTime: runStartTime,
     publicationStatus: publicationStatus,
     instrumentName: instrumentName,
@@ -59,6 +65,8 @@ TpfTransactionSearchResponse tpfTransactionSearchResponseInstance = new TpfTrans
     portfolioCode: portfolioCode,
     portfolioScope: portfolioScope,
     failureReason: failureReason,
+    failureStage: failureStage,
+    sentAt: sentAt,
     instrumentId: instrumentId);
 ```
 

@@ -23,7 +23,7 @@ using OpenAPIDateConverter = Finbourne.Horizon.Sdk.Client.OpenAPIDateConverter;
 namespace Finbourne.Horizon.Sdk.Model
 {
     /// <summary>
-    /// Response containing details of a single run for an instance.
+    /// Response containing details of a single run for an instance. The transaction and file figures describe the batch as it stands now, so they are reported on the latest attempt only and are null on earlier attempts of a retried run. Message explains a failed attempt and what will happen or must be done next; it is null for completed, running and queued attempts.
     /// </summary>
     [DataContract(Name = "InstanceRunResponse")]
     public partial class InstanceRunResponse : IEquatable<InstanceRunResponse>, IValidatableObject
@@ -44,12 +44,13 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="duration">duration.</param>
         /// <param name="status">status (required).</param>
         /// <param name="triggeredBy">triggeredBy.</param>
-        /// <param name="total">total (required).</param>
-        /// <param name="sentCount">sentCount (required).</param>
-        /// <param name="skippedCount">skippedCount (required).</param>
-        /// <param name="failedCount">failedCount (required).</param>
-        /// <param name="failedFiles">failedFiles (required).</param>
-        public InstanceRunResponse(Guid runId = default(Guid), Guid referenceId = default(Guid), int? attempt = default(int?), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset? endTime = default(DateTimeOffset?), string duration = default(string), string status = default(string), string triggeredBy = default(string), int total = default(int), long sentCount = default(long), long skippedCount = default(long), long failedCount = default(long), int failedFiles = default(int))
+        /// <param name="total">total.</param>
+        /// <param name="sentCount">sentCount.</param>
+        /// <param name="skippedCount">skippedCount.</param>
+        /// <param name="failedCount">failedCount.</param>
+        /// <param name="failedFiles">failedFiles.</param>
+        /// <param name="message">message.</param>
+        public InstanceRunResponse(Guid runId = default(Guid), Guid referenceId = default(Guid), int? attempt = default(int?), DateTimeOffset startTime = default(DateTimeOffset), DateTimeOffset? endTime = default(DateTimeOffset?), string duration = default(string), string status = default(string), string triggeredBy = default(string), int? total = default(int?), long? sentCount = default(long?), long? skippedCount = default(long?), long? failedCount = default(long?), int? failedFiles = default(int?), string message = default(string))
         {
             this.RunId = runId;
             this.ReferenceId = referenceId;
@@ -60,15 +61,16 @@ namespace Finbourne.Horizon.Sdk.Model
                 throw new ArgumentNullException("status is a required property for InstanceRunResponse and cannot be null");
             }
             this.Status = status;
+            this.Attempt = attempt;
+            this.EndTime = endTime;
+            this.Duration = duration;
+            this.TriggeredBy = triggeredBy;
             this.Total = total;
             this.SentCount = sentCount;
             this.SkippedCount = skippedCount;
             this.FailedCount = failedCount;
             this.FailedFiles = failedFiles;
-            this.Attempt = attempt;
-            this.EndTime = endTime;
-            this.Duration = duration;
-            this.TriggeredBy = triggeredBy;
+            this.Message = message;
         }
 
         /// <summary>
@@ -122,32 +124,38 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Gets or Sets Total
         /// </summary>
-        [DataMember(Name = "total", IsRequired = true, EmitDefaultValue = true)]
-        public int Total { get; set; }
+        [DataMember(Name = "total", EmitDefaultValue = true)]
+        public int? Total { get; set; }
 
         /// <summary>
         /// Gets or Sets SentCount
         /// </summary>
-        [DataMember(Name = "sentCount", IsRequired = true, EmitDefaultValue = true)]
-        public long SentCount { get; set; }
+        [DataMember(Name = "sentCount", EmitDefaultValue = true)]
+        public long? SentCount { get; set; }
 
         /// <summary>
         /// Gets or Sets SkippedCount
         /// </summary>
-        [DataMember(Name = "skippedCount", IsRequired = true, EmitDefaultValue = true)]
-        public long SkippedCount { get; set; }
+        [DataMember(Name = "skippedCount", EmitDefaultValue = true)]
+        public long? SkippedCount { get; set; }
 
         /// <summary>
         /// Gets or Sets FailedCount
         /// </summary>
-        [DataMember(Name = "failedCount", IsRequired = true, EmitDefaultValue = true)]
-        public long FailedCount { get; set; }
+        [DataMember(Name = "failedCount", EmitDefaultValue = true)]
+        public long? FailedCount { get; set; }
 
         /// <summary>
         /// Gets or Sets FailedFiles
         /// </summary>
-        [DataMember(Name = "failedFiles", IsRequired = true, EmitDefaultValue = true)]
-        public int FailedFiles { get; set; }
+        [DataMember(Name = "failedFiles", EmitDefaultValue = true)]
+        public int? FailedFiles { get; set; }
+
+        /// <summary>
+        /// Gets or Sets Message
+        /// </summary>
+        [DataMember(Name = "message", EmitDefaultValue = true)]
+        public string Message { get; set; }
 
         /// <summary>
         /// Returns the string presentation of the object
@@ -170,6 +178,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  SkippedCount: ").Append(SkippedCount).Append("\n");
             sb.Append("  FailedCount: ").Append(FailedCount).Append("\n");
             sb.Append("  FailedFiles: ").Append(FailedFiles).Append("\n");
+            sb.Append("  Message: ").Append(Message).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -247,23 +256,33 @@ namespace Finbourne.Horizon.Sdk.Model
                 ) && 
                 (
                     this.Total == input.Total ||
-                    this.Total.Equals(input.Total)
+                    (this.Total != null &&
+                    this.Total.Equals(input.Total))
                 ) && 
                 (
                     this.SentCount == input.SentCount ||
-                    this.SentCount.Equals(input.SentCount)
+                    (this.SentCount != null &&
+                    this.SentCount.Equals(input.SentCount))
                 ) && 
                 (
                     this.SkippedCount == input.SkippedCount ||
-                    this.SkippedCount.Equals(input.SkippedCount)
+                    (this.SkippedCount != null &&
+                    this.SkippedCount.Equals(input.SkippedCount))
                 ) && 
                 (
                     this.FailedCount == input.FailedCount ||
-                    this.FailedCount.Equals(input.FailedCount)
+                    (this.FailedCount != null &&
+                    this.FailedCount.Equals(input.FailedCount))
                 ) && 
                 (
                     this.FailedFiles == input.FailedFiles ||
-                    this.FailedFiles.Equals(input.FailedFiles)
+                    (this.FailedFiles != null &&
+                    this.FailedFiles.Equals(input.FailedFiles))
+                ) && 
+                (
+                    this.Message == input.Message ||
+                    (this.Message != null &&
+                    this.Message.Equals(input.Message))
                 );
         }
 
@@ -308,11 +327,30 @@ namespace Finbourne.Horizon.Sdk.Model
                 {
                     hashCode = (hashCode * 59) + this.TriggeredBy.GetHashCode();
                 }
-                hashCode = (hashCode * 59) + this.Total.GetHashCode();
-                hashCode = (hashCode * 59) + this.SentCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.SkippedCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.FailedCount.GetHashCode();
-                hashCode = (hashCode * 59) + this.FailedFiles.GetHashCode();
+                if (this.Total != null)
+                {
+                    hashCode = (hashCode * 59) + this.Total.GetHashCode();
+                }
+                if (this.SentCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.SentCount.GetHashCode();
+                }
+                if (this.SkippedCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.SkippedCount.GetHashCode();
+                }
+                if (this.FailedCount != null)
+                {
+                    hashCode = (hashCode * 59) + this.FailedCount.GetHashCode();
+                }
+                if (this.FailedFiles != null)
+                {
+                    hashCode = (hashCode * 59) + this.FailedFiles.GetHashCode();
+                }
+                if (this.Message != null)
+                {
+                    hashCode = (hashCode * 59) + this.Message.GetHashCode();
+                }
                 return hashCode;
             }
         }

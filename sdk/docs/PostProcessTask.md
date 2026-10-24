@@ -6,7 +6,7 @@ Request defining a post-processing task for an instance.
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **Action** | **string** | The type of action to perform (Allowed: RunIntegration, RunWorkflow, TriggerEmail) | 
-**TargetInstance** | **string** | The instance identifier to trigger (for TriggerIntegration action). | [optional] 
+**TargetInstance** | **string** | The identifier of the integration instance to run (RunIntegration action only). | [optional] 
 **TriggerOn** | **string** | When the task should be triggered (Allowed: OnSuccess, OnFailure, Always) | 
 **Parameters** | **Object** | JSON parameters specific to the action type. | [optional] 
 
