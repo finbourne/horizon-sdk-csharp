@@ -25,6 +25,7 @@ Name | Type | Description | Notes
 **FailureStage** | **string** | Stage at which a failed transaction failed: Build or Delivery | [optional] 
 **SentAt** | **DateTimeOffset?** | When the transaction was sent, which is when its file reached a destination. Empty for Skipped and Failed rows | [optional] 
 **InstrumentId** | **string** | InstrumentId showing instrument id of transaction | [optional] 
+**InstrumentScope** | **string** | The scope the build resolved the instrument in; null for rows built before it was recorded | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -46,6 +47,7 @@ string portfolioScope = "example portfolioScope";
 string failureReason = "example failureReason";
 string failureStage = "example failureStage";
 string instrumentId = "example instrumentId";
+string instrumentScope = "example instrumentScope";
 
 TpfTransactionSearchResponse tpfTransactionSearchResponseInstance = new TpfTransactionSearchResponse(
     transactionId: transactionId,
@@ -67,7 +69,8 @@ TpfTransactionSearchResponse tpfTransactionSearchResponseInstance = new TpfTrans
     failureReason: failureReason,
     failureStage: failureStage,
     sentAt: sentAt,
-    instrumentId: instrumentId);
+    instrumentId: instrumentId,
+    instrumentScope: instrumentScope);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

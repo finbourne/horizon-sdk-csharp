@@ -39,7 +39,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="runId">runId.</param>
         /// <param name="runStartTime">runStartTime.</param>
         /// <param name="fileName">fileName (required).</param>
-        /// <param name="generatedAt">generatedAt (required).</param>
+        /// <param name="generatedAt">When the file was built, or when the attempt failed before a file was built. (required).</param>
         /// <param name="rowCount">rowCount (required).</param>
         /// <param name="fileHash">fileHash.</param>
         /// <param name="destinationType">destinationType (required).</param>
@@ -49,7 +49,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="destinationName">destinationName.</param>
         /// <param name="fileUuid">fileUuid (required).</param>
         /// <param name="canResend">Whether the data the file is rebuilt from is still retained, so a resend can be requested. (required).</param>
-        public TpfFileDeliveryResponse(string runId = default(string), DateTimeOffset? runStartTime = default(DateTimeOffset?), string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), string destinationType = default(string), string destinationPath = default(string), string destinationStatus = default(string), string destinationError = default(string), string destinationName = default(string), Guid fileUuid = default(Guid), bool canResend = default(bool))
+        /// <param name="deliveredAt">When the file reached the destination; null for a Failed or Pending row..</param>
+        public TpfFileDeliveryResponse(string runId = default(string), DateTimeOffset? runStartTime = default(DateTimeOffset?), string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), string destinationType = default(string), string destinationPath = default(string), string destinationStatus = default(string), string destinationError = default(string), string destinationName = default(string), Guid fileUuid = default(Guid), bool canResend = default(bool), DateTimeOffset? deliveredAt = default(DateTimeOffset?))
         {
             // to ensure "fileName" is required (not null)
             if (fileName == null)
@@ -79,6 +80,7 @@ namespace Finbourne.Horizon.Sdk.Model
             this.DestinationPath = destinationPath;
             this.DestinationError = destinationError;
             this.DestinationName = destinationName;
+            this.DeliveredAt = deliveredAt;
         }
 
         /// <summary>
@@ -100,8 +102,9 @@ namespace Finbourne.Horizon.Sdk.Model
         public string FileName { get; set; }
 
         /// <summary>
-        /// Gets or Sets GeneratedAt
+        /// When the file was built, or when the attempt failed before a file was built.
         /// </summary>
+        /// <value>When the file was built, or when the attempt failed before a file was built.</value>
         [DataMember(Name = "generatedAt", IsRequired = true, EmitDefaultValue = true)]
         public DateTimeOffset GeneratedAt { get; set; }
 
@@ -161,6 +164,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public bool CanResend { get; set; }
 
         /// <summary>
+        /// When the file reached the destination; null for a Failed or Pending row.
+        /// </summary>
+        /// <value>When the file reached the destination; null for a Failed or Pending row.</value>
+        [DataMember(Name = "deliveredAt", EmitDefaultValue = true)]
+        public DateTimeOffset? DeliveredAt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -181,6 +191,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  DestinationName: ").Append(DestinationName).Append("\n");
             sb.Append("  FileUuid: ").Append(FileUuid).Append("\n");
             sb.Append("  CanResend: ").Append(CanResend).Append("\n");
+            sb.Append("  DeliveredAt: ").Append(DeliveredAt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -278,6 +289,11 @@ namespace Finbourne.Horizon.Sdk.Model
                 (
                     this.CanResend == input.CanResend ||
                     this.CanResend.Equals(input.CanResend)
+                ) && 
+                (
+                    this.DeliveredAt == input.DeliveredAt ||
+                    (this.DeliveredAt != null &&
+                    this.DeliveredAt.Equals(input.DeliveredAt))
                 );
         }
 
@@ -336,6 +352,10 @@ namespace Finbourne.Horizon.Sdk.Model
                     hashCode = (hashCode * 59) + this.FileUuid.GetHashCode();
                 }
                 hashCode = (hashCode * 59) + this.CanResend.GetHashCode();
+                if (this.DeliveredAt != null)
+                {
+                    hashCode = (hashCode * 59) + this.DeliveredAt.GetHashCode();
+                }
                 return hashCode;
             }
         }

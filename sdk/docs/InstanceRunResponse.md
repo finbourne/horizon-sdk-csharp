@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **FailedCount** | **long?** |  | [optional] 
 **FailedFiles** | **int?** |  | [optional] 
 **Message** | **string** |  | [optional] 
+**FileCount** | **int?** | The number of rows ListRunFiles returns for the run, every delivery attempt included; latest attempt only. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -45,7 +46,8 @@ InstanceRunResponse instanceRunResponseInstance = new InstanceRunResponse(
     skippedCount: skippedCount,
     failedCount: failedCount,
     failedFiles: failedFiles,
-    message: message);
+    message: message,
+    fileCount: fileCount);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

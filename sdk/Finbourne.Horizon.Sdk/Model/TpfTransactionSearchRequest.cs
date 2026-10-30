@@ -32,14 +32,16 @@ namespace Finbourne.Horizon.Sdk.Model
         /// Initializes a new instance of the <see cref="TpfTransactionSearchRequest" /> class.
         /// </summary>
         /// <param name="transactionIds">One or more LUSID transaction IDs to search for (max 50). Values are OR&#39;d..</param>
-        /// <param name="instrumentIdentifiers">One or more instrument identifiers in any supported format (ISIN, CUSIP, LUID, etc.) to search for (max 50). Values are OR&#39;d..</param>
+        /// <param name="instrumentIdentifiers">One or more instrument identifiers to search for (max 50). Values are OR&#39;d. Accepts LusidInstrumentId, Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values. Every value is matched exactly against the stored instrument id; non-LUID values are also resolved against LUSID instruments in the default scope, whose own matching rules (including case) apply..</param>
         /// <param name="instanceId">Instance ID to filter by. Omit or leave null to search all instances the caller has access to..</param>
         /// <param name="from">Start of the date range (inclusive). Defaults to 30 days ago if neither From nor To is provided..</param>
         /// <param name="to">End of the date range (inclusive). Defaults to now if not provided..</param>
         /// <param name="limit">Maximum number of results to return per page..</param>
         /// <param name="page">Pagination token from a previous response NextPage or PreviousPage. Omit for the first page..</param>
         /// <param name="status">Publication status to filter by. Valid values: Sent, Skipped, Failed. Optional..</param>
-        public TpfTransactionSearchRequest(List<string> transactionIds = default(List<string>), List<string> instrumentIdentifiers = default(List<string>), string instanceId = default(string), DateTimeOffset? from = default(DateTimeOffset?), DateTimeOffset? to = default(DateTimeOffset?), int? limit = default(int?), string page = default(string), string status = default(string))
+        /// <param name="filter">Filter expression to apply to the results, in the format \&quot;property operator value\&quot; (e.g., eq, ne, gt, lt), combined with \&quot;and\&quot;/\&quot;or\&quot; as needed. Filterable properties are transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, skipReason, failureReason, fileName, portfolioScope, portfolioCode, and runId. PublicationStatus is not filterable here — use the Status body parameter instead. Dates are quoted ISO-8601. Destinations is not filterable. Must remain the same across pages — the page token includes a hash of both filter and sortBy..</param>
+        /// <param name="sortBy">Up to two sortable fields, each optionally suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Deterministic tiebreakers are appended automatically: RunStartTime DESC, TransactionId ASC, BatchUuid ASC, FileName ASC. Must remain the same across pages — the page token includes a hash of both filter and sortBy..</param>
+        public TpfTransactionSearchRequest(List<string> transactionIds = default(List<string>), List<string> instrumentIdentifiers = default(List<string>), string instanceId = default(string), DateTimeOffset? from = default(DateTimeOffset?), DateTimeOffset? to = default(DateTimeOffset?), int? limit = default(int?), string page = default(string), string status = default(string), string filter = default(string), List<string> sortBy = default(List<string>))
         {
             this.TransactionIds = transactionIds;
             this.InstrumentIdentifiers = instrumentIdentifiers;
@@ -49,6 +51,8 @@ namespace Finbourne.Horizon.Sdk.Model
             this.Limit = limit;
             this.Page = page;
             this.Status = status;
+            this.Filter = filter;
+            this.SortBy = sortBy;
         }
 
         /// <summary>
@@ -59,9 +63,9 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<string> TransactionIds { get; set; }
 
         /// <summary>
-        /// One or more instrument identifiers in any supported format (ISIN, CUSIP, LUID, etc.) to search for (max 50). Values are OR&#39;d.
+        /// One or more instrument identifiers to search for (max 50). Values are OR&#39;d. Accepts LusidInstrumentId, Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values. Every value is matched exactly against the stored instrument id; non-LUID values are also resolved against LUSID instruments in the default scope, whose own matching rules (including case) apply.
         /// </summary>
-        /// <value>One or more instrument identifiers in any supported format (ISIN, CUSIP, LUID, etc.) to search for (max 50). Values are OR&#39;d.</value>
+        /// <value>One or more instrument identifiers to search for (max 50). Values are OR&#39;d. Accepts LusidInstrumentId, Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values. Every value is matched exactly against the stored instrument id; non-LUID values are also resolved against LUSID instruments in the default scope, whose own matching rules (including case) apply.</value>
         [DataMember(Name = "instrumentIdentifiers", EmitDefaultValue = true)]
         public List<string> InstrumentIdentifiers { get; set; }
 
@@ -108,6 +112,20 @@ namespace Finbourne.Horizon.Sdk.Model
         public string Status { get; set; }
 
         /// <summary>
+        /// Filter expression to apply to the results, in the format \&quot;property operator value\&quot; (e.g., eq, ne, gt, lt), combined with \&quot;and\&quot;/\&quot;or\&quot; as needed. Filterable properties are transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, skipReason, failureReason, fileName, portfolioScope, portfolioCode, and runId. PublicationStatus is not filterable here — use the Status body parameter instead. Dates are quoted ISO-8601. Destinations is not filterable. Must remain the same across pages — the page token includes a hash of both filter and sortBy.
+        /// </summary>
+        /// <value>Filter expression to apply to the results, in the format \&quot;property operator value\&quot; (e.g., eq, ne, gt, lt), combined with \&quot;and\&quot;/\&quot;or\&quot; as needed. Filterable properties are transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, skipReason, failureReason, fileName, portfolioScope, portfolioCode, and runId. PublicationStatus is not filterable here — use the Status body parameter instead. Dates are quoted ISO-8601. Destinations is not filterable. Must remain the same across pages — the page token includes a hash of both filter and sortBy.</value>
+        [DataMember(Name = "filter", EmitDefaultValue = true)]
+        public string Filter { get; set; }
+
+        /// <summary>
+        /// Up to two sortable fields, each optionally suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Deterministic tiebreakers are appended automatically: RunStartTime DESC, TransactionId ASC, BatchUuid ASC, FileName ASC. Must remain the same across pages — the page token includes a hash of both filter and sortBy.
+        /// </summary>
+        /// <value>Up to two sortable fields, each optionally suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Deterministic tiebreakers are appended automatically: RunStartTime DESC, TransactionId ASC, BatchUuid ASC, FileName ASC. Must remain the same across pages — the page token includes a hash of both filter and sortBy.</value>
+        [DataMember(Name = "sortBy", EmitDefaultValue = true)]
+        public List<string> SortBy { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -123,6 +141,8 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  Limit: ").Append(Limit).Append("\n");
             sb.Append("  Page: ").Append(Page).Append("\n");
             sb.Append("  Status: ").Append(Status).Append("\n");
+            sb.Append("  Filter: ").Append(Filter).Append("\n");
+            sb.Append("  SortBy: ").Append(SortBy).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -199,6 +219,17 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Status == input.Status ||
                     (this.Status != null &&
                     this.Status.Equals(input.Status))
+                ) && 
+                (
+                    this.Filter == input.Filter ||
+                    (this.Filter != null &&
+                    this.Filter.Equals(input.Filter))
+                ) && 
+                (
+                    this.SortBy == input.SortBy ||
+                    this.SortBy != null &&
+                    input.SortBy != null &&
+                    this.SortBy.SequenceEqual(input.SortBy)
                 );
         }
 
@@ -242,6 +273,14 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.Status != null)
                 {
                     hashCode = (hashCode * 59) + this.Status.GetHashCode();
+                }
+                if (this.Filter != null)
+                {
+                    hashCode = (hashCode * 59) + this.Filter.GetHashCode();
+                }
+                if (this.SortBy != null)
+                {
+                    hashCode = (hashCode * 59) + this.SortBy.GetHashCode();
                 }
                 return hashCode;
             }
@@ -314,6 +353,25 @@ namespace Finbourne.Horizon.Sdk.Model
             if (this.Status != null && this.Status.Length < 0)
             {
                 yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Status, length must be greater than 0.", new [] { "Status" });
+            }
+
+            // Filter (string) maxLength
+            if (this.Filter != null && this.Filter.Length > 16384)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be less than 16384.", new [] { "Filter" });
+            }
+
+            // Filter (string) minLength
+            if (this.Filter != null && this.Filter.Length < 0)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, length must be greater than 0.", new [] { "Filter" });
+            }
+
+            // Filter (string) pattern
+            Regex regexFilter = new Regex(@"^[\s\S]*$", RegexOptions.CultureInvariant);
+            if (false == regexFilter.Match(this.Filter).Success)
+            {
+                yield return new System.ComponentModel.DataAnnotations.ValidationResult("Invalid value for Filter, must match a pattern of " + regexFilter, new [] { "Filter" });
             }
 
             yield break;

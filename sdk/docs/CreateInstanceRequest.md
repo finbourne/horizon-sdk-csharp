@@ -12,7 +12,7 @@ Name | Type | Description | Notes
 **Enabled** | **bool** |  | 
 **Triggers** | [**List&lt;Trigger&gt;**](Trigger.md) |  | 
 **Details** | **Object** | Base DTO type of an integration configuration specific to the integration type.              N.B. ASP.NET Core model validation is normally applied automatically when [ApiController] is added to a controller, however it doesn&#39;t work here with the polymorphic integration subtypes of this class (see https://github.com/dotnet/aspnetcore/issues/27882). The workaround here is to implement the IValidatableObject interface and each subtype must call Validate() or ValidateContents() on its properties (the validation is not recursive).  Located in Horizon.Integrations.Web so both specific integration projects and Horizon.WebApi can reference it. | 
-**PostProcessTasks** | [**List&lt;PostProcessTask&gt;**](PostProcessTask.md) |  | 
+**PostProcessTasks** | [**List&lt;PostProcessTask&gt;**](PostProcessTask.md) | Post-process tasks for the instance. On update the stored tasks are replaced by this set when it is present, an empty set clears them, and omitting the field leaves them unchanged. | [optional] 
 **AlertRules** | [**List&lt;AlertRule&gt;**](AlertRule.md) | Alert rules for the instance. On update the stored rules are replaced by this set when it is present, an empty set clears them, and omitting the field leaves them unchanged. | [optional] 
 
 ```csharp

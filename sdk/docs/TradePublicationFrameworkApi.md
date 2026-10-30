@@ -4,17 +4,138 @@ All URIs are relative to *https://fbn-prd.lusid.com/horizon*
 
 | Method | HTTP request | Description |
 |--------|--------------|-------------|
+| [**GetRunFileContent**](TradePublicationFrameworkApi.md#getrunfilecontent) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/files/{fileUuid}/content | [EXPERIMENTAL] GetRunFileContent: Download a file a run delivered, rebuilt from the run&#39;s retained build rows in the instance&#39;s output format |
 | [**GetTpfFileDeliveries**](TradePublicationFrameworkApi.md#gettpffiledeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/deliveries | [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance |
-| [**GetTpfTransactionHistorySearch**](TradePublicationFrameworkApi.md#gettpftransactionhistorysearch) | **POST** /api/trade-publication-framework/transactions/search | [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, and publication status. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR&#39;d within each filter, AND&#39;d between filters). |
+| [**GetTpfTransactionHistorySearch**](TradePublicationFrameworkApi.md#gettpftransactionhistorysearch) | **POST** /api/trade-publication-framework/transactions/search | [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, publication status, and a Finbourne Filtering expression. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR&#39;d within each filter, AND&#39;d between filters). Instrument identifiers are matched exactly against the stored instrument id; Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values are also resolved against LUSID instruments in the default scope. Filterable properties (via the filter body field): transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, publicationStatus, skipReason, failureReason, fileName, portfolioScope, portfolioCode. Sortable by the same properties. RunStartTime DESC is the default tiebreaker. |
 | [**GetTransactionPayload**](TradePublicationFrameworkApi.md#gettransactionpayload) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions/payload | [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned. |
 | [**ListFailedDeliveries**](TradePublicationFrameworkApi.md#listfaileddeliveries) | **GET** /api/trade-publication-framework/instances/{instanceId}/failed | [EXPERIMENTAL] ListFailedDeliveries: List failed deliveries for a given TPF instance, filtered by resolved state, with pagination support. |
 | [**ListInstanceRunHistory**](TradePublicationFrameworkApi.md#listinstancerunhistory) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs | [EXPERIMENTAL] ListInstanceRunHistory: List run history for a given TPF instance, with pagination support. |
 | [**ListInstancesWithStatus**](TradePublicationFrameworkApi.md#listinstanceswithstatus) | **GET** /api/trade-publication-framework/instances | [EXPERIMENTAL] ListInstancesWithStatus: Lists all instances of the Trade Publication Framework (TPF). |
-| [**ListRunFiles**](TradePublicationFrameworkApi.md#listrunfiles) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/files | [EXPERIMENTAL] ListRunFiles: List Files in a run |
+| [**ListRunFiles**](TradePublicationFrameworkApi.md#listrunfiles) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/files | [EXPERIMENTAL] ListRunFiles: List the file deliveries of a run, one row per file and destination. Each row&#39;s destinations list holds exactly one element; key rows on fileUuid. |
 | [**ListRunTransactions**](TradePublicationFrameworkApi.md#listruntransactions) | **GET** /api/trade-publication-framework/instances/{instanceId}/runs/{runId}/transactions | [EXPERIMENTAL] ListRunTransactions: List Transactions in a run. |
 | [**ReplayTransactions**](TradePublicationFrameworkApi.md#replaytransactions) | **POST** /api/trade-publication-framework/instances/{instanceId}/replay | [EXPERIMENTAL] ReplayTransactions: Replay one or more transactions through a TPF instance |
 | [**ResolveFailedDelivery**](TradePublicationFrameworkApi.md#resolvefaileddelivery) | **PUT** /api/trade-publication-framework/instances/{instanceId}/failed/{batchReferenceId}/resolve | [EXPERIMENTAL] ResolveFailedDelivery: Resolve a failed delivery without retry |
 | [**RetryTpfSftpDelivery**](TradePublicationFrameworkApi.md#retrytpfsftpdelivery) | **POST** /api/trade-publication-framework/instances/{instanceId}/files/{fileUuid}/retry-sftp | [EXPERIMENTAL] RetryTpfSftpDelivery: Resend a TPF file to the destination it was delivered to or failed to reach (SFTP or Drive) |
+
+<a id="getrunfilecontent"></a>
+# **GetRunFileContent**
+> System.IO.Stream GetRunFileContent (string instanceId, string runId, string fileUuid)
+
+[EXPERIMENTAL] GetRunFileContent: Download a file a run delivered, rebuilt from the run's retained build rows in the instance's output format
+
+Returns the file exactly as the instance built it, so it can be pushed by hand when Horizon cannot. The content is rebuilt the way a resend rebuilds it, so it is only available while the build rows are retained and the response is 410 once retention has purged them. An encrypted instance's file is returned as plaintext.
+
+### Example
+```csharp
+using System.Collections.Generic;
+using Finbourne.Horizon.Sdk.Api;
+using Finbourne.Horizon.Sdk.Client;
+using Finbourne.Horizon.Sdk.Extensions;
+using Finbourne.Horizon.Sdk.Model;
+using Newtonsoft.Json;
+
+namespace Examples
+{
+    public static class Program
+    {
+        public static void Main()
+        {
+            var secretsFilename = "secrets.json";
+            var path = Path.Combine(Directory.GetCurrentDirectory(), secretsFilename);
+            // Replace with the relevant values
+            File.WriteAllText(
+                path, 
+                @"{
+                    ""api"": {
+                        ""tokenUrl"": ""<your-token-url>"",
+                        ""horizonUrl"": ""https://<your-domain>.lusid.com/horizon"",
+                        ""username"": ""<your-username>"",
+                        ""password"": ""<your-password>"",
+                        ""clientId"": ""<your-client-id>"",
+                        ""clientSecret"": ""<your-client-secret>""
+                    }
+                }");
+
+            // uncomment the below to use configuration overrides
+            // var opts = new ConfigurationOptions();
+            // opts.TimeoutMs = 30_000;
+
+            // uncomment the below to use an api factory with overrides
+            // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
+
+            var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
+            var instanceId = "instanceId_example";  // string | Integration instance ID.
+            var runId = "runId_example";  // string | Run ID within the instance, or any retry attempt of it.
+            var fileUuid = "fileUuid_example";  // string | File delivery UUID, as returned by the run-files listing.
+
+            try
+            {
+                // uncomment the below to set overrides at the request level
+                // System.IO.Stream result = apiInstance.GetRunFileContent(instanceId, runId, fileUuid, opts: opts);
+
+                // [EXPERIMENTAL] GetRunFileContent: Download a file a run delivered, rebuilt from the run's retained build rows in the instance's output format
+                System.IO.Stream result = apiInstance.GetRunFileContent(instanceId, runId, fileUuid);
+                Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
+            }
+            catch (ApiException e)
+            {
+                Console.WriteLine("Exception when calling TradePublicationFrameworkApi.GetRunFileContent: " + e.Message);
+                Console.WriteLine("Status Code: " + e.ErrorCode);
+                Console.WriteLine(e.StackTrace);
+            }
+        }
+    }
+}
+```
+
+#### Using the GetRunFileContentWithHttpInfo variant
+This returns an ApiResponse object which contains the response data, status code and headers.
+
+```csharp
+try
+{
+    // [EXPERIMENTAL] GetRunFileContent: Download a file a run delivered, rebuilt from the run's retained build rows in the instance's output format
+    ApiResponse<System.IO.Stream> response = apiInstance.GetRunFileContentWithHttpInfo(instanceId, runId, fileUuid);
+    Console.WriteLine("Status Code: " + response.StatusCode);
+    Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
+    Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
+}
+catch (ApiException e)
+{
+    Console.WriteLine("Exception when calling TradePublicationFrameworkApi.GetRunFileContentWithHttpInfo: " + e.Message);
+    Console.WriteLine("Status Code: " + e.ErrorCode);
+    Console.WriteLine(e.StackTrace);
+}
+```
+
+### Parameters
+
+| Name | Type | Description | Notes |
+|------|------|-------------|-------|
+| **instanceId** | **string** | Integration instance ID. |  |
+| **runId** | **string** | Run ID within the instance, or any retry attempt of it. |  |
+| **fileUuid** | **string** | File delivery UUID, as returned by the run-files listing. |  |
+
+### Return type
+
+**System.IO.Stream**
+
+### HTTP request headers
+
+ - **Content-Type**: Not defined
+ - **Accept**: text/csv, application/xml, application/json
+
+
+### HTTP response details
+| Status code | Description | Response headers |
+|-------------|-------------|------------------|
+| **200** | The file as the instance built it, text/csv or application/xml |  -  |
+| **400** | The details of the input related failure |  -  |
+| **404** | The requested TPF instance, run or file does not exist. |  -  |
+| **410** | The build rows the file is rebuilt from have been purged by retention. |  -  |
+| **0** | Error response |  -  |
+
+[Back to top](#) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to README](../README.md)
 
 <a id="gettpffiledeliveries"></a>
 # **GetTpfFileDeliveries**
@@ -144,7 +265,7 @@ catch (ApiException e)
 # **GetTpfTransactionHistorySearch**
 > PagedResourceListOfTpfTransactionSearchResponse GetTpfTransactionHistorySearch (TpfTransactionSearchRequest? tpfTransactionSearchRequest = null)
 
-[EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, and publication status. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR'd within each filter, AND'd between filters).
+[EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, publication status, and a Finbourne Filtering expression. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR'd within each filter, AND'd between filters). Instrument identifiers are matched exactly against the stored instrument id; Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values are also resolved against LUSID instruments in the default scope. Filterable properties (via the filter body field): transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, publicationStatus, skipReason, failureReason, fileName, portfolioScope, portfolioCode. Sortable by the same properties. RunStartTime DESC is the default tiebreaker.
 
 ### Example
 ```csharp
@@ -185,14 +306,14 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
-            var tpfTransactionSearchRequest = new TpfTransactionSearchRequest?(); // TpfTransactionSearchRequest? | Search filters and pagination options. (optional) 
+            var tpfTransactionSearchRequest = new TpfTransactionSearchRequest?(); // TpfTransactionSearchRequest? | Search filters, sort order, and pagination options. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfTpfTransactionSearchResponse result = apiInstance.GetTpfTransactionHistorySearch(tpfTransactionSearchRequest, opts: opts);
 
-                // [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, and publication status. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR'd within each filter, AND'd between filters).
+                // [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, publication status, and a Finbourne Filtering expression. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR'd within each filter, AND'd between filters). Instrument identifiers are matched exactly against the stored instrument id; Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values are also resolved against LUSID instruments in the default scope. Filterable properties (via the filter body field): transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, publicationStatus, skipReason, failureReason, fileName, portfolioScope, portfolioCode. Sortable by the same properties. RunStartTime DESC is the default tiebreaker.
                 PagedResourceListOfTpfTransactionSearchResponse result = apiInstance.GetTpfTransactionHistorySearch(tpfTransactionSearchRequest);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -213,7 +334,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, and publication status. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR'd within each filter, AND'd between filters).
+    // [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions by transaction ID(s) and/or instrument identifier(s), with optional filtering by instance, date range, publication status, and a Finbourne Filtering expression. Accepts multiple values in TransactionIds and InstrumentIdentifiers (OR'd within each filter, AND'd between filters). Instrument identifiers are matched exactly against the stored instrument id; Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values are also resolved against LUSID instruments in the default scope. Filterable properties (via the filter body field): transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, publicationStatus, skipReason, failureReason, fileName, portfolioScope, portfolioCode. Sortable by the same properties. RunStartTime DESC is the default tiebreaker.
     ApiResponse<PagedResourceListOfTpfTransactionSearchResponse> response = apiInstance.GetTpfTransactionHistorySearchWithHttpInfo(tpfTransactionSearchRequest);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -231,7 +352,7 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **tpfTransactionSearchRequest** | [**TpfTransactionSearchRequest?**](TpfTransactionSearchRequest?.md) | Search filters and pagination options. | [optional]  |
+| **tpfTransactionSearchRequest** | [**TpfTransactionSearchRequest?**](TpfTransactionSearchRequest?.md) | Search filters, sort order, and pagination options. | [optional]  |
 
 ### Return type
 
@@ -254,7 +375,7 @@ catch (ApiException e)
 
 <a id="gettransactionpayload"></a>
 # **GetTransactionPayload**
-> PagedResourceListOfTransactionPayload GetTransactionPayload (string instanceId, string runId, string? transactionId = null, string? page = null, int? pageSize = null)
+> PagedResourceListOfTransactionPayload GetTransactionPayload (string instanceId, string runId, string? transactionId = null, string? page = null, int? pageSize = null, string? filter = null, List<string>? sortBy = null)
 
 [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
 
@@ -297,19 +418,21 @@ namespace Examples
             // var apiInstance = ApiFactoryBuilder.Build(secretsFilename, opts: opts).Api<TradePublicationFrameworkApi>();
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
-            var instanceId = "instanceId_example";  // string | 
-            var runId = "runId_example";  // string | 
-            var transactionId = "transactionId_example";  // string? |  (optional) 
-            var page = "\"\"";  // string? |  (optional)  (default to "")
-            var pageSize = 100;  // int? |  (optional)  (default to 100)
+            var instanceId = "instanceId_example";  // string | Integration instance ID.
+            var runId = "runId_example";  // string | Run ID within the instance.
+            var transactionId = "transactionId_example";  // string? | Return only this transaction's payload. Applied together with <i>filter</i>. (optional) 
+            var page = "\"\"";  // string? | The pagination token from the previous response; <i>filter</i> and <i>sortBy</i> must be unchanged. (optional)  (default to "")
+            var pageSize = 100;  // int? | Number of results per page. (optional)  (default to 100)
+            var filter = "filter_example";  // string? | A Finbourne filter on: transactionId, publicationStatus (Sent, Failed) and the instance's own output columns, e.g. SIDE eq 'B'. Values are compared as text, range operators included, so QTY gt '50' is a text comparison, and null is not accepted. Only output columns named with letters, digits and underscores can be filtered on; the rest can still be sorted. An unknown field is rejected with the fields the run accepts. (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Up to two filterable fields, each suffixed \" ASC\" or \" DESC\". Output columns order nulls, then numbers by value, then the rest as text. Defaults to transactionId ASC. (optional) 
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfTransactionPayload result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId, page, pageSize, opts: opts);
+                // PagedResourceListOfTransactionPayload result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId, page, pageSize, filter, sortBy, opts: opts);
 
                 // [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
-                PagedResourceListOfTransactionPayload result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId, page, pageSize);
+                PagedResourceListOfTransactionPayload result = apiInstance.GetTransactionPayload(instanceId, runId, transactionId, page, pageSize, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -330,7 +453,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetTransactionPayload: Transaction payloads for a run, with pagination support. When transactionId is supplied the single matching payload is returned; otherwise all payloads for the instance/run are returned.
-    ApiResponse<PagedResourceListOfTransactionPayload> response = apiInstance.GetTransactionPayloadWithHttpInfo(instanceId, runId, transactionId, page, pageSize);
+    ApiResponse<PagedResourceListOfTransactionPayload> response = apiInstance.GetTransactionPayloadWithHttpInfo(instanceId, runId, transactionId, page, pageSize, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -347,11 +470,13 @@ catch (ApiException e)
 
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
-| **instanceId** | **string** |  |  |
-| **runId** | **string** |  |  |
-| **transactionId** | **string?** |  | [optional]  |
-| **page** | **string?** |  | [optional] [default to &quot;&quot;] |
-| **pageSize** | **int?** |  | [optional] [default to 100] |
+| **instanceId** | **string** | Integration instance ID. |  |
+| **runId** | **string** | Run ID within the instance. |  |
+| **transactionId** | **string?** | Return only this transaction&#39;s payload. Applied together with &lt;i&gt;filter&lt;/i&gt;. | [optional]  |
+| **page** | **string?** | The pagination token from the previous response; &lt;i&gt;filter&lt;/i&gt; and &lt;i&gt;sortBy&lt;/i&gt; must be unchanged. | [optional] [default to &quot;&quot;] |
+| **pageSize** | **int?** | Number of results per page. | [optional] [default to 100] |
+| **filter** | **string?** | A Finbourne filter on: transactionId, publicationStatus (Sent, Failed) and the instance&#39;s own output columns, e.g. SIDE eq &#39;B&#39;. Values are compared as text, range operators included, so QTY gt &#39;50&#39; is a text comparison, and null is not accepted. Only output columns named with letters, digits and underscores can be filtered on; the rest can still be sorted. An unknown field is rejected with the fields the run accepts. | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Up to two filterable fields, each suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Output columns order nulls, then numbers by value, then the rest as text. Defaults to transactionId ASC. | [optional]  |
 
 ### Return type
 
@@ -722,7 +847,7 @@ This endpoint does not need any parameter.
 # **ListRunFiles**
 > PagedResourceListOfRunFileResponse ListRunFiles (string instanceId, string runId, string? page = null, int? pageSize = null, string? filter = null, List<string>? sortBy = null)
 
-[EXPERIMENTAL] ListRunFiles: List Files in a run
+[EXPERIMENTAL] ListRunFiles: List the file deliveries of a run, one row per file and destination. Each row's destinations list holds exactly one element; key rows on fileUuid.
 
 ### Example
 ```csharp
@@ -767,7 +892,7 @@ namespace Examples
             var runId = "runId_example";  // string | Run ID within the instance.
             var page = "\"\"";  // string? | The pagination token from the previous response; <i>filter</i> and <i>sortBy</i> must be unchanged. (optional)  (default to "")
             var pageSize = 100;  // int? | Number of results per page. (optional)  (default to 100)
-            var filter = "filter_example";  // string? | A Finbourne filter on: fileName, generatedAt, rowCount, fileHash, encrypted, destinationType, destinationPath, status, fileUuid. (optional) 
+            var filter = "filter_example";  // string? | A Finbourne filter on: fileName, generatedAt, rowCount, fileHash, encrypted, destinationType, destinationPath, destinationName, status, fileUuid, deliveredAt. (optional) 
             var sortBy = new List<string>?(); // List<string>? | Up to two filterable fields, each suffixed \" ASC\" or \" DESC\". Defaults to newest first (GeneratedAt DESC, Id DESC). (optional) 
 
             try
@@ -775,7 +900,7 @@ namespace Examples
                 // uncomment the below to set overrides at the request level
                 // PagedResourceListOfRunFileResponse result = apiInstance.ListRunFiles(instanceId, runId, page, pageSize, filter, sortBy, opts: opts);
 
-                // [EXPERIMENTAL] ListRunFiles: List Files in a run
+                // [EXPERIMENTAL] ListRunFiles: List the file deliveries of a run, one row per file and destination. Each row's destinations list holds exactly one element; key rows on fileUuid.
                 PagedResourceListOfRunFileResponse result = apiInstance.ListRunFiles(instanceId, runId, page, pageSize, filter, sortBy);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
@@ -796,7 +921,7 @@ This returns an ApiResponse object which contains the response data, status code
 ```csharp
 try
 {
-    // [EXPERIMENTAL] ListRunFiles: List Files in a run
+    // [EXPERIMENTAL] ListRunFiles: List the file deliveries of a run, one row per file and destination. Each row's destinations list holds exactly one element; key rows on fileUuid.
     ApiResponse<PagedResourceListOfRunFileResponse> response = apiInstance.ListRunFilesWithHttpInfo(instanceId, runId, page, pageSize, filter, sortBy);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
@@ -818,7 +943,7 @@ catch (ApiException e)
 | **runId** | **string** | Run ID within the instance. |  |
 | **page** | **string?** | The pagination token from the previous response; &lt;i&gt;filter&lt;/i&gt; and &lt;i&gt;sortBy&lt;/i&gt; must be unchanged. | [optional] [default to &quot;&quot;] |
 | **pageSize** | **int?** | Number of results per page. | [optional] [default to 100] |
-| **filter** | **string?** | A Finbourne filter on: fileName, generatedAt, rowCount, fileHash, encrypted, destinationType, destinationPath, status, fileUuid. | [optional]  |
+| **filter** | **string?** | A Finbourne filter on: fileName, generatedAt, rowCount, fileHash, encrypted, destinationType, destinationPath, destinationName, status, fileUuid, deliveredAt. | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Up to two filterable fields, each suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Defaults to newest first (GeneratedAt DESC, Id DESC). | [optional]  |
 
 ### Return type

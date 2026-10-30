@@ -21,6 +21,7 @@ Name | Type | Description | Notes
 **SentAt** | **DateTimeOffset?** |  | [optional] 
 **Destinations** | [**List&lt;DestinationResponse&gt;**](DestinationResponse.md) |  | 
 **FailureStage** | **string** |  | [optional] 
+**InstrumentScope** | **string** | The scope the build resolved the instrument in; null for rows built before it was recorded. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -39,6 +40,7 @@ string failureReason = "example failureReason";
 string outputFileName = "example outputFileName";
 List<DestinationResponse> destinations = new List<DestinationResponse>();
 string failureStage = "example failureStage";
+string instrumentScope = "example instrumentScope";
 
 TransactionResponse transactionResponseInstance = new TransactionResponse(
     transactionId: transactionId,
@@ -56,7 +58,8 @@ TransactionResponse transactionResponseInstance = new TransactionResponse(
     outputFileName: outputFileName,
     sentAt: sentAt,
     destinations: destinations,
-    failureStage: failureStage);
+    failureStage: failureStage,
+    instrumentScope: instrumentScope);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

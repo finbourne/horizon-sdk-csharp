@@ -46,7 +46,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="lastRunStatus">lastRunStatus.</param>
         /// <param name="latestRunsIn24Hours">latestRunsIn24Hours.</param>
         /// <param name="destinations">destinations (required).</param>
-        public InstanceResponse(Guid id = default(Guid), string name = default(string), bool enabled = default(bool), List<TpfPortfolio> portfolios = default(List<TpfPortfolio>), string schedule = default(string), string scheduleTimezone = default(string), DateTimeOffset? lastRunAt = default(DateTimeOffset?), string lastRunStatus = default(string), LatestRunsResponse latestRunsIn24Hours = default(LatestRunsResponse), List<InstanceDestinations> destinations = default(List<InstanceDestinations>))
+        /// <param name="outputFormat">outputFormat.</param>
+        public InstanceResponse(Guid id = default(Guid), string name = default(string), bool enabled = default(bool), List<TpfPortfolio> portfolios = default(List<TpfPortfolio>), string schedule = default(string), string scheduleTimezone = default(string), DateTimeOffset? lastRunAt = default(DateTimeOffset?), string lastRunStatus = default(string), LatestRunsResponse latestRunsIn24Hours = default(LatestRunsResponse), List<InstanceDestinations> destinations = default(List<InstanceDestinations>), string outputFormat = default(string))
         {
             this.Id = id;
             // to ensure "name" is required (not null)
@@ -73,6 +74,7 @@ namespace Finbourne.Horizon.Sdk.Model
             this.LastRunAt = lastRunAt;
             this.LastRunStatus = lastRunStatus;
             this.LatestRunsIn24Hours = latestRunsIn24Hours;
+            this.OutputFormat = outputFormat;
         }
 
         /// <summary>
@@ -136,6 +138,12 @@ namespace Finbourne.Horizon.Sdk.Model
         public List<InstanceDestinations> Destinations { get; set; }
 
         /// <summary>
+        /// Gets or Sets OutputFormat
+        /// </summary>
+        [DataMember(Name = "outputFormat", EmitDefaultValue = true)]
+        public string OutputFormat { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -153,6 +161,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  LastRunStatus: ").Append(LastRunStatus).Append("\n");
             sb.Append("  LatestRunsIn24Hours: ").Append(LatestRunsIn24Hours).Append("\n");
             sb.Append("  Destinations: ").Append(Destinations).Append("\n");
+            sb.Append("  OutputFormat: ").Append(OutputFormat).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -238,6 +247,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Destinations != null &&
                     input.Destinations != null &&
                     this.Destinations.SequenceEqual(input.Destinations)
+                ) && 
+                (
+                    this.OutputFormat == input.OutputFormat ||
+                    (this.OutputFormat != null &&
+                    this.OutputFormat.Equals(input.OutputFormat))
                 );
         }
 
@@ -286,6 +300,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.Destinations != null)
                 {
                     hashCode = (hashCode * 59) + this.Destinations.GetHashCode();
+                }
+                if (this.OutputFormat != null)
+                {
+                    hashCode = (hashCode * 59) + this.OutputFormat.GetHashCode();
                 }
                 return hashCode;
             }

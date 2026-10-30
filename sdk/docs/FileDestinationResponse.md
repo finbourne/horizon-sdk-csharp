@@ -1,5 +1,5 @@
 # Finbourne.Horizon.Sdk.Model.FileDestinationResponse
-record containing details of a single file destination for a run.
+The destination a file delivery row describes. A Failed row carries the per-transaction FailureReason when one was recorded, falling back to the raw Error text.
 
 ## Properties
 
@@ -10,6 +10,8 @@ Name | Type | Description | Notes
 **Status** | **string** |  | 
 **Error** | **string** |  | [optional] 
 **FailureReason** | **string** |  | [optional] 
+**Name** | **string** | The configured destination name, such as the SFTP host, when one was recorded. | [optional] 
+**DeliveredAt** | **DateTimeOffset?** | When the file reached the destination; null for a Failed or Pending row. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -20,13 +22,16 @@ string path = "path";
 string status = "status";
 string error = "example error";
 string failureReason = "example failureReason";
+string name = "example name";
 
 FileDestinationResponse fileDestinationResponseInstance = new FileDestinationResponse(
     type: type,
     path: path,
     status: status,
     error: error,
-    failureReason: failureReason);
+    failureReason: failureReason,
+    name: name,
+    deliveredAt: deliveredAt);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

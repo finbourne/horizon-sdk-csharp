@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **LastRunStatus** | **string** |  | [optional] 
 **LatestRunsIn24Hours** | [**LatestRunsResponse**](LatestRunsResponse.md) |  | [optional] 
 **Destinations** | [**List&lt;InstanceDestinations&gt;**](InstanceDestinations.md) |  | 
+**OutputFormat** | **string** |  | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -30,6 +31,7 @@ string lastRunStatus = "example lastRunStatus";
 LatestRunsResponse? latestRunsIn24Hours = new LatestRunsResponse();
 
 List<InstanceDestinations> destinations = new List<InstanceDestinations>();
+string outputFormat = "example outputFormat";
 
 InstanceResponse instanceResponseInstance = new InstanceResponse(
     id: id,
@@ -41,7 +43,8 @@ InstanceResponse instanceResponseInstance = new InstanceResponse(
     lastRunAt: lastRunAt,
     lastRunStatus: lastRunStatus,
     latestRunsIn24Hours: latestRunsIn24Hours,
-    destinations: destinations);
+    destinations: destinations,
+    outputFormat: outputFormat);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

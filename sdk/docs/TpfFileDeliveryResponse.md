@@ -8,7 +8,7 @@ Name | Type | Description | Notes
 **RunId** | **string** |  | [optional] 
 **RunStartTime** | **DateTimeOffset?** |  | [optional] 
 **FileName** | **string** |  | 
-**GeneratedAt** | **DateTimeOffset** |  | 
+**GeneratedAt** | **DateTimeOffset** | When the file was built, or when the attempt failed before a file was built. | 
 **RowCount** | **int** |  | 
 **FileHash** | **string** |  | [optional] 
 **DestinationType** | **string** |  | 
@@ -18,6 +18,7 @@ Name | Type | Description | Notes
 **DestinationName** | **string** |  | [optional] 
 **FileUuid** | **Guid** |  | 
 **CanResend** | **bool** | Whether the data the file is rebuilt from is still retained, so a resend can be requested. | 
+**DeliveredAt** | **DateTimeOffset?** | When the file reached the destination; null for a Failed or Pending row. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -47,7 +48,8 @@ TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryRes
     destinationError: destinationError,
     destinationName: destinationName,
     fileUuid: fileUuid,
-    canResend: canResend);
+    canResend: canResend,
+    deliveredAt: deliveredAt);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
