@@ -31,7 +31,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TpfTransactionSearchRequest" /> class.
         /// </summary>
-        /// <param name="transactionIds">One or more LUSID transaction IDs to search for (max 50). Values are OR&#39;d..</param>
+        /// <param name="transactionIds">One or more LUSID transaction IDs to search for (max 50, each 1 to 256 characters). Values are OR&#39;d. An empty ID, or one with leading or trailing whitespace, is rejected with 400, as LUSID never stores one..</param>
         /// <param name="instrumentIdentifiers">One or more instrument identifiers to search for (max 50). Values are OR&#39;d. Accepts LusidInstrumentId, Isin, Figi, Ticker, Cusip, Sedol or ClientInternal values. Every value is matched exactly against the stored instrument id; non-LUID values are also resolved against LUSID instruments in the default scope, whose own matching rules (including case) apply..</param>
         /// <param name="instanceId">Instance ID to filter by. Omit or leave null to search all instances the caller has access to..</param>
         /// <param name="from">Start of the date range (inclusive). Defaults to 30 days ago if neither From nor To is provided..</param>
@@ -56,9 +56,9 @@ namespace Finbourne.Horizon.Sdk.Model
         }
 
         /// <summary>
-        /// One or more LUSID transaction IDs to search for (max 50). Values are OR&#39;d.
+        /// One or more LUSID transaction IDs to search for (max 50, each 1 to 256 characters). Values are OR&#39;d. An empty ID, or one with leading or trailing whitespace, is rejected with 400, as LUSID never stores one.
         /// </summary>
-        /// <value>One or more LUSID transaction IDs to search for (max 50). Values are OR&#39;d.</value>
+        /// <value>One or more LUSID transaction IDs to search for (max 50, each 1 to 256 characters). Values are OR&#39;d. An empty ID, or one with leading or trailing whitespace, is rejected with 400, as LUSID never stores one.</value>
         [DataMember(Name = "transactionIds", EmitDefaultValue = true)]
         public List<string> TransactionIds { get; set; }
 
