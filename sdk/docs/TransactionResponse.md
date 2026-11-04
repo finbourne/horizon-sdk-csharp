@@ -6,7 +6,7 @@ Response containing details of a single transaction for a run. A transaction bui
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **TransactionId** | **string** |  | 
-**PublicationStatus** | **string** | The outcome the screens show for this row: Sent, Skipped or Failed. | 
+**PublicationStatus** | **string** | The outcome the screens show for this row: Sent, Skipped or Failed, or the element status for an element not yet built. | 
 **PortfolioScope** | **string** |  | [optional] 
 **PortfolioCode** | **string** |  | [optional] 
 **InstrumentId** | **string** |  | [optional] 
@@ -22,6 +22,8 @@ Name | Type | Description | Notes
 **Destinations** | [**List&lt;DestinationResponse&gt;**](DestinationResponse.md) |  | 
 **FailureStage** | **string** |  | [optional] 
 **InstrumentScope** | **string** | The scope the build resolved the instrument in; null for rows built before it was recorded. | [optional] 
+**Outcome** | **string** | The same value as PublicationStatus under the name the screens use; PublicationStatus stays for existing clients. | 
+**EventType** | **string** | The TPF event type that triggered this publication (New, Amended, Cancelled, ...); Queued for an element not yet built; null otherwise. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -41,6 +43,8 @@ string outputFileName = "example outputFileName";
 List<DestinationResponse> destinations = new List<DestinationResponse>();
 string failureStage = "example failureStage";
 string instrumentScope = "example instrumentScope";
+string outcome = "outcome";
+string eventType = "example eventType";
 
 TransactionResponse transactionResponseInstance = new TransactionResponse(
     transactionId: transactionId,
@@ -59,7 +63,9 @@ TransactionResponse transactionResponseInstance = new TransactionResponse(
     sentAt: sentAt,
     destinations: destinations,
     failureStage: failureStage,
-    instrumentScope: instrumentScope);
+    instrumentScope: instrumentScope,
+    outcome: outcome,
+    eventType: eventType);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

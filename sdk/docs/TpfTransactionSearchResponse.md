@@ -11,7 +11,9 @@ Name | Type | Description | Notes
 **BatchId** | **Guid** | Unique identifier of the batch | 
 **RunId** | **Guid** | The run that processed the transaction for this instance, as shown in run monitoring | 
 **RunStartTime** | **DateTimeOffset** | Timestamp when the batch/run started | 
-**PublicationStatus** | **string** | Publication status of the transaction (Sent | Skipped | Failed) | 
+**PublicationStatus** | **string** | Outcome of the transaction&#39;s build (Sent | Skipped | Failed) | 
+**Outcome** | **string** | The same value as PublicationStatus under the name the screens use; PublicationStatus stays for existing clients. | 
+**EventType** | **string** | The TPF event type that triggered this publication (New, Amended, Cancelled, NothingToDo, InstrumentMatured, InstrumentPartialClosure, InstrumentFullClosure, InstrumentInterestPayment, LastSentPropertyUpdated). Null for rows persisted before it was recorded, for transactions skipped as excluded, and for rows written before the build computed it (for example a transaction not found in LUSID). Never Queued: the search returns built rows only. Distinct from PublicationStatus, which says what happened to the row. | [optional] 
 **InstrumentName** | **string** | Instrument name | 
 **InstrumentType** | **string** | Instrument type | 
 **TradeDate** | **DateTimeOffset** | Trade date of the transaction | 
@@ -37,6 +39,8 @@ string instanceName = "instanceName";
 Guid batchId = "batchId";
 Guid runId = "runId";
 string publicationStatus = "publicationStatus";
+string outcome = "outcome";
+string eventType = "example eventType";
 string instrumentName = "instrumentName";
 string instrumentType = "instrumentType";
 string skipReason = "example skipReason";
@@ -57,6 +61,8 @@ TpfTransactionSearchResponse tpfTransactionSearchResponseInstance = new TpfTrans
     runId: runId,
     runStartTime: runStartTime,
     publicationStatus: publicationStatus,
+    outcome: outcome,
+    eventType: eventType,
     instrumentName: instrumentName,
     instrumentType: instrumentType,
     tradeDate: tradeDate,
