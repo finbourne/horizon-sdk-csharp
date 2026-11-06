@@ -139,11 +139,11 @@ catch (ApiException e)
 
 <a id="gettpffiledeliveries"></a>
 # **GetTpfFileDeliveries**
-> PagedResourceListOfTpfFileDeliveryResponse GetTpfFileDeliveries (string instanceId, TpfFileDeliveryDisplayStatus? status = null, DateTimeOffset? dateFrom = null, DateTimeOffset? dateTo = null, int? limit = null, string? page = null)
+> PagedResourceListOfTpfFileDeliveryResponse GetTpfFileDeliveries (string instanceId, string? filter = null, List<string>? sortBy = null, int? limit = null, string? page = null)
 
 [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
 
-Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
 
 ### Example
 ```csharp
@@ -185,19 +185,18 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
             var instanceId = "instanceId_example";  // string | Integration instance ID
-            var status = new TpfFileDeliveryDisplayStatus?(); // TpfFileDeliveryDisplayStatus? | Filter by delivery outcome (Delivered, Failed, Pending) (optional) 
-            var dateFrom = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Filter deliveries from this time (inclusive) (optional) 
-            var dateTo = DateTimeOffset.Parse("2013-10-20T19:20:30+01:00");  // DateTimeOffset? | Filter deliveries to this time (inclusive) (optional) 
+            var filter = "filter_example";  // string? | Filter expression (e.g. \"DestinationStatus eq 'Delivered'\"). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional) 
+            var sortBy = new List<string>?(); // List<string>? | Sort fields (e.g. \"generatedAt DESC\"). Up to 2 fields allowed (optional) 
             var limit = 50;  // int? | Page size for pagination (default 50, max 500) (optional)  (default to 50)
             var page = "\"\"";  // string? | Pagination token from previous response (optional)  (default to "")
 
             try
             {
                 // uncomment the below to set overrides at the request level
-                // PagedResourceListOfTpfFileDeliveryResponse result = apiInstance.GetTpfFileDeliveries(instanceId, status, dateFrom, dateTo, limit, page, opts: opts);
+                // PagedResourceListOfTpfFileDeliveryResponse result = apiInstance.GetTpfFileDeliveries(instanceId, filter, sortBy, limit, page, opts: opts);
 
                 // [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
-                PagedResourceListOfTpfFileDeliveryResponse result = apiInstance.GetTpfFileDeliveries(instanceId, status, dateFrom, dateTo, limit, page);
+                PagedResourceListOfTpfFileDeliveryResponse result = apiInstance.GetTpfFileDeliveries(instanceId, filter, sortBy, limit, page);
                 Console.WriteLine(JsonConvert.SerializeObject(result, Formatting.Indented));
             }
             catch (ApiException e)
@@ -218,7 +217,7 @@ This returns an ApiResponse object which contains the response data, status code
 try
 {
     // [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
-    ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> response = apiInstance.GetTpfFileDeliveriesWithHttpInfo(instanceId, status, dateFrom, dateTo, limit, page);
+    ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> response = apiInstance.GetTpfFileDeliveriesWithHttpInfo(instanceId, filter, sortBy, limit, page);
     Console.WriteLine("Status Code: " + response.StatusCode);
     Console.WriteLine("Response Headers: " + JsonConvert.SerializeObject(response.Headers, Formatting.Indented));
     Console.WriteLine("Response Body: " + JsonConvert.SerializeObject(response.Data, Formatting.Indented));
@@ -236,9 +235,8 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instanceId** | **string** | Integration instance ID |  |
-| **status** | [**TpfFileDeliveryDisplayStatus?**](TpfFileDeliveryDisplayStatus?.md) | Filter by delivery outcome (Delivered, Failed, Pending) | [optional]  |
-| **dateFrom** | **DateTimeOffset?** | Filter deliveries from this time (inclusive) | [optional]  |
-| **dateTo** | **DateTimeOffset?** | Filter deliveries to this time (inclusive) | [optional]  |
+| **filter** | **string?** | Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt | [optional]  |
+| **sortBy** | [**List&lt;string&gt;?**](string.md) | Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed | [optional]  |
 | **limit** | **int?** | Page size for pagination (default 50, max 500) | [optional] [default to 50] |
 | **page** | **string?** | Pagination token from previous response | [optional] [default to &quot;&quot;] |
 

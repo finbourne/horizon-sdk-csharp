@@ -168,7 +168,6 @@ Class | Method | HTTP request | Description
  - [RunFileResponse](docs/RunFileResponse.md)
  - [RunStatusCount](docs/RunStatusCount.md)
  - [SetInstanceOptionalPropertyMappingResponse](docs/SetInstanceOptionalPropertyMappingResponse.md)
- - [TpfFileDeliveryDisplayStatus](docs/TpfFileDeliveryDisplayStatus.md)
  - [TpfFileDeliveryInfo](docs/TpfFileDeliveryInfo.md)
  - [TpfFileDeliveryResponse](docs/TpfFileDeliveryResponse.md)
  - [TpfPortfolio](docs/TpfPortfolio.md)

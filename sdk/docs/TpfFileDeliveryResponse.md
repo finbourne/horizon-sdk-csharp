@@ -19,6 +19,7 @@ Name | Type | Description | Notes
 **FileUuid** | **Guid** |  | 
 **CanResend** | **bool** | Whether the data the file is rebuilt from is still retained, so a resend can be requested. | 
 **DeliveredAt** | **DateTimeOffset?** | When the file reached the destination; null for a Failed or Pending row. | [optional] 
+**Attempt** | **int?** | The highest attempt number (1-based) made for this delivery&#39;s run, including automatic retries and resends. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -49,7 +50,8 @@ TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryRes
     destinationName: destinationName,
     fileUuid: fileUuid,
     canResend: canResend,
-    deliveredAt: deliveredAt);
+    deliveredAt: deliveredAt,
+    attempt: attempt);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)

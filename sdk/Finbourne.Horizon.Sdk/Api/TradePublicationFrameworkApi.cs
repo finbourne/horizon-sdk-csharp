@@ -64,37 +64,35 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
         /// </summary>
         /// <remarks>
-        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTpfFileDeliveryResponse</returns>
-        PagedResourceListOfTpfFileDeliveryResponse GetTpfFileDeliveries(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        PagedResourceListOfTpfFileDeliveryResponse GetTpfFileDeliveries(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
         /// </summary>
         /// <remarks>
-        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTpfFileDeliveryResponse</returns>
-        Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesWithHttpInfo(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
+        Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesWithHttpInfo(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions across instances
         /// </summary>
@@ -418,39 +416,37 @@ namespace Finbourne.Horizon.Sdk.Api
         /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
         /// </summary>
         /// <remarks>
-        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTpfFileDeliveryResponse</returns>
-        System.Threading.Tasks.Task<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesAsync(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesAsync(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
 
         /// <summary>
         /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance
         /// </summary>
         /// <remarks>
-        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTpfFileDeliveryResponse)</returns>
-        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse>> GetTpfFileDeliveriesWithHttpInfoAsync(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
+        System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse>> GetTpfFileDeliveriesWithHttpInfoAsync(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null);
         /// <summary>
         /// [EXPERIMENTAL] GetTpfTransactionHistorySearch: Search TPF transactions across instances
         /// </summary>
@@ -1141,38 +1137,36 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>PagedResourceListOfTpfFileDeliveryResponse</returns>
-        public PagedResourceListOfTpfFileDeliveryResponse GetTpfFileDeliveries(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public PagedResourceListOfTpfFileDeliveryResponse GetTpfFileDeliveries(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> localVarResponse = GetTpfFileDeliveriesWithHttpInfo(instanceId, status, dateFrom, dateTo, limit, page, opts: opts);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> localVarResponse = GetTpfFileDeliveriesWithHttpInfo(instanceId, filter, sortBy, limit, page, opts: opts);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>ApiResponse of PagedResourceListOfTpfFileDeliveryResponse</returns>
-        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesWithHttpInfo(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
+        public Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesWithHttpInfo(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
@@ -1213,20 +1207,15 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-            if (status != null)
+            if (filter != null)
             {
 
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
-            if (dateFrom != null)
+            if (sortBy != null)
             {
 
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            }
-            if (dateTo != null)
-            {
-
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (limit != null)
             {
@@ -1274,40 +1263,38 @@ namespace Finbourne.Horizon.Sdk.Api
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of PagedResourceListOfTpfFileDeliveryResponse</returns>
-        public async System.Threading.Tasks.Task<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesAsync(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<PagedResourceListOfTpfFileDeliveryResponse> GetTpfFileDeliveriesAsync(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
-            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> localVarResponse = await GetTpfFileDeliveriesWithHttpInfoAsync(instanceId, status, dateFrom, dateTo, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
+            Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse> localVarResponse = await GetTpfFileDeliveriesWithHttpInfoAsync(instanceId, filter, sortBy, limit, page, operationIndex, cancellationToken, opts).ConfigureAwait(false);
             return localVarResponse.Data;
         }
 
         /// <summary>
-        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable by delivery status and date range. Supports pagination for large result sets.
+        /// [EXPERIMENTAL] GetTpfFileDeliveries: Search TPF file deliveries for a specific instance Retrieve file delivery records for a Trade Publication Framework instance. Returns an aggregated view of file delivery outcomes across all runs. Filterable via a Finbourne Filtering DSL expression and sortable. Supports pagination for large result sets.
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="status">Filter by delivery outcome (Delivered, Failed, Pending) (optional)</param>
-        /// <param name="dateFrom">Filter deliveries from this time (inclusive) (optional)</param>
-        /// <param name="dateTo">Filter deliveries to this time (inclusive) (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
         /// <param name="operationIndex">Index associated with the operation.</param>
         /// <param name="cancellationToken">Cancellation Token to cancel the request.</param>
         /// <param name="opts">Options for this request.</param>
         /// <returns>Task of ApiResponse (PagedResourceListOfTpfFileDeliveryResponse)</returns>
-        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse>> GetTpfFileDeliveriesWithHttpInfoAsync(string instanceId, TpfFileDeliveryDisplayStatus? status = default(TpfFileDeliveryDisplayStatus?), DateTimeOffset? dateFrom = default(DateTimeOffset?), DateTimeOffset? dateTo = default(DateTimeOffset?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
+        public async System.Threading.Tasks.Task<Finbourne.Horizon.Sdk.Client.ApiResponse<PagedResourceListOfTpfFileDeliveryResponse>> GetTpfFileDeliveriesWithHttpInfoAsync(string instanceId, string? filter = default(string?), List<string>? sortBy = default(List<string>?), int? limit = default(int?), string? page = default(string?), int operationIndex = 0, System.Threading.CancellationToken cancellationToken = default(System.Threading.CancellationToken), ConfigurationOptions? opts = null)
         {
             // verify the required parameter 'instanceId' is set
             if (instanceId == null)
@@ -1349,17 +1336,13 @@ namespace Finbourne.Horizon.Sdk.Api
             }
 
             localVarRequestOptions.PathParameters.Add("instanceId", Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToString(instanceId)); // path parameter
-            if (status != null)
+            if (filter != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "status", status));
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "filter", filter));
             }
-            if (dateFrom != null)
+            if (sortBy != null)
             {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateFrom", dateFrom));
-            }
-            if (dateTo != null)
-            {
-                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("", "dateTo", dateTo));
+                localVarRequestOptions.QueryParameters.Add(Finbourne.Horizon.Sdk.Client.ClientUtils.ParameterToMultiMap("multi", "sortBy", sortBy));
             }
             if (limit != null)
             {

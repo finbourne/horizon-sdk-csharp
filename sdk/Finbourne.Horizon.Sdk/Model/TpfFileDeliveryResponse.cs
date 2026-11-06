@@ -50,7 +50,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="fileUuid">fileUuid (required).</param>
         /// <param name="canResend">Whether the data the file is rebuilt from is still retained, so a resend can be requested. (required).</param>
         /// <param name="deliveredAt">When the file reached the destination; null for a Failed or Pending row..</param>
-        public TpfFileDeliveryResponse(string runId = default(string), DateTimeOffset? runStartTime = default(DateTimeOffset?), string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), string destinationType = default(string), string destinationPath = default(string), string destinationStatus = default(string), string destinationError = default(string), string destinationName = default(string), Guid fileUuid = default(Guid), bool canResend = default(bool), DateTimeOffset? deliveredAt = default(DateTimeOffset?))
+        /// <param name="attempt">The highest attempt number (1-based) made for this delivery&#39;s run, including automatic retries and resends..</param>
+        public TpfFileDeliveryResponse(string runId = default(string), DateTimeOffset? runStartTime = default(DateTimeOffset?), string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), string destinationType = default(string), string destinationPath = default(string), string destinationStatus = default(string), string destinationError = default(string), string destinationName = default(string), Guid fileUuid = default(Guid), bool canResend = default(bool), DateTimeOffset? deliveredAt = default(DateTimeOffset?), int? attempt = default(int?))
         {
             // to ensure "fileName" is required (not null)
             if (fileName == null)
@@ -81,6 +82,7 @@ namespace Finbourne.Horizon.Sdk.Model
             this.DestinationError = destinationError;
             this.DestinationName = destinationName;
             this.DeliveredAt = deliveredAt;
+            this.Attempt = attempt;
         }
 
         /// <summary>
@@ -171,6 +173,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public DateTimeOffset? DeliveredAt { get; set; }
 
         /// <summary>
+        /// The highest attempt number (1-based) made for this delivery&#39;s run, including automatic retries and resends.
+        /// </summary>
+        /// <value>The highest attempt number (1-based) made for this delivery&#39;s run, including automatic retries and resends.</value>
+        [DataMember(Name = "attempt", EmitDefaultValue = true)]
+        public int? Attempt { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -192,6 +201,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  FileUuid: ").Append(FileUuid).Append("\n");
             sb.Append("  CanResend: ").Append(CanResend).Append("\n");
             sb.Append("  DeliveredAt: ").Append(DeliveredAt).Append("\n");
+            sb.Append("  Attempt: ").Append(Attempt).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -294,6 +304,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.DeliveredAt == input.DeliveredAt ||
                     (this.DeliveredAt != null &&
                     this.DeliveredAt.Equals(input.DeliveredAt))
+                ) && 
+                (
+                    this.Attempt == input.Attempt ||
+                    (this.Attempt != null &&
+                    this.Attempt.Equals(input.Attempt))
                 );
         }
 
@@ -355,6 +370,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.DeliveredAt != null)
                 {
                     hashCode = (hashCode * 59) + this.DeliveredAt.GetHashCode();
+                }
+                if (this.Attempt != null)
+                {
+                    hashCode = (hashCode * 59) + this.Attempt.GetHashCode();
                 }
                 return hashCode;
             }
