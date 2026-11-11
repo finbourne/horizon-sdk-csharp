@@ -185,7 +185,7 @@ namespace Examples
 
             var apiInstance = ApiFactoryBuilder.Build(secretsFilename).Api<TradePublicationFrameworkApi>();
             var instanceId = "instanceId_example";  // string | Integration instance ID
-            var filter = "filter_example";  // string? | Filter expression (e.g. \"DestinationStatus eq 'Delivered'\"). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional) 
+            var filter = "filter_example";  // string? | Filter expression (e.g. \"DestinationStatus eq 'Delivered'\"). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional) 
             var sortBy = new List<string>?(); // List<string>? | Sort fields (e.g. \"generatedAt DESC\"). Up to 2 fields allowed (optional) 
             var limit = 50;  // int? | Page size for pagination (default 50, max 500) (optional)  (default to 50)
             var page = "\"\"";  // string? | Pagination token from previous response (optional)  (default to "")
@@ -235,7 +235,7 @@ catch (ApiException e)
 | Name | Type | Description | Notes |
 |------|------|-------------|-------|
 | **instanceId** | **string** | Integration instance ID |  |
-| **filter** | **string?** | Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt | [optional]  |
+| **filter** | **string?** | Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt | [optional]  |
 | **sortBy** | [**List&lt;string&gt;?**](string.md) | Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed | [optional]  |
 | **limit** | **int?** | Page size for pagination (default 50, max 500) | [optional] [default to 50] |
 | **page** | **string?** | Pagination token from previous response | [optional] [default to &quot;&quot;] |

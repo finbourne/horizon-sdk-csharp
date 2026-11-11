@@ -68,7 +68,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
@@ -85,7 +85,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
@@ -420,7 +420,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
@@ -438,7 +438,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </remarks>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
@@ -1141,7 +1141,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
@@ -1159,7 +1159,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
@@ -1267,7 +1267,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>
@@ -1286,7 +1286,7 @@ namespace Finbourne.Horizon.Sdk.Api
         /// </summary>
         /// <exception cref="Finbourne.Horizon.Sdk.Client.ApiException">Thrown when fails to make API call</exception>
         /// <param name="instanceId">Integration instance ID</param>
-        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
+        /// <param name="filter">Filter expression (e.g. \&quot;DestinationStatus eq &#39;Delivered&#39;\&quot;). Filterable properties: runId, referenceId, runStartTime, fileName, generatedAt, rowCount, fileHash, destinationType, destinationPath, destinationName, deliveredAt, destinationStatus, destinationError, attempt (optional)</param>
         /// <param name="sortBy">Sort fields (e.g. \&quot;generatedAt DESC\&quot;). Up to 2 fields allowed (optional)</param>
         /// <param name="limit">Page size for pagination (default 50, max 500) (optional, default to 50)</param>
         /// <param name="page">Pagination token from previous response (optional, default to &quot;&quot;)</param>

@@ -36,8 +36,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <summary>
         /// Initializes a new instance of the <see cref="TpfFileDeliveryResponse" /> class.
         /// </summary>
-        /// <param name="runId">runId.</param>
-        /// <param name="runStartTime">runStartTime.</param>
+        /// <param name="runId">The run id of the latest execution attempt in this row&#39;s run chain (the root run, its automatic retries and resends); equals referenceId when the chain has a single attempt or no recorded execution..</param>
+        /// <param name="runStartTime">When the row&#39;s root run started (the batch start), not the latest attempt&#39;s start..</param>
         /// <param name="fileName">fileName (required).</param>
         /// <param name="generatedAt">When the file was built, or when the attempt failed before a file was built. (required).</param>
         /// <param name="rowCount">rowCount (required).</param>
@@ -51,7 +51,8 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="canResend">Whether the data the file is rebuilt from is still retained, so a resend can be requested. (required).</param>
         /// <param name="deliveredAt">When the file reached the destination; null for a Failed or Pending row..</param>
         /// <param name="attempt">The highest attempt number (1-based) made for this delivery&#39;s run, including automatic retries and resends..</param>
-        public TpfFileDeliveryResponse(string runId = default(string), DateTimeOffset? runStartTime = default(DateTimeOffset?), string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), string destinationType = default(string), string destinationPath = default(string), string destinationStatus = default(string), string destinationError = default(string), string destinationName = default(string), Guid fileUuid = default(Guid), bool canResend = default(bool), DateTimeOffset? deliveredAt = default(DateTimeOffset?), int? attempt = default(int?))
+        /// <param name="referenceId">The root run id of this row&#39;s run chain, the same value run history reports as referenceId..</param>
+        public TpfFileDeliveryResponse(string runId = default(string), DateTimeOffset? runStartTime = default(DateTimeOffset?), string fileName = default(string), DateTimeOffset generatedAt = default(DateTimeOffset), int rowCount = default(int), string fileHash = default(string), string destinationType = default(string), string destinationPath = default(string), string destinationStatus = default(string), string destinationError = default(string), string destinationName = default(string), Guid fileUuid = default(Guid), bool canResend = default(bool), DateTimeOffset? deliveredAt = default(DateTimeOffset?), int? attempt = default(int?), string referenceId = default(string))
         {
             // to ensure "fileName" is required (not null)
             if (fileName == null)
@@ -83,17 +84,20 @@ namespace Finbourne.Horizon.Sdk.Model
             this.DestinationName = destinationName;
             this.DeliveredAt = deliveredAt;
             this.Attempt = attempt;
+            this.ReferenceId = referenceId;
         }
 
         /// <summary>
-        /// Gets or Sets RunId
+        /// The run id of the latest execution attempt in this row&#39;s run chain (the root run, its automatic retries and resends); equals referenceId when the chain has a single attempt or no recorded execution.
         /// </summary>
+        /// <value>The run id of the latest execution attempt in this row&#39;s run chain (the root run, its automatic retries and resends); equals referenceId when the chain has a single attempt or no recorded execution.</value>
         [DataMember(Name = "runId", EmitDefaultValue = true)]
         public string RunId { get; set; }
 
         /// <summary>
-        /// Gets or Sets RunStartTime
+        /// When the row&#39;s root run started (the batch start), not the latest attempt&#39;s start.
         /// </summary>
+        /// <value>When the row&#39;s root run started (the batch start), not the latest attempt&#39;s start.</value>
         [DataMember(Name = "runStartTime", EmitDefaultValue = true)]
         public DateTimeOffset? RunStartTime { get; set; }
 
@@ -180,6 +184,13 @@ namespace Finbourne.Horizon.Sdk.Model
         public int? Attempt { get; set; }
 
         /// <summary>
+        /// The root run id of this row&#39;s run chain, the same value run history reports as referenceId.
+        /// </summary>
+        /// <value>The root run id of this row&#39;s run chain, the same value run history reports as referenceId.</value>
+        [DataMember(Name = "referenceId", EmitDefaultValue = true)]
+        public string ReferenceId { get; set; }
+
+        /// <summary>
         /// Returns the string presentation of the object
         /// </summary>
         /// <returns>String presentation of the object</returns>
@@ -202,6 +213,7 @@ namespace Finbourne.Horizon.Sdk.Model
             sb.Append("  CanResend: ").Append(CanResend).Append("\n");
             sb.Append("  DeliveredAt: ").Append(DeliveredAt).Append("\n");
             sb.Append("  Attempt: ").Append(Attempt).Append("\n");
+            sb.Append("  ReferenceId: ").Append(ReferenceId).Append("\n");
             sb.Append("}\n");
             return sb.ToString();
         }
@@ -309,6 +321,11 @@ namespace Finbourne.Horizon.Sdk.Model
                     this.Attempt == input.Attempt ||
                     (this.Attempt != null &&
                     this.Attempt.Equals(input.Attempt))
+                ) && 
+                (
+                    this.ReferenceId == input.ReferenceId ||
+                    (this.ReferenceId != null &&
+                    this.ReferenceId.Equals(input.ReferenceId))
                 );
         }
 
@@ -374,6 +391,10 @@ namespace Finbourne.Horizon.Sdk.Model
                 if (this.Attempt != null)
                 {
                     hashCode = (hashCode * 59) + this.Attempt.GetHashCode();
+                }
+                if (this.ReferenceId != null)
+                {
+                    hashCode = (hashCode * 59) + this.ReferenceId.GetHashCode();
                 }
                 return hashCode;
             }

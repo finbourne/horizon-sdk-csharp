@@ -38,7 +38,7 @@ namespace Finbourne.Horizon.Sdk.Model
         /// <param name="to">End of the date range (inclusive). Defaults to now if not provided..</param>
         /// <param name="limit">Maximum number of results to return per page..</param>
         /// <param name="page">Pagination token from a previous response NextPage or PreviousPage. Omit for the first page..</param>
-        /// <param name="status">Publication status to filter by. Valid values: Sent, Skipped, Failed. Optional..</param>
+        /// <param name="status">Publication statuses to filter by: one or more of Sent, Skipped, Failed separated by &#39;|&#39;, in any case, for example \&quot;Failed|Skipped\&quot;. A value outside that set is rejected. Optional..</param>
         /// <param name="filter">Filter expression to apply to the results, in the format \&quot;property operator value\&quot; (e.g., eq, ne, gt, lt), combined with \&quot;and\&quot;/\&quot;or\&quot; as needed. Filterable properties are transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, skipReason, failureReason, failureStage, fileName, sentAt, portfolioScope, portfolioCode, runId and eventType (New, Amended, Cancelled, ...). PublicationStatus is not filterable here — use the Status body parameter instead. Dates are quoted ISO-8601. Destinations is not filterable. Comparing a field with null is rejected. Must remain the same across pages — the page token includes a hash of both filter and sortBy..</param>
         /// <param name="sortBy">Up to two sortable fields, each optionally suffixed \&quot; ASC\&quot; or \&quot; DESC\&quot;. Sortable fields: transactionId, instanceName, runStartTime, instrumentName, instrumentType, instrumentId, tradeDate, settlementDate, eventType, skipReason, failureReason, failureStage, fileName, sentAt, portfolioScope, portfolioCode, runId. Deterministic tiebreakers are appended automatically: RunStartTime DESC, TransactionId ASC, BatchUuid ASC, FileName ASC. Must remain the same across pages — the page token includes a hash of both filter and sortBy..</param>
         public TpfTransactionSearchRequest(List<string> transactionIds = default(List<string>), List<string> instrumentIdentifiers = default(List<string>), string instanceId = default(string), DateTimeOffset? from = default(DateTimeOffset?), DateTimeOffset? to = default(DateTimeOffset?), int? limit = default(int?), string page = default(string), string status = default(string), string filter = default(string), List<string> sortBy = default(List<string>))
@@ -105,9 +105,9 @@ namespace Finbourne.Horizon.Sdk.Model
         public string Page { get; set; }
 
         /// <summary>
-        /// Publication status to filter by. Valid values: Sent, Skipped, Failed. Optional.
+        /// Publication statuses to filter by: one or more of Sent, Skipped, Failed separated by &#39;|&#39;, in any case, for example \&quot;Failed|Skipped\&quot;. A value outside that set is rejected. Optional.
         /// </summary>
-        /// <value>Publication status to filter by. Valid values: Sent, Skipped, Failed. Optional.</value>
+        /// <value>Publication statuses to filter by: one or more of Sent, Skipped, Failed separated by &#39;|&#39;, in any case, for example \&quot;Failed|Skipped\&quot;. A value outside that set is rejected. Optional.</value>
         [DataMember(Name = "status", EmitDefaultValue = true)]
         public string Status { get; set; }
 

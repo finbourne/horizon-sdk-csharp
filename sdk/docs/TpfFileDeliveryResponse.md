@@ -5,8 +5,8 @@ Response model for TPF file delivery search results
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**RunId** | **string** |  | [optional] 
-**RunStartTime** | **DateTimeOffset?** |  | [optional] 
+**RunId** | **string** | The run id of the latest execution attempt in this row&#39;s run chain (the root run, its automatic retries and resends); equals referenceId when the chain has a single attempt or no recorded execution. | [optional] 
+**RunStartTime** | **DateTimeOffset?** | When the row&#39;s root run started (the batch start), not the latest attempt&#39;s start. | [optional] 
 **FileName** | **string** |  | 
 **GeneratedAt** | **DateTimeOffset** | When the file was built, or when the attempt failed before a file was built. | 
 **RowCount** | **int** |  | 
@@ -20,6 +20,7 @@ Name | Type | Description | Notes
 **CanResend** | **bool** | Whether the data the file is rebuilt from is still retained, so a resend can be requested. | 
 **DeliveredAt** | **DateTimeOffset?** | When the file reached the destination; null for a Failed or Pending row. | [optional] 
 **Attempt** | **int?** | The highest attempt number (1-based) made for this delivery&#39;s run, including automatic retries and resends. | [optional] 
+**ReferenceId** | **string** | The root run id of this row&#39;s run chain, the same value run history reports as referenceId. | [optional] 
 
 ```csharp
 using Finbourne.Horizon.Sdk.Model;
@@ -35,6 +36,7 @@ string destinationError = "example destinationError";
 string destinationName = "example destinationName";
 Guid fileUuid = "fileUuid";
 bool canResend = //"True";
+string referenceId = "example referenceId";
 
 TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryResponse(
     runId: runId,
@@ -51,7 +53,8 @@ TpfFileDeliveryResponse tpfFileDeliveryResponseInstance = new TpfFileDeliveryRes
     fileUuid: fileUuid,
     canResend: canResend,
     deliveredAt: deliveredAt,
-    attempt: attempt);
+    attempt: attempt,
+    referenceId: referenceId);
 ```
 
 [Back to Model list](../README.md#documentation-for-models) &#8226; [Back to API list](../README.md#documentation-for-api-endpoints) &#8226; [Back to README](../README.md)
