@@ -76,7 +76,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateCompleteEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -188,7 +187,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateUpdateEventWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -299,7 +297,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetLatestRunsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -407,7 +404,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ProcessEntryUpdatesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -521,7 +517,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ProcessHistoryEntriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

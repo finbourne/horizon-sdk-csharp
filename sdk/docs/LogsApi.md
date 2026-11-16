@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetIntegrationLogResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the InsertExternalLogsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

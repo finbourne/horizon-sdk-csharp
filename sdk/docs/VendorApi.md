@@ -79,7 +79,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetCoreFieldMappingsForProductEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -197,7 +196,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetOptionalMappingsForProductEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -315,7 +313,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetPropertyMappingsForProductEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -430,7 +427,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the QueryVendorsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -546,7 +542,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetOptionalMappingsForProductEntityWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

@@ -92,7 +92,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -206,7 +205,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -318,7 +316,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ExecuteInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -434,7 +431,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ExecuteInstanceWithParamsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -550,7 +546,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetDataflowProcessorSchemaWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -666,7 +661,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetExecutionIdsForInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -782,7 +776,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -898,7 +891,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetInstanceOptionalPropertyMappingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1014,7 +1006,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetIntegrationConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1133,7 +1124,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetIntegrationConfigurationFieldsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1256,7 +1246,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetIntegrationConfigurationPropertiesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1375,7 +1364,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetSchemaWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1490,7 +1478,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWorkflowExecuteParametersWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1605,7 +1592,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWorkflowResultFieldsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1719,7 +1705,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListDataflowProcessorsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1830,7 +1815,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListInstancesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1945,7 +1929,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListIntegrationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2056,7 +2039,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SetInstanceOptionalPropertyMappingWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -2174,7 +2156,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

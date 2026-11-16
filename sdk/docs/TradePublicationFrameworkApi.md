@@ -87,7 +87,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRunFileContentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -209,7 +208,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTpfFileDeliveriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -327,7 +325,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTpfTransactionHistorySearchWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -445,7 +442,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetTransactionPayloadWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -567,7 +563,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListFailedDeliveriesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -687,7 +682,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListInstanceRunHistoryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -802,7 +796,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListInstancesWithStatusWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -914,7 +907,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRunFilesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1038,7 +1030,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListRunTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1158,7 +1149,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ReplayTransactionsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1274,7 +1264,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ResolveFailedDeliveryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -1392,7 +1381,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RetryTpfSftpDeliveryWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

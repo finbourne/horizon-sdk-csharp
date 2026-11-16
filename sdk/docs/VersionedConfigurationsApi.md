@@ -83,7 +83,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateVersionedConfigurationDraftWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -204,7 +203,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the DeleteVersionedConfigurationVersionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -326,7 +324,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetVersionedConfigurationWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -444,7 +441,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetVersionedConfigurationTypesWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -553,7 +549,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListAllVersionedConfigurationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -663,7 +658,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the ListVersionedConfigurationsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -781,7 +775,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the LockVersionedConfigurationVersionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -903,7 +896,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the UpdateVersionedConfigurationDraftWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

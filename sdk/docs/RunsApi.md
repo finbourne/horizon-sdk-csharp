@@ -78,7 +78,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CancelInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -196,7 +195,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetRunResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -314,7 +312,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetWorkflowRunResultsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -429,7 +426,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RerunInstanceWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -545,7 +541,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the StopInstanceExecutionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 

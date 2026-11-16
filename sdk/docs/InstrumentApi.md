@@ -77,7 +77,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the CreateInstrumentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -190,7 +189,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the EnrichInstrumentWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -303,7 +301,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the GetOpenFigiParameterOptionWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -415,7 +412,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the RetrievePermIdResultWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -530,7 +526,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the SearchOpenFigiWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
@@ -647,7 +642,6 @@ namespace Examples
     }
 }
 ```
-
 #### Using the VendorsWithHttpInfo variant
 This returns an ApiResponse object which contains the response data, status code and headers.
 
